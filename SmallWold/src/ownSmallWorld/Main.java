@@ -7,24 +7,19 @@ import races.Drow;
 import races.Race;
 import relics.KillerRabbitSword;
 import relics.Relic;
+import terrain.Shroomfield;
+import terrain.Terrain;
 
 public class Main
 {
 	public static void main(String[] args)
 	{
-		Race drow = new Drow("Drow", 77, 7);
+		Shroomfield ss1 = new Shroomfield("ss1", "drow", 5);
 
-		System.out.println(drow.getTraitText() + "\n");
+		ss1.setAmountOfTokens(5);
+		System.out.println(ss1.getAmountOfTokens());
 
-		Relic killerRabbitSword = new KillerRabbitSword("Sword of the killer rabbit");
-		Ability magic = new Magic("Magic");
-
-		Set setOne = new Set(magic, drow);
-
-
-
-		System.out.println(setOne.getRace());
-
-
+		ss1.setToOne();
+		System.out.println(ss1.getAmountOfTokens());
 	}
 }

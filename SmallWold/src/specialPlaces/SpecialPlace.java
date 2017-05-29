@@ -1,4 +1,4 @@
-package ownSmallWorld;
+package specialPlaces;
 
 public abstract class SpecialPlace
 {
