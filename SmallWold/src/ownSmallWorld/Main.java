@@ -21,5 +21,7 @@ public class Main
 
 		ss1.setToOne();
 		System.out.println(ss1.getAmountOfTokens());
+
+		System.out.println("\n" + "Rawr ;) xD");
 	}
 }
