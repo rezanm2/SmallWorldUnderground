@@ -1,16 +1,19 @@
-package ownSmallWorld;
+package player;
+
+import ownSmallWorld.Set;
 
 public class Player
 {
-	public Player(/*Hand hand*/)
+	Hand hand;
+
+	public Player(Hand hand)
 	{
-		/*this.hand = hand;*/
+		this.hand = hand;
 	};
 
 	int coins = 0;
-	/*Set activeSet = new Set("Dwarves");*/
-	/*Set passiveSet = new Set("Flames");*/
-
+	Set activeSet;
+	Set passiveSet;
 
 	public void setCoins(int coins){
 		this.coins = coins;
