@@ -12,21 +12,18 @@ public class ServerController {
 	
 	@FXML private Label HostIPadres;
 	@FXML private TextArea ServerLog;
- 
-	@FXML
-	private void setIP() {
+	
+	public void initialize() {
 		HostIP = ServerMain.getHostIP();
 		HostIPadres.setText("Server IP: " + HostIP);
 	}
 	
-	@FXML
-	private void logging(String logtekst) {
+	public void logging(String logtekst) {
 		ServerLog.appendText(" <" + Instant.now() + "> " + logtekst + "\n");
 	}
 	
 	public void startServer() {
 		ServerMain.startServer();
-		setIP();
 		logging("Server started");
 	}
 	
