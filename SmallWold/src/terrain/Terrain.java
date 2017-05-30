@@ -13,9 +13,8 @@ public abstract class Terrain
 	protected boolean isAttackable;
 	protected boolean isReinforcable;
 
-
-	protected Relic hasRelic = null;
-	protected SpecialPlace hasSpecialPlace = null;
+	protected Relic relic;
+	protected SpecialPlace specialPlace;
 
 	public Terrain(String idCode, String tokenType, int defense)
 	{
@@ -90,7 +89,24 @@ public abstract class Terrain
 		return tokenType;
 	}
 
+	public void setRelic(Relic relic)
+	{
+		this.relic = relic;
+	}
 
+	public Relic getRelic()
+	{
+		return relic;
+	}
 
+	public void setSpecialPlace(SpecialPlace specialPlace)
+	{
+		this.specialPlace = specialPlace;
+	}
+
+	public SpecialPlace getSpecialPlace()
+	{
+		return specialPlace;
+	}
 
 }

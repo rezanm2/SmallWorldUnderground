@@ -3,9 +3,9 @@ package specialPlaces;
 public class KeepOnTheMotherland extends SpecialPlace
 {
 
-	public KeepOnTheMotherland(String name)
+	public KeepOnTheMotherland()
 	{
-		super(name);
+		name = "Keep on the Motherland";
 		traitText = "+1 Coin, +1 defense, even when in decline.";
 	}
 
