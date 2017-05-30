@@ -18,23 +18,29 @@ public class ClientMain {
 	private static Registry registry;
 	private static ClientImpl clientImpl;
 	private static ServerSkeleton serverSkeleton;
-	
+
 	public static void main(String[] args) {
 		System.out.println(ClientMain.getHostIP());
 		ClientMain.loadServer();
+		try {
+			serverSkeleton.addClient(getHostIP());
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
-	
+
 	public static String getHostIP() {
 		InetAddress address = null;
 		try {
 			address = InetAddress.getLocalHost();
 		} catch (UnknownHostException e1) {
 			e1.printStackTrace();
-		} 
+		}
 	    return address.getHostAddress();
 	}
-	
-	
+
+
 	public static void startClientserver() {
 		try {
 			clientImpl = new ClientImpl(getHostIP(), username); // create calculator and treat as Calculator
@@ -46,7 +52,7 @@ public class ClientMain {
 			System.out.println(e);
 		};
 	}
-	
+
 	public static void stopClientserver() {
 		System.out.println("Shutting down");
 		try {
@@ -62,7 +68,7 @@ public class ClientMain {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static void loadServer() {
 		try {
 			Registry registry = LocateRegistry.getRegistry("145.101.73.51");
@@ -73,7 +79,7 @@ public class ClientMain {
 			e.printStackTrace();
 		}
 	}
-	
-	
+
+
 
 }

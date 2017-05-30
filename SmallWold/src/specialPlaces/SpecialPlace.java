@@ -4,10 +4,10 @@ public abstract class SpecialPlace
 {
 	protected String name;
 	protected String traitText;
+	protected boolean active;
 
-	public SpecialPlace(String name)
+	public SpecialPlace()
 	{
-		this.name = name;
 	};
 
 	public void setName(String name)
@@ -18,4 +18,15 @@ public abstract class SpecialPlace
 	{
 		return name;
 	}
+
+	public void setActive(boolean active)
+	{
+		this.active = active;
+	}
+
+	public boolean getActive()
+	{
+		return active;
+	}
 }
+
