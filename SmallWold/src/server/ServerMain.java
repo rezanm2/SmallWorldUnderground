@@ -12,6 +12,7 @@ import java.rmi.server.ExportException;
 import java.rmi.server.UnicastRemoteObject;
 
 import client.ClientImpl;
+import client.ClientSkeleton;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -26,7 +27,7 @@ public class ServerMain extends Application{
 	private static Registry registry;
 	private static ServerImpl serverImpl;
 	private static int portNumber = 1099;
-	private static ClientImpl [] Clienten = new ClientImpl[5];
+	private static ClientSkeleton [] Clienten = new ClientSkeleton[5];
 	private static int i = 0;
 	
 	public static void main(String[] args) {
@@ -85,7 +86,7 @@ public class ServerMain extends Application{
 	public static void addClient(String ip) {
 		try {
 			Registry registry = LocateRegistry.getRegistry(ip, 1098);
-			Clienten[i] = (ClientImpl) registry.lookup("client");
+			Clienten[i] = (ClientSkeleton) registry.lookup("client");
 			i++;
 			} catch (ArrayIndexOutOfBoundsException AIB) {
 				System.out.println("Server is vol");

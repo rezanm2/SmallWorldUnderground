@@ -19,9 +19,10 @@ public class ClientMain {
 	private static ClientImpl clientImpl;
 	private static ServerSkeleton serverSkeleton;
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws RemoteException {
 		System.out.println(ClientMain.getHostIP());
 		ClientMain.loadServer();
+		serverSkeleton.addClient(getHostIP());
 	}
 	
 	public static String getHostIP() {
@@ -67,6 +68,7 @@ public class ClientMain {
 		try {
 			Registry registry = LocateRegistry.getRegistry("145.101.73.51");
 			serverSkeleton = (ServerSkeleton) registry.lookup("server");
+			startClientserver();
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		} catch (NotBoundException e) {
