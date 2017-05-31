@@ -115,5 +115,9 @@ public class ServerMain extends Application{
 		} 
 	    return address.getHostAddress();
 	}
+	
+	public static ClientSkeleton getClient(int pos) {
+		return Clienten[pos];
+	}
 
 }

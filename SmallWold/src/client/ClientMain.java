@@ -14,16 +14,17 @@ import server.ServerSkeleton;
 
 public class ClientMain {
 
-	private static String username;
+	private static String username = "WAASAW";
 	private static Registry registry;
 	private static ClientImpl clientImpl;
 	private static ServerSkeleton serverSkeleton;
-	private static String ServerIP = "145.101.73.51";
+	private static String ServerIP = "145.101.74.50";
 	
 	public static void main(String[] args) throws RemoteException {
 		System.out.println(ClientMain.getHostIP());
 		ClientMain.loadServer();
 		serverSkeleton.addClient(getHostIP());
+		ClientMain.stopClientserver();
 	}
 	
 	public static String getHostIP() {
