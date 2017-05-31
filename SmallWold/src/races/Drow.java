@@ -3,9 +3,11 @@ package races;
 public class Drow extends Race
 {
 
-	public Drow(String name, int amountOfTokens, int maxTokens)
+	public Drow()
 	{
-		super(name, amountOfTokens, maxTokens);
+		amountOfTokens = 4;
+		maxTokens = 10;
+		tokenType = "Drow";
 		traitText = "+1 Coin for each terrain that isn't sharing borders with non-drow.";
 	}
 

@@ -11,10 +11,8 @@ import java.rmi.registry.Registry;
 import java.rmi.server.ExportException;
 import java.rmi.server.UnicastRemoteObject;
 
-import client.ClientImpl;
 import client.ClientSkeleton;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -28,7 +26,7 @@ public class ServerMain extends Application{
 	private static ServerImpl serverImpl;
 	private static int portNumber = 1099;
 	private static ClientSkeleton [] Clienten = new ClientSkeleton[5];
-	private static int i = 0;
+	 private static int i = 0;
 	
 	public static void main(String[] args) {
 		//ServerMain.startServer();

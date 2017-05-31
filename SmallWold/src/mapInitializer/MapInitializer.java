@@ -2,6 +2,9 @@ package mapInitializer;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import playBoard.Die;
+import playBoard.Map;
 import terrain.Chasm;
 import terrain.Mine;
 import terrain.Mud;
@@ -14,6 +17,7 @@ import terrain.Terrain;
 public class MapInitializer
 {
 	List<Terrain> terrains = new ArrayList<Terrain>();
+
 	public void initialize()
 	{
 		terrains.add(new Chasm("AA;","AB; BA; BB;"));
@@ -31,10 +35,11 @@ public class MapInitializer
 		terrains.add(new Shroom("CA;", "BA; BB; CB;"));
 		terrains.add(new Mud("CB;", "BB; BC; CA; CC;"));
 		terrains.add(new Mystic("CC;", "BC; BD; CD;"));
+
 	}
 
-	public Terrain getMap(int x)
+	public List<Terrain> getTerrains()
 	{
-		return terrains.get(x);
+		return terrains;
 	}
 }

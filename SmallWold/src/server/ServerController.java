@@ -24,7 +24,7 @@ public class ServerController {
 	
 	public void startServer() {
 		ServerMain.startServer();
-		logging("Server started");
+		logging("Server started at " + HostIP);
 	}
 	
 	public void stopServer() {
