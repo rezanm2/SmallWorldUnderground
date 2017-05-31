@@ -19,22 +19,12 @@ import server.ServerSkeleton;
 
 public class ClientMain extends Application{
 
-	//private static String username = "WAASAW";
 	private static Registry registry;
 	private static ClientImpl clientImpl;
 	private static ServerSkeleton serverSkeleton;
-	//private static String ServerIP = "145.101.74.50";
 	
 	public static void main(String[] args) throws RemoteException {
 		System.out.println(ClientMain.getHostIP());
-		/*ClientMain.loadServer();
-		serverSkeleton.addClient(getHostIP());
-		try {
-			Thread.sleep(10000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		ClientMain.stopClientserver();*/
 		launch();
 	}
 	
@@ -90,6 +80,14 @@ public class ClientMain extends Application{
 			e.printStackTrace();
 		}
 	}
+	
+	public static void joinServer() throws RemoteException {
+		serverSkeleton.addClient(getHostIP());
+	}
+	/*
+	public static String getUsername(int pos) throws RemoteException {
+		return serverSkeleton.giveUsername(pos);
+	}*/
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
