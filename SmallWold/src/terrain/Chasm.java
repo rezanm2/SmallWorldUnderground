@@ -2,9 +2,9 @@ package terrain;
 
 public class Chasm extends Terrain
 {
-	public Chasm(String ownId, String otherId)
+	public Chasm(int[] arrayId)
 	{
-		super(ownId, otherId);
+		super(arrayId);
 		isImmune = true;
 	}
 }

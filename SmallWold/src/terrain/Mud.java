@@ -2,8 +2,8 @@ package terrain;
 
 public class Mud extends Terrain
 {
-	public Mud(String ownId, String otherId)
+	public Mud(int[] arrayId)
 	{
-		super(ownId, otherId);
+		super(arrayId);
 	}
 }

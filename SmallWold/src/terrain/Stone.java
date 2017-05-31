@@ -2,9 +2,9 @@ package terrain;
 
 public class Stone extends Terrain
 {
-	public Stone(String ownId, String otherId)
+	public Stone(int[] arrayId)
 	{
-		super(ownId, otherId);
+		super(arrayId);
 		defense = 1;
 	}
 }

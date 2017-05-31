@@ -8,6 +8,16 @@ public class CombatController
 {
 	private int declaredAmountOfTokens;
 
+	public void isAttackable(Terrain terrain)
+	{
+		
+	}
+
+
+
+
+
+
 	public void declareTokenAmount(int declaredAmountOfTokens)
 	{
 		this.declaredAmountOfTokens = declaredAmountOfTokens;
