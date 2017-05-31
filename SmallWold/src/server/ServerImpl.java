@@ -10,6 +10,7 @@ public class ServerImpl implements ServerSkeleton{
 	public synchronized void addClient(String ip) throws RemoteException {
 		ServerMain.addClient(ip);
 		System.out.println(ServerMain.getClient(i).getUsername());
+		i++;
 	}
 
 }
