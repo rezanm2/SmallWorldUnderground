@@ -5,35 +5,45 @@ import specialPlaces.SpecialPlace;
 
 public abstract class Terrain
 {
-	protected String idCode;
+	protected String ownId;
+	protected String otherId;
 	protected String tokenType;
 	protected int amountOfTokens;
 	protected int defense;
 
 	protected boolean isAttackable;
 	protected boolean isReinforcable;
+	protected boolean isImmune;
 
 	protected Relic relic;
 	protected SpecialPlace specialPlace;
 
-	public Terrain(String idCode, String tokenType, int defense)
+	public Terrain(String ownId, String otherId)
 	{
-		this.idCode = idCode;
-		this.tokenType = tokenType;
-		this.defense = defense;
+		this.ownId = ownId;
+		this.otherId = otherId;
 	}
 
-	public void setIdCode(String idCode)
+	public void setOwnId(String idCode)
 	{
-		this.idCode = idCode;
+		this.ownId = idCode;
 	}
 
 
-	public String getIdCode()
+	public String getOwnId()
 	{
-		return idCode;
+		return ownId;
 	}
 
+	public void setOtherId(String otherId)
+	{
+		this.otherId = otherId;
+	}
+
+	public String getOtherId()
+	{
+		return otherId;
+	}
 
 	public void setAmountOfTokens(int amountOfTokens)
 	{
