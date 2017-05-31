@@ -18,9 +18,9 @@ public class MapInitializer
 {
 	List<Terrain> terrains = new ArrayList<Terrain>();
 
-	public void initialize()
+	public void initialize()								// Initialising the map
 	{
-		int [] terrainOne = new int[] {11, 12, 21, 22};
+		int [] terrainOne = new int[] {11, 12, 21, 22};				//Make the terrain have its own value and the other values
 		int [] terrainTwo = new int[] {12, 13, 22, 23, 24, 25};
 		int [] terrainThree = new int[] {13, 12, 14, 25, 26};
 		int [] terrainFour = new int[] {14, 13, 26};
@@ -70,7 +70,7 @@ public class MapInitializer
 		int[] terrainFortyThree = new int[] {68, 55, 56, 67, 69};
 		int[] terrainFortyFour = new int[] {69, 45, 56, 68};
 
-		terrains.add(new Chasm(terrainOne));
+		terrains.add(new Chasm(terrainOne));						//Link the arrays to the terrains
 		terrains.add(new River(terrainTwo));
 		terrains.add(new Mud(terrainThree));
 		terrains.add(new Stone(terrainFour));

@@ -30,29 +30,19 @@ public class Main
 	public static void main(String[] args)
 	{
 
-
 		MapInitializer init = new MapInitializer();
 		CombatController cc = new CombatController();
 		init.initialize();
 		Die die = new Die();
 		Map map = new Map(init.getTerrains(), die);
 
-
-
-
-		System.out.println(map.getTerrain(0).getIsAttackable());
-
-		cc.isAttackable(map, 12);
-
-
-		for(int i=0;i<map.getTerrains().size();i++)
-		{
-		System.out.println(i + 1 + " " + map.getTerrain(i).getIsAttackable());
-		}
-
-
-
-
+		cc.isAttackable(map, 22);
+		cc.whichAreAttackable(map);
+		cc.isAttackable(map, 15);
+		cc.whichAreAttackable(map);
+		cc.setUnattackable(map);
+		cc.isAttackable(map, 15);
+		cc.whichAreAttackable(map);
 
 	}
 }
