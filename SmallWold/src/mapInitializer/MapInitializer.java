@@ -18,9 +18,6 @@ public class MapInitializer
 {
 	List<Terrain> terrains = new ArrayList<Terrain>();
 
-	List<ArrayList> arrayLists = new ArrayList<ArrayList>();
-
-
 	public void initialize()
 	{
 		int [] terrainOne = new int[] {11, 12, 21, 22};
@@ -30,7 +27,7 @@ public class MapInitializer
 		int [] terrainFive = new int[] {15, 14, 16, 2,7};
 		int [] terrainSix = new int [] {16, 15, 27, 28};
 
-		int[] terrainSeven = new int[] {21, 11,22, 31};
+		int[] terrainSeven = new int[] {21, 11, 22, 31};
 		int[] terrainEight = new int[] {22, 11, 12, 21, 23, 31, 32};
 		int[] terrainNine = new int[] {23, 12, 21, 24, 32, 33};
 		int[] terrainTen = new int[] {24, 12, 23, 25, 26};
@@ -52,7 +49,7 @@ public class MapInitializer
 		int[] terrainTwentyFour = new int[] {43, 32, 34, 42, 44, 52, 53};
 		int[] terrainTwentyFive = new int[] {44, 34, 35, 43, 45, 53, 54};
 		int[] terrainTwentySix = new int[] {45, 35, 36, 44, 46, 54};
-		int[] terrainTwentySeven = new int[] {46, 36, 45, 47, 54, 55, 65, 66, 67};	// a1 b2 c3 d4 e5 f6 g7 h8
+		int[] terrainTwentySeven = new int[] {46, 36, 45, 47, 54, 55, 65, 66, 67};
 		int[] terrainTwentyEight = new int[] {47, 36, 46, 48, 55, 56};
 		int[] terrainTwentyNine = new int[] {48, 36, 38, 47, 56};
 

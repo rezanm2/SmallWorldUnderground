@@ -22,11 +22,20 @@ public abstract class Terrain
 		this.idArray = idArray;
 	}
 
-	public void setIdArray(int[] idArray)
+	public void setSpecificTerrain(int[] idArray)
 	{
 		this.idArray = idArray;
 	}
 
+	public int getSpecificTerrain(int arrayOrder)
+	{
+		return idArray[arrayOrder];
+	}
+
+	public void setIdArray(int[] idArray)
+	{
+		this.idArray = idArray;
+	}
 
 	public int[] getIdArray()
 	{
