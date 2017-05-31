@@ -86,6 +86,7 @@ public class ServerMain extends Application{
 			Registry registry = LocateRegistry.getRegistry(ip, 1098);
 			Clienten[i] = (ClientSkeleton) registry.lookup("client");
 			i++;
+			System.out.println(i + "added client");
 			} catch (ArrayIndexOutOfBoundsException AIB) {
 				System.out.println("Server is vol");
 			} catch (RemoteException e) {
@@ -117,5 +118,10 @@ public class ServerMain extends Application{
 	public static ClientSkeleton getClient(int pos) {
 		return Clienten[pos];
 	}
+	
+	public static String getClientUsername(int pos) throws RemoteException {
+		return Clienten[pos].getUsername();
+	}
+
 
 }

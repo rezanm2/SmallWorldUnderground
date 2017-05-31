@@ -11,4 +11,6 @@ public interface ServerSkeleton extends Remote{
 	
 	public String giveUsername(int pos) throws RemoteException;
 
+	public int getamountPlayers() throws RemoteException;
+
 }

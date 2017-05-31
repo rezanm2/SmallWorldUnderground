@@ -19,7 +19,6 @@ public class ClientController {
 	@FXML private Label player5;
 	
 	private Label [] spelers = new Label [5];
-	private int aantSpelersatm = 1;
 	
 	public void joinServer() throws RemoteException {
 		initLabel();
@@ -38,12 +37,10 @@ public class ClientController {
 	}
 	
 	public void setOtherPlayers() throws RemoteException {
-		for(int j = 0; j < aantSpelersatm; j++)
+		for(int j = 0; j < ClientMain.getamountPlayers(); j++)
 		{
 			spelers[j].setText(ClientMain.getUsername(j));
 		}
-		aantSpelersatm++;
-		
 	}
 
 }

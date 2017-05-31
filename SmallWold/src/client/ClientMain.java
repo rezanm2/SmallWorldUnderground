@@ -97,6 +97,10 @@ public class ClientMain extends Application{
 		primaryStage.show();
 		primaryStage.setOnCloseRequest(e -> stopClientserver());
 	}
+
+	public static int getamountPlayers() throws RemoteException {
+		return serverSkeleton.getamountPlayers();
+	}
 	
 	
 

@@ -2,8 +2,8 @@ package terrain;
 
 public class Mystic extends Terrain
 {
-	public Mystic(String ownId, String otherId)
+	public Mystic(int[] arrayId)
 	{
-		super(ownId, otherId);
+		super(arrayId);
 	}
 }

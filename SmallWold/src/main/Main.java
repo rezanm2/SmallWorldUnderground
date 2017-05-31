@@ -25,43 +25,34 @@ import terrain.Terrain;
 
 public class Main
 {
+
+
 	public static void main(String[] args)
 	{
-		Die die = new Die();
 
-		Ability magic = new Magic();
-		Ability flocking = new Flocking();
-		Race drow = new Drow();
-		Race flames = new Flames();
 
-		Hand handOne = new Hand();
-		Hand handTwo = new Hand();
-		Player playerOne = new Player(handOne);
-		Player playerTwo = new Player(handTwo);
-		Set oneActiveSet = new Set(magic, drow);
-		Set twoActiveSet = new Set(flocking, flames);
-
-		playerOne.setActiveSet(oneActiveSet);
-		playerTwo.setActiveSet(twoActiveSet);
-
-		CombatController cc = new CombatController();
 		MapInitializer init = new MapInitializer();
-
+		CombatController cc = new CombatController();
 		init.initialize();
-
+		Die die = new Die();
 		Map map = new Map(init.getTerrains(), die);
 
-		map.getTerrain(3).setTokenType(playerTwo.getActiveSet().getRace().getTokenType());  //flames
-		map.getTerrain(3).setAmountOfTokens(2);												//2
 
-		System.out.println(map.getTerrain(3).getAmountOfTokens());
-		System.out.println(map.getTerrain(3).getTokenType());
-		
-		cc.declareTokenAmount(5);
-		
-		cc.calculateCombat(map.getTerrain(3), playerOne, playerTwo);
 
-		System.out.println(map.getTerrain(3).getAmountOfTokens());
-		System.out.println(map.getTerrain(3).getTokenType());
+
+		System.out.println(map.getTerrain(0).getIsAttackable());
+
+		cc.isAttackable(map, 12);
+
+
+		for(int i=0;i<map.getTerrains().size();i++)
+		{
+		System.out.println(i + 1 + " " + map.getTerrain(i).getIsAttackable());
+		}
+
+
+
+
+
 	}
 }

@@ -2,8 +2,8 @@ package terrain;
 
 public class Mine extends Terrain
 {
-	public Mine(String ownId, String otherId)
+	public Mine(int[] arrayId)
 	{
-		super(ownId, otherId);
+		super(arrayId);
 	}
 }
