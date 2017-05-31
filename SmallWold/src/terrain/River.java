@@ -2,8 +2,8 @@ package terrain;
 
 public class River extends Terrain
 {
-	public River(String ownId, String otherId)
+	public River(int[] arrayId)
 	{
-		super(ownId, otherId);
+		super(arrayId);
 	}
 }

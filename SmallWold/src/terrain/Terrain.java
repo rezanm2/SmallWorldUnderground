@@ -5,8 +5,7 @@ import specialPlaces.SpecialPlace;
 
 public abstract class Terrain
 {
-	protected String ownId;
-	protected String otherId;
+	protected int[] idArray;
 	protected String tokenType;
 	protected int amountOfTokens;
 	protected int defense;
@@ -18,31 +17,29 @@ public abstract class Terrain
 	protected Relic relic;
 	protected SpecialPlace specialPlace;
 
-	public Terrain(String ownId, String otherId)
+	public Terrain(int[] idArray)
 	{
-		this.ownId = ownId;
-		this.otherId = otherId;
+		this.idArray = idArray;
 	}
 
-	public void setOwnId(String idCode)
+	public void setSpecificTerrain(int[] idArray)
 	{
-		this.ownId = idCode;
+		this.idArray = idArray;
 	}
 
-
-	public String getOwnId()
+	public int getSpecificTerrain(int arrayOrder)
 	{
-		return ownId;
+		return idArray[arrayOrder];
 	}
 
-	public void setOtherId(String otherId)
+	public void setIdArray(int[] idArray)
 	{
-		this.otherId = otherId;
+		this.idArray = idArray;
 	}
 
-	public String getOtherId()
+	public int[] getIdArray()
 	{
-		return otherId;
+		return idArray;
 	}
 
 	public void setAmountOfTokens(int amountOfTokens)

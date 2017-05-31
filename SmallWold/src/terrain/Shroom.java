@@ -2,9 +2,9 @@ package terrain;
 
 public class Shroom extends Terrain
 {
-	public Shroom(String ownId, String otherId)
+	public Shroom(int[] arrayId)
 	{
-		super(ownId, otherId);
+		super(arrayId);
 	}
 
 }
