@@ -1,4 +1,4 @@
-package ownSmallWorld;
+package main;
 
 import abilities.Ability;
 import races.Race;
@@ -29,9 +29,10 @@ public class Set
 	{
 		this.race = race;
 	}
-	public String getRace()
+	public Race getRace()
 	{
-		return race.getName();
+		return race;
 	}
+
 
 }

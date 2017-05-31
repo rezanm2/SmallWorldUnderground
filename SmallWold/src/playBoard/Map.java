@@ -15,4 +15,9 @@ public class Map
 		this.terrains = terrains;
 		this.die = die;
 	}
+
+	public Terrain getTerrain(int x)
+	{
+		return terrains.get(x);
+	}
 }

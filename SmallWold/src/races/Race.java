@@ -2,18 +2,13 @@ package races;
 
 public abstract class Race
 {
-
-
 	protected int amountOfTokens;
 	protected int maxTokens;
-	protected String name;
+	protected String tokenType;
 	protected String traitText;
 
-	public Race(String name, int amountOfTokens, int maxTokens)
+	public Race()
 	{
-		this.name = name;
-		this.amountOfTokens = amountOfTokens;
-		this.maxTokens = maxTokens;
 	}
 
 	public void setAmountOfTokens(int amountOfTokens)
@@ -35,14 +30,14 @@ public abstract class Race
 		return maxTokens;
 	}
 
-	public void setName(String name)
+	public void setTokenType(String tokenType)
 	{
-		this.name = name;
+		this.tokenType = tokenType;
 	}
 
-	public String getName()
+	public String getTokenType()
 	{
-		return name;
+		return tokenType;
 	}
 
 	public void setTraitText(String traitText)
