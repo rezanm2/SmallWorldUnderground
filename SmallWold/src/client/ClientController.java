@@ -18,16 +18,32 @@ public class ClientController {
 	@FXML private Label player4;
 	@FXML private Label player5;
 	
+	private Label [] spelers = new Label [5];
+	private int aantSpelersatm = 1;
+	
 	public void joinServer() throws RemoteException {
+		initLabel();
 		joinButton.setDisable(true);
 		ClientMain.loadServer(serverIP.getText(), username.getText());
 		ClientMain.joinServer();
-		//setOtherPlayers();
+		setOtherPlayers();
 	}
-	/*
+	
+	public void initLabel() {
+		spelers [0] = player1;
+		spelers [1] = player2;
+		spelers [2] = player3;
+		spelers [3] = player4;
+		spelers [4] = player5;
+	}
+	
 	public void setOtherPlayers() throws RemoteException {
-		player1.setText(ClientMain.getUsername(0));
-		player2.setText(ClientMain.getUsername(1));
-	}*/
+		for(int j = 0; j < aantSpelersatm; j++)
+		{
+			spelers[j].setText(ClientMain.getUsername(j));
+		}
+		aantSpelersatm++;
+		
+	}
 
 }

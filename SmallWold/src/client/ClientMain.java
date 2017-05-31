@@ -84,10 +84,10 @@ public class ClientMain extends Application{
 	public static void joinServer() throws RemoteException {
 		serverSkeleton.addClient(getHostIP());
 	}
-	/*
+	
 	public static String getUsername(int pos) throws RemoteException {
 		return serverSkeleton.giveUsername(pos);
-	}*/
+	}
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
