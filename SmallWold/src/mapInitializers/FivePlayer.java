@@ -16,7 +16,6 @@ import terrain.Terrain;
 
 public class FivePlayer extends Initializer
 {
-	List<Terrain> terrains = new ArrayList<Terrain>();
 
 	public void initialize()								// Initializing the map
 	{
