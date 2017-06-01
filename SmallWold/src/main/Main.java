@@ -8,6 +8,7 @@ import abilities.Ability;
 import abilities.Flocking;
 import abilities.Magic;
 import controllers.CombatController;
+import controllers.MapTester;
 import mapInitializer.MapInitializer;
 import playBoard.Die;
 import playBoard.Map;
@@ -29,20 +30,16 @@ public class Main
 
 	public static void main(String[] args)
 	{
-
 		MapInitializer init = new MapInitializer();
+		Die die = new Die();
 		CombatController cc = new CombatController();
 		init.initialize();
-		Die die = new Die();
-		Map map = new Map(init.getTerrains(), die);
 
-		cc.isAttackable(map, 22);
-		cc.whichAreAttackable(map);
-		cc.isAttackable(map, 15);
-		cc.whichAreAttackable(map);
-		cc.setUnattackable(map);
-		cc.isAttackable(map, 15);
-		cc.whichAreAttackable(map);
+		MapTester tester = new MapTester();
+		Map map = new Map(init.getTerrains(), die);		//Creates the map and adds the terrains and die
+
+		System.out.println(map.getTerrain(5).getElement(1));
+
 
 	}
 }
