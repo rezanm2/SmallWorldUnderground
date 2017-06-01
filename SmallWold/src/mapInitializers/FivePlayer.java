@@ -89,14 +89,15 @@ public class FivePlayer extends Initializer
 		terrains.add(new Stone(terrainFive));
 		terrains.add(new Mud(terrainSix));
 		terrains.add(new Mine(terrainSeven));
-		terrains.add(new Mystic(terrainEight));
 
-		terrains.add(new Mystic(terrainNine));
+		terrains.add(new Mystic(terrainEight));
+		terrains.add(new Mine(terrainNine));
 		terrains.add(new Mine(terrainTen));
-		terrains.add(new Mine(terrainEleven));
-		terrains.add(new Mud(terrainTwelve));
-		terrains.add(new Mystic(terrainThirteen));
-		terrains.add(new Stone(terrainFifteen));
+		terrains.add(new Mud(terrainEleven));
+		terrains.add(new Mystic(terrainTwelve));
+		terrains.add(new Stone(terrainThirteen));
+		terrains.add(new Chasm(terrainFourteen));
+		terrains.add(new Mystic(terrainFifteen));
 
 		terrains.add(new Shroom(terrainSixteen));
 		terrains.add(new Stone(terrainSeventeen));
