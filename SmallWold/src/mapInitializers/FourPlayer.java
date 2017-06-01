@@ -1,10 +1,5 @@
-package mapInitializer;
+package mapInitializers;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import playBoard.Die;
-import playBoard.Map;
 import terrain.Chasm;
 import terrain.Mine;
 import terrain.Mud;
@@ -12,19 +7,16 @@ import terrain.Mystic;
 import terrain.River;
 import terrain.Shroom;
 import terrain.Stone;
-import terrain.Terrain;
 
 public class FourPlayer extends Initializer
 {
-	List<Terrain> terrains = new ArrayList<Terrain>();
-
 	public void initialize()								// Initializing the map
 	{
 		int [] terrainOne = new int[] {11, 12, 21, 22};				//Make the terrain have its own value and the other values
 		int [] terrainTwo = new int[] {12, 13, 22, 23, 24, 25};
 		int [] terrainThree = new int[] {13, 12, 14, 25, 26};
 		int [] terrainFour = new int[] {14, 13, 26};
-		int [] terrainFive = new int[] {15, 14, 16, 2,7};
+		int [] terrainFive = new int[] {15, 14, 16, 27};
 		int [] terrainSix = new int [] {16, 15, 27, 28};
 
 		int[] terrainSeven = new int[] {21, 11, 22, 31};

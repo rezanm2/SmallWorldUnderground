@@ -10,6 +10,7 @@ public abstract class Terrain
 	protected String tokenType;
 	protected int amountOfTokens;
 	protected int defense;
+	protected String terrainName;
 
 	protected Race race;
 
@@ -125,6 +126,14 @@ public abstract class Terrain
 
 	public void setRace(Race race) {
 		this.race = race;
+	}
+
+	public String getTerrainName() {
+		return terrainName;
+	}
+
+	public void setTerrainName(String terrainName) {
+		this.terrainName = terrainName;
 	}
 
 }

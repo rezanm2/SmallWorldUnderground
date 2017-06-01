@@ -9,7 +9,9 @@ import abilities.Flocking;
 import abilities.Magic;
 import controllers.CombatController;
 import controllers.MapTester;
-import mapInitializer.FourPlayer;
+import mapInitializers.FourPlayer;
+import mapInitializers.ThreePlayer;
+import mapInitializers.TwoPlayer;
 import playBoard.Die;
 import playBoard.Map;
 import player.Hand;
@@ -26,14 +28,13 @@ import terrain.Terrain;
 
 public class Main
 {
-
-
 	public static void main(String[] args)
 	{
-		FourPlayer init = new FourPlayer();
-		init.initialize();
+		ThreePlayer init = new ThreePlayer();
 		Die die = new Die();
 		Map map = new Map(init.getTerrains(), die);
+		init.initialize();
+		init.setEmpty(map);
 		Hand hand = new Hand();
 		MapTester test = new MapTester(map);
 		CombatController cc = new CombatController(map, test);
@@ -52,12 +53,7 @@ public class Main
 		playerOne.setActiveSet(oneActiveset);
 		playerTwo.setActiveSet(twoActiveSet);
 
-		map.getTerrain(0).setAmountOfTokens(3);
+		test.allTerrainsToString();
 
-
-		cc.isAttackable(15);
-
-		cc.declareTokenAmount(7);
-		cc.calculateCombat(map.getTerrain(0), playerOne, playerTwo);
 	}
 }

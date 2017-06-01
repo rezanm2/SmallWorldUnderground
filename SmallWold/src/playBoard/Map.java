@@ -3,7 +3,7 @@ package playBoard;
 import java.util.ArrayList;
 import java.util.List;
 
-import mapInitializer.FourPlayer;
+import mapInitializers.FourPlayer;
 import terrain.Terrain;
 
 public class Map

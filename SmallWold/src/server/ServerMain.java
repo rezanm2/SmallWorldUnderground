@@ -25,7 +25,7 @@ public class ServerMain extends Application{
 	private static Registry registry;
 	private static ServerImpl serverImpl;
 	private static int portNumber = 1099;
-	private static ClientSkeleton [] Clienten = new ClientSkeleton[5];
+	private static ClientSkeleton [] Clients = new ClientSkeleton[5];
 	 private static int i = 0;
 	
 	public static void main(String[] args) {
@@ -84,7 +84,7 @@ public class ServerMain extends Application{
 	public static void addClient(String ip) {
 		try {
 			Registry registry = LocateRegistry.getRegistry(ip, 1098);
-			Clienten[i] = (ClientSkeleton) registry.lookup("client");
+			Clients[i] = (ClientSkeleton) registry.lookup("client");
 			i++;
 			System.out.println(i + "added client");
 			} catch (ArrayIndexOutOfBoundsException AIB) {
@@ -116,11 +116,11 @@ public class ServerMain extends Application{
 	}
 	
 	public static ClientSkeleton getClient(int pos) {
-		return Clienten[pos];
+		return Clients[pos];
 	}
 	
 	public static String getClientUsername(int pos) throws RemoteException {
-		return Clienten[pos].getUsername();
+		return Clients[pos].getUsername();
 	}
 
 
