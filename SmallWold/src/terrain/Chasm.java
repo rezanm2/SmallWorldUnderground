@@ -6,5 +6,6 @@ public class Chasm extends Terrain
 	{
 		super(arrayId);
 		isImmune = true;
+		terrainName = "Chasm";
 	}
 }

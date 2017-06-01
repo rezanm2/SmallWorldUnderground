@@ -1,6 +1,7 @@
 package controllers;
 
 import playBoard.Map;
+import terrain.Terrain;
 
 public class MapTester
 {
@@ -35,5 +36,24 @@ public class MapTester
 			}
 		}
 	}
+
+	public void allTerrainsToString()
+	{
+		System.out.println("Terrain:  Type");
+		for(terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)				//As long as there are terrains
+		{
+			System.out.println("  " + (terrainCounter + 1) + "	" + map.getTerrain(terrainCounter).getTerrainName());
+		}
+	}
+
+
+
+
+
+
+
+
+
+
 
 }
