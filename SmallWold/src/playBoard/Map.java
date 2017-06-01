@@ -3,7 +3,7 @@ package playBoard;
 import java.util.ArrayList;
 import java.util.List;
 
-import mapInitializer.MapInitializer;
+import mapInitializer.FourPlayer;
 import terrain.Terrain;
 
 public class Map
@@ -17,6 +17,8 @@ public class Map
 		this.terrains = terrains;
 		this.die = die;
 	}
+
+	public Map(){}
 
 	public Terrain getTerrain(int x)
 	{

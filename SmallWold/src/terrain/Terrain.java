@@ -1,5 +1,6 @@
 package terrain;
 
+import races.Race;
 import relics.Relic;
 import specialPlaces.SpecialPlace;
 
@@ -9,6 +10,8 @@ public abstract class Terrain
 	protected String tokenType;
 	protected int amountOfTokens;
 	protected int defense;
+
+	protected Race race;
 
 	protected boolean isAttackable;
 	protected boolean isReinforcable;
@@ -114,6 +117,14 @@ public abstract class Terrain
 	public SpecialPlace getSpecialPlace()
 	{
 		return specialPlace;
+	}
+
+	public Race getRace() {
+		return race;
+	}
+
+	public void setRace(Race race) {
+		this.race = race;
 	}
 
 }
