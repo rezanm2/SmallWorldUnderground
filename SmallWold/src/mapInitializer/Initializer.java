@@ -3,6 +3,8 @@ package mapInitializer;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 import playBoard.Map;
 import races.Empty;
 import races.Race;

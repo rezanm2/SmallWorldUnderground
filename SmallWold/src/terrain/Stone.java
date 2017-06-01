@@ -6,5 +6,6 @@ public class Stone extends Terrain
 	{
 		super(arrayId);
 		defense = 1;
+		terrainName = "Stone";
 	}
 }

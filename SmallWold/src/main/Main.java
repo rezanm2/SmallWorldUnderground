@@ -10,6 +10,7 @@ import abilities.Magic;
 import controllers.CombatController;
 import controllers.MapTester;
 import mapInitializer.FourPlayer;
+import mapInitializer.TwoPlayer;
 import playBoard.Die;
 import playBoard.Map;
 import player.Hand;
@@ -30,7 +31,7 @@ public class Main
 
 	public static void main(String[] args)
 	{
-		FourPlayer init = new FourPlayer();
+		TwoPlayer init = new TwoPlayer();
 		Die die = new Die();
 		Map map = new Map(init.getTerrains(), die);
 		init.initialize();
@@ -53,12 +54,7 @@ public class Main
 		playerOne.setActiveSet(oneActiveset);
 		playerTwo.setActiveSet(twoActiveSet);
 
-		map.getTerrain(0).setAmountOfTokens(3);
+		test.allTerrainsToString();
 
-
-		cc.isAttackable(15);
-
-		cc.declareTokenAmount(7);
-		cc.calculateCombat(map.getTerrain(0), playerOne, playerTwo);
 	}
 }
