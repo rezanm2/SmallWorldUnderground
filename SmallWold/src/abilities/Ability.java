@@ -5,10 +5,11 @@ public class Ability
 
 	protected String name;
 	protected String traitText;
+	protected int amountOfTokens;
+	protected boolean active;
 
-	public Ability(String name)
+	public Ability()
 	{
-		this.name = name;
 	}
 
 	public void setName(String name)
@@ -18,5 +19,15 @@ public class Ability
 	public String getName()
 	{
 		return name;
+	}
+
+	public void setActive(boolean active)
+	{
+		this.active = active;
+	}
+
+	public boolean getActive()
+	{
+		return active;
 	}
 }

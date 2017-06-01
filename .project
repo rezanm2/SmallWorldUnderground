@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
 	<name>SmallWorldUnderground</name>
+=======
+	<name>SmallWorld</name>
+>>>>>>> branch 'master' of https://github.com/smallWorld22/SmallWorldUnderground.git
 	<comment></comment>
 	<projects>
 	</projects>

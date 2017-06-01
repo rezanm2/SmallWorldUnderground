@@ -4,10 +4,10 @@ public abstract class Relic
 {
 	protected String name;
 	protected String traitText;
+	protected boolean active;
 
-	public Relic(String name)
+	public Relic()
 	{
-		this.name = name;
 	};
 
 	public void setName(String name)
@@ -17,5 +17,15 @@ public abstract class Relic
 	public String getName()
 	{
 		return name;
+	}
+
+	public void setActive(boolean active)
+	{
+		this.active = active;
+	}
+
+	public boolean getActive()
+	{
+		return active;
 	}
 }
