@@ -54,7 +54,5 @@ public class Main
 		playerOne.setActiveSet(oneActiveset);
 		playerTwo.setActiveSet(twoActiveSet);
 
-		test.allTerrainsToString();
-
 	}
 }
