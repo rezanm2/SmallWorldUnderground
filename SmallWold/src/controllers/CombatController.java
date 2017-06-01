@@ -71,13 +71,13 @@ public class CombatController
 	{
 		if(terrain.getAmountOfTokens() + terrain.getDefense() <= declaredAmountOfTokens + 2)	//If the player wins
 		{
-			terrain.setRace(activePlayer.getActiveSet().getRace());	  //Make the terrain be the player's race
-			terrain.setAmountOfTokens(declaredAmountOfTokens);							  //The declared amount is set on the terrain
+			terrain.setRace(activePlayer.getActiveSet().getRace());	 							//Make the terrain be the player's Race
+			terrain.setAmountOfTokens(declaredAmountOfTokens);							  		//The declared amount is set on the terrain
 		}
 		else																					//If the player loses
 		{
 			//Roll conquest die or attack something different
 		}
-	test.whichTokenType();
+	test.whatsOnTerrain();
 	}
 }

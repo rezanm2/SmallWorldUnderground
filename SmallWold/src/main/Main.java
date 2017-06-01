@@ -31,9 +31,10 @@ public class Main
 	public static void main(String[] args)
 	{
 		FourPlayer init = new FourPlayer();
-		init.initialize();
 		Die die = new Die();
 		Map map = new Map(init.getTerrains(), die);
+		init.initialize();
+		init.setEmpty(map);
 		Hand hand = new Hand();
 		MapTester test = new MapTester(map);
 		CombatController cc = new CombatController(map, test);

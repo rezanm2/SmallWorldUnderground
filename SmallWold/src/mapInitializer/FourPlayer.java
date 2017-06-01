@@ -16,7 +16,6 @@ import terrain.Terrain;
 
 public class FourPlayer extends Initializer
 {
-	List<Terrain> terrains = new ArrayList<Terrain>();
 
 	public void initialize()								// Initializing the map
 	{
@@ -24,7 +23,7 @@ public class FourPlayer extends Initializer
 		int [] terrainTwo = new int[] {12, 13, 22, 23, 24, 25};
 		int [] terrainThree = new int[] {13, 12, 14, 25, 26};
 		int [] terrainFour = new int[] {14, 13, 26};
-		int [] terrainFive = new int[] {15, 14, 16, 2,7};
+		int [] terrainFive = new int[] {15, 14, 16, 27};
 		int [] terrainSix = new int [] {16, 15, 27, 28};
 
 		int[] terrainSeven = new int[] {21, 11, 22, 31};
