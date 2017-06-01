@@ -1,4 +1,4 @@
-package mapInitializer;
+package mapInitializers;
 
 import terrain.Chasm;
 import terrain.Mine;

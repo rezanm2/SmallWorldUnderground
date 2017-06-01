@@ -1,4 +1,4 @@
-package mapInitializer;
+package mapInitializers;
 
 import java.util.ArrayList;
 import java.util.List;
