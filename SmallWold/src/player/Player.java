@@ -15,7 +15,7 @@ public class Player
 
 	int coins = 0;
 	Set activeSet;
-	Set passiveSet;
+	Set declineSet;
 
 	public void setCoins(int coins){
 		this.coins = coins;
@@ -42,12 +42,12 @@ public class Player
 		this.activeSet = activeSet;
 	}
 
-	public Set getPassiveSet() {
-		return passiveSet;
+	public Set getDeclineSet() {
+		return declineSet;
 	}
 
-	public void setPassiveSet(Set passiveSet) {
-		this.passiveSet = passiveSet;
+	public void setDeclineSet(Set declineSet) {
+		this.declineSet = declineSet;
 	}
 
 }

@@ -8,11 +8,9 @@ import terrain.Terrain;
 
 public class Map
 {
-	MapInitializer init = new MapInitializer();
 
 	List<Terrain> terrains = new ArrayList<Terrain>();
 	Die die = new Die();
-
 
 	public Map(List<Terrain> terrains, Die die)
 	{
@@ -25,7 +23,12 @@ public class Map
 		return terrains.get(x);
 	}
 
-	public List<Terrain> getTerrains()
+	public void setAllTerrains(List<Terrain> terrains)
+	{
+		this.terrains = terrains;
+	}
+
+	public List<Terrain> getAllTerrains()
 	{
 		return terrains;
 	}
