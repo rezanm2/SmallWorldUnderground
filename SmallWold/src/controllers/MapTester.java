@@ -5,16 +5,34 @@ import playBoard.Map;
 public class MapTester
 {
 	private int terrainCounter;
+	Map map = new Map();
+	private int code;
 
-
-	public void whichTokenType(Map map)					//Show all areas which are currently attackable
+	public MapTester(Map map)
 	{
-		for(terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)				//As long as there are terrains
-		{
-			System.out.println(terrainCounter + 1 + " " + map.getTerrain(terrainCounter).getTokenType());	//Return the tokenType
-		}
+		this.map = map;
 	}
 
 
+	public void whichTokenType()					//Show all areas which are currently attackable
+	{
+		System.out.println("Terrain : tokenType:");
+		for(terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)				//As long as there are terrains
+		{
+			System.out.println(terrainCounter + 1 + " " + map.getTerrain(terrainCounter).getRace().getTokenType());	//Return the tokenType
+		}
+	}
+
+	public void whichAreAttackable(int code)					//Show all areas which are currently attackable
+	{
+		System.out.println("Terrain : isAttackable  : Containing");
+		for(terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)				//As long as there are terrains
+		{
+		if(map.getTerrain(terrainCounter).getIsAttackable() == true)		//If isAttackable is true
+			{
+			System.out.println(terrainCounter + 1 + "		True		" + code);			//Print the number of the iteration and whether it's true or false
+			}
+		}
+	}
 
 }

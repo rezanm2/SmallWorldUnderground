@@ -14,11 +14,11 @@ import terrain.Shroom;
 import terrain.Stone;
 import terrain.Terrain;
 
-public class MapInitializer
+public class FourPlayer extends Initializer
 {
 	List<Terrain> terrains = new ArrayList<Terrain>();
 
-	public void initialize()								// Initialising the map
+	public void initialize()								// Initializing the map
 	{
 		int [] terrainOne = new int[] {11, 12, 21, 22};				//Make the terrain have its own value and the other values
 		int [] terrainTwo = new int[] {12, 13, 22, 23, 24, 25};
@@ -119,12 +119,6 @@ public class MapInitializer
 		terrains.add(new Mud(terrainFortyTwo));
 		terrains.add(new Mine(terrainFortyThree));
 		terrains.add(new Chasm(terrainFortyFour));
-
-
 	}
 
-	public List<Terrain> getTerrains()
-	{
-		return terrains;
-	}
 }
