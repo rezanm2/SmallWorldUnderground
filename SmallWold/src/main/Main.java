@@ -9,7 +9,8 @@ import abilities.Flocking;
 import abilities.Magic;
 import controllers.CombatController;
 import controllers.MapTester;
-import mapInitializer.MapInitializer;
+import mapInitializer.FourPlayer;
+import mapInitializer.TwoPlayer;
 import playBoard.Die;
 import playBoard.Map;
 import player.Hand;
@@ -30,16 +31,30 @@ public class Main
 
 	public static void main(String[] args)
 	{
-		MapInitializer init = new MapInitializer();
+		TwoPlayer init = new TwoPlayer();
 		Die die = new Die();
-		CombatController cc = new CombatController();
+		Map map = new Map(init.getTerrains(), die);
 		init.initialize();
+		init.setEmpty(map);
+		Hand hand = new Hand();
+		MapTester test = new MapTester(map);
+		CombatController cc = new CombatController(map, test);
 
-		MapTester tester = new MapTester();
-		Map map = new Map(init.getTerrains(), die);		//Creates the map and adds the terrains and die
+		Player playerOne = new Player();
+		Player playerTwo = new Player();
 
-		System.out.println(map.getTerrain(5).getElement(1));
+		Ability magic = new Magic();
+		Ability flocking = new Flocking();
 
+		Race drow = new Drow();
+		Race flames = new Flames();
+
+		Set oneActiveset = new Set(magic, drow);
+		Set twoActiveSet = new Set(flocking, flames);
+		playerOne.setActiveSet(oneActiveset);
+		playerTwo.setActiveSet(twoActiveSet);
+
+		test.allTerrainsToString();
 
 	}
 }

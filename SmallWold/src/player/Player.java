@@ -7,9 +7,9 @@ import races.Race;
 public class Player
 {
 	Hand hand;
-
-	public Player(Hand hand)
+	public Player()
 	{
+		Hand hand = new Hand();
 		this.hand = hand;
 	};
 

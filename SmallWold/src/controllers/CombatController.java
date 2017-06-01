@@ -12,20 +12,17 @@ public class CombatController
 	private int elementCounter;
 	private int terrain;
 	private int value;
+	Map map = new Map();
+	MapTester test = new MapTester(map);
 
-
-	public void whichAreAttackable(Map map)					//Show all areas which are currently attackable
+	public CombatController(Map map, MapTester test)
 	{
-		for(terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)				//As long as there are terrains
-		{
-		if(map.getTerrain(terrainCounter).getIsAttackable() == true)		//If isAttackable is true
-			{
-			System.out.println(terrainCounter + 1 + ": True");			//Print the number of the iteration and whether it's true or false
-			}
-		}
+		this.map = map;
+		this.test = test;
 	}
 
-	public void setUnattackable(Map map)					//Set all the "isAttackable" booleans to false again
+
+	public void setUnattackable()					//Set all the "isAttackable" booleans to false again
 	{
 		for(terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)				//As long as there are terrains
 		{
@@ -37,7 +34,7 @@ public class CombatController
 	}
 
 
-	public void isAttackable(Map map, int code)
+	public void isAttackable(int code)
 	{
 		terrainCounter = 0;
 		elementCounter = 0;
@@ -61,8 +58,9 @@ public class CombatController
 			terrainCounter++;										//Keep track of which terrain we're at
 			terrain++;												//Look at the next terrain, "eye"
 		}
-		whichAreAttackable(map);
+		test.whichAreAttackable(code);
 	}
+
 
 	public void declareTokenAmount(int declaredAmountOfTokens)				//Player declaring amount of tokens for attack
 	{
@@ -73,12 +71,13 @@ public class CombatController
 	{
 		if(terrain.getAmountOfTokens() + terrain.getDefense() <= declaredAmountOfTokens + 2)	//If the player wins
 		{
-			terrain.setTokenType(activePlayer.getActiveSet().getRace().getTokenType());	  //Make the terrain be the player's tokenType
-			terrain.setAmountOfTokens(declaredAmountOfTokens);							  //The declared amount is set on the terrain
+			terrain.setRace(activePlayer.getActiveSet().getRace());	 							//Make the terrain be the player's Race
+			terrain.setAmountOfTokens(declaredAmountOfTokens);							  		//The declared amount is set on the terrain
 		}
 		else																					//If the player loses
 		{
 			//Roll conquest die or attack something different
 		}
+	test.whatsOnTerrain();
 	}
 }
