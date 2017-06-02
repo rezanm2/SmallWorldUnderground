@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import main.Set;
 import player.Player;
 
 public class PlayerCreator
@@ -44,7 +45,9 @@ public class PlayerCreator
 		input.nextLine();													//Apparently .nextInt needs this line
 
 		System.out.println("A: Give me player one's name please");
-		tempName = input.nextLine();										//Entering player one's name
+		tempName = input.nextLine();	//Entering player one's name
+
+
 		if(tempName.isEmpty())												//If no name entered, use default
 		{
 			System.out.println("A: No name? I guess I'll call you " + nameOne + "\n");

@@ -30,7 +30,7 @@ public class MapTester
 		System.out.println("Terrain : isAttackable  : Containing");
 		for(terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)				//As long as there are terrains
 		{
-		if(map.getTerrain(terrainCounter).getIsAttackable() == true)		//If isAttackable is true
+		if(map.getTerrain(terrainCounter).getIsAdjacent() == true)		//If isAttackable is true
 			{
 			System.out.println(terrainCounter + 1 + "		True		" + code);			//Print the number of the iteration and whether it's true or false
 			}
