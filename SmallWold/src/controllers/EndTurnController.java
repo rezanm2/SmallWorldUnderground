@@ -1,7 +1,9 @@
 package controllers;
 
+import listCreators.AbilityListCreator;
 import playBoard.Map;
 import player.Player;
+import setup.MapCreator;
 
 public class EndTurnController
 {
@@ -12,6 +14,7 @@ public class EndTurnController
 	private int relicIncome;
 	private int specialPlaceIncome;
 	private int totalSum;
+	AbilityListCreator abilityList = new AbilityListCreator();
 	Map map = new Map();
 	Player activePlayer;
 
@@ -39,11 +42,19 @@ public class EndTurnController
 		return incomeOfTerrains;
 	}
 
-	public void calculateAbilityIncome(Player player)
-	{
 
+	public void calculateAbilityIncome(Player activePlayer){
+		this.activePlayer = activePlayer;
+
+		if (activePlayer.getActiveSet().getAbility().equals(abilityList.getListElement(1))){ // Adventurous
+
+		}
+
+		if (activePlayer.getActiveSet().getAbility().equals(abilityList.getListElement(2))){ // Fisher
+
+
+		}
 	}
-
 	public void calculateRaceIncome(Player player){
 
 	}

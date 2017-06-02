@@ -63,4 +63,14 @@ public class MapCreator
 	{
 		return map;
 	}
+
+	public int getAmountOfPlayers()
+	{
+		return amountOfPlayers;
+	}
+
+	public void setAmountOfPlayers(int amountOfPlayers)
+	{
+		this.amountOfPlayers = amountOfPlayers;
+	}
 }
