@@ -1,6 +1,7 @@
 package setup;
 
 import controllers.CombatController;
+import controllers.EndTurnController;
 import controllers.MapTester;
 import controllers.SleepController;
 import listCreators.AbilityListCreator;
@@ -23,17 +24,18 @@ public class Starter
 
 		MapTester tester = new MapTester(map);					//Create a new mapTester
 		map.setEmpty();											//Set all squares to empty
+		EndTurnController etc = new EndTurnController(map);
 		//Everything above this is setting up the map and players
 
 		//Everything below this is own code
 		playerCreator.definePlayers();							//Ask how many players there will be, and their names
-		playerCreator.printAllPlayers();						//Show all the players and their names
-		map.allTerrainsToString();								//Show all the terrains and their types
-		pickRegions.start();									//Players picking their starting regions
-		map.allTerrainsToString();								//Show all the terrains and their types
+//		playerCreator.printAllPlayers();						//Show all the players and their names
+//		map.allTerrainsToString();								//Show all the terrains and their types
+//		pickRegions.start();									//Players picking their starting regions
+//		map.allTerrainsToString();								//Show all the terrains and their types
+		etc.calculateTerrainIncome(playerCreator.getPlayerArray().get(0));
 
-		dc.start();
-
+//		dc.start();
 
 	}
 }

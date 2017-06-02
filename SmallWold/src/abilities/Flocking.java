@@ -1,5 +1,7 @@
 package abilities;
 
+import controllers.CombatController;
+
 public class Flocking extends Ability
 {
 	public Flocking()
