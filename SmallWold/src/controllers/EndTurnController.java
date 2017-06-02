@@ -5,7 +5,7 @@ import player.Player;
 
 public class EndTurnController
 {
-	private int amountOfTerrains;
+	private int incomeOfTerrains;
 	private int terrainIncome;
 	private int abilityIncome;
 	private int raceIncome;
@@ -13,21 +13,30 @@ public class EndTurnController
 	private int specialPlaceIncome;
 	private int totalSum;
 	Map map = new Map();
+	Player activePlayer;
 
 	public EndTurnController(Map map)
 	{
 		this.map = map;
 	}
 
-	public void calculateTerrainIncome(Player player){
-		amountOfTerrains = 0;
-		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)				//As long as there are terrains
-		{
-			if (player.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace())){
-				amountOfTerrains++;
+	public void calculateTerrainIncome(Player activePlayer)
+	{
+		this.activePlayer = activePlayer;
+		incomeOfTerrains = 0;
 
+		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
+		{
+			if (activePlayer.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace()))
+			{
+				incomeOfTerrains++;
 			}
 		}
+	}
+
+	public int getIncomeOfTerrains()
+	{
+		return incomeOfTerrains;
 	}
 
 	public void calculateAbilityIncome(Player player){

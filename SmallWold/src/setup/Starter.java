@@ -24,16 +24,28 @@ public class Starter
 
 		MapTester tester = new MapTester(map);					//Create a new mapTester
 		map.setEmpty();											//Set all squares to empty
+		playerCreator.definePlayers();							//Creates the players
+
 		EndTurnController etc = new EndTurnController(map);
 		//Everything above this is setting up the map and players
 
 		//Everything below this is own code
-		playerCreator.definePlayers();							//Ask how many players there will be, and their names
-//		playerCreator.printAllPlayers();						//Show all the players and their names
-//		map.allTerrainsToString();								//Show all the terrains and their types
-//		pickRegions.start();									//Players picking their starting regions
-//		map.allTerrainsToString();								//Show all the terrains and their types
-		etc.calculateTerrainIncome(playerCreator.getPlayerArray().get(0));
+
+		playerCreator.setDefaultSets();							//Sets the player's default sets
+		playerCreator.printAllPlayers();						//Show all the players and their names
+		map.allTerrainsToString();								//Show all the terrains and their types
+		pickRegions.start();									//Players picking their starting regions
+		map.allTerrainsToString();								//Show all the terrains and their types
+		etc.calculateTerrainIncome(playerCreator.getPlayerList().get(0));
+
+
+		System.out.println("A: " + playerCreator.getPlayerList().get(0).getName() + "'s income purely from terrains equals: "
+							+ etc.getIncomeOfTerrains());
+
+		etc.calculateTerrainIncome(playerCreator.getPlayerList().get(1));
+
+		System.out.println("A: " + playerCreator.getPlayerList().get(1).getName() + "'s income purely from terrains equals: "
+				+ etc.getIncomeOfTerrains());
 
 //		dc.start();
 

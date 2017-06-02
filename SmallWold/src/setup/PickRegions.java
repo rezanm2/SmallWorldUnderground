@@ -39,35 +39,6 @@ public class PickRegions
 
 	public void start()
 	{
-
-
-
-		activeSetOne = new Set(abilityList.getListElement(1), raceList.getListElement(1));
-		playerList.get(0).setActiveSet(activeSetOne);
-
-		activeSetTwo = new Set(abilityList.getListElement(2), raceList.getListElement(2));
-		playerList.get(1).setActiveSet(activeSetTwo);
-
-		if(playerList.size() > 2)
-		{
-			activeSetThree = new Set(abilityList.getListElement(3), raceList.getListElement(3));
-			playerList.get(2).setActiveSet(activeSetThree);
-		}
-
-		if(playerList.size() > 3)
-		{
-			activeSetFour = new Set(abilityList.getListElement(4), raceList.getListElement(4));
-			playerList.get(3).setActiveSet(activeSetFour);
-		}
-
-		if(playerList.size() > 4)
-		{
-			activeSetFive = new Set(abilityList.getListElement(5), raceList.getListElement(5));
-			playerList.get(4).setActiveSet(activeSetFive);
-		}
-
-
-
 		for(int i=0;i<playerList.size();i++)
 		{
 			playerList.get(i).setActiveSet(playerList.get(i).getActiveSet());
