@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import listCreators.AbilityListCreator;
+import listCreators.RaceListCreator;
+import main.Set;
 import player.Player;
 
 public class PlayerCreator
@@ -17,12 +20,48 @@ public class PlayerCreator
 	String tempName;
 	List<Player> playerList = new ArrayList<Player>();
 	MapCreator setup = new MapCreator();
-
-
 	Scanner input = new Scanner(System.in);
 
+	AbilityListCreator abilityList = new AbilityListCreator();
+	RaceListCreator raceList = new RaceListCreator();
 
-	public void definePlayers()
+	Set activeSetOne;
+	Set activeSetTwo;
+	Set activeSetThree;
+	Set activeSetFour;
+	Set activeSetFive;
+
+
+	public void setDefaultSets()
+	{
+
+		activeSetOne = new Set(abilityList.getListElement(1), raceList.getListElement(1));
+		playerList.get(0).setActiveSet(activeSetOne);
+
+		activeSetTwo = new Set(abilityList.getListElement(2), raceList.getListElement(2));
+		playerList.get(1).setActiveSet(activeSetTwo);
+
+		if(playerList.size() > 2)
+		{
+			activeSetThree = new Set(abilityList.getListElement(3), raceList.getListElement(3));
+			playerList.get(2).setActiveSet(activeSetThree);
+		}
+
+		if(playerList.size() > 3)
+		{
+			activeSetFour = new Set(abilityList.getListElement(4), raceList.getListElement(4));
+			playerList.get(3).setActiveSet(activeSetFour);
+		}
+
+		if(playerList.size() > 4)
+		{
+			activeSetFive = new Set(abilityList.getListElement(5), raceList.getListElement(5));
+			playerList.get(4).setActiveSet(activeSetFive);
+		}
+	}
+
+
+	public void defineAmountOfPlayers()
 	{
 		System.out.println("A: Hey there! My name's Ammy. I'll be your guide for the console-version of SmallWorld Underground!");
 		System.out.println("A: I'll try to make sure you understand what's going on in your console.");
@@ -42,9 +81,14 @@ public class PlayerCreator
 
 		System.out.println("A: All right, got it. " + amountOfPlayers + " players it is." + "\n");
 		input.nextLine();													//Apparently .nextInt needs this line
+	}
 
+	public void definePlayers()
+	{
 		System.out.println("A: Give me player one's name please");
-		tempName = input.nextLine();										//Entering player one's name
+		tempName = input.nextLine();	//Entering player one's name
+
+
 		if(tempName.isEmpty())												//If no name entered, use default
 		{
 			System.out.println("A: No name? I guess I'll call you " + nameOne + "\n");
@@ -188,12 +232,6 @@ public class PlayerCreator
 		playerList.add(playerFive);
 		System.out.println("A: Done creating 5 players...");
 
-	}
-
-
-	public List<Player> getPlayerArray()
-	{
-		return playerList;
 	}
 
 	public void printAllPlayers()

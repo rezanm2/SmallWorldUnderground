@@ -14,7 +14,7 @@ public abstract class Terrain
 
 	protected Race race;
 
-	protected boolean isAttackable;
+	protected boolean isAdjacent;
 	protected boolean isReinforcable;
 	protected boolean isImmune;
 
@@ -67,12 +67,12 @@ public abstract class Terrain
 		return defense;
 	}
 
-	public void setIsAttackable(boolean isAttackable) {
-		this.isAttackable = isAttackable;
+	public void setIsAdjacent(boolean isAdjacent) {
+		this.isAdjacent = isAdjacent;
 	}
 
-	public boolean getIsAttackable() {
-		return isAttackable;
+	public boolean getIsAdjacent() {
+		return isAdjacent;
 	}
 
 	public void setIsReinforcable(boolean isReinforcable) {

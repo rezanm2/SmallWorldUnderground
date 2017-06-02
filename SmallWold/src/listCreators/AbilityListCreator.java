@@ -53,7 +53,9 @@ public class AbilityListCreator
 		Ability vanishing = new Vanishing();
 		Ability vengeful = new Vengeful();
 		Ability wise = new Wise();
+		Ability empty = new Ability();
 
+		abilityList.add(empty);
 		abilityList.add(adventurous);
 		abilityList.add(fisher);
 		abilityList.add(flocking);

@@ -6,7 +6,7 @@ public class Dwarves extends Race
 	{
 		amountOfTokens = 7;
 		maxTokens = 10;
-		tokenType = "dwarves";
+		tokenType = "Dwarves";
 		traitText = "At end of turn, +1 silver hammer for each mine region.";
 	}
 }
