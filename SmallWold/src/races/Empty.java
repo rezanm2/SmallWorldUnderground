@@ -8,6 +8,6 @@ public class Empty extends Race
 		amountOfTokens = 0;
 		maxTokens = 0;
 		tokenType = "Empty";
-		traitText = "Empty";
+		traitText = "There is no race selected.";
 	}
 }

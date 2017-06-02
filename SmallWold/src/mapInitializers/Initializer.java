@@ -13,9 +13,7 @@ import terrain.Terrain;
 public class Initializer
 {
 
-	private int terrainCounter;
 	protected List<Terrain> terrains = new ArrayList<Terrain>();
-	Race empty = new Empty();
 
 	public void setTerrains(List<Terrain> terrains)
 	{
@@ -26,11 +24,8 @@ public class Initializer
 		return terrains;
 	}
 
-	public void setEmpty(Map map)
+	public void initialize()
 	{
-		for(terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)				//As long as there are terrains
-		{
-			map.getTerrain(terrainCounter).setRace(empty);
-		}
+		System.out.println("A: Filling map with terrains...");
 	}
 }

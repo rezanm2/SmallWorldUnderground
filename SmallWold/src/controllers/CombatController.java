@@ -12,13 +12,13 @@ public class CombatController
 	private int elementCounter;
 	private int terrain;
 	private int value;
+	private int code;
 	Map map = new Map();
-	MapTester test = new MapTester(map);
 
-	public CombatController(Map map, MapTester test)
+
+	public CombatController(Map map)
 	{
 		this.map = map;
-		this.test = test;
 	}
 
 
@@ -33,8 +33,11 @@ public class CombatController
 		}
 	}
 
-
-	public void isAttackable(int code)
+	public void setCode(int code)
+	{
+		this.code = code;
+	}
+	public void isAttackable()
 	{
 		terrainCounter = 0;
 		elementCounter = 0;
@@ -58,7 +61,6 @@ public class CombatController
 			terrainCounter++;										//Keep track of which terrain we're at
 			terrain++;												//Look at the next terrain, "eye"
 		}
-		test.whichAreAttackable(code);
 	}
 
 
@@ -78,6 +80,5 @@ public class CombatController
 		{
 			//Roll conquest die or attack something different
 		}
-	test.whatsOnTerrain();
 	}
 }
