@@ -20,9 +20,9 @@ public class Starter
 		map = mapCreator.getMap();								//Create a new map and fill it with the corresponding map
 		PickRegions pickRegions = new PickRegions(mapCreator.getMap(), playerCreator.getPlayerList()); //Create a new PickRegions
 		CombatController cc = new CombatController(map);		//Create a new CombatController
-		DeclareCombat dc = new DeclareCombat(cc);
+		MapTester test = new MapTester(map);					//Create a new mapTester
+		DeclareCombat dc = new DeclareCombat(map, cc, test, playerCreator);	//Create a new CombatDeclarer
 
-		MapTester tester = new MapTester(map);					//Create a new mapTester
 		map.setEmpty();											//Set all squares to empty
 		playerCreator.definePlayers();							//Creates the players
 
@@ -36,18 +36,18 @@ public class Starter
 		map.allTerrainsToString();								//Show all the terrains and their types
 		pickRegions.start();									//Players picking their starting regions
 		map.allTerrainsToString();								//Show all the terrains and their types
-		etc.calculateTerrainIncome(playerCreator.getPlayerList().get(0));
+//		etc.calculateTerrainIncome(playerCreator.getPlayerList().get(0));
+//
+//
+//		System.out.println("A: " + playerCreator.getPlayerList().get(0).getName() + "'s income purely from terrains equals: "
+//							+ etc.getIncomeOfTerrains());
+//
+//		etc.calculateTerrainIncome(playerCreator.getPlayerList().get(1));
+//
+//		System.out.println("A: " + playerCreator.getPlayerList().get(1).getName() + "'s income purely from terrains equals: "
+//				+ etc.getIncomeOfTerrains());
 
-
-		System.out.println("A: " + playerCreator.getPlayerList().get(0).getName() + "'s income purely from terrains equals: "
-							+ etc.getIncomeOfTerrains());
-
-		etc.calculateTerrainIncome(playerCreator.getPlayerList().get(1));
-
-		System.out.println("A: " + playerCreator.getPlayerList().get(1).getName() + "'s income purely from terrains equals: "
-				+ etc.getIncomeOfTerrains());
-
-//		dc.start();
+		dc.start(playerCreator.getPlayerList().get(0));
 
 	}
 }

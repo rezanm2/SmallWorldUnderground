@@ -39,7 +39,8 @@ public class EndTurnController
 		return incomeOfTerrains;
 	}
 
-	public void calculateAbilityIncome(Player player){
+	public void calculateAbilityIncome(Player player)
+	{
 
 	}
 

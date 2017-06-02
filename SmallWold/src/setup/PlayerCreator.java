@@ -234,12 +234,6 @@ public class PlayerCreator
 
 	}
 
-
-	public List<Player> getPlayerArray()
-	{
-		return playerList;
-	}
-
 	public void printAllPlayers()
 	{
 		System.out.println("\n" + "A: Getting all players. Amount: " + playerList.size() + "\n");

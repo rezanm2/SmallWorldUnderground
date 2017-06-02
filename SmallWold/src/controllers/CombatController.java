@@ -35,7 +35,7 @@ public class CombatController
 		this.code = code;
 	}
 
-	public void checkIsAdjacent()
+	public void checkIsAdjacent(int code)
 	{
 		terrainCounter = 0;
 		elementCounter = 0;
@@ -44,12 +44,13 @@ public class CombatController
 
 		while(terrainCounter<map.getAllTerrains().size())				//While there's still terrains left
 		{
-			while(elementCounter<map.getTerrain(terrain).getIdArray().length)		//While there's still numbers in the terrain's array
+			while(elementCounter<map.getTerrain(terrain).getIdArray().length)	//While there's still numbers in the terrain's array
 			{
-
 				if(map.getTerrain(terrain).getElement(value) == code)		//If the idCode is found, set isAttackable to true
 				{
 					map.getTerrain(terrain).setIsAdjacent(true);
+
+					System.out.println("A: I've found a terrain that matches your code.");
 				}
 				value++;											//Look at the next value in the terrain's array, "eye"
 				elementCounter++;									//Keep track of which number in the array we're at
