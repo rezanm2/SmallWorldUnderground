@@ -43,10 +43,10 @@ public class RaceListCreator
 		Race spiderines = new Spiderines();
 		Race willOWisp = new WillOWisp();
 
+		raceList.add(empty);
 		raceList.add(cultists);
 		raceList.add(drow);
 		raceList.add(dwarves);
-		raceList.add(empty);
 		raceList.add(flames);
 		raceList.add(gnomes);
 		raceList.add(kraken);

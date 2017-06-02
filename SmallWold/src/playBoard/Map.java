@@ -53,12 +53,19 @@ public class Map
 	public void allTerrainsToString()
 	{
 		System.out.println("A: Giving you a list of all the terrains on this map...");
-		System.out.println("Terrain:  Type : Occupied by : Amount of tokens");
+		System.out.println("Terrain:  Type : Occupied by : Amount of tokens : Adjacent to");
 		for(int terrainCounter=0;terrainCounter<getAllTerrains().size();terrainCounter++)				//As long as there are terrains
 		{
-			System.out.println("  " + (terrainCounter + 1) + "	" + getTerrain(terrainCounter).getTerrainName()
-					+ "	    " + getTerrain(terrainCounter).getRace().getTokenType() + "	  "
-					+ getTerrain(terrainCounter).getRace().getAmountOfTokens());
+			System.out.print("  " + (terrainCounter + 1) + "\t " + getTerrain(terrainCounter).getTerrainName()
+					+ "\t    " + getTerrain(terrainCounter).getRace().getTokenType() + "\t \t"
+					+ getTerrain(terrainCounter).getAmountOfTokens() + "\t  ");
+
+			for(int element=0; (element+1 )<getTerrain(terrainCounter).getIdArray().length; element++)
+			{
+				System.out.print(" " + getTerrain(terrainCounter).getElement(element+1));
+			}
+			System.out.println();
 		}
+	System.out.println();
 	}
 }

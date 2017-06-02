@@ -22,8 +22,7 @@ public class PlayerCreator
 
 	Scanner input = new Scanner(System.in);
 
-
-	public void definePlayers()
+	public void defineAmountOfPlayers()
 	{
 		System.out.println("A: Hey there! My name's Ammy. I'll be your guide for the console-version of SmallWorld Underground!");
 		System.out.println("A: I'll try to make sure you understand what's going on in your console.");
@@ -43,7 +42,10 @@ public class PlayerCreator
 
 		System.out.println("A: All right, got it. " + amountOfPlayers + " players it is." + "\n");
 		input.nextLine();													//Apparently .nextInt needs this line
+	}
 
+	public void definePlayers()
+	{
 		System.out.println("A: Give me player one's name please");
 		tempName = input.nextLine();	//Entering player one's name
 

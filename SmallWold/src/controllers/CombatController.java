@@ -22,7 +22,7 @@ public class CombatController
 	}
 
 
-	public void setUnattackable()					//Set all the "isAttackable" booleans to false again
+	public void setNotAdjacent()					//Set all the "isAttackable" booleans to false again
 	{
 		for(terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)				//As long as there are terrains
 		{
