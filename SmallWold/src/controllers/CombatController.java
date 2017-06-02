@@ -80,8 +80,10 @@ public class CombatController
 			//Roll conquest die or attack something different
 		}
 	}
-	
-	public void checkIsAdjacent(Terrain terrainType)
+
+	// FISHER
+
+	public void checkIsAdjacent(String terrainString)
 	{
 		terrainCounter = 0;
 		elementCounter = 0;
@@ -92,10 +94,10 @@ public class CombatController
 		{
 			while(elementCounter<map.getTerrain(terrain).getIdArray().length)		//While there's still numbers in the terrain's array
 			{
-
-				if(map.getTerrain(terrain).getElement(value) == code && terrainType.equals(map.getTerrain(2).getTerrainName())) 		//If the idCode is found, set isAttackable to true
+				if(map.getTerrain(terrain).getTerrainName().equals(terrainString)) 		//If the idCode is found, set isAttackable to true
 				{
 					map.getTerrain(terrain).setIsAdjacent(true);
+					System.out.println("A: " + (terrain+1) + " is a " + terrainString);
 				}
 				value++;											//Look at the next value in the terrain's array, "eye"
 				elementCounter++;									//Keep track of which number in the array we're at

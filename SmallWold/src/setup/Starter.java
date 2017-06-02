@@ -33,9 +33,9 @@ public class Starter
 
 		playerCreator.setDefaultSets();							//Sets the player's default sets
 		playerCreator.printAllPlayers();						//Show all the players and their names
-		map.allTerrainsToString();								//Show all the terrains and their types
-		pickRegions.start();									//Players picking their starting regions
-		map.allTerrainsToString();								//Show all the terrains and their types
+//		map.allTerrainsToString();								//Show all the terrains and their types
+//		pickRegions.start();									//Players picking their starting regions
+//		map.allTerrainsToString();								//Show all the terrains and their types
 //		etc.calculateTerrainIncome(playerCreator.getPlayerList().get(0));
 //
 //
@@ -47,7 +47,10 @@ public class Starter
 //		System.out.println("A: " + playerCreator.getPlayerList().get(1).getName() + "'s income purely from terrains equals: "
 //				+ etc.getIncomeOfTerrains());
 
-		dc.start(playerCreator.getPlayerList().get(0));
+//		dc.start(playerCreator.getPlayerList().get(0));
+
+		cc.checkIsAdjacent("River");
+		test.whichAreAdjacent();
 
 	}
 }
