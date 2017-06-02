@@ -1,8 +1,8 @@
 package relics;
 
-public class ShineyOrb extends Relic {
+public class ShinyOrb extends Relic {
 	
-	public ShineyOrb(){
+	public ShinyOrb(){
 		
 		name = "Shiny Orb";
 		traitText = "Once per turn per opponent, use the Orb to substitute a single"

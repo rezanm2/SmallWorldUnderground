@@ -6,16 +6,19 @@ import races.Race;
 
 public class Player
 {
+	private boolean hasVengeful;
+	private String name;
+	private int coins = 0;
+	private Set activeSet;
+	private Set declineSet;
+
 	Hand hand;
-	public Player()
+	public Player(String name)
 	{
 		Hand hand = new Hand();
 		this.hand = hand;
+		this.name = name;
 	};
-
-	int coins = 0;
-	Set activeSet;
-	Set declineSet;
 
 	public void setCoins(int coins){
 		this.coins = coins;
@@ -50,4 +53,21 @@ public class Player
 		this.declineSet = declineSet;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setHasVengeful(boolean hasVengeful)
+	{
+		this.hasVengeful = hasVengeful;
+	}
+
+	public boolean getHasVengeful()
+	{
+		return hasVengeful;
+	}
 }

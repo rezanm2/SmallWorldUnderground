@@ -22,7 +22,7 @@ public class Set
 
 	public String getAbility()
 	{
-		return ability.getName();
+		return ability.getType();
 	}
 
 	public void setRace(Race race)

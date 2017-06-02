@@ -1,8 +1,8 @@
 package relics;
 
-public class StinkyTrollsSocks extends Relic {
+public class StinkyTrollSocks extends Relic {
 	
-	public StinkyTrollsSocks(){
+	public StinkyTrollSocks(){
 		
 		name = "Stinky Troll's Socks";
 		traitText = "Once per turn, use it to conquer 1 Region as if it was empty. Your opponent loses"

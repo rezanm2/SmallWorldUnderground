@@ -144,7 +144,6 @@ public class FivePlayer extends Initializer
 		terrains.add(new Shroom(terrainFiftyThree));
 		terrains.add(new Shroom(terrainFiftyFour));
 		terrains.add(new Chasm(terrainFiftyFive));
-
 	}
 
 }
