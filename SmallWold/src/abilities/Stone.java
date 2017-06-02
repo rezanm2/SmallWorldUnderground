@@ -5,7 +5,7 @@ public class Stone extends Ability
 	public Stone()
 	{
 		amountOfTokens = 4;
-		name = "Stone";
+		type = "Stone";
 		traitText = "+1 coin for each Stone region";
 	}
 }

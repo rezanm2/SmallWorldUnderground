@@ -5,7 +5,7 @@ public class Adventurous extends Ability
 	public Adventurous()
 	{
 		amountOfTokens = 5;
-		name = "Adventurous";
+		type = "Adventurous";
 		traitText = "+1 coin for each popular place";
 	}
 }

@@ -3,7 +3,7 @@ package abilities;
 public class Ability
 {
 
-	protected String name;
+	protected String type;
 	protected String traitText;
 	protected int amountOfTokens;
 	protected boolean active;
@@ -12,13 +12,13 @@ public class Ability
 	{
 	}
 
-	public void setName(String name)
+	public void setType(String name)
 	{
-		this.name = name;
+		this.type = name;
 	}
-	public String getName()
+	public String getType()
 	{
-		return name;
+		return type;
 	}
 
 	public void setActive(boolean active)
