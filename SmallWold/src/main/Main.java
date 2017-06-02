@@ -9,7 +9,6 @@ import abilities.Flocking;
 import abilities.Magic;
 import controllers.CombatController;
 import controllers.MapTester;
-import mapInitializers.FivePlayer;
 import mapInitializers.FourPlayer;
 import mapInitializers.ThreePlayer;
 import mapInitializers.TwoPlayer;
@@ -31,7 +30,7 @@ public class Main
 {
 	public static void main(String[] args)
 	{
-		FivePlayer init = new FivePlayer();
+		ThreePlayer init = new ThreePlayer();
 		Die die = new Die();
 		Map map = new Map(init.getTerrains(), die);
 		init.initialize();
