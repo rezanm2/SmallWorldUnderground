@@ -1,5 +1,6 @@
 package client;
 
+import java.rmi.ConnectException;
 import java.rmi.RemoteException;
 
 import javafx.fxml.FXML;
@@ -22,10 +23,14 @@ public class ClientController {
 	
 	public void joinServer() throws RemoteException {
 		initLabel();
-		joinButton.setDisable(true);
-		ClientMain.loadServer(serverIP.getText(), username.getText());
-		ClientMain.joinServer();
+		try {
+			ClientMain.loadServer(serverIP.getText(), username.getText());
+			ClientMain.joinServer();
+		} catch (ConnectException f) {
+			System.out.println("Cannot connect to server");
+		}
 		setOtherPlayers();
+		joinButton.setDisable(true);
 	}
 	
 	public void initLabel() {
