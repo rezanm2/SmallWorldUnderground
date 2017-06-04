@@ -1,13 +1,15 @@
 package controllers;
 
+import ammy.Ammy;
 import playBoard.Map;
 import terrain.Terrain;
 
 public class MapTester
 {
 	private int terrainCounter;
-	Map map = new Map();
 	private int code;
+	Map map;
+
 
 	public MapTester(Map map)
 	{

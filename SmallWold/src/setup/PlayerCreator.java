@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import ammy.Ammy;
 import listCreators.AbilityListCreator;
 import listCreators.RaceListCreator;
 import main.Set;
@@ -11,6 +12,7 @@ import player.Player;
 
 public class PlayerCreator
 {
+	Ammy ammy;
 	private int amountOfPlayers;
 	String nameOne = "Derevi";
 	String nameTwo = "Sydisi";
@@ -19,8 +21,7 @@ public class PlayerCreator
 	String nameFive = "Scion";
 	String tempName;
 	List<Player> playerList = new ArrayList<Player>();
-	MapCreator setup = new MapCreator();
-	Scanner input = new Scanner(System.in);
+
 
 	AbilityListCreator abilityList = new AbilityListCreator();
 	RaceListCreator raceList = new RaceListCreator();
@@ -30,6 +31,7 @@ public class PlayerCreator
 	Set activeSetThree;
 	Set activeSetFour;
 	Set activeSetFive;
+	Scanner input = new Scanner(System.in);
 
 
 	public void setDefaultSets()
@@ -313,16 +315,6 @@ public class PlayerCreator
 
 	public void setPlayerList(List<Player> playerList) {
 		this.playerList = playerList;
-	}
-
-
-	public MapCreator getSetup() {
-		return setup;
-	}
-
-
-	public void setSetup(MapCreator setup) {
-		this.setup = setup;
 	}
 
 	public void setAmountOfPlayers(int amountOfPlayers) {

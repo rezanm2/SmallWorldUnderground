@@ -1,5 +1,6 @@
 package controllers;
 
+import ammy.Ammy;
 import playBoard.Map;
 import player.Player;
 import terrain.Terrain;
@@ -12,8 +13,7 @@ public class CombatController
 	private int elementCounter;
 	private int terrain;
 	private int value;
-	private int code;
-	Map map = new Map();
+	Map map;
 
 
 	public CombatController(Map map)
@@ -30,10 +30,6 @@ public class CombatController
 		}
 	}
 
-	public void setCode(int code)
-	{
-		this.code = code;
-	}
 
 	public void checkIsAdjacent(int code)
 	{

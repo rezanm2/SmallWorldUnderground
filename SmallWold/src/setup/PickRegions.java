@@ -3,12 +3,14 @@ package setup;
 import java.util.List;
 import java.util.Scanner;
 
+import ammy.Ammy;
 import controllers.CombatController;
 import listCreators.AbilityListCreator;
 import listCreators.RaceListCreator;
 import main.Set;
 import playBoard.Map;
 import player.Player;
+import terrain.Terrain;
 
 public class PickRegions
 {
@@ -34,9 +36,6 @@ public class PickRegions
 		this.map = map;
 		this.playerList = playerList;
 	}
-
-
-
 
 	public void start()
 	{
@@ -71,7 +70,7 @@ public class PickRegions
 					break;
 				}
 
-				if(map.getTerrain(tempAreaPicked).getRace().getTokenType().equals(raceList.getListElement(0).getTokenType())) // WORK IN PROGRESS
+				if(!map.getTerrain(tempAreaPicked).getRace().getTokenType().equals(raceList.getListElement(0).getTokenType())) // WORK IN PROGRESS
 				{
 					System.out.println("A: Sorry, that terrain has already been picked. Please pick a different one.");
 				}
@@ -90,9 +89,6 @@ public class PickRegions
 										+ map.getTerrain(areaPicked).getAmountOfTokens() + ".\n");
 			}
 		}
-
-		CombatController cc = new CombatController(map);
-
 	}
 
 	public void setDefault()

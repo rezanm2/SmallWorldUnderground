@@ -3,6 +3,7 @@ package playBoard;
 import java.util.ArrayList;
 import java.util.List;
 
+import ammy.Ammy;
 import controllers.SleepController;
 import mapInitializers.FourPlayer;
 import races.Empty;
@@ -33,7 +34,6 @@ public class Map
 		}
 	}
 
-	public Map(){}
 
 	public Terrain getTerrain(int x)
 	{

@@ -32,7 +32,6 @@ import terrain.Terrain;
 
 public class Main
 {
-	static Map map = new Map();
 	public static void main(String[] args)
 	{
 		Main.start();

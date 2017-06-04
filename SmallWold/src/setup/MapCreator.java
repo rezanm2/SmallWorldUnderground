@@ -6,6 +6,7 @@ import java.util.List;
 import abilities.Ability;
 import abilities.Flocking;
 import abilities.Magic;
+import ammy.Ammy;
 import controllers.CombatController;
 import controllers.MapTester;
 import main.Set;
@@ -21,44 +22,79 @@ import player.Player;
 import races.Drow;
 import races.Flames;
 import races.Race;
+import terrain.Terrain;
 
 public class MapCreator
 {
 	private int amountOfPlayers;
+	Map map;
+	Ammy ammy;
+	Initializer mapType;
 
-	Map map = new Map();
-
+	List<Terrain> terrainList = new ArrayList<Terrain>();
 	List<Player> playerList = new ArrayList<Player>();
+
 
 	public void setupMap(int amountOfPlayers)
 	{
 		if(amountOfPlayers == 2)
 		{
-			TwoPlayer init = new TwoPlayer();
-			init.initialize();
-			map.setAllTerrains(init.getTerrains());
+			TwoPlayer mapType = new TwoPlayer();
+			mapType.initialize();
+			this.terrainList = mapType.getTerrains();
 		}
 		else if(amountOfPlayers == 3)
 		{
-			ThreePlayer init = new ThreePlayer();
-			init.initialize();
-			map.setAllTerrains(init.getTerrains());
+			ThreePlayer mapType = new ThreePlayer();
+			mapType.initialize();
+			this.terrainList = mapType.getTerrains();
 		}
 		else if(amountOfPlayers == 4)
 		{
-			FourPlayer init = new FourPlayer();
-			init.initialize();
-			map.setAllTerrains(init.getTerrains());
+			FourPlayer mapType = new FourPlayer();
+			mapType.initialize();
+			this.terrainList = mapType.getTerrains();
 		}
 		else if(amountOfPlayers == 5)
 		{
-			FivePlayer init = new FivePlayer();
-			init.initialize();
-			map.setAllTerrains(init.getTerrains());
+			FivePlayer mapType = new FivePlayer();
+			mapType.initialize();
+			this.terrainList = mapType.getTerrains();
 		}
 
 	}
 
+
+	public List<Terrain> getTerrainList() {
+		return terrainList;
+	}
+
+
+	public void setTerrainList(List<Terrain> terrainList) {
+		this.terrainList = terrainList;
+	}
+
+
+	public List<Player> getPlayerList() {
+		return playerList;
+	}
+
+	public void setPlayerList(List<Player> playerList) {
+		this.playerList = playerList;
+	}
+
+	public Initializer getMapType() {
+		return mapType;
+	}
+
+	public void setInit(Initializer mapType) {
+		this.mapType = mapType;
+	}
+
+	public void setMap(Map map)
+	{
+		this.map = map;
+	}
 	public Map getMap()
 	{
 		return map;

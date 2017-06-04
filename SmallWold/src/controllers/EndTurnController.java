@@ -1,5 +1,6 @@
 package controllers;
 
+import ammy.Ammy;
 import listCreators.AbilityListCreator;
 import playBoard.Map;
 import player.Player;
@@ -15,7 +16,7 @@ public class EndTurnController
 	private int specialPlaceIncome;
 	private int totalSum;
 	AbilityListCreator abilityList = new AbilityListCreator();
-	Map map = new Map();
+	Map map;
 	Player activePlayer;
 
 	public EndTurnController(Map map)
