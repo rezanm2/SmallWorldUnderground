@@ -3,8 +3,8 @@ package playBoard;
 import java.util.ArrayList;
 import java.util.List;
 
-import ammy.Ammy;
 import controllers.SleepController;
+import main.Ammy;
 import mapInitializers.FourPlayer;
 import races.Empty;
 import races.Race;

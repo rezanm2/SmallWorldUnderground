@@ -7,7 +7,7 @@ public class Drow extends Race
 	{
 		amountOfTokens = 4;
 		maxTokens = 10;
-		tokenType = "Drow  ";
+		tokenType = "Drow    ";
 		traitText = "+1 Coin for each terrain that isn't sharing borders with non-drow.";
 	}
 

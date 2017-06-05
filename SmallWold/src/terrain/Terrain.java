@@ -15,6 +15,7 @@ public abstract class Terrain
 	protected Race race;
 
 	protected boolean isAdjacent;
+	protected boolean isAttackable;
 	protected boolean isReinforcable;
 	protected boolean isImmune;
 
@@ -87,10 +88,15 @@ public abstract class Terrain
 		this.setAmountOfTokens(1);
 	}
 
-	public void redeploy() {
-		}
+	public void setIsImmune(boolean isImmune)
+	{
+		this.isImmune = isImmune;
+	}
 
-
+	public boolean getIsImmune()
+	{
+		return isImmune;
+	}
 	public void setTokenType(String tokenType) {
 		this.tokenType = tokenType;
 
@@ -135,5 +141,11 @@ public abstract class Terrain
 	public void setTerrainName(String terrainName) {
 		this.terrainName = terrainName;
 	}
+	public boolean getIsAttackable() {
+		return isAttackable;
+	}
 
+	public void setIsAttackable(boolean isAttackable) {
+		this.isAttackable = isAttackable;
+	}
 }

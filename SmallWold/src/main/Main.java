@@ -32,16 +32,11 @@ import terrain.Terrain;
 
 public class Main
 {
+	static Starter starter = new Starter();
 	public static void main(String[] args)
 	{
-		Main.start();
-	}
-
-	public static void start()
-	{
-		Starter starter = new Starter();
 		starter.start();
-
-
 	}
+
+
 }

@@ -1,7 +1,7 @@
 package controllers;
 
-import ammy.Ammy;
 import listCreators.AbilityListCreator;
+import main.Ammy;
 import playBoard.Map;
 import player.Player;
 import setup.MapCreator;

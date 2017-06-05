@@ -1,8 +1,8 @@
 package setup;
 
-import ammy.Ammy;
 import controllers.CombatController;
 import controllers.MapTester;
+import main.Ammy;
 import playBoard.Map;
 import player.Player;
 
@@ -13,35 +13,31 @@ public class DeclareCombat
 	int code;
 	Map map;
 	PlayerCreator playerCreator;
+	Player activePlayer;
 
-	public DeclareCombat(Map map, CombatController cc, MapTester test, PlayerCreator playerCreator)
+	public DeclareCombat(Map map, CombatController cc, MapTester test, PlayerCreator playerCreator, Player activePlayer)
 	{
 		this.map = map;
 		this.cc = cc;
 		this.test = test;
 		this.playerCreator = playerCreator;
+		this.activePlayer = activePlayer;
 	}
 
-
-
-	public void start(Player activePlayer)
+	public void start()
 	{
-		System.out.println("A: All right. Let's start attacking some stuff.");
+		System.out.println("Ammy: ~~~~~~~~~I'm changing towards the Conquest phase. ~~~~~~~~~ \n\n");
+		System.out.println("A: All right. Let's allow " + activePlayer.getName() + " to attack some stuff. \n");
+		cc.setAllAttackableAreas(playerCreator.playerList.get(0));
+		cc.setAllAdjacentAreas(playerCreator.playerList.get(0));
+		cc.setAllReinforcableAreas(playerCreator.playerList.get(0));
 
-		System.out.println("A: Let me give you all areas you can attack.");
+		System.out.println("A: Currently, " + activePlayer.getName() + " controls the following areas.");
+		test.whichAreReinforcable();
 
-
-
-		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
-		{
-			if(map.getTerrain(terrainCounter).getRace().equals(activePlayer.getActiveSet().getRace()))
-			{
-				cc.checkIsAdjacent(map.getTerrain(terrainCounter).getElement(0));
-			}
-		}
-
-
-		test.whichAreAdjacent();
+		System.out.println("A: Which means that " + activePlayer.getName() + " can attack the following areas.");
+		test.whichAreAttackable();
 		System.out.println("A: Which area do  you wish to attack?");
+
 	}
 }

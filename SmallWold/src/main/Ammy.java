@@ -1,10 +1,14 @@
-package ammy;
+package main;
 
 import java.util.List;
 
 import controllers.CombatController;
 import controllers.EndTurnController;
 import controllers.MapTester;
+import controllers.SleepController;
+import listCreators.AbilityListCreator;
+import listCreators.RaceListCreator;
+import listCreators.RelicListCreator;
 import mapInitializers.Initializer;
 import playBoard.Map;
 import setup.DeclareCombat;
@@ -24,17 +28,22 @@ public class Ammy
 	DeclareCombat dc;
 	Map map;
 	EndTurnController etc;
+	Player activePlayer;
 	List<Player> playerList;
 	Initializer mapType;
+	SleepController sleep = new SleepController();
+	AbilityListCreator abilityList = new AbilityListCreator();
+	RaceListCreator raceList = new RaceListCreator();
+	RelicListCreator relicList = new RelicListCreator();
 
 	public void playerSetup()
 	{
 
 		System.out.println("Ammy: I'm running! \n");
-
 		playerCreator.defineAmountOfPlayers(); 					//Asks how many players will play the game
 		playerCreator.definePlayers();
-		System.out.println("Ammy: I'm creating all of your players. \n");
+		playerCreator.setDefaultSets();
+		System.out.println("Ammy: I'm done creating all of your players.");
 		this.playerList = playerCreator.getPlayerList();
 		this.createAccordingMap();
 	}
@@ -42,39 +51,41 @@ public class Ammy
 	public void createAccordingMap()
 	{
 		System.out.println("Ammy: I'm creating the according map for " + playerCreator.getAmountOfPlayers() + " players. \n");
-
-		mapCreator = new MapCreator();									//Creating mapCreator
-		mapCreator.setupMap(playerCreator.getAmountOfPlayers());		//MapCreator needs the playerCreator
-		this.map = new Map(mapCreator.getTerrainList());								//Map needs terrains.
-		System.out.println("Created map.");
-		map.allTerrainsToString();
-
-				//mapCreator needs map.
-
-
+		mapCreator = new MapCreator();
 		mapCreator.setupMap(playerCreator.getAmountOfPlayers());
+		this.map = new Map(mapCreator.getTerrainList());
+		System.out.println("Created map.");
+		mapCreator.setupMap(playerCreator.getAmountOfPlayers());
+		System.out.println("Ammy: I'm done creating the according map.");
 	}
 
 	public void createCreators()
 	{
 		System.out.println("Ammy: I'm creating all the creators. \n" );
-		playerCreator = new PlayerCreator();
-		test = new MapTester(map);										//MapTester needs the map.
+		test = new MapTester(map, playerList.get(0));									//MapTester needs the map.
 		cc = new CombatController(map);								//CombatController needs the map.
-		pickRegions = new PickRegions(map, playerCreator.getPlayerList());
-		dc = new DeclareCombat(map, cc, test, playerCreator);
+		pickRegions = new PickRegions(map, playerCreator.getPlayerList(), abilityList, raceList);
+		dc = new DeclareCombat(map, cc, test, playerCreator, playerCreator.getPlayerList().get(0));
 		etc = new EndTurnController(map);
-		System.out.println("A: Done creating creators... \n");
+		System.out.println("Ammy: Done creating creators... \n");
+	}
 
+	public void setEverythingOnAmmy()
+	{
+		this.playerList = playerCreator.getPlayerList();
 	}
 
 	public void startGame()
 	{
+		System.out.println("A: I'm starting your game... \n");
+
+		pickRegions.start();
+		dc.start();
 
 	}
 
 
-	//Getters and Setters
+	//Getters and Setters below this line ---------------------------------------------------
 
 	public MapCreator getMapCreator() {
 		return mapCreator;
