@@ -45,6 +45,7 @@ public class Ammy
 		playerCreator.setDefaultSets();
 		System.out.println("Ammy: I'm done creating all of your players.");
 		this.playerList = playerCreator.getPlayerList();
+		activePlayer = playerCreator.getPlayerList().get(0);
 		this.createAccordingMap();
 	}
 
@@ -52,21 +53,25 @@ public class Ammy
 	{
 		System.out.println("Ammy: I'm creating the according map for " + playerCreator.getAmountOfPlayers() + " players. \n");
 		mapCreator = new MapCreator();
-		mapCreator.setupMap(playerCreator.getAmountOfPlayers());
-		this.map = new Map(mapCreator.getTerrainList());
+		mapCreator.setupMap(this);
+		this.map = new Map(this);
 		System.out.println("Created map.");
-		mapCreator.setupMap(playerCreator.getAmountOfPlayers());
+		mapCreator.setupMap(this);
 		System.out.println("Ammy: I'm done creating the according map.");
 	}
+
+
 
 	public void createCreators()
 	{
 		System.out.println("Ammy: I'm creating all the creators. \n" );
-		test = new MapTester(map, playerList.get(0));									//MapTester needs the map.
-		cc = new CombatController(map);								//CombatController needs the map.
-		pickRegions = new PickRegions(map, playerCreator.getPlayerList(), abilityList, raceList);
-		dc = new DeclareCombat(map, cc, test, playerCreator, playerCreator.getPlayerList().get(0));
-		etc = new EndTurnController(map);
+		test = new MapTester(this);									//MapTester needs the map.
+
+		cc = new CombatController(this);								//CombatController needs the map.
+
+		pickRegions = new PickRegions(this);
+		dc = new DeclareCombat(this);
+		etc = new EndTurnController(this);
 		System.out.println("Ammy: Done creating creators... \n");
 	}
 
@@ -80,8 +85,9 @@ public class Ammy
 		System.out.println("A: I'm starting your game... \n");
 
 		pickRegions.start();
-		dc.start();
 
+		dc.start();
+		test.whichAreAttackable();
 	}
 
 
@@ -153,6 +159,46 @@ public class Ammy
 
 	public EndTurnController getEtc() {
 		return etc;
+	}
+
+	public Player getActivePlayer() {
+		return activePlayer;
+	}
+
+	public void setActivePlayer(Player activePlayer) {
+		this.activePlayer = activePlayer;
+	}
+
+	public SleepController getSleep() {
+		return sleep;
+	}
+
+	public void setSleep(SleepController sleep) {
+		this.sleep = sleep;
+	}
+
+	public AbilityListCreator getAbilityList() {
+		return abilityList;
+	}
+
+	public void setAbilityList(AbilityListCreator abilityList) {
+		this.abilityList = abilityList;
+	}
+
+	public RaceListCreator getRaceList() {
+		return raceList;
+	}
+
+	public void setRaceList(RaceListCreator raceList) {
+		this.raceList = raceList;
+	}
+
+	public RelicListCreator getRelicList() {
+		return relicList;
+	}
+
+	public void setRelicList(RelicListCreator relicList) {
+		this.relicList = relicList;
 	}
 
 	public void setEtc(EndTurnController etc) {

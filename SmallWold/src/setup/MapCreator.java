@@ -35,8 +35,10 @@ public class MapCreator
 	List<Player> playerList = new ArrayList<Player>();
 
 
-	public void setupMap(int amountOfPlayers)
+	public void setupMap(Ammy ammy)
 	{
+		amountOfPlayers = ammy.getPlayerList().size();
+		System.out.println("Creating " + amountOfPlayers + " players..`.1`.`..1");
 		if(amountOfPlayers == 2)
 		{
 			TwoPlayer mapType = new TwoPlayer();

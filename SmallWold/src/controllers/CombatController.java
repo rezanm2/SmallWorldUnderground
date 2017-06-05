@@ -17,9 +17,9 @@ public class CombatController
 	Map map;
 
 
-	public CombatController(Map map)
+	public CombatController(Ammy ammy)
 	{
-		this.map = map;
+		this.map = ammy.getMap();
 	}
 
 
@@ -144,20 +144,25 @@ public class CombatController
 	}
 
 
-	public void declareTokenAmount(int declaredAmountOfTokens)				//Player declaring amount of tokens for attack
+	public void setDeclaredAmountOfTokens(int declaredAmountOfTokens)				//Player declaring amount of tokens for attack
 	{
 		this.declaredAmountOfTokens = declaredAmountOfTokens;
 	}
 
-	public void calculateCombat(Terrain terrain, Player activePlayer, Player passivePlayer)		//Calculating win or lose
+	public void calculateCombat(Terrain terrain, Player activePlayer)		//Calculating win or lose
 	{
 		if(terrain.getAmountOfTokens() + terrain.getDefense() <= declaredAmountOfTokens + 2)	//If the player wins
 		{
 			terrain.setRace(activePlayer.getActiveSet().getRace());	 							//Make the terrain be the player's Race
 			terrain.setAmountOfTokens(declaredAmountOfTokens);							  		//The declared amount is set on the terrain
+			System.out.println("A: Attack succesful!");
+			setAllAttackableAreas(activePlayer);
+			setAllAdjacentAreas(activePlayer);
+			setAllReinforcableAreas(activePlayer);
 		}
 		else																					//If the player loses
 		{
+			System.out.println("A: Not enough tokens selected. Wanna roll a die?");
 			//Roll conquest die or attack something different
 		}
 	}

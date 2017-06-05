@@ -33,12 +33,12 @@ public class PickRegions
 	Set activeSetFour;
 	Set activeSetFive;
 
-	public PickRegions(Map map, List<Player> playerList, AbilityListCreator abilityList, RaceListCreator raceList)
+	public PickRegions(Ammy ammy)
 	{
-		this.map = map;
-		this.playerList = playerList;
-		this.abilityList = abilityList;
-		this.raceList = raceList;
+		this.map = ammy.getMap();
+		this.playerList = ammy.getPlayerList();
+		this.abilityList = ammy.getAbilityList();
+		this.raceList = ammy.getRaceList();
 	}
 
 

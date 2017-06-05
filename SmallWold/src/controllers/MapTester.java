@@ -12,10 +12,10 @@ public class MapTester
 	Map map;
 	Player activePlayer;
 
-	public MapTester(Map map, Player activePlayer)
+	public MapTester(Ammy ammy)
 	{
-		this.map = map;
-		this.activePlayer = activePlayer;
+		this.map = ammy.getMap();
+		this.activePlayer = ammy.getPlayerList().get(0);
 	}
 
 
@@ -38,10 +38,13 @@ public class MapTester
 		System.out.println("A: Number : Terrain : Tokentype : Amount of Tokens");
 		for(terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
-			System.out.println("A: " + (terrainCounter + 1) + "\t     "
-					+ map.getTerrain(terrainCounter).getTerrainName() + "\t"
-					+ map.getTerrain(terrainCounter).getRace().getTokenType()			//Print the number of the iteration
-					+ "\t" + map.getTerrain(terrainCounter).getAmountOfTokens());	//and whether it's true or false
+			if(map.getTerrain(terrainCounter).getIsAdjacent() == true)						//If isAttackable is true
+			{
+				System.out.println("A: " + (terrainCounter + 1) + "\t     "
+						+ map.getTerrain(terrainCounter).getTerrainName() + "\t"
+						+ map.getTerrain(terrainCounter).getRace().getTokenType()
+						+ "\t" + map.getTerrain(terrainCounter).getAmountOfTokens());
+			}
 		}
 	}
 
@@ -51,12 +54,12 @@ public class MapTester
 		System.out.println("A: Number : Terrain : Tokentype : Amount of Tokens");
 		for(terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
-		if(map.getTerrain(terrainCounter).getIsAttackable() == true)						//If isAttackable is true
+			if(map.getTerrain(terrainCounter).getIsAttackable() == true)						//If isAttackable is true
 			{
-			System.out.println("A: " + (terrainCounter + 1) + "\t     "
-					+ map.getTerrain(terrainCounter).getTerrainName() + "\t"
-					+ map.getTerrain(terrainCounter).getRace().getTokenType()			//Print the number of the iteration
-					+ "\t" + map.getTerrain(terrainCounter).getAmountOfTokens());	//and whether it's true or false
+				System.out.println("A: " + (terrainCounter + 1) + "\t     "
+						+ map.getTerrain(terrainCounter).getTerrainName() + "\t"
+						+ map.getTerrain(terrainCounter).getRace().getTokenType()			//Print the number of the iteration
+						+ "\t" + map.getTerrain(terrainCounter).getAmountOfTokens());	//and whether it's true or false
 			}
 		}
 	}

@@ -19,14 +19,14 @@ public class EndTurnController
 	Map map;
 	Player activePlayer;
 
-	public EndTurnController(Map map)
+	public EndTurnController(Ammy ammy)
 	{
-		this.map = map;
+		this.map = ammy.getMap();
 	}
 
-	public void calculateTerrainIncome(Player activePlayer)
+	public void calculateTerrainIncome(Ammy ammy)
 	{
-		this.activePlayer = activePlayer;
+		this.activePlayer = ammy.getPlayerList().get(0);
 		incomeOfTerrains = 0;
 
 		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains

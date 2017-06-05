@@ -12,6 +12,14 @@ public class FourPlayer extends Initializer
 {
 	public void initialize()								// Initializing the map
 	{
+		/*
+		 * int[][] terrain = new int[][] {
+		 *   new int[] {11,12,21,22},
+		 *   new int[] {12,11,13,22,23,24,25}
+		 * };
+		 * terrain[0];
+		 * terrain[x];
+		 */
 		int [] terrainOne = new int[] {11, 12, 21, 22};				//Make the terrain have its own value and the other values
 		int [] terrainTwo = new int[] {12, 13, 22, 23, 24, 25};
 		int [] terrainThree = new int[] {13, 12, 14, 25, 26};

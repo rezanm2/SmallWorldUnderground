@@ -20,9 +20,9 @@ public class Map
 	SleepController sleep = new SleepController();
 
 
-	public Map(List<Terrain> terrains)
+	public Map(Ammy ammy)
 	{
-		this.terrains = terrains;
+		this.terrains = ammy.getMapCreator().getTerrainList();
 		this.setEmpty();
 	}
 
