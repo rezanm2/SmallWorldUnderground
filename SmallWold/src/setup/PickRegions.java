@@ -44,6 +44,8 @@ public class PickRegions
 
 	public void start()
 	{
+		System.out.println("Ammy: ~~~~~~~~~I'm changing towards the PickRegions phase. ~~~~~~~~~ \n\n");
+
 		for(int i=0;i<playerList.size();i++)			//As long as there is players
 		{
 			System.out.println("For now, " + playerList.get(i).getName() + " is going to be "

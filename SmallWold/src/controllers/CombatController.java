@@ -24,6 +24,7 @@ public class CombatController
 
 	public void setAllAdjacentAreas(Player activePlayer)
 	{
+		setNotAdjacent();
 		System.out.println("A: Setting all adjacent terrains for " + activePlayer.getName() + "\n");
 		this.activePlayer = activePlayer;
 		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
@@ -64,6 +65,7 @@ public class CombatController
 
 	public void setAllAttackableAreas(Player activePlayer)
 	{
+		setNotAttackable();
 		System.out.println("A: Setting all attackable terrains for " + activePlayer.getName() + "\n");
 		this.activePlayer = activePlayer;
 		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
@@ -99,11 +101,11 @@ public class CombatController
 			terrainCounter++;										//Keep track of which terrain we're at
 			terrain++;												//Look at the next terrain, "eye"
 		}
-
 	}
 
 	public void setAllReinforcableAreas(Player activePlayer)
 	{
+		setNotReinforcable();
 		System.out.println("A: Setting all reinforcable terrains for " + activePlayer.getName() + "\n");
 		this.activePlayer = activePlayer;
 		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains

@@ -83,8 +83,8 @@ public class Ammy
 		System.out.println("A: I'm starting your game... \n");
 
 		pickRegions.start();
-
 		dc.start();
+
 		test.whichAreAttackable();
 	}
 
