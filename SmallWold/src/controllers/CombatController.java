@@ -1,6 +1,9 @@
 package controllers;
 
+import java.util.Scanner;
+
 import main.Ammy;
+import playBoard.Die;
 import playBoard.Map;
 import player.Player;
 import terrain.Terrain;
@@ -13,9 +16,9 @@ public class CombatController
 	private int elementCounter;
 	private int terrain;
 	private int value;
+	private Die die = new Die();
 	Player activePlayer;
 	Map map;
-
 
 	public CombatController(Ammy ammy)
 	{
@@ -152,18 +155,44 @@ public class CombatController
 	{
 		if(terrain.getAmountOfTokens() + terrain.getDefense() + 2 <= declaredAmountOfTokens)	//If the player wins
 		{
-			terrain.setRace(activePlayer.getActiveSet().getRace());	 							//Make the terrain be the player's Race
-			terrain.setAmountOfTokens(declaredAmountOfTokens);							  		//The declared amount is set on the terrain
-			System.out.println("A: Attack succesful!");
-			setAllAttackableAreas(activePlayer);
-			setAllAdjacentAreas(activePlayer);
-			setAllReinforcableAreas(activePlayer);
+			doAttack(terrain, activePlayer);
 		}
 		else																					//If the player loses
 		{
-			System.out.println("A: Not enough tokens selected. Wanna roll a die?");
-			//Roll conquest die or attack something different
+			System.out.println("A: Not enough tokens selected. Wanna roll a die? ( (Y)es / (N)o )");
+			Scanner input = new Scanner(System.in);
+			char rollDice = input.nextLine().toString().toUpperCase().charAt(0);
+			System.out.println(rollDice);
+			if(rollDice == 'Y') {
+				System.out.println("A: So you want to roll the die, great! ");
+				die.throwDie();
+				System.out.println("A: Let's see what you rolled: " + die.getResult() + "\n");
+				if(terrain.getAmountOfTokens() + terrain.getDefense() + 2 <= declaredAmountOfTokens + die.getResult()) {
+					System.out.println("A: The die says you can take the terrain! ");
+					doAttack(terrain, activePlayer);
+					System.out.println("A: Ending your conquestfase");
+				}
+				else {
+					System.out.println("A: Ai thats to bad. ");
+					System.out.println("A: Ending your conquestfase");
+				}
+			}
+			else if(rollDice == 'N') {
+				System.out.println("A: Ah okey, I will cancel the attack than. ");
+			}
+			else {
+				System.out.println("A: I didn't understand what you want me to do, so I am cancelling the attack. ");
+			}
 		}
+	}
+	
+	public void doAttack(Terrain terrain, Player activePlayer) {
+		terrain.setRace(activePlayer.getActiveSet().getRace());	 							//Make the terrain be the player's Race
+		terrain.setAmountOfTokens(declaredAmountOfTokens);							  		//The declared amount is set on the terrain
+		System.out.println("A: Attack succesful!");
+		setAllAttackableAreas(activePlayer);
+		setAllAdjacentAreas(activePlayer);
+		setAllReinforcableAreas(activePlayer);
 	}
 
 	public void setNotAdjacent()					//Set all the "isAttackable" booleans to false again
