@@ -53,7 +53,7 @@
                   <Image url="@../images/icons/fotoott.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="124.0" fitWidth="136.0" layoutX="-10.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" rotate="340.0">
+            <ImageView fitHeight="124.0" fitWidth="136.0" layoutX="-2.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true" rotate="340.0">
                <image>
                   <Image url="@../images/icons/Volcano.png" /> 
                </image>
