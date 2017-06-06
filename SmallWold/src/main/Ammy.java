@@ -35,10 +35,10 @@ public class Ammy
 	AbilityListCreator abilityList = new AbilityListCreator();
 	RaceListCreator raceList = new RaceListCreator();
 	RelicListCreator relicList = new RelicListCreator();
-
+	
 	public void playerSetup()
 	{
-
+		
 		System.out.println("Ammy: I'm running! \n");
 		playerCreator.defineAmountOfPlayers(); 					//Asks how many players will play the game
 		playerCreator.definePlayers();
