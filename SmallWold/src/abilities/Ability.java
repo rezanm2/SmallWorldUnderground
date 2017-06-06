@@ -12,7 +12,6 @@ public abstract class Ability
 	{
 	}
 
-	public abstract void calculateAbility();
 
 	public void setType(String name)
 	{

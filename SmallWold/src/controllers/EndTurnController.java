@@ -86,13 +86,9 @@ public class EndTurnController
 
 	public void getAbilityIncome()
 	{
-		ammy.getPlayerList().get(0).getActiveSet().getAbility().calculateAbility();
 	}
 
 	public void addSum(){
-		getTerrainIncome() +
-
-		totalSum = this.getTerrainIncome() + this.getAbilityIncome() + this.getRaceIncome() + this.getRelicIncome() + this.getSpecialPlaceIncome();
 	}
 
 	public void calculateNewBalance(int coins){
@@ -131,11 +127,4 @@ public class EndTurnController
 	public void setTotalSum(int totalSum) {
 		this.totalSum = totalSum;
 	}
-
-
-
-
-
-
-
 }

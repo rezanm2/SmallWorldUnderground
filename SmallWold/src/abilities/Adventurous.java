@@ -11,7 +11,7 @@ public class Adventurous extends Ability
 	private int abilityIncome;
 	private int coins;
 	private List<Player> playerList;
-	AbilityListCreator abilityList = new AbilityListCreator();
+	AbilityListCreator abilityList;
 	Map map;
 	Player activePlayer;
 	public Adventurous()

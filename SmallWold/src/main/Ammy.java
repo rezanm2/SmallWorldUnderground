@@ -16,6 +16,7 @@ import setup.DeclareCombat;
 import setup.MapCreator;
 import setup.PickRegions;
 import setup.PlayerCreator;
+import setup.ReinforceAreas;
 import player.Player;
 import terrain.Terrain;
 
@@ -31,6 +32,7 @@ public class Ammy
 	EndTurnController etc;
 	Player activePlayer;
 	List<Player> playerList;
+	ReinforceAreas ra;
 	Initializer mapType;
 	SleepController sleep = new SleepController();
 	AbilityListCreator abilityList = new AbilityListCreator();
@@ -40,7 +42,7 @@ public class Ammy
 
 	public void playerSetup()
 	{
-		
+
 		System.out.println("Ammy: I'm running! \n");
 		playerCreator.defineAmountOfPlayers(); 					//Asks how many players will play the game
 		playerCreator.definePlayers();
@@ -72,6 +74,7 @@ public class Ammy
 		pickRegions = new PickRegions(this);						//
 		dc = new DeclareCombat(this);
 		etc = new EndTurnController(this);
+		this.ra = new ReinforceAreas(this);
 		System.out.println("Ammy: Done creating creators... \n");
 	}
 
@@ -83,12 +86,10 @@ public class Ammy
 	public void startGame()
 	{
 		System.out.println("A: I'm starting your game... \n");
-
-
 		System.out.println(getPlayerList().get(0).getHand().getCurrentTokens());
 		pickRegions.start();
 		dc.start();
-		test.whichAreAttackable();
+		ra.start();
 	}
 
 
@@ -213,13 +214,13 @@ public class Ammy
 	public void setMapType(Initializer init) {
 		this.mapType = init;
 	}
-	
+
 	public Die getDie() {
 		return die;
 	}
-	
+
 	public void setDie(Die die) {
 		this.die = die;
 	}
-	
+
 }
