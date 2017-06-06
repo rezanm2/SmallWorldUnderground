@@ -40,7 +40,7 @@ public class Ammy
 
 	public void playerSetup()
 	{
-
+		
 		System.out.println("Ammy: I'm running! \n");
 		playerCreator.defineAmountOfPlayers(); 					//Asks how many players will play the game
 		playerCreator.definePlayers();
