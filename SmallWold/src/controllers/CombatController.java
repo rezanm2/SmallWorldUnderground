@@ -22,14 +22,13 @@ public class CombatController
 		this.map = ammy.getMap();
 	}
 
-
 	public void setAllAdjacentAreas(Player activePlayer)
 	{
 		System.out.println("A: Setting all adjacent terrains for " + activePlayer.getName() + "\n");
 		this.activePlayer = activePlayer;
 		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
-			if (activePlayer.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace()))
+			if (activePlayer.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace())) //For every land that's the current player's
 			{
 				changeAllAdjacentAreas(map.getTerrain(terrainCounter).getElement(0));
 			}
