@@ -37,13 +37,12 @@ public class MapCreator
 
 	public void setupMap(Ammy ammy)
 	{
-		amountOfPlayers = ammy.getPlayerList().size();
-		System.out.println("Creating " + amountOfPlayers + " players..`.1`.`..1");
-		if(amountOfPlayers == 2)
+		amountOfPlayers = ammy.getPlayerList().size();		//Amount of players
+		if(amountOfPlayers == 2)							//If there's two players
 		{
-			TwoPlayer mapType = new TwoPlayer();
-			mapType.initialize();
-			this.terrainList = mapType.getTerrains();
+			TwoPlayer mapType = new TwoPlayer();			//Make a variable that holds the 2-player map
+			mapType.initialize();							//Add the terrains to the map
+			this.terrainList = mapType.getTerrains();		//Make the mapcreator aware of the terrainlist.
 		}
 		else if(amountOfPlayers == 3)
 		{

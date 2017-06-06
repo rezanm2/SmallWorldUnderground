@@ -66,10 +66,8 @@ public class Ammy
 	{
 		System.out.println("Ammy: I'm creating all the creators. \n" );
 		test = new MapTester(this);									//MapTester needs the map.
-
-		cc = new CombatController(this);								//CombatController needs the map.
-
-		pickRegions = new PickRegions(this);
+		cc = new CombatController(this);							//CombatController needs the map.
+		pickRegions = new PickRegions(this);						//
 		dc = new DeclareCombat(this);
 		etc = new EndTurnController(this);
 		System.out.println("Ammy: Done creating creators... \n");
