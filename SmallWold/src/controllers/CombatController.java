@@ -23,14 +23,13 @@ public class CombatController
 		this.map = ammy.getMap();
 	}
 
-
 	public void setAllAdjacentAreas(Player activePlayer)
 	{
 		System.out.println("A: Setting all adjacent terrains for " + activePlayer.getName() + "\n");
 		this.activePlayer = activePlayer;
 		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
-			if (activePlayer.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace()))
+			if (activePlayer.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace())) //For every land that's the current player's
 			{
 				changeAllAdjacentAreas(map.getTerrain(terrainCounter).getElement(0));
 			}
@@ -152,7 +151,7 @@ public class CombatController
 
 	public void calculateCombat(Terrain terrain, Player activePlayer)		//Calculating win or lose
 	{
-		if(terrain.getAmountOfTokens() + terrain.getDefense() <= declaredAmountOfTokens + 2)	//If the player wins
+		if(terrain.getAmountOfTokens() + terrain.getDefense() + 2 <= declaredAmountOfTokens)	//If the player wins
 		{
 			terrain.setRace(activePlayer.getActiveSet().getRace());	 							//Make the terrain be the player's Race
 			terrain.setAmountOfTokens(declaredAmountOfTokens);							  		//The declared amount is set on the terrain
