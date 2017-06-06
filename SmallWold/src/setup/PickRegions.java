@@ -83,21 +83,24 @@ public class PickRegions
 						setDefaults = true;
 						break;								//Break out of the loops.
 					}
-
-
-					if(map.getTerrain(tempAreaPicked).getIsImmune() == true					//If area is immune
-							|| !map.getTerrain(tempAreaPicked).getRace().getTokenType()		//or if the area is not empty
-							.equals(raceList.getListElement(0).getTokenType()) || tempAreaPicked>map.getAllTerrains()
-							.size())
-
-
-					{
+					
+					if(tempAreaPicked>map.getAllTerrains().size()) { 					// checks if area is in the map
 						System.out.println("A: Looks like that area's not choosable at the moment. Please pick a different area.");
 					}
-					else
-					{
-						validChoice = true;					//Else you've picked a valid choice and can move on
-					}
+					
+					else {
+						if(map.getTerrain(tempAreaPicked).getIsImmune() == true					//If area is immune
+							|| !map.getTerrain(tempAreaPicked).getRace().getTokenType()		//or if the area is not empty
+							.equals(raceList.getListElement(0).getTokenType()))
+							
+						{
+							System.out.println("A: Looks like that area's not choosable at the moment. Please pick a different area.");
+						}
+						else
+						{
+							validChoice = true;
+						}
+					}	
 				}
 
 				if(setDefaults == true)
