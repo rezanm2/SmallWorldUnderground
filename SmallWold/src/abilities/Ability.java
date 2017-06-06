@@ -1,6 +1,6 @@
 package abilities;
 
-public class Ability
+public abstract class Ability
 {
 
 	protected String type;
@@ -11,6 +11,8 @@ public class Ability
 	public Ability()
 	{
 	}
+
+	public abstract void calculateAbility();
 
 	public void setType(String name)
 	{
