@@ -1,5 +1,7 @@
 package abilities;
 
+import player.Player;
+
 public class Empty extends Ability
 {
 	public Empty()
@@ -8,4 +10,11 @@ public class Empty extends Ability
 		type = "Empty";
 		traitText = "There is no ability selected.";
 	}
+
+	@Override
+	public void calculateAbility(Player activePlayer) {
+		// TODO Auto-generated method stub
+
+	}
+
 }
