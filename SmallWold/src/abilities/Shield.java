@@ -1,5 +1,7 @@
 package abilities;
 
+import player.Player;
+
 public class Shield extends Ability
 {
 	public Shield()
@@ -7,5 +9,11 @@ public class Shield extends Ability
 		amountOfTokens = 3;
 		type = "Flocking";
 		traitText = "+2 coins if all your regions are adjacent.";
+	}
+
+	@Override
+	public void calculateAbility(Player activePlayer) {
+		// TODO Auto-generated method stub
+
 	}
 }

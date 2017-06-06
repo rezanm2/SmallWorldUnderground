@@ -1,5 +1,7 @@
 package abilities;
 
+import player.Player;
+
 public abstract class Ability
 {
 
@@ -7,11 +9,13 @@ public abstract class Ability
 	protected String traitText;
 	protected int amountOfTokens;
 	protected boolean active;
+	protected Player activePlayer;
 
 	public Ability()
 	{
 	}
 
+	public abstract void calculateAbility(Player activePlayer);
 
 	public void setType(String name)
 	{

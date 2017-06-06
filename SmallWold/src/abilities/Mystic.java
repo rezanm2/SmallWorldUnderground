@@ -11,6 +11,7 @@ public class Mystic extends Ability
 	private int abilityIncome;
 	Player activePlayer;
 	CombatController cc;
+
 	public Mystic()
 	{
 		amountOfTokens = 4;
@@ -18,7 +19,7 @@ public class Mystic extends Ability
 		traitText = "+1 coin for each mystic region";
 	}
 
-	public void calculateAbilityIncome(Player activePlayer){
+	public void calculateAbility(Player activePlayer){
 		this.activePlayer = activePlayer;
 		cc.checkTerrainType("Mystic");
 		this.setAbilityIncome(cc.getTerrainStringCounter());

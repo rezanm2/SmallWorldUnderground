@@ -34,8 +34,9 @@ public class PlayerCreator
 
 
 	public void setDefaultSets()
+
 	{
-		activeSetOne = new Set(abilityList.getListElement(1), raceList.getListElement(1));
+		activeSetOne = new Set(abilityList.getListElement(1), raceList.getListElement(1));	//Setting random set defaults for players
 		playerList.get(0).setActiveSet(activeSetOne);
 
 		activeSetTwo = new Set(abilityList.getListElement(2), raceList.getListElement(2));

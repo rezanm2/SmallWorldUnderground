@@ -25,4 +25,10 @@ public class Adventurous extends Ability
 		this.activePlayer = activePlayer;
 
 	}
+
+	@Override
+	public void calculateAbility(Player activePlayer) {
+		this.activePlayer = activePlayer;
+
+	}
 }
