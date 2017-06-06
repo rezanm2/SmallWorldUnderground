@@ -20,6 +20,5 @@ public class Starter
 		ammy.createCreators();
 		ammy.setEverythingOnAmmy();
 		ammy.startGame();
-
 	}
 }

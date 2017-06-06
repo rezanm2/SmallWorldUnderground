@@ -82,8 +82,9 @@ public class Ammy
 	{
 		System.out.println("A: I'm starting your game... \n");
 
-		pickRegions.start();
 
+		System.out.println(getPlayerList().get(0).getHand().getCurrentTokens());
+		pickRegions.start();
 		dc.start();
 		test.whichAreAttackable();
 	}

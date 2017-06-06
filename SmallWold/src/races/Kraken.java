@@ -9,4 +9,10 @@ public class Kraken extends Race
 		tokenType = "Kraken";
 		traitText = "Do not empty river regions at end of turn, even in decline.";
 	}
+
+	@Override
+	public void useTrait()
+	{
+
+	}
 }

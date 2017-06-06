@@ -9,4 +9,10 @@ public class Ogres extends Race
 		tokenType = "Ogres";
 		traitText = "It takes one less token to conquer a region (minimum of one)";
 	}
+
+	@Override
+	public void useTrait()
+	{
+
+	}
 }

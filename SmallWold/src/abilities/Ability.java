@@ -1,6 +1,6 @@
 package abilities;
 
-public class Ability
+public abstract class Ability
 {
 
 	protected String type;
@@ -11,6 +11,8 @@ public class Ability
 	public Ability()
 	{
 	}
+
+	public abstract void calculateAbility();
 
 	public void setType(String name)
 	{
@@ -29,5 +31,14 @@ public class Ability
 	public boolean getActive()
 	{
 		return active;
+	}
+
+	public void setAmountOfTokens(int amountOfTokens)
+	{
+		this.amountOfTokens = amountOfTokens;
+	}
+	public int getAmountOfTokens()
+	{
+		return amountOfTokens;
 	}
 }

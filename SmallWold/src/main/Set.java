@@ -8,11 +8,21 @@ public class Set
 
 	protected Ability ability;
 	protected Race race;
+	protected int initialTokens;
 
 	public Set(Ability ability, Race race)
 	{
 		this.ability = ability;
 		this.race = race;
+		this.initialTokens = ability.getAmountOfTokens() + race.getAmountOfTokens();
+	}
+
+	public int getInitialTokens() {
+		return initialTokens;
+	}
+
+	public void setInitialTokens(int initialTokens) {
+		this.initialTokens = initialTokens;
 	}
 
 	public void setAbility(Ability ability)
@@ -20,9 +30,9 @@ public class Set
 		this.ability = ability;
 	}
 
-	public String getAbility()
+	public Ability getAbility()
 	{
-		return ability.getType();
+		return ability;
 	}
 
 	public void setRace(Race race)

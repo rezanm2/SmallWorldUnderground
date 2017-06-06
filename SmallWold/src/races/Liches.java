@@ -9,4 +9,10 @@ public class Liches extends Race
 		tokenType = "Liches";
 		traitText = "Receive one coin from any player attacking Liches";
 	}
+
+	@Override
+	public void useTrait()
+	{
+
+	}
 }

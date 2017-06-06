@@ -13,6 +13,7 @@ public class CombatController
 {
 	private int declaredAmountOfTokens;
 	private int terrainCounter;
+	private int terrainStringCounter;
 	private int elementCounter;
 	private int terrain;
 	private int value;
@@ -27,6 +28,7 @@ public class CombatController
 
 	public void setAllAdjacentAreas(Player activePlayer)
 	{
+		setNotAdjacent();
 		System.out.println("A: Setting all adjacent terrains for " + activePlayer.getName() + "\n");
 		this.activePlayer = activePlayer;
 		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
@@ -67,6 +69,7 @@ public class CombatController
 
 	public void setAllAttackableAreas(Player activePlayer)
 	{
+		setNotAttackable();
 		System.out.println("A: Setting all attackable terrains for " + activePlayer.getName() + "\n");
 		this.activePlayer = activePlayer;
 		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
@@ -102,11 +105,11 @@ public class CombatController
 			terrainCounter++;										//Keep track of which terrain we're at
 			terrain++;												//Look at the next terrain, "eye"
 		}
-
 	}
 
 	public void setAllReinforcableAreas(Player activePlayer)
 	{
+		setNotReinforcable();
 		System.out.println("A: Setting all reinforcable terrains for " + activePlayer.getName() + "\n");
 		this.activePlayer = activePlayer;
 		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
@@ -225,14 +228,14 @@ public class CombatController
 		elementCounter = 0;
 		terrain = 0;
 		value = 0;
-
+		terrainStringCounter = 0;
 		while(terrainCounter<map.getAllTerrains().size())				//While there's still terrains left
 		{
 			while(elementCounter<map.getTerrain(terrain).getIdArray().length)		//While there's still numbers in the terrain's array
 			{
 				if(map.getTerrain(terrain).getTerrainName().equals(terrainString)) 		//If the idCode is found, set isAttackable to true
 				{
-					map.getTerrain(terrain).setIsAdjacent(true);
+					terrainStringCounter++;
 					System.out.println("A: " + (terrain+1) + " is a " + terrainString);
 				}
 				value++;											//Look at the next value in the terrain's array, "eye"
@@ -243,5 +246,79 @@ public class CombatController
 			terrainCounter++;										//Keep track of which terrain we're at
 			terrain++;												//Look at the next terrain, "eye"
 		}
+	}
+
+	public int getTerrainCounter() {
+		return terrainCounter;
+	}
+
+
+	public void setTerrainCounter(int terrainCounter) {
+		this.terrainCounter = terrainCounter;
+	}
+
+
+	public int getTerrainStringCounter() {
+		return terrainStringCounter;
+	}
+
+
+	public void setTerrainStringCounter(int terrainStringCounter) {
+		this.terrainStringCounter = terrainStringCounter;
+	}
+
+
+	public int getElementCounter() {
+		return elementCounter;
+	}
+
+
+	public void setElementCounter(int elementCounter) {
+		this.elementCounter = elementCounter;
+	}
+
+
+	public int getTerrain() {
+		return terrain;
+	}
+
+
+	public void setTerrain(int terrain) {
+		this.terrain = terrain;
+	}
+
+
+	public int getValue() {
+		return value;
+	}
+
+
+	public void setValue(int value) {
+		this.value = value;
+	}
+
+
+	public Player getActivePlayer() {
+		return activePlayer;
+	}
+
+
+	public void setActivePlayer(Player activePlayer) {
+		this.activePlayer = activePlayer;
+	}
+
+
+	public Map getMap() {
+		return map;
+	}
+
+
+	public void setMap(Map map) {
+		this.map = map;
+	}
+
+
+	public int getDeclaredAmountOfTokens() {
+		return declaredAmountOfTokens;
 	}
 }
