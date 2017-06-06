@@ -1,9 +1,10 @@
 package abilities;
 
 import controllers.CombatController;
+import main.Ammy;
 import player.Player;
 
-public class Stone extends Ability
+public class Stone extends Ability implements CalculatableIncome
 {
 	CombatController cc;
 	private int abilityIncome;
@@ -16,9 +17,9 @@ public class Stone extends Ability
 	}
 
 	@Override
-	public void calculateAbility(Player activePlayer) {
-		this.activePlayer = activePlayer;
-		cc.checkTerrainType("Mystic");
+	public void calculateAbility(Ammy ammy) {
+		this.activePlayer = ammy.getActivePlayer();
+		cc.checkTerrainType("Stone");
 		this.setAbilityIncome(cc.getTerrainStringCounter());
 
 	}

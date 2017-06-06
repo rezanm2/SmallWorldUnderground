@@ -1,9 +1,10 @@
 package abilities;
 
 import controllers.CombatController;
+import main.Ammy;
 import player.Player;
 
-public class Mining extends Ability
+public class Mining extends Ability  implements CalculatableIncome
 {
 	CombatController cc;
 	private int abilityIncome;
@@ -24,7 +25,7 @@ public class Mining extends Ability
 	}
 
 	@Override
-	public void calculateAbility(Player activePlayer) {
+	public void calculateAbility(Ammy ammy) {
 		this.activePlayer = activePlayer;
 		cc.checkTerrainType("Mystic");
 		this.setAbilityIncome(cc.getTerrainStringCounter());

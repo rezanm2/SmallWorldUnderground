@@ -3,10 +3,11 @@ package abilities;
 import java.util.List;
 
 import listCreators.AbilityListCreator;
+import main.Ammy;
 import playBoard.Map;
 import player.Player;
 
-public class Adventurous extends Ability
+public class Adventurous extends Ability implements CalculatableIncome
 {
 	private int abilityIncome;
 	private int coins;
@@ -27,8 +28,12 @@ public class Adventurous extends Ability
 	}
 
 	@Override
-	public void calculateAbility(Player activePlayer) {
-		this.activePlayer = activePlayer;
+	public void calculateAbility(Ammy ammy) {
+		this.activePlayer = ammy.getActivePlayer();
+	}
 
+	@Override
+	public int getAbilityIncome() {
+		return 0;
 	}
 }

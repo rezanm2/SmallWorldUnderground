@@ -1,8 +1,9 @@
 package abilities;
 
+import main.Ammy;
 import player.Player;
 
-public class Wise extends Ability
+public class Wise extends Ability implements CalculatableIncome
 {
 	public Wise()
 	{
@@ -12,8 +13,14 @@ public class Wise extends Ability
 	}
 
 	@Override
-	public void calculateAbility(Player activePlayer) {
+	public void calculateAbility(Ammy ammy) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public int getAbilityIncome() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

@@ -1,10 +1,11 @@
 package abilities;
 
+import main.Ammy;
 import player.Player;
 
 public abstract class Ability
 {
-
+	protected int abilityIncome;
 	protected String type;
 	protected String traitText;
 	protected int amountOfTokens;
@@ -15,7 +16,7 @@ public abstract class Ability
 	{
 	}
 
-	public abstract void calculateAbility(Player activePlayer);
+	public abstract void calculateAbility(Ammy ammy);
 
 	public void setType(String name)
 	{
@@ -43,5 +44,9 @@ public abstract class Ability
 	public int getAmountOfTokens()
 	{
 		return amountOfTokens;
+	}
+
+	public int getAbilityIncome() {
+		return abilityIncome;
 	}
 }

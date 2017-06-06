@@ -8,6 +8,7 @@ import playBoard.Map;
 import player.Hand;
 import player.Player;
 import setup.MapCreator;
+import races.Race;
 
 public class EndTurnController
 {
@@ -84,10 +85,16 @@ public class EndTurnController
 
 	}
 
-	public void getAbilityIncome()
+	public void getAllAbilityIncome()
 	{
+		activePlayer = ammy.getActivePlayer();
+		ammy.getPlayerList().get(0).getActiveSet().setAbility(abilityList.getListElement(10));
+		System.out.println("A: Player one got " + activePlayer.getActiveSet().getAbility().getType() + " now.");
 
-		ammy.getPlayerList().get(0).getActiveSet().getAbility().calculateAbility(activePlayer);
+		ammy.getPlayerList().get(0).getActiveSet().getAbility().calculateAbility(ammy);
+
+		System.out.println("A: " + activePlayer.getName() + " gets " + activePlayer.getActiveSet().getAbility().getAbilityIncome()
+							+ " coins from their ability trait.");
 
 	}
 

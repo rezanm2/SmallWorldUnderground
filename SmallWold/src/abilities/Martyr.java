@@ -1,8 +1,9 @@
 package abilities;
 
+import main.Ammy;
 import player.Player;
 
-public class Martyr extends Ability
+public class Martyr extends Ability implements CalculatableIncome
 {
 	public Martyr()
 	{
@@ -12,8 +13,14 @@ public class Martyr extends Ability
 	}
 
 	@Override
-	public void calculateAbility(Player activePlayer) {
+	public void calculateAbility(Ammy ammy) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public int getAbilityIncome() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

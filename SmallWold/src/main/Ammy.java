@@ -86,10 +86,9 @@ public class Ammy
 	public void startGame()
 	{
 		System.out.println("A: I'm starting your game... \n");
-		System.out.println(getPlayerList().get(0).getHand().getCurrentTokens());
+		activePlayer = playerList.get(0);
 		pickRegions.start();
-		dc.start();
-		ra.start();
+		etc.getAllAbilityIncome();
 	}
 
 

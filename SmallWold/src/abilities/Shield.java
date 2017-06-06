@@ -1,5 +1,6 @@
 package abilities;
 
+import main.Ammy;
 import player.Player;
 
 public class Shield extends Ability
@@ -7,12 +8,12 @@ public class Shield extends Ability
 	public Shield()
 	{
 		amountOfTokens = 3;
-		type = "Flocking";
-		traitText = "+2 coins if all your regions are adjacent.";
+		type = "Shield";
+		traitText = "Get a mushroom shield for each shroom region you control";
 	}
 
 	@Override
-	public void calculateAbility(Player activePlayer) {
+	public void calculateAbility(Ammy ammy) {
 		// TODO Auto-generated method stub
 
 	}

@@ -3,10 +3,10 @@ package abilities;
 import java.util.List;
 
 import controllers.CombatController;
-
+import main.Ammy;
 import player.Player;
 
-public class Mystic extends Ability
+public class Mystic extends Ability  implements CalculatableIncome
 {
 	private int abilityIncome;
 	Player activePlayer;
@@ -19,10 +19,11 @@ public class Mystic extends Ability
 		traitText = "+1 coin for each mystic region";
 	}
 
-	public void calculateAbility(Player activePlayer){
-		this.activePlayer = activePlayer;
+	public void calculateAbility(Ammy ammy){
+		cc = new CombatController(ammy);
+
 		cc.checkTerrainType("Mystic");
-		this.setAbilityIncome(cc.getTerrainStringCounter());
+		abilityIncome = cc.getTerrainStringCounter();
 	}
 
 	public int getAbilityIncome() {

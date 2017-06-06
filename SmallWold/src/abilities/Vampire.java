@@ -1,5 +1,6 @@
 package abilities;
 
+import main.Ammy;
 import player.Player;
 
 public class Vampire extends Ability
@@ -12,7 +13,7 @@ public class Vampire extends Ability
 	}
 
 	@Override
-	public void calculateAbility(Player activePlayer) {
+	public void calculateAbility(Ammy ammy) {
 		// TODO Auto-generated method stub
 
 	}

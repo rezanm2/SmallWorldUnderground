@@ -1,8 +1,9 @@
 package abilities;
 
+import main.Ammy;
 import player.Player;
 
-public class Frightened extends Ability
+public class Frightened extends Ability implements CalculatableIncome
 {
 	public Frightened()
 	{
@@ -12,8 +13,14 @@ public class Frightened extends Ability
 	}
 
 	@Override
-	public void calculateAbility(Player activePlayer) {
+	public void calculateAbility(Ammy ammy) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public int getAbilityIncome() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

@@ -189,7 +189,7 @@ public class CombatController
 			}
 		}
 	}
-	
+
 	public void doAttack(Terrain terrain, Player activePlayer) {
 		terrain.setRace(activePlayer.getActiveSet().getRace());	 							//Make the terrain be the player's Race
 		terrain.setAmountOfTokens(declaredAmountOfTokens);							  		//The declared amount is set on the terrain
@@ -232,9 +232,9 @@ public class CombatController
 		terrainStringCounter = 0;
 		while(terrainCounter<map.getAllTerrains().size())				//While there's still terrains left
 		{
-			while(elementCounter<map.getTerrain(terrain).getIdArray().length)		//While there's still numbers in the terrain's array
+			while(elementCounter<1)		//While there's still numbers in the terrain's array
 			{
-				if(map.getTerrain(terrain).getTerrainName().equals(terrainString)) 		//If the idCode is found, set isAttackable to true
+				if(map.getTerrain(terrain).getTerrainName().equals(terrainString))
 				{
 					terrainStringCounter++;
 					System.out.println("A: " + (terrain+1) + " is a " + terrainString);
