@@ -9,6 +9,12 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
+<StackPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <ImageView fitHeight="165.0" fitWidth="1920.0" pickOnBounds="true">
+      <image>
+         <Image url="@../images/icons/wood-rexture.jpg" />
+      </image>
+   </ImageView>
 <HBox fillHeight="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="165.0" prefWidth="1920.0" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <StackPane prefHeight="150.0" prefWidth="200.0">
@@ -151,3 +157,4 @@
       <Insets />
    </opaqueInsets>
 </HBox>
+</StackPane>

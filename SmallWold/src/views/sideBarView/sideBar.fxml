@@ -9,11 +9,17 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<StackPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.SideBarController">
+   <ImageView fitHeight="915.0" fitWidth="165.0" pickOnBounds="true">
+      <image>
+         <Image url="@../images/icons/wood-rexture.jpg" />
+      </image>
+   </ImageView>
 <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="915.0" prefWidth="165.0" spacing="50.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/icons/manual-button.png" />
+            <Image url="@../images/icons/lame2.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -21,41 +27,38 @@
       </ImageView>
       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/icons/setting-button.png" />
+            <Image url="@../images/icons/lame.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <StackPane>
+      <StackPane alignment="TOP_CENTER">
          <children>
-            <ImageView fitHeight="93.0" fitWidth="237.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="106.0" fitWidth="156.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/icons/end-button.png" />
+                  <Image url="@../images/icons/white-glossy-rectangle-button-hi.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </ImageView>
-            <Label text="END FASE">
+            <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="1.0" prefHeight="56.0" prefWidth="160.0" text="END FASE" StackPane.alignment="CENTER">
                <font>
-                  <Font name="System Bold" size="31.0" />
+                  <Font name="System Bold" size="28.0" />
                </font>
-               <padding>
-                  <Insets right="25.0" />
-               </padding>
+                  <cursor>
+                     <Cursor fx:constant="DEFAULT" />
+                  </cursor>
             </Label>
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
-         <padding>
-            <Insets left="30.0" />
-         </padding>
       </StackPane>
-      <ImageView fitHeight="150.0" fitWidth="151.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="tabImage" fitHeight="150.0" fitWidth="151.0" onMouseClicked="#tabButtonPress" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/icons/tab-button.png" />
+            <Image url="@../images/icons/tab-bar-stripes.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -66,3 +69,4 @@
       <Insets />
    </opaqueInsets>
 </VBox>
+</StackPane>
