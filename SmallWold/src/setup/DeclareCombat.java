@@ -68,7 +68,6 @@ public class DeclareCombat
 							+ " tokens on it, and the place has " + map.getTerrain(tempAreaPicked).getDefense() + " defense."
 							+ " You need " + (map.getTerrain(tempAreaPicked).getAmountOfTokens() + map.getTerrain(tempAreaPicked)
 							.getDefense() + 2) + " tokens to take this area over.\n How many tokens do you wish to use?");
-
 		while(declaredTokenAmount<0 || declaredTokenAmount > activePlayer.getHand().getCurrentTokens())
 		{
 			declaredTokenAmount = input.nextInt();								//Player declaring amount to attack with

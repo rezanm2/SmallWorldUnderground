@@ -17,12 +17,13 @@ public class CombatController
 	private int elementCounter;
 	private int terrain;
 	private int value;
-	private Die die = new Die();
+	Die die;
 	Player activePlayer;
 	Map map;
 
 	public CombatController(Ammy ammy)
 	{
+		this.die = ammy.getDie();
 		this.map = ammy.getMap();
 	}
 

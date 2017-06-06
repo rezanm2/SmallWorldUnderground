@@ -10,6 +10,7 @@ import listCreators.AbilityListCreator;
 import listCreators.RaceListCreator;
 import listCreators.RelicListCreator;
 import mapInitializers.Initializer;
+import playBoard.Die;
 import playBoard.Map;
 import setup.DeclareCombat;
 import setup.MapCreator;
@@ -35,6 +36,7 @@ public class Ammy
 	AbilityListCreator abilityList = new AbilityListCreator();
 	RaceListCreator raceList = new RaceListCreator();
 	RelicListCreator relicList = new RelicListCreator();
+	Die die = new Die();
 
 	public void playerSetup()
 	{
@@ -211,4 +213,13 @@ public class Ammy
 	public void setMapType(Initializer init) {
 		this.mapType = init;
 	}
+	
+	public Die getDie() {
+		return die;
+	}
+	
+	public void setDie(Die die) {
+		this.die = die;
+	}
+	
 }
