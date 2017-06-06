@@ -21,7 +21,7 @@
                <children>
                   <ImageView fitHeight="268.0" fitWidth="378.0" layoutX="106.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/icons/Lizardbitch.png" />
+                        <Image url="@../images/icons/clientLizard.png" />
                      </image>
                   </ImageView>
                </children>

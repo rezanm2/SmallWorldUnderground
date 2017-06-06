@@ -50,12 +50,12 @@
             <ChoiceBox fx:id="choicebox" layoutX="366.0" layoutY="346.0" prefWidth="150.0" />
             <ImageView fitHeight="292.0" fitWidth="183.0" layoutX="441.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/icons/fotoott.png" />
+                  <Image url="@../images/icons/serverFlames.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="124.0" fitWidth="136.0" layoutX="-2.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true" rotate="340.0">
                <image>
-                  <Image url="@../images/icons/Volcano.png" /> 
+                  <Image url="@../images/icons/serverVolcano.png" /> 
                </image>
             </ImageView>
          </children>
