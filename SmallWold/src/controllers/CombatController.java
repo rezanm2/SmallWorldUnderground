@@ -205,7 +205,6 @@ public class CombatController
 			{
 				if(map.getTerrain(terrain).getTerrainName().equals(terrainString)) 		//If the idCode is found, set isAttackable to true
 				{
-					map.getTerrain(terrain).setIsAdjacent(true);
 					System.out.println("A: " + (terrain+1) + " is a " + terrainString);
 				}
 				value++;											//Look at the next value in the terrain's array, "eye"

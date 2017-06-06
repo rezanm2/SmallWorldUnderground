@@ -49,7 +49,7 @@ public class PickRegions
 		for(int i=0;i<playerList.size();i++)			//As long as there is players
 		{
 			System.out.println("For now, " + playerList.get(i).getName() + " is going to be "
-							+	playerList.get(i).getActiveSet().getAbility() + " "
+							+	playerList.get(i).getActiveSet().getAbility().getType() + " "
 							+	playerList.get(i).getActiveSet().getRace().getTokenType() + "." + "\n");
 		}
 
@@ -83,16 +83,16 @@ public class PickRegions
 						setDefaults = true;
 						break;								//Break out of the loops.
 					}
-					
+
 					if(tempAreaPicked>map.getAllTerrains().size()) { 					// checks if area is in the map
 						System.out.println("A: Looks like that area's not choosable at the moment. Please pick a different area.");
 					}
-					
+
 					else {
 						if(map.getTerrain(tempAreaPicked).getIsImmune() == true					//If area is immune
 							|| !map.getTerrain(tempAreaPicked).getRace().getTokenType()		//or if the area is not empty
 							.equals(raceList.getListElement(0).getTokenType()))
-							
+
 						{
 							System.out.println("A: Looks like that area's not choosable at the moment. Please pick a different area.");
 						}
@@ -100,7 +100,7 @@ public class PickRegions
 						{
 							validChoice = true;
 						}
-					}	
+					}
 				}
 
 				if(setDefaults == true)

@@ -10,4 +10,10 @@ public class Empty extends Race
 		tokenType = "Empty   ";
 		traitText = "There is no race selected.";
 	}
+
+	@Override
+	public void useTrait()
+	{
+
+	}
 }

@@ -30,4 +30,13 @@ public class Ability
 	{
 		return active;
 	}
+
+	public void setAmountOfTokens(int amountOfTokens)
+	{
+		this.amountOfTokens = amountOfTokens;
+	}
+	public int getAmountOfTokens()
+	{
+		return amountOfTokens;
+	}
 }

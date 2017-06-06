@@ -14,13 +14,12 @@ public class DeclareCombat
 	CombatController cc;
 	MapTester test;
 	int code;
-	int declaredTokenAmount;
+	int declaredTokenAmount = -1;
 	Map map;
 	int tempAreaPicked;
 	PlayerCreator playerCreator;
 	Player activePlayer;
 	Scanner input = new Scanner(System.in);
-
 	boolean validChoice;
 
 	public DeclareCombat(Ammy ammy)
@@ -36,6 +35,7 @@ public class DeclareCombat
 	{
 		System.out.println("Ammy: ~~~~~~~~~I'm changing towards the Conquest phase. ~~~~~~~~~ \n\n");
 		System.out.println("A: All right. Let's allow " + activePlayer.getName() + " to attack some stuff. \n");
+
 
 		cc.setAllAttackableAreas(playerCreator.playerList.get(0));						//Setting isAttackable for each area player x has
 		cc.setAllAdjacentAreas(playerCreator.playerList.get(0));						//Setting isAdjacent for each area player x has
@@ -63,16 +63,21 @@ public class DeclareCombat
 				validChoice = true;
 			}
 		}
+
 		System.out.println("A: Okay, there's currently " + map.getTerrain(tempAreaPicked).getAmountOfTokens()
 							+ " tokens on it, and the place has " + map.getTerrain(tempAreaPicked).getDefense() + " defense."
 							+ " You need " + (map.getTerrain(tempAreaPicked).getAmountOfTokens() + map.getTerrain(tempAreaPicked)
 							.getDefense() + 2) + " tokens to take this area over.\n How many tokens do you wish to use?");
 
-		declaredTokenAmount = input.nextInt();								//Player declaring amount to attack with
-		input.nextLine();
+		while(declaredTokenAmount<0 || declaredTokenAmount > activePlayer.getHand().getCurrentTokens())
+		{
+			declaredTokenAmount = input.nextInt();								//Player declaring amount to attack with
+			input.nextLine();
+			System.out.print("A: No");
+		}
+		System.out.println(" problems");
 		cc.setDeclaredAmountOfTokens(declaredTokenAmount);					//CombatController taking this declared amount
-		cc.calculateCombat(map.getTerrain(tempAreaPicked), activePlayer);	//CombatController calculating the combat done\
-
+		cc.calculateCombat(map.getTerrain(tempAreaPicked), activePlayer);	//CombatController calculating the combat done
 		cc.setAllAttackableAreas(playerCreator.playerList.get(0));
 
 	}

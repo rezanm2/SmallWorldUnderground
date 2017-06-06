@@ -15,6 +15,9 @@ public abstract class Race
 	{
 		this.amountOfTokens = amountOfTokens;
 	}
+
+	public abstract void useTrait();
+
 	public int getAmountOfTokens()
 	{
 		return amountOfTokens;
