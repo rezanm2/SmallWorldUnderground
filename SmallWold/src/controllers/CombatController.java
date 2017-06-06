@@ -150,7 +150,7 @@ public class CombatController
 
 	public void calculateCombat(Terrain terrain, Player activePlayer)		//Calculating win or lose
 	{
-		if(terrain.getAmountOfTokens() + terrain.getDefense() <= declaredAmountOfTokens + 2)	//If the player wins
+		if(terrain.getAmountOfTokens() + terrain.getDefense() + 2 <= declaredAmountOfTokens)	//If the player wins
 		{
 			terrain.setRace(activePlayer.getActiveSet().getRace());	 							//Make the terrain be the player's Race
 			terrain.setAmountOfTokens(declaredAmountOfTokens);							  		//The declared amount is set on the terrain
