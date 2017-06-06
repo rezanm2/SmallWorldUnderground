@@ -1,5 +1,6 @@
 package controllers;
 
+import main.Ammy;
 import playBoard.Map;
 import player.Player;
 import terrain.Terrain;
@@ -8,77 +9,210 @@ import races.Race;
 public class CombatController
 {
 	private int declaredAmountOfTokens;
-	private int j;
-	private int i;
+	private int terrainCounter;
+	private int elementCounter;
 	private int terrain;
 	private int value;
-	private int[] trueTerrains;
+	Player activePlayer;
+	Map map;
 
 
-	public void whichAreAttackable(Map map)
+	public CombatController(Ammy ammy)
 	{
-		for(i=0;i<map.getTerrains().size();i++)
+		this.map = ammy.getMap();
+	}
+
+	public void setAllAdjacentAreas(Player activePlayer)
+	{
+		System.out.println("A: Setting all adjacent terrains for " + activePlayer.getName() + "\n");
+		this.activePlayer = activePlayer;
+		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
-		if(map.getTerrain(i).getIsAttackable() == true)
+			if (activePlayer.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace())) //For every land that's the current player's
 			{
-			System.out.println(i + 1 + ": True");
+				changeAllAdjacentAreas(map.getTerrain(terrainCounter).getElement(0));
 			}
 		}
 	}
 
-	public void setUnattackable(Map map)
+	private void changeAllAdjacentAreas(int code)
 	{
-		for(i=0;i<map.getTerrains().size();i++)
-		{
-		if(map.getTerrain(i).getIsAttackable() == true)
-			{
-			map.getTerrain(i).setIsAttackable(false);
-			}
-		}
-	}
-
-
-	public void isAttackable(Map map, int code)
-	{
-		j = 0;
-		i = 0;
+		terrainCounter = 0;
+		elementCounter = 0;
 		terrain = 0;
 		value = 0;
 
-		while(j<map.getTerrains().size())				//While there's still terrains left
+		while(terrainCounter<map.getAllTerrains().size())				//While there's still terrains left
 		{
-			while(i<map.getTerrain(terrain).getIdArray().length)		//While there's still numbers in the terrain's array
+			while(elementCounter<map.getTerrain(terrain).getIdArray().length)	//While there's still numbers in the terrain's array
 			{
-
-				if(map.getTerrain(terrain).getSpecificTerrain(value) == code)		//If the idCode is found, set isAttackable to true
+				if(map.getTerrain(terrain).getElement(value) == code)
 				{
-					map.getTerrain(terrain).setIsAttackable(true);
+					map.getTerrain(terrain).setIsAdjacent(true);			//If the idCode is found, set isAttackable to true
 				}
 				value++;											//Look at the next value in the terrain's array, "eye"
-				i++;												//Keep track of which number in the array we're at
+				elementCounter++;									//Keep track of which number in the array we're at
 			}
 			value = 0;												//"Eye" back at number 0 in the array
-			i = 0;													//Back at number 0 in a fresh terrain
-			j++;													//Keep track of which terrain we're at
+			elementCounter = 0;										//Back at number 0 in a fresh terrain
+			terrainCounter++;										//Keep track of which terrain we're at
 			terrain++;												//Look at the next terrain, "eye"
 		}
 	}
 
-	public void declareTokenAmount(int declaredAmountOfTokens)				//Player declaring amount of tokens for attack
+
+
+	public void setAllAttackableAreas(Player activePlayer)
+	{
+		System.out.println("A: Setting all attackable terrains for " + activePlayer.getName() + "\n");
+		this.activePlayer = activePlayer;
+		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
+		{
+			if (activePlayer.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace()))
+			{
+				changeAllAttackableAreas(map.getTerrain(terrainCounter).getElement(0));
+			}
+		}
+	}
+
+	private void changeAllAttackableAreas(int code)
+	{
+		terrainCounter = 0;
+		elementCounter = 0;
+		terrain = 0;
+		value = 0;
+
+		while(terrainCounter<map.getAllTerrains().size())				//While there's still terrains left
+		{
+			while(elementCounter<map.getTerrain(terrain).getIdArray().length)	//While there's still numbers in the terrain's array
+			{
+				if(map.getTerrain(terrain).getElement(value) == code && !map.getTerrain(terrain).getRace().equals(
+						activePlayer.getActiveSet().getRace()))
+				{
+					map.getTerrain(terrain).setIsAttackable(true);			//If the idCode is found, set isAttackable to true
+				}
+				value++;											//Look at the next value in the terrain's array, "eye"
+				elementCounter++;									//Keep track of which number in the array we're at
+			}
+			value = 0;												//"Eye" back at number 0 in the array
+			elementCounter = 0;										//Back at number 0 in a fresh terrain
+			terrainCounter++;										//Keep track of which terrain we're at
+			terrain++;												//Look at the next terrain, "eye"
+		}
+
+	}
+
+	public void setAllReinforcableAreas(Player activePlayer)
+	{
+		System.out.println("A: Setting all reinforcable terrains for " + activePlayer.getName() + "\n");
+		this.activePlayer = activePlayer;
+		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
+		{
+			if (activePlayer.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace()))
+			{
+				changeAllReinforcableAreas(map.getTerrain(terrainCounter).getElement(0));
+			}
+		}
+
+	}
+
+	private void changeAllReinforcableAreas(int code)
+	{
+		terrainCounter = 0;
+		elementCounter = 0;
+		terrain = 0;
+		value = 0;
+
+		while(terrainCounter<map.getAllTerrains().size())				//While there's still terrains left
+		{
+			while(elementCounter<map.getTerrain(terrain).getIdArray().length)	//While there's still numbers in the terrain's array
+			{
+				if(map.getTerrain(terrain).getElement(value) == code && map.getTerrain(terrain).getRace().equals(
+						activePlayer.getActiveSet().getRace()))
+				{
+					map.getTerrain(terrain).setIsReinforcable(true);			//If the idCode is found, set isAttackable to true
+				}
+				value++;											//Look at the next value in the terrain's array, "eye"
+				elementCounter++;									//Keep track of which number in the array we're at
+			}
+			value = 0;												//"Eye" back at number 0 in the array
+			elementCounter = 0;										//Back at number 0 in a fresh terrain
+			terrainCounter++;										//Keep track of which terrain we're at
+			terrain++;												//Look at the next terrain, "eye"
+		}
+	}
+
+
+	public void setDeclaredAmountOfTokens(int declaredAmountOfTokens)				//Player declaring amount of tokens for attack
 	{
 		this.declaredAmountOfTokens = declaredAmountOfTokens;
 	}
 
-	public void calculateCombat(Terrain terrain, Player activePlayer, Player passivePlayer)		//Calculating win or lose
+	public void calculateCombat(Terrain terrain, Player activePlayer)		//Calculating win or lose
 	{
 		if(terrain.getAmountOfTokens() + terrain.getDefense() <= declaredAmountOfTokens + 2)	//If the player wins
 		{
-			terrain.setTokenType(activePlayer.getActiveSet().getRace().getTokenType());	  //Make the terrain be the player's tokenType
-			terrain.setAmountOfTokens(declaredAmountOfTokens);							  //The declared amount is set on the terrain
+			terrain.setRace(activePlayer.getActiveSet().getRace());	 							//Make the terrain be the player's Race
+			terrain.setAmountOfTokens(declaredAmountOfTokens);							  		//The declared amount is set on the terrain
+			System.out.println("A: Attack succesful!");
+			setAllAttackableAreas(activePlayer);
+			setAllAdjacentAreas(activePlayer);
+			setAllReinforcableAreas(activePlayer);
 		}
 		else																					//If the player loses
 		{
+			System.out.println("A: Not enough tokens selected. Wanna roll a die?");
 			//Roll conquest die or attack something different
+		}
+	}
+
+	public void setNotAdjacent()					//Set all the "isAttackable" booleans to false again
+	{
+		for(terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)				//As long as there are terrains
+		{
+			map.getTerrain(terrainCounter).setIsAdjacent(false);		//Set it to false
+		}
+	}
+
+	public void setNotAttackable()					//Set all the "isAttackable" booleans to false again
+	{
+		for(terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)				//As long as there are terrains
+		{
+			map.getTerrain(terrainCounter).setIsAttackable(false);		//Set it to false
+		}
+	}
+
+	public void setNotReinforcable()					//Set all the "isAttackable" booleans to false again
+	{
+		for(terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)				//As long as there are terrains
+		{
+			map.getTerrain(terrainCounter).setIsReinforcable(false);		//Set it to false
+		}
+	}
+
+	public void checkTerrainType(String terrainString)
+	{
+		terrainCounter = 0;
+		elementCounter = 0;
+		terrain = 0;
+		value = 0;
+
+		while(terrainCounter<map.getAllTerrains().size())				//While there's still terrains left
+		{
+			while(elementCounter<map.getTerrain(terrain).getIdArray().length)		//While there's still numbers in the terrain's array
+			{
+				if(map.getTerrain(terrain).getTerrainName().equals(terrainString)) 		//If the idCode is found, set isAttackable to true
+				{
+					map.getTerrain(terrain).setIsAdjacent(true);
+					System.out.println("A: " + (terrain+1) + " is a " + terrainString);
+				}
+				value++;											//Look at the next value in the terrain's array, "eye"
+				elementCounter++;									//Keep track of which number in the array we're at
+			}
+			value = 0;												//"Eye" back at number 0 in the array
+			elementCounter = 0;										//Back at number 0 in a fresh terrain
+			terrainCounter++;										//Keep track of which terrain we're at
+			terrain++;												//Look at the next terrain, "eye"
 		}
 	}
 }

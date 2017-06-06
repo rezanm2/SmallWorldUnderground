@@ -22,6 +22,7 @@ public class ClientMain extends Application{
 	private static Registry registry;
 	private static ClientImpl clientImpl;
 	private static ServerSkeleton serverSkeleton;
+	private static int port = 1098;
 	
 	public static void main(String[] args) throws RemoteException {
 		System.out.println(ClientMain.getHostIP());
@@ -43,7 +44,7 @@ public class ClientMain extends Application{
 		try {
 			clientImpl = new ClientImpl(getHostIP(), username); // create calculator and treat as Calculator
 			ClientSkeleton clientSkeleton = (ClientSkeleton) UnicastRemoteObject.exportObject(clientImpl, 0); // cast to remote object
-			registry = LocateRegistry.createRegistry(1098); // default port 1099 // run RMI registry on local host
+			registry = LocateRegistry.createRegistry(port); // default port 1099 // run RMI registry on local host
 			registry.rebind("client", clientSkeleton); // bind calculator to RMI registry
 	        System.out.println("Clientserver running");
 		} catch(RemoteException e) {

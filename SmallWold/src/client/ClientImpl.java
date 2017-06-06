@@ -1,5 +1,7 @@
 package client;
 
+import java.rmi.RemoteException;
+
 public class ClientImpl implements ClientSkeleton{
 	
 	private String hostIP;

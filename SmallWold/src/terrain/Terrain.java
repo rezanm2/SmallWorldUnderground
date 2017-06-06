@@ -1,5 +1,6 @@
 package terrain;
 
+import races.Race;
 import relics.Relic;
 import specialPlaces.SpecialPlace;
 
@@ -9,7 +10,11 @@ public abstract class Terrain
 	protected String tokenType;
 	protected int amountOfTokens;
 	protected int defense;
+	protected String terrainName;
 
+	protected Race race;
+
+	protected boolean isAdjacent;
 	protected boolean isAttackable;
 	protected boolean isReinforcable;
 	protected boolean isImmune;
@@ -22,12 +27,12 @@ public abstract class Terrain
 		this.idArray = idArray;
 	}
 
-	public void setSpecificTerrain(int[] idArray)
+	public void setElement(int arrayOrder)
 	{
-		this.idArray = idArray;
+		this.idArray[arrayOrder] = idArray[arrayOrder];
 	}
 
-	public int getSpecificTerrain(int arrayOrder)
+	public int getElement(int arrayOrder)
 	{
 		return idArray[arrayOrder];
 	}
@@ -63,12 +68,12 @@ public abstract class Terrain
 		return defense;
 	}
 
-	public void setIsAttackable(boolean isAttackable) {
-		this.isAttackable = isAttackable;
+	public void setIsAdjacent(boolean isAdjacent) {
+		this.isAdjacent = isAdjacent;
 	}
 
-	public boolean getIsAttackable() {
-		return isAttackable;
+	public boolean getIsAdjacent() {
+		return isAdjacent;
 	}
 
 	public void setIsReinforcable(boolean isReinforcable) {
@@ -83,10 +88,15 @@ public abstract class Terrain
 		this.setAmountOfTokens(1);
 	}
 
-	public void redeploy() {
-		}
+	public void setIsImmune(boolean isImmune)
+	{
+		this.isImmune = isImmune;
+	}
 
-
+	public boolean getIsImmune()
+	{
+		return isImmune;
+	}
 	public void setTokenType(String tokenType) {
 		this.tokenType = tokenType;
 
@@ -116,4 +126,26 @@ public abstract class Terrain
 		return specialPlace;
 	}
 
+	public Race getRace() {
+		return race;
+	}
+
+	public void setRace(Race race) {
+		this.race = race;
+	}
+
+	public String getTerrainName() {
+		return terrainName;
+	}
+
+	public void setTerrainName(String terrainName) {
+		this.terrainName = terrainName;
+	}
+	public boolean getIsAttackable() {
+		return isAttackable;
+	}
+
+	public void setIsAttackable(boolean isAttackable) {
+		this.isAttackable = isAttackable;
+	}
 }
