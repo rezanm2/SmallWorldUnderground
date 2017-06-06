@@ -25,7 +25,7 @@ import abilities.Vampire;
 import abilities.Vanishing;
 import abilities.Vengeful;
 import abilities.Wise;
-import races.Race;
+import abilities.Empty;
 
 public class AbilityListCreator
 {
@@ -53,7 +53,7 @@ public class AbilityListCreator
 		Ability vanishing = new Vanishing();
 		Ability vengeful = new Vengeful();
 		Ability wise = new Wise();
-		Ability empty = new Ability();
+		Ability empty = new Empty();
 
 		abilityList.add(empty);
 		abilityList.add(adventurous);

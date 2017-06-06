@@ -12,7 +12,6 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="server.ServerController">
    <children>
       <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f2b05c;">
@@ -51,12 +50,12 @@
             <ChoiceBox fx:id="choicebox" layoutX="366.0" layoutY="346.0" prefWidth="150.0" />
             <ImageView fitHeight="292.0" fitWidth="183.0" layoutX="441.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../client/Images/fotoott.png" />
+                  <Image url="@../images/icons/serverFlames.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="124.0" fitWidth="136.0" layoutX="-10.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" rotate="340.0">
+            <ImageView fitHeight="124.0" fitWidth="136.0" layoutX="-2.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true" rotate="340.0">
                <image>
-                  <Image url="@../Volcano.png" />
+                  <Image url="@../images/icons/serverVolcano.png" /> 
                </image>
             </ImageView>
          </children>

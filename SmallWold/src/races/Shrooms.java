@@ -9,4 +9,9 @@ public class Shrooms extends Race
 		tokenType = "Shrooms";
 		traitText = "+1 coin for each Shroom region";
 	}
+	@Override
+	public void useTrait()
+	{
+
+	}
 }

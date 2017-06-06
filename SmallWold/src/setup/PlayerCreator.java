@@ -25,7 +25,6 @@ public class PlayerCreator
 	List<Player> playerList = new ArrayList<Player>();
 	AbilityListCreator abilityList = new AbilityListCreator();
 	RaceListCreator raceList = new RaceListCreator();
-
 	Set activeSetOne;
 	Set activeSetTwo;
 	Set activeSetThree;
@@ -36,7 +35,12 @@ public class PlayerCreator
 
 	public void setDefaultSets()
 	{
+<<<<<<< HEAD
 		activeSetOne = new Set(abilityList.getListElement(1), raceList.getListElement(1));
+=======
+
+		activeSetOne = new Set(abilityList.getListElement(1), raceList.getListElement(1));	//Setting random set defaults for players
+>>>>>>> branch 'master' of https://github.com/smallWorld22/SmallWorldUnderground.git
 		playerList.get(0).setActiveSet(activeSetOne);
 		
 		activeSetTwo = new Set(abilityList.getListElement(2), raceList.getListElement(2));
