@@ -42,10 +42,13 @@ public class DeclareCombat
 
 		activePlayer = playerCreator.playerList.get(0);
 
+
+
 		tc.setAllAttackableAreas(activePlayer);						//Setting isAttackable for each area player x has
 		tc.setAllAdjacentAreas(activePlayer);						//Setting isAdjacent for each area player x has
 		tc.setAllReinforcableAreas(activePlayer);					//Setting isReinforcable for each area player x has
-
+		tc.calculateReturnedTokens();
+		activePlayer.getHand().setCurrentTokens(tc.getReturnedTokens());
 		System.out.println("A: Currently, " + activePlayer.getName() + " controls the following areas and has "
 							+ activePlayer.getHand().getCurrentTokens() + activePlayer.getActiveSet().getRace().getTokenType()
 							+ " tokens in their hand.");
