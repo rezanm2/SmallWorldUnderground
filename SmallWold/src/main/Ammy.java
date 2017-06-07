@@ -6,6 +6,7 @@ import controllers.CombatController;
 import controllers.EndTurnController;
 import controllers.MapTester;
 import controllers.SleepController;
+import controllers.TerrainsController;
 import listCreators.AbilityListCreator;
 import listCreators.RaceListCreator;
 import listCreators.RelicListCreator;
@@ -16,14 +17,15 @@ import setup.DeclareCombat;
 import setup.MapCreator;
 import setup.PickRegions;
 import setup.PlayerCreator;
-import setup.ReinforceAreas;
+import setup.RedeployAreas;
 import player.Player;
 import terrain.Terrain;
 
 public class Ammy
 {
-	MapCreator mapCreator;			//Create a new MapCreator
-	PlayerCreator playerCreator = new PlayerCreator();	//Create a new PlayerCreator
+	//This entire list is just for references, for the setters and getters of Ammy.
+	MapCreator mapCreator;
+	PlayerCreator playerCreator = new PlayerCreator();
 	CombatController cc;
 	MapTester test;
 	PickRegions pickRegions;
@@ -32,15 +34,16 @@ public class Ammy
 	EndTurnController etc;
 	Player activePlayer;
 	List<Player> playerList;
-	ReinforceAreas ra;
+	RedeployAreas ra;
 	Initializer mapType;
+	TerrainsController tc;
 	SleepController sleep = new SleepController();
 	AbilityListCreator abilityList = new AbilityListCreator();
 	RaceListCreator raceList = new RaceListCreator();
 	RelicListCreator relicList = new RelicListCreator();
 	Die die = new Die();
 
-	public void playerSetup()
+	public void playerSetup()		//This method sets up the players, the amount of Players, and their names.
 	{
 
 		System.out.println("Ammy: I'm running! \n");
@@ -53,7 +56,7 @@ public class Ammy
 		this.createAccordingMap();
 	}
 
-	public void createAccordingMap()
+	public void createAccordingMap()	//This method sets up the map, the appropriate one for how many players were selected.
 	{
 		System.out.println("Ammy: I'm creating the according map for " + playerCreator.getAmountOfPlayers() + " players. \n");
 		mapCreator = new MapCreator();
@@ -66,15 +69,16 @@ public class Ammy
 
 
 
-	public void createCreators()
+	public void createCreators()		//This method creates all the creators, for future reference.
 	{
 		System.out.println("Ammy: I'm creating all the creators. \n" );
-		test = new MapTester(this);									//MapTester needs the map.
-		cc = new CombatController(this);							//CombatController needs the map.
-		pickRegions = new PickRegions(this);						//
+		test = new MapTester(this);
+		cc = new CombatController(this);
+		pickRegions = new PickRegions(this);
 		dc = new DeclareCombat(this);
 		etc = new EndTurnController(this);
-		this.ra = new ReinforceAreas(this);
+		ra = new RedeployAreas(this);
+		tc = new TerrainsController(this);
 		System.out.println("Ammy: Done creating creators... \n");
 	}
 
@@ -88,7 +92,7 @@ public class Ammy
 		System.out.println("A: I'm starting your game... \n");
 		activePlayer = playerList.get(0);
 		pickRegions.start();
-		etc.getAllAbilityIncome();
+		ra.start();
 	}
 
 
@@ -221,5 +225,19 @@ public class Ammy
 	public void setDie(Die die) {
 		this.die = die;
 	}
+	public RedeployAreas getRa() {
+		return ra;
+	}
 
+	public void setRa(RedeployAreas ra) {
+		this.ra = ra;
+	}
+
+	public TerrainsController getTc() {
+		return tc;
+	}
+
+	public void setTc(TerrainsController tc) {
+		this.tc = tc;
+	}
 }

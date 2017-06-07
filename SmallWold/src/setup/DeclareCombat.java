@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import controllers.CombatController;
 import controllers.MapTester;
+import controllers.TerrainsController;
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
@@ -21,6 +22,7 @@ public class DeclareCombat
 	Player activePlayer;
 	Scanner input = new Scanner(System.in);
 	boolean validChoice;
+	TerrainsController tc;
 
 	public DeclareCombat(Ammy ammy)
 	{
@@ -29,6 +31,7 @@ public class DeclareCombat
 		this.test = ammy.getTest();
 		this.playerCreator = ammy.getPlayerCreator();
 		this.activePlayer = ammy.getPlayerCreator().playerList.get(0);
+		this.tc = ammy.getTc();
 	}
 
 	public void start()
@@ -39,9 +42,9 @@ public class DeclareCombat
 
 		activePlayer = playerCreator.playerList.get(0);
 
-		cc.setAllAttackableAreas(activePlayer);						//Setting isAttackable for each area player x has
-		cc.setAllAdjacentAreas(activePlayer);						//Setting isAdjacent for each area player x has
-		cc.setAllReinforcableAreas(activePlayer);					//Setting isReinforcable for each area player x has
+		tc.setAllAttackableAreas(activePlayer);						//Setting isAttackable for each area player x has
+		tc.setAllAdjacentAreas(activePlayer);						//Setting isAdjacent for each area player x has
+		tc.setAllReinforcableAreas(activePlayer);					//Setting isReinforcable for each area player x has
 
 		System.out.println("A: Currently, " + activePlayer.getName() + " controls the following areas and has "
 							+ activePlayer.getHand().getCurrentTokens() + activePlayer.getActiveSet().getRace().getTokenType()
@@ -85,7 +88,7 @@ public class DeclareCombat
 			System.out.println(" problems");
 			cc.setDeclaredAmountOfTokens(declaredTokenAmount);					//CombatController taking this declared amount
 			cc.calculateCombat(map.getTerrain(tempAreaPicked), activePlayer);	//CombatController calculating the combat done
-			cc.setAllAttackableAreas(activePlayer);
+			tc.setAllAttackableAreas(activePlayer);
 		}
 
 		System.out.println("A: Looks like you're out of tokens. Combat phase over.");
