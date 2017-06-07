@@ -53,6 +53,7 @@ public  class Decline {
 		Ability [] arrAbility = {new Adventurous(), new Fisher(), new Flocking(), new Frightened(), new Immortal(), new Magic(),
 				new Martyr(), new Mining(), new Muddy(), new Mystic(), new Quarreling(), new Reborn(), new Royal(), new Shield(), 
 				new Stone(), new Thieving(), new Tomb(), new Vampire(), new Vanishing(), new Vengeful(), new Wise()};
+		
 		Race [] arrRaces = {new Cultists(), new Drow(), new Flames(), new Gnomes(), new Kraken(), new Liches(), new Lizardmen(),
 				new Monster(), new Mudmen(), new Mummies(), new Ogres(), new ShadowMimes(), new Shrooms(), new Spiderines(), new WillOWisp()};
 		
@@ -78,14 +79,15 @@ public  class Decline {
 				//btnDecline.setOnAction(e -> 
 				//{
 				 activePlayer.setDeclineSet(activePlayer.getActiveSet());
-			//	});
+				 System.out.println("Declined");
+				 //	});
 			}
 			if(yesOrNo.equals("no"))
 			{
 				System.out.println("Continue");
 			}
 		}
-		public void newSetAfterDecline(){
+		public void shakeSets(){
 			
 			Ability ability;
 			Race race;
@@ -108,5 +110,25 @@ public  class Decline {
 				arrRaces[getal2] = race;
 				
 		}
-	}	
+			
+	}
+		public void chooseNewSet(){
+			Set tempSet;
+			for(int x=0;x<6;x++){
+				System.out.print((x+1) + ": " +  arrAbility[x].getType() + " " + arrRaces[x].getTokenType());
+				
+				System.out.println();
+			}
+			Scanner input = new Scanner(System.in);
+			System.out.println("Choose a new set: ");
+			int setNr = input.nextInt();
+			while(setNr < 1 || setNr > 6){
+				System.out.println("Enter the set number: ");
+				setNr = input.nextInt();
+			}
+			tempSet = new Set(arrAbility[setNr-1], arrRaces[setNr-1]);
+			activePlayer.setActiveSet(tempSet);
+			System.out.println(activePlayer.getActiveSet().getAbility());
+			System.out.println(activePlayer.getActiveSet().getRace());
+		}
 }
