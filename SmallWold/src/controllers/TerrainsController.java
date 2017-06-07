@@ -1,5 +1,7 @@
 package controllers;
 
+import java.util.Scanner;
+
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
@@ -12,11 +14,51 @@ public class TerrainsController
 	private int elementCounter = 0;
 	private int terrain = 0;
 	private int value = 0;
+	private boolean validChoice;
+	private int areaPicked;
+	private int returnedTokens;
+	Scanner input = new Scanner(System.in);
 
 	public TerrainsController(Ammy ammy)
 	{
 		this.activePlayer = ammy.getActivePlayer();
 		this.map = ammy.getMap();
+	}
+
+	public void checkIfAttackable()
+	{
+		while(validChoice == false)														//As long as a valid choice has not been picked
+		{
+			areaPicked = input.nextInt() - 1;										//Let the player pick an area to attack
+			input.nextLine();
+			if(areaPicked >= map.getAllTerrains().size() || areaPicked < 0		//If an invalid area is chosen (number too big
+					|| map.getTerrain(areaPicked).getIsAttackable() == false)		//or isn't currently attackable)
+			{
+				System.out.println("A: Nope, that one isn't on the list! Please pick a different one.");
+			}
+			else
+			{
+				validChoice = true;
+			}
+		}
+	}
+
+	public void checkIfReinforcable()
+	{
+		while(validChoice == false)														//As long as a valid choice has not been picked
+		{
+			areaPicked = input.nextInt() - 1;										//Let the player pick an area to attack
+			input.nextLine();
+			if(areaPicked >= map.getAllTerrains().size() || areaPicked < 0		//If an invalid area is chosen (number too big
+					|| map.getTerrain(areaPicked).getIsReinforcable() == false)		//or isn't currently attackable)
+			{
+				System.out.println("A: Nope, that one isn't on the list! Please pick a different one.");
+			}
+			else
+			{
+				validChoice = true;
+			}
+		}
 	}
 
 	public void setAllAdjacentAreas(Player activePlayer)
@@ -164,5 +206,37 @@ public class TerrainsController
 		{
 			map.getTerrain(terrainCounter).setIsReinforcable(false);		//Set it to false
 		}
+	}
+
+	public void calculateReturnedTokens()
+	{
+		returnedTokens = 0;
+		for(terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
+		{
+			if(map.getTerrain(terrainCounter).getIsReinforcable() == true)						//If isAttackable is true
+			{
+				this.returnedTokens = returnedTokens + map.getTerrain(terrainCounter).getAmountOfTokens() - 1;
+				map.getTerrain(terrainCounter).setToOne();
+			}
+		}
+	}
+
+
+
+
+	public int getReturnedTokens() {
+		return returnedTokens;
+	}
+
+	public void setReturnedTokens(int returnedTokens) {
+		this.returnedTokens = returnedTokens;
+	}
+
+	public int getAreaPicked() {
+		return areaPicked;
+	}
+
+	public void setAreaPicked(int areaPicked) {
+		this.areaPicked = areaPicked;
 	}
 }

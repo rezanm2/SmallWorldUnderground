@@ -72,13 +72,13 @@ public class Ammy
 	public void createCreators()		//This method creates all the creators, for future reference.
 	{
 		System.out.println("Ammy: I'm creating all the creators. \n" );
+		tc = new TerrainsController(this);
 		test = new MapTester(this);
 		cc = new CombatController(this);
 		pickRegions = new PickRegions(this);
 		dc = new DeclareCombat(this);
 		etc = new EndTurnController(this);
 		ra = new RedeployAreas(this);
-		tc = new TerrainsController(this);
 		System.out.println("Ammy: Done creating creators... \n");
 	}
 
@@ -90,9 +90,9 @@ public class Ammy
 	public void startGame()
 	{
 		System.out.println("A: I'm starting your game... \n");
-		activePlayer = playerList.get(0);
+		this.activePlayer = playerList.get(1);
 		pickRegions.start();
-		ra.start();
+		ra.start(this);
 	}
 
 

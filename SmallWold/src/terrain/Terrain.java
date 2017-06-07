@@ -85,7 +85,7 @@ public abstract class Terrain
 	}
 
 	public void setToOne() {
-		this.setAmountOfTokens(1);
+		setAmountOfTokens(1);
 	}
 
 	public void setIsImmune(boolean isImmune)

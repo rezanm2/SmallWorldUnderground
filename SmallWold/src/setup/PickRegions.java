@@ -128,19 +128,21 @@ public class PickRegions
 		System.out.println("A: Yo, imma be setting yo defaults. \n");
 
 		map.getTerrain(0).setRace(playerList.get(0).getActiveSet().getRace());
-		map.getTerrain(0).setAmountOfTokens(1);
+		map.getTerrain(0).setAmountOfTokens(5);
 		map.getTerrain(1).setRace(playerList.get(0).getActiveSet().getRace());
-		map.getTerrain(1).setAmountOfTokens(2);
+		map.getTerrain(1).setAmountOfTokens(5);
 
 		map.getTerrain(2).setRace(playerList.get(1).getActiveSet().getRace());
-		map.getTerrain(2).setAmountOfTokens(3);
+		map.getTerrain(2).setAmountOfTokens(2);
 		map.getTerrain(3).setRace(playerList.get(1).getActiveSet().getRace());
-		map.getTerrain(3).setAmountOfTokens(4);
+		map.getTerrain(3).setAmountOfTokens(3);
 		map.getTerrain(4).setRace(playerList.get(1).getActiveSet().getRace());
-		map.getTerrain(4).setAmountOfTokens(5);
+		map.getTerrain(4).setAmountOfTokens(2);
 		map.getTerrain(5).setRace(playerList.get(1).getActiveSet().getRace());
-		map.getTerrain(5).setAmountOfTokens(6);
+		map.getTerrain(5).setAmountOfTokens(3);
 
+		playerList.get(0).getHand().setCurrentTokens(0);
+		playerList.get(1).getHand().setCurrentTokens(0);
 		hasBroken = true;
 	}
 }

@@ -56,20 +56,7 @@ public class DeclareCombat
 
 		System.out.println("A: Which area do  you wish to attack?");
 
-		while(validChoice == false)														//As long as a valid choice has not been picked
-		{
-			tempAreaPicked = input.nextInt() - 1;										//Let the player pick an area to attack
-			input.nextLine();
-			if(tempAreaPicked >= map.getAllTerrains().size() || tempAreaPicked < 0		//If an invalid area is chosen (number too big
-					|| map.getTerrain(tempAreaPicked).getIsAttackable() == false)		//or isn't currently attackable)
-			{
-				System.out.println("A: Nope, that one isn't on the list! Please pick a different one.");
-			}
-			else
-			{
-				validChoice = true;
-			}
-		}
+		tc.checkIfAttackable();
 
 		System.out.println("A: Okay, there's currently " + map.getTerrain(tempAreaPicked).getAmountOfTokens()
 							+ " tokens on it, and the place has " + map.getTerrain(tempAreaPicked).getDefense() + " defense."

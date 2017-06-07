@@ -70,7 +70,7 @@ public class MapTester
 		System.out.println("A: Number : Terrain : Tokentype : Amount of Tokens");
 		for(terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
-		if(map.getTerrain(terrainCounter).getIsReinforcable() == true)						//If isAttackable is true
+			if(map.getTerrain(terrainCounter).getIsReinforcable() == true)						//If isAttackable is true
 			{
 			System.out.println("A: " + (terrainCounter + 1) + "\t     "
 								+ map.getTerrain(terrainCounter).getTerrainName() + "\t"
