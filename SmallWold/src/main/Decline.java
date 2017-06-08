@@ -61,14 +61,16 @@ public  class Decline {
 		private Race tempRace;
 		private Ability tempAbility;
 
-		public Decline(Ammy ammy){
+		public Decline(Ammy ammy)
+		{
 
 			this.activePlayer = ammy.getActivePlayer();
 			this.abilityList = ammy.getAbilityList();
 			this.raceList = ammy.getRaceList();
 			this.playerList = ammy.getPlayerList();
 		}
-		public void goInDecline(){
+		public void goInDecline()
+		{
 
 			System.out.println("Do you want to set your race and ability to decline?");
 			Scanner scanner = new Scanner(System.in);
@@ -79,13 +81,14 @@ public  class Decline {
 //				yesOrNo = scanner.nextLine();
 //			}
 			scanner.close();
-			if(yesOrNo.equals("yes")){
+			if(yesOrNo.equals("yes"))
+			{
 				//with button:
 				//btnDecline.setOnAction(e ->
 				//{
 				 activePlayer.setDeclineSet(activePlayer.getActiveSet());
-				 System.out.println(activePlayer.getDeclineSet().getRace().getName() + " and " +activePlayer.getDeclineSet().getAbility().getName() + " for player: " + activePlayer.getName().toString() +  " are declined");
-				 //	});
+				 System.out.println(activePlayer.getDeclineSet().getAbility().getName() + " and " +activePlayer.getDeclineSet().getRace().getName() + " for player: " + activePlayer.getName().toString() +  " are declined");
+
 			}
 			if(yesOrNo.equals("no"))
 			{
@@ -97,7 +100,6 @@ public  class Decline {
 		{
 
 			Random r = new Random();
-			abilityList.getAbilityList().remove(0);
 			for(int x=0;x<playerList.size();x++)
 			{
 				for(int j=0;j<raceList.getRaceList().size();j++)
@@ -136,19 +138,31 @@ public  class Decline {
 				raceList.getRaceList().set(getal2, tempRace);
 			}
 		}
-		public void chooseNewSet(){
+		public void chooseNewSet()
+		{
 			Set tempSet;
-			for(int x=0;x<6;x++){
+			for(int x=0;x<abilityList.getAbilityList().size();x++){
+				if(abilityList.getListElement(x).getName().equals("Empty")){
+					abilityList.getAbilityList().remove(x);
+				}
+			}
+			for(int x=0;x<raceList.getRaceList().size();x++){
+				if(raceList.getListElement(x).getName().equals("Empty ")){
+					raceList.getRaceList().remove(x);
+				}
+			}
+			for(int x=0;x<6;x++)
+			{
 				System.out.print((x+1) + ": " +  abilityList.getListElement(x).getName() + " " +  raceList.getListElement(x).getName());
-
 				System.out.println();
 			}
-
+			
 			Scanner input = new Scanner(System.in);
 			System.out.println("Choose a new set: ");
 			int setNr = input.nextInt();
 
-			while(setNr < 1 || setNr > 6){
+			while(setNr < 1 || setNr > 6)
+			{
 				System.out.println("Enter the set number: ");
 				setNr = input.nextInt();
 			}
