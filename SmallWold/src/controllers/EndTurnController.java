@@ -89,7 +89,7 @@ public class EndTurnController
 	{
 		this.activePlayer = activePlayer;
 		ammy.getPlayerList().get(0).getActiveSet().setAbility(abilityList.getListElement(10));
-		System.out.println("A: Player one got " + activePlayer.getActiveSet().getAbility().getType() + " now.");
+		System.out.println("A: Player one got " + activePlayer.getActiveSet().getAbility().getName() + " now.");
 
 
 		ammy.getPlayerList().get(0).getActiveSet().getAbility().processAbility(activePlayer);

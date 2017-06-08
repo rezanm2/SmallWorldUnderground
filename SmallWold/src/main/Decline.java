@@ -84,7 +84,7 @@ public  class Decline {
 				//btnDecline.setOnAction(e ->
 				//{
 				 activePlayer.setDeclineSet(activePlayer.getActiveSet());
-				 System.out.println(activePlayer.getDeclineSet().getRace().getName() + " and " +activePlayer.getDeclineSet().getAbility().getType() + " for player: " + activePlayer.getName().toString() +  " are declined");
+				 System.out.println(activePlayer.getDeclineSet().getRace().getName() + " and " +activePlayer.getDeclineSet().getAbility().getName() + " for player: " + activePlayer.getName().toString() +  " are declined");
 				 //	});
 			}
 			if(yesOrNo.equals("no"))
@@ -130,7 +130,7 @@ public  class Decline {
 //				System.out.println();
 //			}
 			for(int x=0;x<6;x++){
-				System.out.print((x+1) + ": " +  arrAbility[x].getType() + " " +  arrRaces[x].getName());
+				System.out.print((x+1) + ": " +  arrAbility[x].getName() + " " +  arrRaces[x].getName());
 				System.out.println();
 			}
 
@@ -144,7 +144,7 @@ public  class Decline {
 			}
 			tempSet = new Set(arrAbility[setNr-1], arrRaces[setNr-1]);
 			activePlayer.setActiveSet(tempSet);
-			System.out.println(playerList.get(0).getActiveSet().getAbility().getType() + " and "
+			System.out.println(playerList.get(0).getActiveSet().getAbility().getName() + " and "
 								+ playerList.get(0).getActiveSet().getRace().getName() + " are activated.");
 
 

@@ -47,7 +47,7 @@ public class RedeployAreas
 		while(activePlayer.getHand().getCurrentTokens()>0)
 		{
 			System.out.println(activePlayer.getName() + " has currently got " + activePlayer.getHand().getCurrentTokens()
-					+ " " + activePlayer.getActiveSet().getAbility().getType() + " " + activePlayer.getActiveSet().getRace().getName()
+					+ " " + activePlayer.getActiveSet().getAbility().getName() + " " + activePlayer.getActiveSet().getRace().getName()
 					+ " tokens to redeploy on the following areas: ");
 
 			tc.setAllRedeployableAreas(activePlayer);
@@ -57,7 +57,7 @@ public class RedeployAreas
 
 			tc.checkIfRedeployable();
 
-			System.out.println("A: How many tokens?");
+			System.out.println("A: How many tokens do you wish to be on the terrain?");
 			declaredTokenAmount = input.nextInt();								//Player declaring amount to attack with
 			input.nextLine();
 
@@ -70,6 +70,8 @@ public class RedeployAreas
 
 			activePlayer.getHand().setCurrentTokens(activePlayer.getHand().getCurrentTokens() - declaredTokenAmount);
 
+			
+			
 			map.getTerrain(tc.getAreaPicked()).setAmountOfTokens(declaredTokenAmount+1);
 		}
 	}

@@ -49,7 +49,7 @@ public class PickRegions
 		for(int i=0;i<playerList.size();i++)			//As long as there is players
 		{
 			System.out.println("For now, " + playerList.get(i).getName() + " is going to be "
-							+	playerList.get(i).getActiveSet().getAbility().getType() + " "
+							+	playerList.get(i).getActiveSet().getAbility().getName() + " "
 							+	playerList.get(i).getActiveSet().getRace().getName() + "." + "\n");
 		}
 

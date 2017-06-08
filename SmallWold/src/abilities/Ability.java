@@ -22,7 +22,7 @@ public abstract class Ability
 	{
 		this.name = name;
 	}
-	public String getType()
+	public String getName()
 	{
 		return name;
 	}
