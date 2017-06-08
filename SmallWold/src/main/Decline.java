@@ -53,6 +53,7 @@ public  class Decline {
 		AbilityListCreator abilityList = new AbilityListCreator();
 		RaceListCreator raceList = new RaceListCreator();
 		List<Player> playerList;
+
 		//Ability [] arrAbility = {new Adventurous(), new Fisher(), new Flocking(), new Frightened(), new Immortal(), new Magic(),
 		//		new Martyr(), new Mining(), new Muddy(), new Mystic(), new Quarreling(), new Reborn(), new Royal(), new Shield(),
 		//		new Stone(), new Thieving(), new Tomb(), new Vampire(), new Vanishing(), new Vengeful(), new Wise()};
@@ -96,10 +97,13 @@ public  class Decline {
 				System.out.println("Continue");
 			}
 		}
+
 		public void shuffleSets()
 		{
+
 			Random r = new Random();
-			for(int x=0;x<100;x++){
+			for(int x=0;x<100;x++)
+			{
 
 				//int getal1 = r.nextInt(arrAbility.length);
 				//int getal2 = r.nextInt(arrAbility.length);
@@ -112,8 +116,8 @@ public  class Decline {
 				abilityList.getAbilityList().set(getal1, abilityList.getListElement(getal2));
 				abilityList.getAbilityList().set(getal2, tempAbility);
 
-		}
-			for(int x=0;x<100;x++){
+			for(x=0;x<100;x++){
+
 
 //				getal1 = r.nextInt(arrRaces.length);
 //				getal2 = r.nextInt(arrRaces.length);
@@ -125,24 +129,18 @@ public  class Decline {
 //				arrRaces[getal2] = race;
 				raceList.getRaceList().set(getal1, raceList.getListElement(getal2));
 				raceList.getRaceList().set(getal2, tempRace);
-
+			}
 		}
 
 	}
 		public void chooseNewSet(){
 			Set tempSet;
-//			System.out.println(arrNewAbility.length);
-//			for ( int i = 0 ; i < arrRaces.length - playerList.size() ; i++ )
-//			   {
-//					arrRaces[ i ] = arrRaces[ i + 1 ];
-//			   }
-//
-//			for(int x=0;x<arrNewAbility.length;x++){
-//				System.out.print((x+1) + ": " +  arrNewAbility[x].getType());
-//				System.out.println();
-//			}
+
+
+
 			for(int x=0;x<6;x++){
 				System.out.print((x+1) + ": " +  abilityList.getListElement(x).getName() + " " +  raceList.getListElement(x).getName());
+
 				System.out.println();
 			}
 
@@ -154,11 +152,14 @@ public  class Decline {
 				System.out.println("Enter the set number: ");
 				setNr = input.nextInt();
 			}
-			tempSet = new Set(abilityList.getListElement(setNr-1), raceList.getListElement(setNr-1));
-			activePlayer.setActiveSet(tempSet);
-			System.out.println(playerList.get(0).getActiveSet().getAbility().getName() + " and "
-								+ playerList.get(0).getActiveSet().getRace().getName() + " are activated.");
 
+			tempSet = new Set(abilityList.getListElement(setNr-1), raceList.getListElement(setNr-1));
+
+			activePlayer.setActiveSet(tempSet);
+
+
+
+			System.out.println(playerList.get(0).getActiveSet().getAbility().getName() + " and " + playerList.get(0).getActiveSet().getRace().getName() + " for " + activePlayer.getName()  + " is now activated.");
 
 		}
 }

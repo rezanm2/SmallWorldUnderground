@@ -29,7 +29,6 @@ public class RaceListCreator
 		Race cultists = new Cultists();
 		Race drow = new Drow();
 		Race dwarves = new Dwarves();
-		Race empty = new Empty();
 		Race flames = new Flames();
 		Race gnomes = new Gnomes();
 		Race kraken = new Kraken();
@@ -43,7 +42,6 @@ public class RaceListCreator
 		Race spiderines = new Spiderines();
 		Race willOWisp = new WillOWisp();
 
-		raceList.add(empty);
 		raceList.add(cultists);
 		raceList.add(drow);
 		raceList.add(dwarves);
