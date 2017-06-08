@@ -13,7 +13,7 @@ public class Muddy extends Ability  implements CalculatableIncome
 	public Muddy()
 	{
 		amountOfTokens = 3;
-		name = "Flocking";
+		name = "Muddy ";
 		traitText = "+1 coin for each mud region";
 	}
 
