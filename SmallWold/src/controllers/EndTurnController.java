@@ -13,15 +13,13 @@ import races.Race;
 public class EndTurnController
 {
 	private int terrainIncome;
-	private int relicIncome;
-	private int specialPlaceIncome;
 	private int totalSum;
 	private int coins;
-	private int terrainCounter;
-	private int terrainStringCounter;
-	private int elementCounter;
-	private int terrain;
-	private int value;
+	private int abilityIncome;
+	private int raceIncome;
+	private int relicIncome;
+	private int specialPlaceIncome;
+
 	private List<Player> playerList;
 
 	AbilityListCreator abilityList = new AbilityListCreator();
@@ -36,9 +34,19 @@ public class EndTurnController
 		this.playerList = ammy.getPlayerList();
 	}
 
-	public void calculateTerrainIncome(Player activePlayer)
+	public void start(Player activePlayer)
 	{
 		this.activePlayer = activePlayer;
+		calculateTerrainIncome();
+		calculateRelicIncome();
+		calculateSpecialPlaceIncome();
+		calculateAbilityIncome();
+		calculateRaceIncome();
+		addSum();
+	}
+
+	public void calculateTerrainIncome()
+	{
 		terrainIncome = 0;
 
 		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
@@ -50,44 +58,20 @@ public class EndTurnController
 		}
 	}
 
+	public void calculateRelicIncome(){
 
-	public void checkTerrainType(String terrainString)
+	}
+
+	public void calculateSpecialPlaceIncome(){
+
+	}
+
+	public void calculateRaceIncome()
 	{
-		terrainCounter = 0;
-		elementCounter = 0;
-		terrain = 0;
-		value = 0;
-		terrainStringCounter = 0;
-		while(terrainCounter<map.getAllTerrains().size())				//While there's still terrains left
-		{
-			while(elementCounter<map.getTerrain(terrain).getIdArray().length)		//While there's still numbers in the terrain's array
-			{
-				if(map.getTerrain(terrain).getTerrainName().equals(terrainString)) 		//If the idCode is found, set isAttackable to true
-				{
-					terrainStringCounter++;
-					System.out.println("A: " + (terrain+1) + " is a " + terrainString);
-				}
-				value++;											//Look at the next value in the terrain's array, "eye"
-				elementCounter++;									//Keep track of which number in the array we're at
-			}
-			value = 0;												//"Eye" back at number 0 in the array
-			elementCounter = 0;										//Back at number 0 in a fresh terrain
-			terrainCounter++;										//Keep track of which terrain we're at
-			terrain++;												//Look at the next terrain, "eye"
-		}
-	}
-
-	public void calculateRelicIncome(Player activePlayer){
 
 	}
-
-	public void calculateSpecialPlaceIncome(Player activePlayer){
-
-	}
-
-	public void calculateAbilityIncome(Player activePlayer)
+	public void calculateAbilityIncome()
 	{
-		this.activePlayer = activePlayer;
 		ammy.getPlayerList().get(0).getActiveSet().setAbility(abilityList.getListElement(10));
 		System.out.println("A: Player one got " + activePlayer.getActiveSet().getAbility().getName() + " now.");
 
@@ -100,9 +84,10 @@ public class EndTurnController
 
 	}
 
-	public void addSum(){
+	public void addSum()
+	{
 
-	//	totalSum = this.getTerrainIncome() + this.getAbilityIncome() + this.getRaceIncome() + this.getRelicIncome() + this.getSpecialPlaceIncome();
+	totalSum = getTerrainIncome() + getAbilityIncome() + getRaceIncome() + getRelicIncome() + getSpecialPlaceIncome();
 
 	}
 
@@ -142,4 +127,29 @@ public class EndTurnController
 	public void setTotalSum(int totalSum) {
 		this.totalSum = totalSum;
 	}
+
+	public int getCoins() {
+		return coins;
+	}
+
+	public void setCoins(int coins) {
+		this.coins = coins;
+	}
+
+	public int getAbilityIncome() {
+		return abilityIncome;
+	}
+
+	public void setAbilityIncome(int abilityIncome) {
+		this.abilityIncome = abilityIncome;
+	}
+
+	public int getRaceIncome() {
+		return raceIncome;
+	}
+
+	public void setRaceIncome(int raceIncome) {
+		this.raceIncome = raceIncome;
+	}
+
 }

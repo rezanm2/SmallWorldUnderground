@@ -50,16 +50,20 @@ import races.WillOWisp;
 
 public  class Decline {
 		Player activePlayer;
-		AbilityListCreator abilityList;
-		RaceListCreator raceList;
+		AbilityListCreator abilityList = new AbilityListCreator();
+		RaceListCreator raceList = new RaceListCreator();
 		List<Player> playerList;
-		Ability [] arrAbility = {new Adventurous(), new Fisher(), new Flocking(), new Frightened(), new Immortal(), new Magic(),
-				new Martyr(), new Mining(), new Muddy(), new Mystic(), new Quarreling(), new Reborn(), new Royal(), new Shield(),
-				new Stone(), new Thieving(), new Tomb(), new Vampire(), new Vanishing(), new Vengeful(), new Wise()};
+		//Ability [] arrAbility = {new Adventurous(), new Fisher(), new Flocking(), new Frightened(), new Immortal(), new Magic(),
+		//		new Martyr(), new Mining(), new Muddy(), new Mystic(), new Quarreling(), new Reborn(), new Royal(), new Shield(),
+		//		new Stone(), new Thieving(), new Tomb(), new Vampire(), new Vanishing(), new Vengeful(), new Wise()};
 
-		Race [] arrRaces = {new Cultists(), new Drow(), new Flames(), new Gnomes(), new Kraken(), new Liches(), new Lizardmen(),
-				new Monster(), new Mudmen(), new Mummies(), new Ogres(), new ShadowMimes(), new Shrooms(), new Spiderines(), new WillOWisp()};
+		//Race [] arrRaces = {new Cultists(), new Drow(), new Flames(), new Gnomes(), new Kraken(), new Liches(), new Lizardmen(),
+		//		new Monster(), new Mudmen(), new Mummies(), new Ogres(), new ShadowMimes(), new Shrooms(), new Spiderines(), new WillOWisp()};
 
+		private int getal1;
+		private int getal2;
+		private Race tempRace;
+		private Ability tempAbility;
 
 		public Decline(Ammy ammy){
 
@@ -92,27 +96,35 @@ public  class Decline {
 				System.out.println("Continue");
 			}
 		}
-		public void shakeSets(){
-
-			Ability ability;
-			Race race;
+		public void shuffleSets()
+		{
 			Random r = new Random();
 			for(int x=0;x<100;x++){
 
-				int getal = r.nextInt(arrAbility.length);
-				int getal2 = r.nextInt(arrAbility.length);
-				ability = arrAbility[getal];
-				arrAbility[getal] = arrAbility[getal2];
-				arrAbility[getal2] = ability;
+				//int getal1 = r.nextInt(arrAbility.length);
+				//int getal2 = r.nextInt(arrAbility.length);
+				getal1 = r.nextInt(abilityList.getAbilityList().size());
+				getal2 = r.nextInt(abilityList.getAbilityList().size());
+				//ability = arrAbility[getal1];
+				tempAbility = abilityList.getListElement(getal1);
+				//arrAbility[getal1] = arrAbility[getal2];
+				//arrAbility[getal2] = ability;
+				abilityList.getAbilityList().set(getal1, abilityList.getListElement(getal2));
+				abilityList.getAbilityList().set(getal2, tempAbility);
 
 		}
 			for(int x=0;x<100;x++){
 
-				int getal = r.nextInt(arrRaces.length);
-				int getal2 = r.nextInt(arrRaces.length);
-				race = arrRaces[getal];
-				arrRaces[getal] = arrRaces[getal2];
-				arrRaces[getal2] = race;
+//				getal1 = r.nextInt(arrRaces.length);
+//				getal2 = r.nextInt(arrRaces.length);
+				getal1 = r.nextInt(raceList.getRaceList().size());
+				getal2 = r.nextInt(raceList.getRaceList().size());
+//				race = arrRaces[getal1];
+				tempRace = raceList.getListElement(getal1);
+//				arrRaces[getal1] = arrRaces[getal2];
+//				arrRaces[getal2] = race;
+				raceList.getRaceList().set(getal1, raceList.getListElement(getal2));
+				raceList.getRaceList().set(getal2, tempRace);
 
 		}
 
@@ -130,7 +142,7 @@ public  class Decline {
 //				System.out.println();
 //			}
 			for(int x=0;x<6;x++){
-				System.out.print((x+1) + ": " +  arrAbility[x].getName() + " " +  arrRaces[x].getName());
+				System.out.print((x+1) + ": " +  abilityList.getListElement(x).getName() + " " +  raceList.getListElement(x).getName());
 				System.out.println();
 			}
 
@@ -142,7 +154,7 @@ public  class Decline {
 				System.out.println("Enter the set number: ");
 				setNr = input.nextInt();
 			}
-			tempSet = new Set(arrAbility[setNr-1], arrRaces[setNr-1]);
+			tempSet = new Set(abilityList.getListElement(setNr-1), raceList.getListElement(setNr-1));
 			activePlayer.setActiveSet(tempSet);
 			System.out.println(playerList.get(0).getActiveSet().getAbility().getName() + " and "
 								+ playerList.get(0).getActiveSet().getRace().getName() + " are activated.");

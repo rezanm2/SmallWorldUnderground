@@ -42,6 +42,7 @@ public class Ammy
 	RaceListCreator raceList = new RaceListCreator();
 	RelicListCreator relicList = new RelicListCreator();
 	Die die = new Die();
+	Decline decline;
 
 	public void playerSetup()		//This method sets up the players, the amount of Players, and their names.
 	{
@@ -79,7 +80,9 @@ public class Ammy
 		dc = new DeclareCombat(this);
 		etc = new EndTurnController(this);
 		ra = new RedeployAreas(this);
+		decline = new Decline(this);
 		System.out.println("Ammy: Done creating creators... \n");
+		System.out.println("A: I'm starting your game... \n");
 	}
 
 	public void setEverythingOnAmmy()
@@ -89,10 +92,13 @@ public class Ammy
 
 	public void startGame()
 	{
-		System.out.println("A: I'm starting your game... \n");
 		this.activePlayer = playerList.get(0);
-		pickRegions.start();
-		ra.start(this);
+		System.out.println("A: It is now " + activePlayer.getName() + "'s turn.");
+
+
+		decline.shuffleSets();
+		decline.chooseNewSet();
+		//decline.goInDecline();
 	}
 
 	//Getters and Setters below this line ---------------------------------------------------

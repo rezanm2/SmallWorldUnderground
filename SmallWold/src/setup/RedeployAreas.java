@@ -61,18 +61,17 @@ public class RedeployAreas
 			declaredTokenAmount = input.nextInt();								//Player declaring amount to attack with
 			input.nextLine();
 
-			while(declaredTokenAmount<0 || declaredTokenAmount > activePlayer.getHand().getCurrentTokens())
+			while(declaredTokenAmount<0 || declaredTokenAmount > activePlayer.getHand().getCurrentTokens() + map.getTerrain(tc.getAreaPicked()).getAmountOfTokens())
 			{
 				System.out.println("A: Too many or too little tokens selected. Please give me a different number.");
 				declaredTokenAmount = input.nextInt();								//Player declaring amount to attack with
 				input.nextLine();
 			}
 
-			activePlayer.getHand().setCurrentTokens(activePlayer.getHand().getCurrentTokens() - declaredTokenAmount);
+			activePlayer.getHand().setCurrentTokens(activePlayer.getHand().getCurrentTokens()
+					+ map.getTerrain(tc.getAreaPicked()).getAmountOfTokens() - declaredTokenAmount);
 
-			
-			
-			map.getTerrain(tc.getAreaPicked()).setAmountOfTokens(declaredTokenAmount+1);
+			map.getTerrain(tc.getAreaPicked()).setAmountOfTokens(declaredTokenAmount);
 		}
 	}
 
