@@ -115,10 +115,9 @@ public  class Decline {
 				//arrAbility[getal2] = ability;
 				abilityList.getAbilityList().set(getal1, abilityList.getListElement(getal2));
 				abilityList.getAbilityList().set(getal2, tempAbility);
-
-			for(x=0;x<100;x++){
-
-
+			}
+			for(int x=0;x<100;x++)
+			{
 //				getal1 = r.nextInt(arrRaces.length);
 //				getal2 = r.nextInt(arrRaces.length);
 				getal1 = r.nextInt(raceList.getRaceList().size());
@@ -131,8 +130,6 @@ public  class Decline {
 				raceList.getRaceList().set(getal2, tempRace);
 			}
 		}
-
-	}
 		public void chooseNewSet(){
 			Set tempSet;
 
@@ -156,8 +153,6 @@ public  class Decline {
 			tempSet = new Set(abilityList.getListElement(setNr-1), raceList.getListElement(setNr-1));
 
 			activePlayer.setActiveSet(tempSet);
-
-
 
 			System.out.println(playerList.get(0).getActiveSet().getAbility().getName() + " and " + playerList.get(0).getActiveSet().getRace().getName() + " for " + activePlayer.getName()  + " is now activated.");
 
