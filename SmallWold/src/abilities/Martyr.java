@@ -1,11 +1,25 @@
 package abilities;
 
-public class Martyr extends Ability
+import main.Ammy;
+import player.Player;
+
+public class Martyr extends Ability implements CalculatableIncome
 {
 	public Martyr()
 	{
 		amountOfTokens = 5;
-		type = "Martyr";
+		name = "Martyr";
 		traitText = "+1 coin every time this race is conquered";
+	}
+
+	@Override
+	public void processAbility(Ammy ammy) {
+		this.activePlayer = ammy.getActivePlayer();
+	}
+
+	@Override
+	public int getAbilityIncome() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

@@ -25,11 +25,13 @@ import abilities.Vampire;
 import abilities.Vanishing;
 import abilities.Vengeful;
 import abilities.Wise;
-import races.Race;
+import main.Ammy;
+import abilities.Empty;
 
 public class AbilityListCreator
 {
 	List<Ability> abilityList = new ArrayList<Ability>();
+	Ammy ammy;
 	public AbilityListCreator()
 	{
 		Ability adventurous = new Adventurous();
@@ -53,9 +55,9 @@ public class AbilityListCreator
 		Ability vanishing = new Vanishing();
 		Ability vengeful = new Vengeful();
 		Ability wise = new Wise();
-		Ability empty = new Ability();
+		Ability empty = new Empty();
 
-		abilityList.add(empty);
+		
 		abilityList.add(adventurous);
 		abilityList.add(fisher);
 		abilityList.add(flocking);
@@ -77,6 +79,7 @@ public class AbilityListCreator
 		abilityList.add(vanishing);
 		abilityList.add(vengeful);
 		abilityList.add(wise);
+		abilityList.add(empty);
 	}
 
 	public List<Ability> getAbilityList()

@@ -26,10 +26,10 @@ public class RaceListCreator
 	List<Race> raceList = new ArrayList<Race>();
 	public RaceListCreator()
 	{
+		Race empty = new Empty();
 		Race cultists = new Cultists();
 		Race drow = new Drow();
 		Race dwarves = new Dwarves();
-		Race empty = new Empty();
 		Race flames = new Flames();
 		Race gnomes = new Gnomes();
 		Race kraken = new Kraken();

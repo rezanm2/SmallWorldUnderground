@@ -44,11 +44,13 @@ public class PickRegions
 
 	public void start()
 	{
+		System.out.println("Ammy: ~~~~~~~~~I'm changing towards the PickRegions phase. ~~~~~~~~~ \n\n");
+
 		for(int i=0;i<playerList.size();i++)			//As long as there is players
 		{
 			System.out.println("For now, " + playerList.get(i).getName() + " is going to be "
-							+	playerList.get(i).getActiveSet().getAbility() + " "
-							+	playerList.get(i).getActiveSet().getRace().getTokenType() + "." + "\n");
+							+	playerList.get(i).getActiveSet().getAbility().getName() + " "
+							+	playerList.get(i).getActiveSet().getRace().getName() + "." + "\n");
 		}
 
 
@@ -81,16 +83,16 @@ public class PickRegions
 						setDefaults = true;
 						break;								//Break out of the loops.
 					}
-					
+
 					if(tempAreaPicked>map.getAllTerrains().size()) { 					// checks if area is in the map
 						System.out.println("A: Looks like that area's not choosable at the moment. Please pick a different area.");
 					}
-					
+
 					else {
 						if(map.getTerrain(tempAreaPicked).getIsImmune() == true					//If area is immune
-							|| !map.getTerrain(tempAreaPicked).getRace().getTokenType()		//or if the area is not empty
-							.equals(raceList.getListElement(0).getTokenType()))
-							
+							|| !map.getTerrain(tempAreaPicked).getRace().getName()				//or if the area is not empty
+							.equals(raceList.getListElement(0).getName()))
+
 						{
 							System.out.println("A: Looks like that area's not choosable at the moment. Please pick a different area.");
 						}
@@ -98,7 +100,7 @@ public class PickRegions
 						{
 							validChoice = true;
 						}
-					}	
+					}
 				}
 
 				if(setDefaults == true)
@@ -126,19 +128,21 @@ public class PickRegions
 		System.out.println("A: Yo, imma be setting yo defaults. \n");
 
 		map.getTerrain(0).setRace(playerList.get(0).getActiveSet().getRace());
-		map.getTerrain(0).setAmountOfTokens(1);
+		map.getTerrain(0).setAmountOfTokens(5);
 		map.getTerrain(1).setRace(playerList.get(0).getActiveSet().getRace());
-		map.getTerrain(1).setAmountOfTokens(2);
+		map.getTerrain(1).setAmountOfTokens(5);
 
 		map.getTerrain(2).setRace(playerList.get(1).getActiveSet().getRace());
-		map.getTerrain(2).setAmountOfTokens(3);
+		map.getTerrain(2).setAmountOfTokens(2);
 		map.getTerrain(3).setRace(playerList.get(1).getActiveSet().getRace());
-		map.getTerrain(3).setAmountOfTokens(4);
+		map.getTerrain(3).setAmountOfTokens(3);
 		map.getTerrain(4).setRace(playerList.get(1).getActiveSet().getRace());
-		map.getTerrain(4).setAmountOfTokens(5);
+		map.getTerrain(4).setAmountOfTokens(2);
 		map.getTerrain(5).setRace(playerList.get(1).getActiveSet().getRace());
-		map.getTerrain(5).setAmountOfTokens(6);
+		map.getTerrain(5).setAmountOfTokens(3);
 
+		playerList.get(0).getHand().setCurrentTokens(0);
+		playerList.get(1).getHand().setCurrentTokens(0);
 		hasBroken = true;
 	}
 }

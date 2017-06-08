@@ -42,6 +42,7 @@ public class Player
 	}
 
 	public void setActiveSet(Set activeSet) {
+		hand.setCurrentTokens(activeSet.getInitialTokens());
 		this.activeSet = activeSet;
 	}
 

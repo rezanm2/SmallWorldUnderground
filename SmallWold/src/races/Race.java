@@ -1,20 +1,21 @@
 package races;
 
+import player.Player;
+
 public abstract class Race
 {
 	protected int amountOfTokens;
 	protected int maxTokens;
-	protected String tokenType;
+	protected String name;
 	protected String traitText;
-
-	public Race()
-	{
-	}
 
 	public void setAmountOfTokens(int amountOfTokens)
 	{
 		this.amountOfTokens = amountOfTokens;
 	}
+
+	public abstract void processAbility(Player activePlayer);
+
 	public int getAmountOfTokens()
 	{
 		return amountOfTokens;
@@ -30,14 +31,14 @@ public abstract class Race
 		return maxTokens;
 	}
 
-	public void setTokenType(String tokenType)
+	public void setName(String name)
 	{
-		this.tokenType = tokenType;
+		this.name = name;
 	}
 
-	public String getTokenType()
+	public String getName()
 	{
-		return tokenType;
+		return name;
 	}
 
 	public void setTraitText(String traitText)

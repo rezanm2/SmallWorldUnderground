@@ -1,5 +1,7 @@
 package races;
 
+import player.Player;
+
 public class Empty extends Race
 {
 
@@ -7,7 +9,13 @@ public class Empty extends Race
 	{
 		amountOfTokens = 0;
 		maxTokens = 0;
-		tokenType = "Empty   ";
+		name = "Empty ";
 		traitText = "There is no race selected.";
+	}
+
+	@Override
+	public void processAbility(Player activePlayer) {
+		// TODO Auto-generated method stub
+
 	}
 }

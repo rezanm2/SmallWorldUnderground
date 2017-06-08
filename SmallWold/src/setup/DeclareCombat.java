@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import controllers.CombatController;
 import controllers.MapTester;
+import controllers.TerrainController;
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
@@ -14,14 +15,14 @@ public class DeclareCombat
 	CombatController cc;
 	MapTester test;
 	int code;
-	int declaredTokenAmount;
+	int declaredAmountOfTokens;
 	Map map;
 	int tempAreaPicked;
 	PlayerCreator playerCreator;
 	Player activePlayer;
 	Scanner input = new Scanner(System.in);
-
 	boolean validChoice;
+	TerrainController tc;
 
 	public DeclareCombat(Ammy ammy)
 	{
@@ -29,56 +30,70 @@ public class DeclareCombat
 		this.cc = ammy.getCc();
 		this.test = ammy.getTest();
 		this.playerCreator = ammy.getPlayerCreator();
-		this.activePlayer = ammy.getActivePlayer();
+		this.activePlayer = ammy.getPlayerCreator().playerList.get(0);
+		this.tc = ammy.getTc();
 	}
 
 	public void start()
 	{
 		System.out.println("Ammy: ~~~~~~~~~I'm changing towards the Conquest phase. ~~~~~~~~~ \n\n");
 		System.out.println("A: All right. Let's allow " + activePlayer.getName() + " to attack some stuff. \n");
-		cc.setAllAttackableAreas(playerCreator.playerList.get(0));				//Setting isAttackable for each area player x has
-		cc.setAllAdjacentAreas(playerCreator.playerList.get(0));				//Setting isAdjacent for each area player x has
-		cc.setAllReinforcableAreas(playerCreator.playerList.get(0));			//Setting isReinforcable for each area player x has
 
-		System.out.println("A: Currently, " + activePlayer.getName() + " controls the following areas.");
-		test.whichAreReinforcable();											//Show each area that isReinforcable
+
+		activePlayer = playerCreator.playerList.get(0);
+
+
+
+		tc.setAllAttackableAreas(activePlayer);						//Setting isAttackable for each area player x has
+		tc.setAllAdjacentAreas(activePlayer);						//Setting isAdjacent for each area player x has
+		tc.setAllRedeployableAreas(activePlayer);					//Setting isReinforcable for each area player x has
+		tc.calculateReturnedTokens();
+		activePlayer.getHand().setCurrentTokens(tc.getReturnedTokens());
+		System.out.println("A: Currently, " + activePlayer.getName() + " controls the following areas and has "
+							+ activePlayer.getHand().getCurrentTokens() + " " + activePlayer.getActiveSet().getRace().getName()
+							+ " tokens in their hand.");
+		test.whichAreRedeployable();													//Show each area that isReinforcable
 
 		System.out.println("A: Which means that " + activePlayer.getName() + " can attack the following areas.");
-		test.whichAreAttackable();												//Show each area that isAttackable
 
-		System.out.println("A: Which area do  you wish to attack?");
-
-		while(validChoice == false)					//As long as a valid choice has not been picked
+		while(activePlayer.getHand().getCurrentTokens()>0)
 		{
-			tempAreaPicked = input.nextInt() - 1;	//Let the player pick an area to attack
-			input.nextLine();
-			if(tempAreaPicked >= map.getAllTerrains().size() || tempAreaPicked < 0			//If an invalid area is chosen (number too big
-					|| map.getTerrain(tempAreaPicked).getIsAttackable() == false)			//or isn't currently attackable)
+			test.whichAreAttackable();
+
+			System.out.println("A: You have " + activePlayer.getHand().getCurrentTokens() + " tokens left.");
+			System.out.println("A: Which area do  you wish to attack?");
+
+			tc.checkIfAttackable();
+
+			System.out.println("A: Okay, there's currently " + map.getTerrain(tc.getAreaPicked()).getAmountOfTokens()
+								+ " tokens on it, and the place has " + map.getTerrain(tc.getAreaPicked()).getDefense() + " defense."
+								+ " You need " + (map.getTerrain(tc.getAreaPicked()).getAmountOfTokens() + map.getTerrain(tc.getAreaPicked())
+								.getDefense() + 2) + " tokens to take this area over.\n How many tokens do you wish to use?");
+
+
+			declaredAmountOfTokens = -5;
+			while(declaredAmountOfTokens<0 || declaredAmountOfTokens > activePlayer.getHand().getCurrentTokens())
 			{
-				System.out.println("A: Nope, that one isn't on the list! Please pick a different one.");
+				declaredAmountOfTokens = input.nextInt();								//Player declaring amount to attack with
+				input.nextLine();
+				System.out.print("A: No");
 			}
-			else
-			{
-				validChoice = true;
-			}
+			System.out.println(" problems");
+			cc.setDeclaredAmountOfTokens(declaredAmountOfTokens);					//CombatController taking this declared amount
+			cc.calculateCombat(map.getTerrain(tc.getAreaPicked()), activePlayer);	//CombatController calculating the combat done
+
+
 		}
 
-		System.out.println("A: Okay, there's currently " + map.getTerrain(tempAreaPicked).getAmountOfTokens()
-							+ " tokens on it, and the place has " + map.getTerrain(tempAreaPicked).getDefense() + " defense."
-							+ " You need " + (map.getTerrain(tempAreaPicked).getAmountOfTokens() + map.getTerrain(tempAreaPicked)
-							.getDefense() + 2) + " tokens to take this area over.\n How many tokens do you wish to use?");
 
-		declaredTokenAmount = input.nextInt();		//Player declaring amount to attack with
-		input.nextLine();
-		cc.setDeclaredAmountOfTokens(declaredTokenAmount);		//CombatController taking this declared amount
-		cc.calculateCombat(map.getTerrain(tempAreaPicked), activePlayer);	//CombatController calculating the combat done
-
+		System.out.println("A: Looks like you're out of tokens. Combat phase over.");
 	}
 
 	public void setActivePlayer(Player activePlayer)
 	{
 		this.activePlayer = activePlayer;
 	}
+
 	public Player getActivePlayer()
 	{
 		return activePlayer;
