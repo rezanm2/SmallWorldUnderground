@@ -8,12 +8,12 @@ public class Frightened extends Ability implements CalculatableIncome
 	public Frightened()
 	{
 		amountOfTokens = 4;
-		type = "Frightened";
+		name = "Frightened";
 		traitText = "+1 coin for each region that has 3 or more tokens on it.";
 	}
 
 	@Override
-	public void calculateAbility(Ammy ammy) {
+	public void processAbility(Player activePlayer) {
 		// TODO Auto-generated method stub
 
 	}

@@ -36,9 +36,9 @@ public class EndTurnController
 		this.playerList = ammy.getPlayerList();
 	}
 
-	public void calculateTerrainIncome(Ammy ammy)
+	public void calculateTerrainIncome(Player activePlayer)
 	{
-		this.activePlayer = ammy.getPlayerList().get(0);
+		this.activePlayer = activePlayer;
 		terrainIncome = 0;
 
 		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
@@ -77,21 +77,23 @@ public class EndTurnController
 		}
 	}
 
-	public void calculateRelicIncome(Player player){
+	public void calculateRelicIncome(Player activePlayer){
 
 	}
 
-	public void calculateSpecialPlaceIncome(Player player){
+	public void calculateSpecialPlaceIncome(Player activePlayer){
 
 	}
 
-	public void getAllAbilityIncome()
+	public void calculateAbilityIncome(Player activePlayer)
 	{
-		activePlayer = ammy.getActivePlayer();
+		this.activePlayer = activePlayer;
 		ammy.getPlayerList().get(0).getActiveSet().setAbility(abilityList.getListElement(10));
 		System.out.println("A: Player one got " + activePlayer.getActiveSet().getAbility().getType() + " now.");
 
-		ammy.getPlayerList().get(0).getActiveSet().getAbility().calculateAbility(ammy);
+
+		ammy.getPlayerList().get(0).getActiveSet().getAbility().processAbility(activePlayer);
+
 
 		System.out.println("A: " + activePlayer.getName() + " gets " + activePlayer.getActiveSet().getAbility().getAbilityIncome()
 							+ " coins from their ability trait.");
@@ -104,7 +106,7 @@ public class EndTurnController
 
 	}
 
-	public void calculateNewBalance(int coins){
+	public void calculateNewBalance(int currentBalance, int totalIncome){
 	coins = playerList.get(0).getCoins() + this.getTotalSum();
 	playerList.get(0).setCoins(coins);
 	}

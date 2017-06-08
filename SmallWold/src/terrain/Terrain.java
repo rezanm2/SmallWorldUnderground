@@ -16,7 +16,7 @@ public abstract class Terrain
 
 	protected boolean isAdjacent;
 	protected boolean isAttackable;
-	protected boolean isReinforcable;
+	protected boolean isRedeployable;
 	protected boolean isImmune;
 
 	protected Relic relic;
@@ -76,12 +76,12 @@ public abstract class Terrain
 		return isAdjacent;
 	}
 
-	public void setIsReinforcable(boolean isReinforcable) {
-		this.isReinforcable = isReinforcable;
+	public void setIsRedeployable(boolean isRedeployable) {
+		this.isRedeployable = isRedeployable;
 	}
 
-	public boolean getIsReinforcable() {
-		return isReinforcable;
+	public boolean getIsRedeployable() {
+		return isRedeployable;
 	}
 
 	public void setToOne() {

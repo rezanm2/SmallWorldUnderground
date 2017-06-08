@@ -8,12 +8,12 @@ public class Thieving extends Ability implements CalculatableIncome
 	public Thieving()
 	{
 		amountOfTokens = 4;
-		type = "Thieving";
+		name = "Thieving";
 		traitText = "Steal 1 coin from each adjacent active race";
 	}
 
 	@Override
-	public void calculateAbility(Ammy ammy) {
+	public void processAbility(Player activePlayer) {
 		// TODO Auto-generated method stub
 
 	}

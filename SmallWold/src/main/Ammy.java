@@ -6,7 +6,7 @@ import controllers.CombatController;
 import controllers.EndTurnController;
 import controllers.MapTester;
 import controllers.SleepController;
-import controllers.TerrainsController;
+import controllers.TerrainController;
 import listCreators.AbilityListCreator;
 import listCreators.RaceListCreator;
 import listCreators.RelicListCreator;
@@ -36,7 +36,7 @@ public class Ammy
 	List<Player> playerList;
 	RedeployAreas ra;
 	Initializer mapType;
-	TerrainsController tc;
+	TerrainController tc;
 	SleepController sleep = new SleepController();
 	AbilityListCreator abilityList = new AbilityListCreator();
 	RaceListCreator raceList = new RaceListCreator();
@@ -72,7 +72,7 @@ public class Ammy
 	public void createCreators()		//This method creates all the creators, for future reference.
 	{
 		System.out.println("Ammy: I'm creating all the creators. \n" );
-		tc = new TerrainsController(this);
+		tc = new TerrainController(this);
 		test = new MapTester(this);
 		cc = new CombatController(this);
 		pickRegions = new PickRegions(this);
@@ -90,11 +90,10 @@ public class Ammy
 	public void startGame()
 	{
 		System.out.println("A: I'm starting your game... \n");
-		this.activePlayer = playerList.get(1);
+		this.activePlayer = playerList.get(0);
 		pickRegions.start();
 		ra.start(this);
 	}
-
 
 	//Getters and Setters below this line ---------------------------------------------------
 
@@ -233,11 +232,11 @@ public class Ammy
 		this.ra = ra;
 	}
 
-	public TerrainsController getTc() {
+	public TerrainController getTc() {
 		return tc;
 	}
 
-	public void setTc(TerrainsController tc) {
+	public void setTc(TerrainController tc) {
 		this.tc = tc;
 	}
 }

@@ -8,12 +8,12 @@ public class Flocking extends Ability implements CalculatableIncome
 	public Flocking()
 	{
 		amountOfTokens = 5;
-		type = "Flocking";
+		name = "Flocking";
 		traitText = "+2 coins if all your regions are adjacent.";
 	}
 
 	@Override
-	public void calculateAbility(Ammy ammy) {
+	public void processAbility(Player activePlayer) {
 		// TODO Auto-generated method stub
 
 	}

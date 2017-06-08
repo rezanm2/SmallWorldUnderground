@@ -18,7 +18,7 @@ public class Adventurous extends Ability implements CalculatableIncome
 	public Adventurous()
 	{
 		amountOfTokens = 5;
-		type = "Adventurous";
+		name = "Adventurous";
 		traitText = "+1 coin for each popular place";
 	}
 
@@ -28,8 +28,8 @@ public class Adventurous extends Ability implements CalculatableIncome
 	}
 
 	@Override
-	public void calculateAbility(Ammy ammy) {
-		this.activePlayer = ammy.getActivePlayer();
+	public void processAbility(Player activePlayer) {
+		this.activePlayer = activePlayer;
 	}
 
 	@Override

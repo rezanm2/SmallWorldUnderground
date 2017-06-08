@@ -8,12 +8,12 @@ public class Wise extends Ability implements CalculatableIncome
 	public Wise()
 	{
 		amountOfTokens = 4;
-		type = "Wise";
+		name = "Wise";
 		traitText = "+2 coins if any wise tokens are still in play.";
 	}
 
 	@Override
-	public void calculateAbility(Ammy ammy) {
+	public void processAbility(Player activePlayer) {
 		// TODO Auto-generated method stub
 
 	}

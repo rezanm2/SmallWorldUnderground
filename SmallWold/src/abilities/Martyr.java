@@ -8,12 +8,12 @@ public class Martyr extends Ability implements CalculatableIncome
 	public Martyr()
 	{
 		amountOfTokens = 5;
-		type = "Martyr";
+		name = "Martyr";
 		traitText = "+1 coin every time this race is conquered";
 	}
 
 	@Override
-	public void calculateAbility(Ammy ammy) {
+	public void processAbility(Player activePlayer) {
 		// TODO Auto-generated method stub
 
 	}

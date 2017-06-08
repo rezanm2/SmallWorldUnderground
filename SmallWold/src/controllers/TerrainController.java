@@ -6,7 +6,7 @@ import main.Ammy;
 import playBoard.Map;
 import player.Player;
 
-public class TerrainsController
+public class TerrainController
 {
 	private int terrainCounter;
 	private Player activePlayer;
@@ -17,9 +17,10 @@ public class TerrainsController
 	private boolean validChoice;
 	private int areaPicked;
 	private int returnedTokens;
+	private int terrainStringCounter;
 	Scanner input = new Scanner(System.in);
 
-	public TerrainsController(Ammy ammy)
+	public TerrainController(Ammy ammy)
 	{
 		this.activePlayer = ammy.getActivePlayer();
 		this.map = ammy.getMap();
@@ -27,6 +28,7 @@ public class TerrainsController
 
 	public void checkIfAttackable()
 	{
+		validChoice = false;
 		while(validChoice == false)														//As long as a valid choice has not been picked
 		{
 			areaPicked = input.nextInt() - 1;										//Let the player pick an area to attack
@@ -43,14 +45,15 @@ public class TerrainsController
 		}
 	}
 
-	public void checkIfReinforcable()
+	public void checkIfRedeployable()
 	{
+		validChoice = false;
 		while(validChoice == false)														//As long as a valid choice has not been picked
 		{
 			areaPicked = input.nextInt() - 1;										//Let the player pick an area to attack
 			input.nextLine();
 			if(areaPicked >= map.getAllTerrains().size() || areaPicked < 0		//If an invalid area is chosen (number too big
-					|| map.getTerrain(areaPicked).getIsReinforcable() == false)		//or isn't currently attackable)
+					|| map.getTerrain(areaPicked).getIsRedeployable() == false)		//or isn't currently attackable)
 			{
 				System.out.println("A: Nope, that one isn't on the list! Please pick a different one.");
 			}
@@ -142,22 +145,22 @@ public class TerrainsController
 		}
 	}
 
-	public void setAllReinforcableAreas(Player activePlayer)
+	public void setAllRedeployableAreas(Player activePlayer)
 	{
-		setNotReinforcable();
+		setNotRedeployable();
 		System.out.println("A: Setting all reinforcable terrains for " + activePlayer.getName() + "\n");
 		this.activePlayer = activePlayer;
 		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
 			if (activePlayer.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace()))
 			{
-				changeAllReinforcableAreas(map.getTerrain(terrainCounter).getElement(0));
+				changeAllRedeployableAreas(map.getTerrain(terrainCounter).getElement(0));
 			}
 		}
 
 	}
 
-	private void changeAllReinforcableAreas(int code)
+	private void changeAllRedeployableAreas(int code)
 	{
 		terrainCounter = 0;
 		elementCounter = 0;
@@ -171,7 +174,7 @@ public class TerrainsController
 				if(map.getTerrain(terrain).getElement(value) == code && map.getTerrain(terrain).getRace().equals(
 						activePlayer.getActiveSet().getRace()))
 				{
-					map.getTerrain(terrain).setIsReinforcable(true);			//If the idCode is found, set isAttackable to true
+					map.getTerrain(terrain).setIsRedeployable(true);			//If the idCode is found, set isAttackable to true
 				}
 				value++;											//Look at the next value in the terrain's array, "eye"
 				elementCounter++;									//Keep track of which number in the array we're at
@@ -200,20 +203,21 @@ public class TerrainsController
 		}
 	}
 
-	public void setNotReinforcable()					//Set all the "isAttackable" booleans to false again
+	public void setNotRedeployable()					//Set all the "isAttackable" booleans to false again
 	{
 		for(terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)				//As long as there are terrains
 		{
-			map.getTerrain(terrainCounter).setIsReinforcable(false);		//Set it to false
+			map.getTerrain(terrainCounter).setIsRedeployable(false);		//Set it to false
 		}
 	}
 
+	//TokenController
 	public void calculateReturnedTokens()
 	{
 		returnedTokens = 0;
 		for(terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
-			if(map.getTerrain(terrainCounter).getIsReinforcable() == true)						//If isAttackable is true
+			if(map.getTerrain(terrainCounter).getIsRedeployable() == true)						//If isAttackable is true
 			{
 				this.returnedTokens = returnedTokens + map.getTerrain(terrainCounter).getAmountOfTokens() - 1;
 				map.getTerrain(terrainCounter).setToOne();
@@ -221,7 +225,31 @@ public class TerrainsController
 		}
 	}
 
-
+	public void checkTerrainType(String terrainString)
+	{
+		terrainCounter = 0;
+		elementCounter = 0;
+		terrain = 0;
+		value = 0;
+		terrainStringCounter = 0;
+		while(terrainCounter<map.getAllTerrains().size())				//While there's still terrains left
+		{
+			while(elementCounter<1)		//While there's still numbers in the terrain's array
+			{
+				if(map.getTerrain(terrain).getTerrainName().equals(terrainString))
+				{
+					terrainStringCounter++;
+					System.out.println("A: " + (terrain+1) + " is a " + terrainString);
+				}
+				value++;											//Look at the next value in the terrain's array, "eye"
+				elementCounter++;									//Keep track of which number in the array we're at
+			}
+			value = 0;												//"Eye" back at number 0 in the array
+			elementCounter = 0;										//Back at number 0 in a fresh terrain
+			terrainCounter++;										//Keep track of which terrain we're at
+			terrain++;												//Look at the next terrain, "eye"
+		}
+	}
 
 
 	public int getReturnedTokens() {
@@ -238,5 +266,14 @@ public class TerrainsController
 
 	public void setAreaPicked(int areaPicked) {
 		this.areaPicked = areaPicked;
+	}
+
+	public int getTerrainStringCounter()
+	{
+		return terrainStringCounter;
+	}
+	public void setTerrainStringCounter(int terrainStringCounter)
+	{
+		this.terrainStringCounter = terrainStringCounter;
 	}
 }

@@ -8,12 +8,12 @@ public class Vanishing extends Ability
 	public Vanishing()
 	{
 		amountOfTokens = 5;
-		type = "Vanishing";
+		name = "Vanishing";
 		traitText = "Remove all tokens when going in decline and get 2 coins for each region";
 	}
 
 	@Override
-	public void calculateAbility(Ammy ammy) {
+	public void processAbility(Player activePlayer) {
 		// TODO Auto-generated method stub
 
 	}

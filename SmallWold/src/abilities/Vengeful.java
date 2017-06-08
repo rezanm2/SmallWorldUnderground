@@ -8,12 +8,12 @@ public class Vengeful extends Ability
 	public Vengeful()
 	{
 		amountOfTokens = 4;
-		type = "Vengeful";
+		name = "Vengeful";
 		traitText = "Give a vengeful token to any player attacking you. Conquer that player's region with 1 less (minimum 1)";
 	}
 
 	@Override
-	public void calculateAbility(Ammy ammy) {
+	public void processAbility(Player activePlayer) {
 		// TODO Auto-generated method stub
 
 	}

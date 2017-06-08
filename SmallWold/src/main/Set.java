@@ -9,6 +9,7 @@ public class Set
 	protected Ability ability;
 	protected Race race;
 	protected int initialTokens;
+	protected int cost;
 
 	public Set(Ability ability, Race race)
 	{

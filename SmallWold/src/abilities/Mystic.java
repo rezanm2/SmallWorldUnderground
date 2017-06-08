@@ -3,6 +3,7 @@ package abilities;
 import java.util.List;
 
 import controllers.CombatController;
+import controllers.TerrainController;
 import main.Ammy;
 import player.Player;
 
@@ -10,20 +11,20 @@ public class Mystic extends Ability  implements CalculatableIncome
 {
 	private int abilityIncome;
 	Player activePlayer;
-	CombatController cc;
+	TerrainController tc;
 
 	public Mystic()
 	{
 		amountOfTokens = 4;
-		type = "Mystic";
+		name = "Mystic";
 		traitText = "+1 coin for each mystic region";
 	}
 
-	public void calculateAbility(Ammy ammy){
-		cc = new CombatController(ammy);
-
-		cc.checkTerrainType("Mystic");
-		abilityIncome = cc.getTerrainStringCounter();
+	@Override
+	public void processAbility(Player activePlayer) {
+		this.activePlayer = activePlayer;
+		tc.checkTerrainType("Mystic");
+		this.setAbilityIncome(tc.getTerrainStringCounter());
 	}
 
 	public int getAbilityIncome() {
@@ -41,14 +42,4 @@ public class Mystic extends Ability  implements CalculatableIncome
 	public void setActivePlayer(Player activePlayer) {
 		this.activePlayer = activePlayer;
 	}
-
-	public CombatController getCc() {
-		return cc;
-	}
-
-	public void setCc(CombatController cc) {
-		this.cc = cc;
-	}
-
-
 }

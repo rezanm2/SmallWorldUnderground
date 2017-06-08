@@ -50,7 +50,7 @@ public class PickRegions
 		{
 			System.out.println("For now, " + playerList.get(i).getName() + " is going to be "
 							+	playerList.get(i).getActiveSet().getAbility().getType() + " "
-							+	playerList.get(i).getActiveSet().getRace().getTokenType() + "." + "\n");
+							+	playerList.get(i).getActiveSet().getRace().getName() + "." + "\n");
 		}
 
 
@@ -90,8 +90,8 @@ public class PickRegions
 
 					else {
 						if(map.getTerrain(tempAreaPicked).getIsImmune() == true					//If area is immune
-							|| !map.getTerrain(tempAreaPicked).getRace().getTokenType()		//or if the area is not empty
-							.equals(raceList.getListElement(0).getTokenType()))
+							|| !map.getTerrain(tempAreaPicked).getRace().getName()				//or if the area is not empty
+							.equals(raceList.getListElement(0).getName()))
 
 						{
 							System.out.println("A: Looks like that area's not choosable at the moment. Please pick a different area.");

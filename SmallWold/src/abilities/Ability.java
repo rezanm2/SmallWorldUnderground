@@ -6,7 +6,7 @@ import player.Player;
 public abstract class Ability
 {
 	protected int abilityIncome;
-	protected String type;
+	protected String name;
 	protected String traitText;
 	protected int amountOfTokens;
 	protected boolean active;
@@ -16,15 +16,15 @@ public abstract class Ability
 	{
 	}
 
-	public abstract void calculateAbility(Ammy ammy);
+	public abstract void processAbility(Player activePlayer);
 
-	public void setType(String name)
+	public void setName(String name)
 	{
-		this.type = name;
+		this.name = name;
 	}
 	public String getType()
 	{
-		return type;
+		return name;
 	}
 
 	public void setActive(boolean active)

@@ -1,26 +1,27 @@
 package abilities;
 
 import controllers.CombatController;
+import controllers.TerrainController;
 import main.Ammy;
 import player.Player;
 
 public class Muddy extends Ability  implements CalculatableIncome
 {
-	CombatController cc;
+	TerrainController tc;
 	private int abilityIncome;
 
 	public Muddy()
 	{
 		amountOfTokens = 3;
-		type = "Flocking";
+		name = "Flocking";
 		traitText = "+1 coin for each mud region";
 	}
 
 	@Override
-	public void calculateAbility(Ammy ammy) {
-		this.activePlayer = ammy.getActivePlayer();
-		cc.checkTerrainType("Mystic");
-		this.setAbilityIncome(cc.getTerrainStringCounter());
+	public void processAbility(Player activePlayer) {
+		this.activePlayer = activePlayer;
+		tc.checkTerrainType("Mystic");
+		this.setAbilityIncome(tc.getTerrainStringCounter());
 	}
 
 	public int getAbilityIncome() {

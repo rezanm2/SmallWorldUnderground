@@ -1,17 +1,19 @@
 package races;
 
+import player.Player;
+
 public class Shrooms extends Race
 {
 	public Shrooms()
 	{
 		amountOfTokens = 4;
 		maxTokens = 10;
-		tokenType = "Shrooms";
+		name = "Shrooms";
 		traitText = "+1 coin for each Shroom region";
 	}
 	@Override
-	public void useTrait()
-	{
+	public void processAbility(Player activePlayer) {
+		// TODO Auto-generated method stub
 
 	}
 }

@@ -1,5 +1,7 @@
 package races;
 
+import player.Player;
+
 public class Drow extends Race
 {
 
@@ -7,13 +9,13 @@ public class Drow extends Race
 	{
 		amountOfTokens = 4;
 		maxTokens = 9;
-		tokenType = "Drow    ";
+		name = "Drow    ";
 		traitText = "+1 Coin for each terrain that isn't sharing borders with non-drow.";
 	}
 
 	@Override
-	public void useTrait()
-	{
+	public void processAbility(Player activePlayer) {
+		// TODO Auto-generated method stub
 
 	}
 }

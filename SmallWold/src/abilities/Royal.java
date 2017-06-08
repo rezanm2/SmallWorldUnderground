@@ -8,12 +8,12 @@ public class Royal extends Ability
 	public Royal()
 	{
 		amountOfTokens = 5;
-		type = "Royal";
+		name = "Royal";
 		traitText = "At the end of turn, place the queen in a region. That becomes immune.";
 	}
 
 	@Override
-	public void calculateAbility(Ammy ammy) {
+	public void processAbility(Player activePlayer) {
 		// TODO Auto-generated method stub
 
 	}

@@ -8,12 +8,12 @@ public class Fisher extends Ability implements CalculatableIncome
 	public Fisher()
 	{
 		amountOfTokens = 4;
-		type = "Fisher";
+		name = "Fisher";
 		traitText = "+1 coin for every coastal region";
 	}
 
 	@Override
-	public void calculateAbility(Ammy ammy) {
+	public void processAbility(Player activePlayer) {
 		// TODO Auto-generated method stub
 
 	}

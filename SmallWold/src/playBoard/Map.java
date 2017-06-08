@@ -57,7 +57,7 @@ public class Map
 		for(int terrainCounter=0;terrainCounter<getAllTerrains().size();terrainCounter++)				//As long as there are terrains
 		{
 			System.out.print("  " + (terrainCounter + 1) + "\t " + getTerrain(terrainCounter).getTerrainName()
-					+ "\t    " + getTerrain(terrainCounter).getRace().getTokenType() + "\t \t"
+					+ "\t    " + getTerrain(terrainCounter).getRace().getName() + "\t \t"
 					+ getTerrain(terrainCounter).getAmountOfTokens() + "\t  ");
 
 			for(int element=0; (element+1 )<getTerrain(terrainCounter).getIdArray().length; element++)

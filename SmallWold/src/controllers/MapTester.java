@@ -25,7 +25,7 @@ public class MapTester
 		for(terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
 			System.out.println((terrainCounter + 1) + "\t" + map.getTerrain(terrainCounter).getTerrainName()
-								+ map.getTerrain(terrainCounter).getRace().getTokenType() +
+								+ map.getTerrain(terrainCounter).getRace().getName() +
 								"\t" + map.getTerrain(terrainCounter).getRace().getAmountOfTokens());		//Return the tokenType
 		}
 	}
@@ -42,7 +42,7 @@ public class MapTester
 			{
 				System.out.println("A: " + (terrainCounter + 1) + "\t     "
 						+ map.getTerrain(terrainCounter).getTerrainName() + "\t"
-						+ map.getTerrain(terrainCounter).getRace().getTokenType()
+						+ map.getTerrain(terrainCounter).getRace().getName()
 						+ "\t" + map.getTerrain(terrainCounter).getAmountOfTokens());
 			}
 		}
@@ -58,23 +58,23 @@ public class MapTester
 			{
 				System.out.println("A: " + (terrainCounter + 1) + "\t     "
 						+ map.getTerrain(terrainCounter).getTerrainName() + "\t"
-						+ map.getTerrain(terrainCounter).getRace().getTokenType()			//Print the number of the iteration
+						+ map.getTerrain(terrainCounter).getRace().getName()			//Print the number of the iteration
 						+ "\t" + map.getTerrain(terrainCounter).getAmountOfTokens());	//and whether it's true or false
 			}
 		}
 	}
 
-	public void whichAreReinforcable()					//Show all areas which are currently attackable
+	public void whichAreRedeployable()					//Show all areas which are currently attackable
 	{
-		System.out.println("A: Showing which areas are reinforcable for " + activePlayer.getName() + "\n");
+		System.out.println("A: Showing which areas are redeployable for " + activePlayer.getName() + "\n");
 		System.out.println("A: Number : Terrain : Tokentype : Amount of Tokens");
 		for(terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
-			if(map.getTerrain(terrainCounter).getIsReinforcable() == true)						//If isAttackable is true
+			if(map.getTerrain(terrainCounter).getIsRedeployable() == true)						//If isAttackable is true
 			{
 			System.out.println("A: " + (terrainCounter + 1) + "\t     "
 								+ map.getTerrain(terrainCounter).getTerrainName() + "\t"
-								+ map.getTerrain(terrainCounter).getRace().getTokenType()			//Print the number of the iteration
+								+ map.getTerrain(terrainCounter).getRace().getName()			//Print the number of the iteration
 								+ "\t" + map.getTerrain(terrainCounter).getAmountOfTokens());	//and whether it's true or false
 			}
 		}

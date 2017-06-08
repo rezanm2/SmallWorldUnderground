@@ -8,12 +8,12 @@ public class Shield extends Ability
 	public Shield()
 	{
 		amountOfTokens = 3;
-		type = "Shield";
+		name = "Shield";
 		traitText = "Get a mushroom shield for each shroom region you control";
 	}
 
 	@Override
-	public void calculateAbility(Ammy ammy) {
+	public void processAbility(Player activePlayer) {
 		// TODO Auto-generated method stub
 
 	}

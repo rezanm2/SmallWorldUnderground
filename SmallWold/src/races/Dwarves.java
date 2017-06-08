@@ -1,18 +1,20 @@
 package races;
 
+import player.Player;
+
 public class Dwarves extends Race
 {
 	public Dwarves()
 	{
 		amountOfTokens = 7;
 		maxTokens = 12;
-		tokenType = "Dwarves";
+		name = "Dwarves";
 		traitText = "At end of turn, +1 silver hammer for each mine region.";
 	}
 
 	@Override
-	public void useTrait()
-	{
+	public void processAbility(Player activePlayer) {
+		// TODO Auto-generated method stub
 
 	}
 }

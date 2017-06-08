@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import controllers.CombatController;
 import controllers.MapTester;
-import controllers.TerrainsController;
+import controllers.TerrainController;
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
@@ -22,7 +22,7 @@ public class DeclareCombat
 	Player activePlayer;
 	Scanner input = new Scanner(System.in);
 	boolean validChoice;
-	TerrainsController tc;
+	TerrainController tc;
 
 	public DeclareCombat(Ammy ammy)
 	{
@@ -46,13 +46,13 @@ public class DeclareCombat
 
 		tc.setAllAttackableAreas(activePlayer);						//Setting isAttackable for each area player x has
 		tc.setAllAdjacentAreas(activePlayer);						//Setting isAdjacent for each area player x has
-		tc.setAllReinforcableAreas(activePlayer);					//Setting isReinforcable for each area player x has
+		tc.setAllRedeployableAreas(activePlayer);					//Setting isReinforcable for each area player x has
 		tc.calculateReturnedTokens();
 		activePlayer.getHand().setCurrentTokens(tc.getReturnedTokens());
 		System.out.println("A: Currently, " + activePlayer.getName() + " controls the following areas and has "
-							+ activePlayer.getHand().getCurrentTokens() + activePlayer.getActiveSet().getRace().getTokenType()
+							+ activePlayer.getHand().getCurrentTokens() + activePlayer.getActiveSet().getRace().getName()
 							+ " tokens in their hand.");
-		test.whichAreReinforcable();													//Show each area that isReinforcable
+		test.whichAreRedeployable();													//Show each area that isReinforcable
 
 		System.out.println("A: Which means that " + activePlayer.getName() + " can attack the following areas.");
 		test.whichAreAttackable();														//Show each area that isAttackable
