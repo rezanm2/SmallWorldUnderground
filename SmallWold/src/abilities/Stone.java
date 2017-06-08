@@ -18,8 +18,8 @@ public class Stone extends Ability implements CalculatableIncome
 	}
 
 	@Override
-	public void processAbility(Player activePlayer) {
-		this.activePlayer = activePlayer;
+	public void processAbility(Ammy ammy) {
+		this.tc = ammy.getTc();
 		tc.checkTerrainType("Mystic");
 		this.setAbilityIncome(tc.getTerrainStringCounter());
 	}

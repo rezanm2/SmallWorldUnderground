@@ -15,6 +15,7 @@ public class Starter
 	Ammy ammy = new Ammy();
 	public void start()
 	{
+		ammy.createLists();
 		ammy.playerSetup();
 		ammy.createAccordingMap();
 		ammy.createCreators();

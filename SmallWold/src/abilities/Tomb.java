@@ -12,7 +12,7 @@ public class Tomb extends Ability
 		traitText = "Redeploy once more before going in decline, then keep all tokens. At end of turn, if your tokens were conquered, redeploy them.";
 	}
 	@Override
-	public void processAbility(Player activePlayer) {
+	public void processAbility(Ammy ammy) {
 		// TODO Auto-generated method stub
 
 	}

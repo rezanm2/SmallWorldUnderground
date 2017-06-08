@@ -1,10 +1,13 @@
 package abilities;
 
+import controllers.TerrainController;
 import main.Ammy;
 import player.Player;
 
 public class Fisher extends Ability implements CalculatableIncome
 {
+	TerrainController tc;
+
 	public Fisher()
 	{
 		amountOfTokens = 4;
@@ -13,9 +16,9 @@ public class Fisher extends Ability implements CalculatableIncome
 	}
 
 	@Override
-	public void processAbility(Player activePlayer) {
-		// TODO Auto-generated method stub
-
+	public void processAbility(Ammy ammy) {
+		this.tc = ammy.getTc();
+		this.activePlayer = ammy.getActivePlayer();
 	}
 
 	@Override

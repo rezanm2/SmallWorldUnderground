@@ -13,15 +13,13 @@ import races.Race;
 public class EndTurnController
 {
 	private int terrainIncome;
-	private int relicIncome;
-	private int specialPlaceIncome;
 	private int totalSum;
 	private int coins;
-	private int terrainCounter;
-	private int terrainStringCounter;
-	private int elementCounter;
-	private int terrain;
-	private int value;
+	private int abilityIncome;
+	private int raceIncome;
+	private int relicIncome;
+	private int specialPlaceIncome;
+
 	private List<Player> playerList;
 
 	AbilityListCreator abilityList = new AbilityListCreator();
@@ -36,9 +34,19 @@ public class EndTurnController
 		this.playerList = ammy.getPlayerList();
 	}
 
-	public void calculateTerrainIncome(Player activePlayer)
+	public void start(Player activePlayer)
 	{
 		this.activePlayer = activePlayer;
+		calculateTerrainIncome();
+		calculateRelicIncome();
+		calculateSpecialPlaceIncome();
+		calculateAbilityIncome();
+		calculateRaceIncome();
+		addSum();
+	}
+
+	public void calculateTerrainIncome()
+	{
 		terrainIncome = 0;
 
 		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
@@ -48,37 +56,40 @@ public class EndTurnController
 				terrainIncome++;
 			}
 		}
+		System.out.println("A: " + activePlayer.getName() + " gets " + terrainIncome + " amount of coins from their terrains.");
 	}
 
+	public void calculateRelicIncome(){
 
-
-
-	public void calculateRelicIncome(Player activePlayer){
-
+		System.out.println("A: " + activePlayer.getName() + " gets " + relicIncome + " amount of coins from their relics.");
 	}
 
-	public void calculateSpecialPlaceIncome(Player activePlayer){
+	public void calculateSpecialPlaceIncome(){
 
+		System.out.println("A: " + activePlayer.getName() + " gets " + specialPlaceIncome + " amount of coins from their Special Places.");
 	}
 
-	public void calculateAbilityIncome(Player activePlayer)
+	public void calculateRaceIncome()
 	{
-		this.activePlayer = activePlayer;
+		System.out.println("A: " + activePlayer.getName() + " gets " + raceIncome + " amount of coins from their race ability.");
+	}
+	public void calculateAbilityIncome()
+	{
 		ammy.getPlayerList().get(0).getActiveSet().setAbility(abilityList.getListElement(10));
 		System.out.println("A: Player one got " + activePlayer.getActiveSet().getAbility().getName() + " now.");
 
 
-		ammy.getPlayerList().get(0).getActiveSet().getAbility().processAbility(activePlayer);
+		ammy.getPlayerList().get(0).getActiveSet().getAbility().processAbility(ammy);
 
 
-		System.out.println("A: " + activePlayer.getName() + " gets " + activePlayer.getActiveSet().getAbility().getAbilityIncome()
-							+ " coins from their ability trait.");
+		System.out.println("A: " + activePlayer.getName() + " gets " + terrainIncome + " amount of coins from their ability ability.");
 
 	}
 
-	public void addSum(){
+	public void addSum()
+	{
 
-	//	totalSum = this.getTerrainIncome() + this.getAbilityIncome() + this.getRaceIncome() + this.getRelicIncome() + this.getSpecialPlaceIncome();
+	totalSum = getTerrainIncome() + getAbilityIncome() + getRaceIncome() + getRelicIncome() + getSpecialPlaceIncome();
 
 	}
 
@@ -118,4 +129,29 @@ public class EndTurnController
 	public void setTotalSum(int totalSum) {
 		this.totalSum = totalSum;
 	}
+
+	public int getCoins() {
+		return coins;
+	}
+
+	public void setCoins(int coins) {
+		this.coins = coins;
+	}
+
+	public int getAbilityIncome() {
+		return abilityIncome;
+	}
+
+	public void setAbilityIncome(int abilityIncome) {
+		this.abilityIncome = abilityIncome;
+	}
+
+	public int getRaceIncome() {
+		return raceIncome;
+	}
+
+	public void setRaceIncome(int raceIncome) {
+		this.raceIncome = raceIncome;
+	}
+
 }

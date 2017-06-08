@@ -5,10 +5,10 @@ import player.Player;
 
 public abstract class Ability
 {
+	protected int amountOfTokens;
 	protected int abilityIncome;
 	protected String name;
 	protected String traitText;
-	protected int amountOfTokens;
 	protected boolean active;
 	protected Player activePlayer;
 
@@ -16,12 +16,13 @@ public abstract class Ability
 	{
 	}
 
-	public abstract void processAbility(Player activePlayer);
+	public abstract void processAbility(Ammy ammy);
 
 	public void setName(String name)
 	{
 		this.name = name;
 	}
+
 	public String getName()
 	{
 		return name;

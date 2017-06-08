@@ -13,13 +13,14 @@ public class Muddy extends Ability  implements CalculatableIncome
 	public Muddy()
 	{
 		amountOfTokens = 3;
-		name = "Flocking";
+		name = "Muddy ";
 		traitText = "+1 coin for each mud region";
 	}
 
 	@Override
-	public void processAbility(Player activePlayer) {
-		this.activePlayer = activePlayer;
+	public void processAbility(Ammy ammy) {
+		this.activePlayer = ammy.getActivePlayer();
+		this.tc = ammy.getTc();
 		tc.checkTerrainType("Mystic");
 		this.setAbilityIncome(tc.getTerrainStringCounter());
 	}

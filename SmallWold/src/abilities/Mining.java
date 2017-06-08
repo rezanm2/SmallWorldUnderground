@@ -17,18 +17,11 @@ public class Mining extends Ability  implements CalculatableIncome
 		traitText = "+1 coin for each mine region";
 	}
 
-	public int getAbilityIncome() {
-		return abilityIncome;
-	}
-
-	public void setAbilityIncome(int abilityIncome) {
-		this.abilityIncome = abilityIncome;
-	}
-
 	@Override
-	public void processAbility(Player activePlayer) {
-		this.activePlayer = activePlayer;
-		tc.checkTerrainType("Mystic");
-		this.setAbilityIncome(tc.getTerrainStringCounter());
+	public void processAbility(Ammy ammy) {
+		this.tc = ammy.getTc();
+		this.activePlayer = ammy.getActivePlayer();
 	}
+
+
 }

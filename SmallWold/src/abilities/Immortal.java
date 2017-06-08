@@ -13,8 +13,7 @@ public class Immortal extends Ability
 	}
 
 	@Override
-	public void processAbility(Player activePlayer) {
-		// TODO Auto-generated method stub
-
+	public void processAbility(Ammy ammy) {
+		this.activePlayer = ammy.getActivePlayer();
 	}
 }

@@ -21,19 +21,13 @@ public class CombatController
 	Player activePlayer;
 	Map map;
 	TerrainController tc;
+	Scanner input = new Scanner(System.in);
 
 	public CombatController(Ammy ammy)
 	{
 		this.die = ammy.getDie();
 		this.map = ammy.getMap();
 		this.tc = ammy.getTc();
-	}
-
-
-
-	public void setDeclaredAmountOfTokens(int declaredAmountOfTokens)				//Player declaring amount of tokens for attack
-	{
-		this.declaredAmountOfTokens = declaredAmountOfTokens;
 	}
 
 	public void calculateCombat(Terrain terrain, Player activePlayer)		//Calculating win or lose
@@ -45,27 +39,31 @@ public class CombatController
 		else																					//If the player loses
 		{
 			System.out.println("A: Not enough tokens selected. Wanna roll a die? ( (Y)es / (N)o )");
-			Scanner input = new Scanner(System.in);
 			char rollDice = input.nextLine().toString().toUpperCase().charAt(0);
 			System.out.println(rollDice);
-			if(rollDice == 'Y') {
+			if(rollDice == 'Y')
+			{
 				System.out.println("A: So you want to roll the die, great! ");
 				die.throwDie();
 				System.out.println("A: Let's see what you rolled: " + die.getResult() + "\n");
-				if(terrain.getAmountOfTokens() + terrain.getDefense() + 2 <= declaredAmountOfTokens + die.getResult()) {
-					System.out.println("A: The die says you can take the terrain! ");
+				if(terrain.getAmountOfTokens() + terrain.getDefense() + 2 <= declaredAmountOfTokens + die.getResult())
+				{
+					System.out.println("A: The die CANT TALK. But you can take the terrain! ");
 					doAttack(terrain, activePlayer);
-					System.out.println("A: Ending your conquestfase");
+					System.out.println("A: Ending your conquest phase");
 				}
-				else {
-					System.out.println("A: Ai thats to bad. ");
-					System.out.println("A: Ending your conquestfase");
+				else
+				{
+					System.out.println("A: Ayyy thats too bad. ");
+					System.out.println("A: Ending your conquest phase");
 				}
 			}
-			else if(rollDice == 'N') {
-				System.out.println("A: Ah okey, I will cancel the attack than. ");
+			else if(rollDice == 'N')
+			{
+				System.out.println("A: Ah okay, I will cancel the attack than. ");
 			}
-			else {
+			else
+			{
 				System.out.println("A: I didn't understand what you want me to do, so I am cancelling the attack. ");
 			}
 		}
@@ -75,9 +73,16 @@ public class CombatController
 		terrain.setRace(activePlayer.getActiveSet().getRace());	 							//Make the terrain be the player's Race
 		terrain.setAmountOfTokens(declaredAmountOfTokens);							  		//The declared amount is set on the terrain
 		System.out.println("A: Attack succesful!");
+		tc.setNotAdjacent();
+		tc.setNotAttackable();
+		tc.setNotRedeployable();
 		tc.setAllAttackableAreas(activePlayer);
 		tc.setAllAdjacentAreas(activePlayer);
 		tc.setAllRedeployableAreas(activePlayer);
+
+		activePlayer.getHand().setCurrentTokens(activePlayer.getHand().getCurrentTokens() - declaredAmountOfTokens);
+		System.out.println("A: I'm doin' this shit. declaredAmountOfTokens: " + declaredAmountOfTokens + "activePlayer: " + activePlayer.getName());
+
 	}
 
 
@@ -153,5 +158,11 @@ public class CombatController
 
 	public int getDeclaredAmountOfTokens() {
 		return declaredAmountOfTokens;
+	}
+
+
+	public void setDeclaredAmountOfTokens(int declaredAmountOfTokens)				//Player declaring amount of tokens for attack
+	{
+		this.declaredAmountOfTokens = declaredAmountOfTokens;
 	}
 }

@@ -25,7 +25,6 @@ public class Ammy
 {
 	//This entire list is just for references, for the setters and getters of Ammy.
 	MapCreator mapCreator;
-	PlayerCreator playerCreator = new PlayerCreator();
 	CombatController cc;
 	MapTester test;
 	PickRegions pickRegions;
@@ -38,15 +37,19 @@ public class Ammy
 	Initializer mapType;
 	TerrainController tc;
 	SleepController sleep = new SleepController();
-	AbilityListCreator abilityList = new AbilityListCreator();
-	RaceListCreator raceList = new RaceListCreator();
-	RelicListCreator relicList = new RelicListCreator();
 	Die die = new Die();
+	Decline decline;
+	PlayerCreator playerCreator;
+	AbilityListCreator abilityList;
+	RaceListCreator raceList;
+	RelicListCreator relicList;
 
 	public void playerSetup()		//This method sets up the players, the amount of Players, and their names.
 	{
 
 		System.out.println("Ammy: I'm running! \n");
+		playerCreator = new PlayerCreator();
+
 		playerCreator.defineAmountOfPlayers(); 					//Asks how many players will play the game
 		playerCreator.definePlayers();
 		playerCreator.setDefaultSets();
@@ -79,7 +82,16 @@ public class Ammy
 		dc = new DeclareCombat(this);
 		etc = new EndTurnController(this);
 		ra = new RedeployAreas(this);
+		decline = new Decline(this);
 		System.out.println("Ammy: Done creating creators... \n");
+		System.out.println("A: I'm starting your game... \n");
+	}
+
+	public void createLists()
+	{
+		abilityList = new AbilityListCreator();
+		raceList = new RaceListCreator();
+		relicList = new RelicListCreator();
 	}
 
 	public void setEverythingOnAmmy()
@@ -89,10 +101,15 @@ public class Ammy
 
 	public void startGame()
 	{
-		System.out.println("A: I'm starting your game... \n");
 		this.activePlayer = playerList.get(0);
+		System.out.println("A: It is now " + activePlayer.getName() + "'s turn.");
 		pickRegions.start();
+		dc.start();
 		ra.start(this);
+		etc.start(activePlayer);
+//		decline.shuffleSets();
+//		decline.chooseNewSet();
+//		decline.goInDecline();
 	}
 
 	//Getters and Setters below this line ---------------------------------------------------
