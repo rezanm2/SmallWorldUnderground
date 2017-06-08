@@ -1,5 +1,6 @@
 package client;
 
+import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.rmi.AccessException;
@@ -15,6 +16,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import server.ClientSkeleton;
 import server.ServerSkeleton;
 
 public class ClientMain extends Application{
@@ -23,26 +25,29 @@ public class ClientMain extends Application{
 	private static ClientImpl clientImpl;
 	private static ServerSkeleton serverSkeleton;
 	private static int port = 1098;
-	
+
 	public static void main(String[] args) throws RemoteException {
 		System.out.println(ClientMain.getHostIP());
-		launch();
+		RemoteClient remoteObject = new RemoteClient();
+		remoteObject.register();
+
+		//launch();
 	}
-	
+
 	public static String getHostIP() {
 		InetAddress address = null;
 		try {
 			address = InetAddress.getLocalHost();
 		} catch (UnknownHostException e1) {
 			e1.printStackTrace();
-		} 
+		}
 	    return address.getHostAddress();
 	}
-	
-	
+
+
 	public static void startClientserver(String username) {
 		try {
-			clientImpl = new ClientImpl(getHostIP(), username); // create calculator and treat as Calculator
+			//clientImpl = new ClientImpl(getHostIP(), username); // create calculator and treat as Calculator
 			ClientSkeleton clientSkeleton = (ClientSkeleton) UnicastRemoteObject.exportObject(clientImpl, 0); // cast to remote object
 			registry = LocateRegistry.createRegistry(port); // default port 1099 // run RMI registry on local host
 			registry.rebind("client", clientSkeleton); // bind calculator to RMI registry
@@ -51,7 +56,7 @@ public class ClientMain extends Application{
 			System.out.println(e);
 		};
 	}
-	
+
 	public static void stopClientserver() {
 		System.out.println("Shutting down");
 		try {
@@ -69,7 +74,7 @@ public class ClientMain extends Application{
 			System.out.println("Server is al uit");
 		}
 	}
-	
+
 	public static void loadServer(String ServerIP, String username) {
 		try {
 			Registry registry = LocateRegistry.getRegistry(ServerIP);
@@ -81,18 +86,18 @@ public class ClientMain extends Application{
 			e.printStackTrace();
 		}
 	}
-	
-	public static void joinServer() throws RemoteException {
-		serverSkeleton.addClient(getHostIP());
+
+	public static void joinServer() throws IOException {
+	//	serverSkeleton.addClient(getHostIP());
 	}
-	
+
 	public static String getUsername(int pos) throws RemoteException {
 		return serverSkeleton.giveUsername(pos);
 	}
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		Parent View = FXMLLoader.load(getClass().getResource("Client.fxml")); 
+		Parent View = FXMLLoader.load(getClass().getResource("Client.fxml"));
 		Scene scene = new Scene(View);
 		primaryStage.setScene(scene);
 		primaryStage.show();
@@ -102,7 +107,7 @@ public class ClientMain extends Application{
 	public static int getamountPlayers() throws RemoteException {
 		return serverSkeleton.getamountPlayers();
 	}
-	
-	
+
+
 
 }
