@@ -5,6 +5,7 @@ import java.util.Scanner;
 import controllers.CombatController;
 import controllers.MapTester;
 import controllers.TerrainController;
+import listCreators.RaceListCreator;
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
@@ -19,6 +20,7 @@ public class RedeployAreas
 	private Map map;
 	private CombatController cc;
 	Scanner input = new Scanner(System.in);
+	RaceListCreator raceList;
 
 	public RedeployAreas(Ammy ammy)
 	{
@@ -27,6 +29,7 @@ public class RedeployAreas
 		this.tc = ammy.getTc();
 		this.map = ammy.getMap();
 		this.cc = ammy.getCc();
+		this.raceList = ammy.getRaceList();
 	}
 
 	public void start(Ammy ammy)
@@ -51,7 +54,10 @@ public class RedeployAreas
 					+ " tokens to redeploy on the following areas: ");
 
 			tc.setAllRedeployableAreas(activePlayer);
+
+			test.whichAreAdjacent();
 			test.whichAreRedeployable();
+
 
 			System.out.println("A: Which area do  you wish to redeploy in?");
 
@@ -61,6 +67,24 @@ public class RedeployAreas
 			declaredTokenAmount = input.nextInt();								//Player declaring amount to attack with
 			input.nextLine();
 
+			if(declaredTokenAmount == 0)
+			{
+				System.out.println("A: Selecting 0 tokens means you'll pull out of the region. Pick 0 again if you're sure.");
+				declaredTokenAmount = input.nextInt();								//Player declaring amount to attack with
+				input.nextLine();
+				if(declaredTokenAmount == 0)
+				{
+					System.out.println("Okay, sure.");
+
+					activePlayer.getHand().setCurrentTokens(activePlayer.getHand().getCurrentTokens()
+							+ map.getTerrain(tc.getAreaPicked()).getAmountOfTokens() - declaredTokenAmount);
+
+					map.getTerrain(tc.getAreaPicked()).setAmountOfTokens(0);
+					map.getTerrain(tc.getAreaPicked()).setRace(raceList.getListElement(0));
+
+
+				}
+			}
 			while(declaredTokenAmount<0 || declaredTokenAmount > activePlayer.getHand().getCurrentTokens() + map.getTerrain(tc.getAreaPicked()).getAmountOfTokens())
 			{
 				System.out.println("A: Too many or too little tokens selected. Please give me a different number.");

@@ -27,6 +27,7 @@ import terrain.Terrain;
 public class MapCreator
 {
 	private int amountOfPlayers;
+	private int maxTotalTurns;
 	Map map;
 	Ammy ammy;
 	Initializer mapType;
@@ -43,24 +44,28 @@ public class MapCreator
 			TwoPlayer mapType = new TwoPlayer();			//Make a variable that holds the 2-player map
 			mapType.initialize();							//Add the terrains to the map
 			this.terrainList = mapType.getTerrains();		//Make the mapcreator aware of the terrainlist.
+			this.maxTotalTurns = 10;
 		}
 		else if(amountOfPlayers == 3)
 		{
 			ThreePlayer mapType = new ThreePlayer();
 			mapType.initialize();
 			this.terrainList = mapType.getTerrains();
+			this.maxTotalTurns = 10;
 		}
 		else if(amountOfPlayers == 4)
 		{
 			FourPlayer mapType = new FourPlayer();
 			mapType.initialize();
 			this.terrainList = mapType.getTerrains();
+			this.maxTotalTurns = 9;
 		}
 		else if(amountOfPlayers == 5)
 		{
 			FivePlayer mapType = new FivePlayer();
 			mapType.initialize();
 			this.terrainList = mapType.getTerrains();
+			this.maxTotalTurns = 8;
 		}
 
 	}
@@ -109,5 +114,14 @@ public class MapCreator
 	public void setAmountOfPlayers(int amountOfPlayers)
 	{
 		this.amountOfPlayers = amountOfPlayers;
+	}
+
+	public int getMaxTotalTurns() {
+		return maxTotalTurns;
+	}
+
+
+	public void setMaxTotalTurns(int maxTotalTurns) {
+		this.maxTotalTurns = maxTotalTurns;
 	}
 }

@@ -43,6 +43,7 @@ public class Ammy
 	AbilityListCreator abilityList;
 	RaceListCreator raceList;
 	RelicListCreator relicList;
+	int maxTotalTurns;
 
 	public void playerSetup()		//This method sets up the players, the amount of Players, and their names.
 	{
@@ -104,12 +105,20 @@ public class Ammy
 		this.activePlayer = playerList.get(0);
 		System.out.println("A: It is now " + activePlayer.getName() + "'s turn.");
 		pickRegions.start();
-		dc.start();
-		ra.start(this);
-		etc.start(activePlayer);
-//		decline.shuffleSets();
-//		decline.chooseNewSet();
-//		decline.goInDecline();
+
+		for(int totalTurnCounter=0;totalTurnCounter<mapCreator.getMaxTotalTurns();totalTurnCounter++)
+		{
+			for(int playerTurnCounter=0;playerTurnCounter<playerList.size();playerTurnCounter++)
+			{
+				activePlayer = playerList.get(playerTurnCounter);
+				dc.start(activePlayer);
+				ra.start(this);
+				etc.start(activePlayer);
+		//		decline.shuffleSets();
+		//		decline.chooseNewSet();
+		//		decline.goInDecline();
+			}
+		}
 	}
 
 	//Getters and Setters below this line ---------------------------------------------------
