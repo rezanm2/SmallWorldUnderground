@@ -30,6 +30,8 @@ import javafx.scene.control.Button;
 import listCreators.AbilityListCreator;
 import listCreators.RaceListCreator;
 import listCreators.RelicListCreator;
+import main.Ammy;
+import main.Set;
 import player.Player;
 import races.Cultists;
 import races.Drow;
@@ -53,13 +55,6 @@ public  class Decline {
 		AbilityListCreator abilityList = new AbilityListCreator();
 		RaceListCreator raceList = new RaceListCreator();
 		List<Player> playerList;
-
-		//Ability [] arrAbility = {new Adventurous(), new Fisher(), new Flocking(), new Frightened(), new Immortal(), new Magic(),
-		//		new Martyr(), new Mining(), new Muddy(), new Mystic(), new Quarreling(), new Reborn(), new Royal(), new Shield(),
-		//		new Stone(), new Thieving(), new Tomb(), new Vampire(), new Vanishing(), new Vengeful(), new Wise()};
-
-		//Race [] arrRaces = {new Cultists(), new Drow(), new Flames(), new Gnomes(), new Kraken(), new Liches(), new Lizardmen(),
-		//		new Monster(), new Mudmen(), new Mummies(), new Ogres(), new ShadowMimes(), new Shrooms(), new Spiderines(), new WillOWisp()};
 
 		private int getal1;
 		private int getal2;
@@ -102,39 +97,47 @@ public  class Decline {
 		{
 
 			Random r = new Random();
+			abilityList.getAbilityList().remove(0);
+			for(int x=0;x<playerList.size();x++)
+			{
+				for(int j=0;j<raceList.getRaceList().size();j++)
+				{
+					if(playerList.get(x).getActiveSet().getRace().getName() == raceList.getListElement(j).getName())
+					{
+						raceList.getRaceList().remove(j);
+					}
+				}
+				for(int j=0;j<abilityList.getAbilityList().size();j++)
+				{
+					if(playerList.get(x).getActiveSet().getAbility().getName() == abilityList.getListElement(j).getName())
+					{
+						abilityList.getAbilityList().remove(j);
+					}
+				}
+			}
 			for(int x=0;x<100;x++)
 			{
-
-				//int getal1 = r.nextInt(arrAbility.length);
-				//int getal2 = r.nextInt(arrAbility.length);
 				getal1 = r.nextInt(abilityList.getAbilityList().size());
 				getal2 = r.nextInt(abilityList.getAbilityList().size());
-				//ability = arrAbility[getal1];
+			
 				tempAbility = abilityList.getListElement(getal1);
-				//arrAbility[getal1] = arrAbility[getal2];
-				//arrAbility[getal2] = ability;
+				
 				abilityList.getAbilityList().set(getal1, abilityList.getListElement(getal2));
 				abilityList.getAbilityList().set(getal2, tempAbility);
 			}
 			for(int x=0;x<100;x++)
 			{
-//				getal1 = r.nextInt(arrRaces.length);
-//				getal2 = r.nextInt(arrRaces.length);
 				getal1 = r.nextInt(raceList.getRaceList().size());
 				getal2 = r.nextInt(raceList.getRaceList().size());
-//				race = arrRaces[getal1];
+
 				tempRace = raceList.getListElement(getal1);
-//				arrRaces[getal1] = arrRaces[getal2];
-//				arrRaces[getal2] = race;
+
 				raceList.getRaceList().set(getal1, raceList.getListElement(getal2));
 				raceList.getRaceList().set(getal2, tempRace);
 			}
 		}
 		public void chooseNewSet(){
 			Set tempSet;
-
-
-
 			for(int x=0;x<6;x++){
 				System.out.print((x+1) + ": " +  abilityList.getListElement(x).getName() + " " +  raceList.getListElement(x).getName());
 
@@ -155,6 +158,19 @@ public  class Decline {
 			activePlayer.setActiveSet(tempSet);
 
 			System.out.println(playerList.get(0).getActiveSet().getAbility().getName() + " and " + playerList.get(0).getActiveSet().getRace().getName() + " for " + activePlayer.getName()  + " is now activated.");
-
+			for(int x=0;x<abilityList.getAbilityList().size();x++)
+			{
+				if(activePlayer.getActiveSet().getAbility().getName() == abilityList.getListElement(x).getName())
+				{
+					abilityList.getAbilityList().remove(x);
+				}
+			}
+			for(int x=0;x<raceList.getRaceList().size();x++)
+			{
+				if(activePlayer.getActiveSet().getRace().getName() == raceList.getListElement(x).getName())
+				{
+					raceList.getRaceList().remove(x);
+				}
+			}
 		}
 }
