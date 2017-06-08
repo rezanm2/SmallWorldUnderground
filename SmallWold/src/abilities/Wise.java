@@ -13,7 +13,7 @@ public class Wise extends Ability implements CalculatableIncome
 	}
 
 	@Override
-	public void processAbility(Player activePlayer) {
+	public void processAbility(Ammy ammy) {
 		// TODO Auto-generated method stub
 
 	}

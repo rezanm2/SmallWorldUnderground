@@ -56,19 +56,22 @@ public class EndTurnController
 				terrainIncome++;
 			}
 		}
+		System.out.println("A: " + activePlayer.getName() + " gets " + terrainIncome + " amount of coins from their terrains.");
 	}
 
 	public void calculateRelicIncome(){
 
+		System.out.println("A: " + activePlayer.getName() + " gets " + relicIncome + " amount of coins from their relics.");
 	}
 
 	public void calculateSpecialPlaceIncome(){
 
+		System.out.println("A: " + activePlayer.getName() + " gets " + specialPlaceIncome + " amount of coins from their Special Places.");
 	}
 
 	public void calculateRaceIncome()
 	{
-
+		System.out.println("A: " + activePlayer.getName() + " gets " + raceIncome + " amount of coins from their race ability.");
 	}
 	public void calculateAbilityIncome()
 	{
@@ -76,11 +79,10 @@ public class EndTurnController
 		System.out.println("A: Player one got " + activePlayer.getActiveSet().getAbility().getName() + " now.");
 
 
-		ammy.getPlayerList().get(0).getActiveSet().getAbility().processAbility(activePlayer);
+		ammy.getPlayerList().get(0).getActiveSet().getAbility().processAbility(ammy);
 
 
-		System.out.println("A: " + activePlayer.getName() + " gets " + activePlayer.getActiveSet().getAbility().getAbilityIncome()
-							+ " coins from their ability trait.");
+		System.out.println("A: " + activePlayer.getName() + " gets " + terrainIncome + " amount of coins from their ability ability.");
 
 	}
 

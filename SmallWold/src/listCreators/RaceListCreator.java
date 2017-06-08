@@ -26,6 +26,7 @@ public class RaceListCreator
 	List<Race> raceList = new ArrayList<Race>();
 	public RaceListCreator()
 	{
+		Race empty = new Empty();
 		Race cultists = new Cultists();
 		Race drow = new Drow();
 		Race dwarves = new Dwarves();
@@ -42,6 +43,7 @@ public class RaceListCreator
 		Race spiderines = new Spiderines();
 		Race willOWisp = new WillOWisp();
 
+		raceList.add(empty);
 		raceList.add(cultists);
 		raceList.add(drow);
 		raceList.add(dwarves);

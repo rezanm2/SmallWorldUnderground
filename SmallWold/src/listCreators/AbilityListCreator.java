@@ -25,11 +25,13 @@ import abilities.Vampire;
 import abilities.Vanishing;
 import abilities.Vengeful;
 import abilities.Wise;
+import main.Ammy;
 import abilities.Empty;
 
 public class AbilityListCreator
 {
 	List<Ability> abilityList = new ArrayList<Ability>();
+	Ammy ammy;
 	public AbilityListCreator()
 	{
 		Ability adventurous = new Adventurous();

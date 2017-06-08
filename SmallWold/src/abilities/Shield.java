@@ -13,7 +13,7 @@ public class Shield extends Ability
 	}
 
 	@Override
-	public void processAbility(Player activePlayer) {
+	public void processAbility(Ammy ammy) {
 		// TODO Auto-generated method stub
 
 	}

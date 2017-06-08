@@ -9,12 +9,7 @@ import player.Player;
 
 public class Adventurous extends Ability implements CalculatableIncome
 {
-	private int abilityIncome;
-	private int coins;
-	private List<Player> playerList;
-	AbilityListCreator abilityList;
-	Map map;
-	Player activePlayer;
+
 	public Adventurous()
 	{
 		amountOfTokens = 5;
@@ -28,8 +23,8 @@ public class Adventurous extends Ability implements CalculatableIncome
 	}
 
 	@Override
-	public void processAbility(Player activePlayer) {
-		this.activePlayer = activePlayer;
+	public void processAbility(Ammy ammy) {
+		this.activePlayer = ammy.getActivePlayer();
 	}
 
 	@Override
