@@ -4,20 +4,20 @@ import javafx.fxml.FXML;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
-import views.sideBarView.SideBarController;
+import views.sideBarView.SideBarViewController;
 import views.tabView.TabViewController;
 
 public class FieldViewController {
 
     private TabViewController tabViewControl;
-    private SideBarController sideBarControl;
+    private SideBarViewController sideBarControl;
 
 
     public FieldViewController() {
 
 	}
 
-    public void setControllers(TabViewController tabControl, SideBarController sideControl ){
+    public void setControllers(TabViewController tabControl, SideBarViewController sideControl ){
     	tabViewControl = tabControl;
     	sideBarControl = sideControl;
     }
