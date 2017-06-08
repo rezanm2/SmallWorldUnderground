@@ -60,6 +60,7 @@ public  class Decline {
 		private int getal2;
 		private Race tempRace;
 		private Ability tempAbility;
+		private int setNr;
 
 		public Decline(Ammy ammy)
 		{
@@ -146,8 +147,10 @@ public  class Decline {
 					abilityList.getAbilityList().remove(x);
 				}
 			}
-			for(int x=0;x<raceList.getRaceList().size();x++){
-				if(raceList.getListElement(x).getName().equals("Empty ")){
+			for(int x=0;x<raceList.getRaceList().size();x++)
+			{
+				if(raceList.getListElement(x).getName().equals("Empty "))
+				{
 					raceList.getRaceList().remove(x);
 				}
 			}
@@ -159,13 +162,20 @@ public  class Decline {
 			
 			Scanner input = new Scanner(System.in);
 			System.out.println("Choose a new set: ");
-			int setNr = input.nextInt();
-
-			while(setNr < 1 || setNr > 6)
+			try{
+				setNr = input.nextInt();
+			}catch(java.util.InputMismatchException e){
+				System.out.println(e.getMessage());
+			}catch(java.util.NoSuchElementException e){
+				System.out.println(e.getMessage());
+			}
+			String set = Integer.toString(setNr);
+			while(setNr < 1 || setNr > 6 || !Character.isDigit(set.charAt(0)))
 			{
 				System.out.println("Enter the set number: ");
 				setNr = input.nextInt();
 			}
+			
 
 			tempSet = new Set(abilityList.getListElement(setNr-1), raceList.getListElement(setNr-1));
 
