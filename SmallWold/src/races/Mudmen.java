@@ -1,5 +1,6 @@
 package races;
 
+import main.Ammy;
 import player.Player;
 
 public class Mudmen extends Race
@@ -13,8 +14,9 @@ public class Mudmen extends Race
 	}
 
 	@Override
-	public void processAbility(Player activePlayer) {
+	public void processAbility(Ammy ammy) {
 		// TODO Auto-generated method stub
-
+		
 	}
+
 }

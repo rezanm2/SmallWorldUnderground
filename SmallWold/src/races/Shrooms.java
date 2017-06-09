@@ -1,5 +1,6 @@
 package races;
 
+import main.Ammy;
 import player.Player;
 
 public class Shrooms extends Race
@@ -11,9 +12,10 @@ public class Shrooms extends Race
 		name = "Shrooms";
 		traitText = "+1 coin for each Shroom region";
 	}
-	@Override
-	public void processAbility(Player activePlayer) {
-		// TODO Auto-generated method stub
 
+	@Override
+	public void processAbility(Ammy ammy) {
+		// TODO Auto-generated method stub
+		
 	}
 }

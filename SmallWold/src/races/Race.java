@@ -1,5 +1,7 @@
 package races;
 
+import main.Ammy;
+import playBoard.Map;
 import player.Player;
 
 public abstract class Race
@@ -8,13 +10,16 @@ public abstract class Race
 	protected int maxTokens;
 	protected String name;
 	protected String traitText;
+	protected Player activePlayer;
+	protected Map map;
+	protected int countCoins;
 
 	public void setAmountOfTokens(int amountOfTokens)
 	{
 		this.amountOfTokens = amountOfTokens;
 	}
 
-	public abstract void processAbility(Player activePlayer);
+	public abstract void processAbility(Ammy ammy);
 
 	public int getAmountOfTokens()
 	{

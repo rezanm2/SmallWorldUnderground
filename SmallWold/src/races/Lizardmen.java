@@ -1,5 +1,6 @@
 package races;
 
+import main.Ammy;
 import player.Player;
 
 public class Lizardmen extends Race
@@ -11,9 +12,10 @@ public class Lizardmen extends Race
 		name = "Lizardmen";
 		traitText = "Pass through any river without conquering when they're empty";
 	}
-	@Override
-	public void processAbility(Player activePlayer) {
-		// TODO Auto-generated method stub
 
+	@Override
+	public void processAbility(Ammy ammy) {
+		// TODO Auto-generated method stub
+		
 	}
 }

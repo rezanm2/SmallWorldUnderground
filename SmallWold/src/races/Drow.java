@@ -1,21 +1,56 @@
 package races;
 
+import controllers.MapTester;
+import controllers.TerrainController;
+import main.Ammy;
+import playBoard.Map;
 import player.Player;
 
 public class Drow extends Race
 {
-
+	TerrainController tc;
+	MapTester test;
+	Map map;
+	Player activePlayer;
 	public Drow()
 	{
 		amountOfTokens = 4;
 		maxTokens = 9;
-		name = "Drow    ";
+		name = "Drow ";
 		traitText = "+1 Coin for each terrain that isn't sharing borders with non-drow.";
 	}
 
 	@Override
-	public void processAbility(Player activePlayer) {
-		// TODO Auto-generated method stub
+	public void processAbility(Ammy	ammy) {
+		this.activePlayer = ammy.getActivePlayer();
+		this.tc = ammy.getTc();
+		this.test = ammy.getTest();
+		this.map = ammy.getMap();
+		int countTerrains = 0;
+		int countRaces = 0;
+		tc.setAllAdjacentAreas(activePlayer);
+		test.whichAreAdjacent();
 
+		
+		for(int x=0;x<map.getAllTerrains().size();x++)
+		{
+			if(map.getTerrain(x).getIsAdjacent() == true)
+			{
+				countTerrains++;
+				System.out.println("if1: " + map.getTerrain(x).getIsAdjacent());
+				if(map.getTerrain(x).getRace().getName().equals(activePlayer.getActiveSet().getRace().getName()) || 
+						map.getTerrain(x).getRace().getName().equals("Empty "))
+				{
+					countRaces++;
+					System.out.println("if: " + map.getTerrain(x).getRace().getName());
+				}
+			}
+
+		}
+		if(countTerrains == countRaces)
+		{
+			countCoins++;
+			System.out.println("1 bonus coin recieved");
+		}
 	}
 }
