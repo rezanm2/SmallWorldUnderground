@@ -1,6 +1,8 @@
 package relics;
 
 import main.Ammy;
+import playBoard.Map;
+import player.Player;
 
 public class Empty extends Relic {
 	
@@ -10,7 +12,7 @@ public class Empty extends Relic {
 	}
 
 	@Override
-	public void processRelic(Ammy ammy) {
+	public void processRelic(Map map, Player activePlayer) {
 		// TODO Auto-generated method stub
 		
 	}

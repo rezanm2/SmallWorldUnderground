@@ -2,6 +2,8 @@ package terrain;
 
 import races.Race;
 import relics.Relic;
+import relics.Empty;
+//import specialPlaces.Empty;
 import specialPlaces.SpecialPlace;
 
 public abstract class Terrain
@@ -19,7 +21,7 @@ public abstract class Terrain
 	protected boolean isRedeployable;
 	protected boolean isImmune;
 
-	protected Relic relic;
+	protected Relic relic = new Empty();
 	protected SpecialPlace specialPlace;
 
 	public Terrain(int[] idArray)

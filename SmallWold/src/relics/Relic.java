@@ -1,6 +1,8 @@
 package relics;
 
 import main.Ammy;
+import playBoard.Map;
+import player.Player;
 
 public abstract class Relic
 {
@@ -12,7 +14,7 @@ public abstract class Relic
 	{
 	};
 	
-	public abstract void processRelic(Ammy ammy);
+	public abstract void processRelic(Map map, Player activePlayer);
 
 	public void setName(String name)
 	{
