@@ -75,27 +75,25 @@ public class EndTurnController
 	}
 	public void calculateAbilityIncome()
 	{
-		ammy.getPlayerList().get(0).getActiveSet().setAbility(abilityList.getListElement(10));
-		System.out.println("A: Player one got " + activePlayer.getActiveSet().getAbility().getName() + " now.");
-
-
-		ammy.getPlayerList().get(0).getActiveSet().getAbility().processAbility(ammy);
-
-
-		System.out.println("A: " + activePlayer.getName() + " gets " + terrainIncome + " amount of coins from their ability ability.");
+		System.out.println("A: Player one got the " + activePlayer.getActiveSet().getAbility().getName() + " ability now.");
+		activePlayer.getActiveSet().getAbility().processAbility(ammy);
+		System.out.println("A: " + activePlayer.getName() + " gets " + abilityIncome + " amount of coins from their ability ability.");
 
 	}
 
 	public void addSum()
 	{
 
-	totalSum = getTerrainIncome() + getAbilityIncome() + getRaceIncome() + getRelicIncome() + getSpecialPlaceIncome();
-
+		totalSum = getTerrainIncome() + getAbilityIncome() + getRaceIncome() + getRelicIncome() + getSpecialPlaceIncome();
+		System.out.println("A: Making for " + totalSum + " total income.");
 	}
 
-	public void calculateNewBalance(int currentBalance, int totalIncome){
-	coins = playerList.get(0).getCoins() + this.getTotalSum();
-	playerList.get(0).setCoins(coins);
+	public void calculateNewBalance(int currentBalance, int totalIncome)
+	{
+		coins = activePlayer.getCoins() + getTotalSum();
+		activePlayer.setCoins(coins);
+
+		System.out.println("A: So, " + activePlayer.getName() + "'s total will get to be " + activePlayer.getCoins());
 	}
 
 	public int getTerrainIncome() {
@@ -153,5 +151,4 @@ public class EndTurnController
 	public void setRaceIncome(int raceIncome) {
 		this.raceIncome = raceIncome;
 	}
-
 }

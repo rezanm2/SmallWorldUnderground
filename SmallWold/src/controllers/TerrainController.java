@@ -239,7 +239,6 @@ public class TerrainController
 				if(map.getTerrain(terrain).getTerrainName().equals(terrainString))
 				{
 					terrainStringCounter++;
-					System.out.println("A: " + (terrain+1) + " is a " + terrainString);
 				}
 				value++;											//Look at the next value in the terrain's array, "eye"
 				elementCounter++;									//Keep track of which number in the array we're at

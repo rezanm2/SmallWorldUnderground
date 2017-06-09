@@ -12,7 +12,7 @@ import terrain.Terrain;
 
 public class Initializer
 {
-
+	protected int maxTotalTurns;
 	protected List<Terrain> terrains = new ArrayList<Terrain>();
 
 	public void setTerrains(List<Terrain> terrains)
@@ -27,5 +27,14 @@ public class Initializer
 	public void initialize()
 	{
 		System.out.println("A: Filling map with terrains...");
+	}
+
+	public void setMaxTotalTurns(int maxTotalTurns)
+	{
+		this.maxTotalTurns = maxTotalTurns;
+	}
+	public int getMaxTotalTurns()
+	{
+		return maxTotalTurns;
 	}
 }

@@ -57,13 +57,13 @@ public class ThreePlayer extends Initializer{
 		terrains.add(new Mud(terrainSix));
 		terrains.add(new Shroom(terrainSeven));
 		terrains.add(new Stone(terrainEight));
-		
+
 		terrains.add(new Mud(terrainNine));
 		terrains.add(new Shroom(terrainTen));
 		terrains.add(new Shroom(terrainEleven));
 		terrains.add(new Shroom(terrainTwelve));
 		terrains.add(new Mud(terrainThirteen));
-		
+
 		terrains.add(new Mystic(terrainFourteen));
 		terrains.add(new Stone(terrainFifteen));
 		terrains.add(new Mystic(terrainSixteen));
@@ -71,7 +71,7 @@ public class ThreePlayer extends Initializer{
 		terrains.add(new Chasm(terrainEighteen));
 		terrains.add(new Stone(terrainNineteen));
 		terrains.add(new Mine(terrainTwenty));
-		
+
 		terrains.add(new Mud(terrainTwentyOne));
 		terrains.add(new Chasm(terrainTwentyTwo));
 		terrains.add(new Mine(terrainTwentyThree));
@@ -79,7 +79,7 @@ public class ThreePlayer extends Initializer{
 		terrains.add(new River(terrainTwentyFive));
 		terrains.add(new Mystic(terrainTwentySix));
 		terrains.add(new Mystic(terrainTwentySeven));
-		
+
 		terrains.add(new Stone(terrainTwentyEight));
 		terrains.add(new Mine(terrainTwentyNine));
 		terrains.add(new River(terrainThirty));

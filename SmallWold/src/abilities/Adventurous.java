@@ -2,6 +2,7 @@ package abilities;
 
 import java.util.List;
 
+import controllers.TerrainController;
 import listCreators.AbilityListCreator;
 import main.Ammy;
 import playBoard.Map;
@@ -9,6 +10,7 @@ import player.Player;
 
 public class Adventurous extends Ability implements CalculatableIncome
 {
+	TerrainController tc;
 
 	public Adventurous()
 	{
@@ -17,14 +19,12 @@ public class Adventurous extends Ability implements CalculatableIncome
 		traitText = "+1 coin for each popular place";
 	}
 
-	public void calculateAbilityIncome(Player activePlayer){
-		this.activePlayer = activePlayer;
-
-	}
-
 	@Override
-	public void processAbility(Ammy ammy) {
+	public void processAbility(Ammy ammy)
+	{
 		this.activePlayer = ammy.getActivePlayer();
+		this.tc = ammy.getTc();
+
 	}
 
 	@Override

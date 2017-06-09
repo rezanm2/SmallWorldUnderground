@@ -30,19 +30,15 @@ public class DeclareCombat
 		this.cc = ammy.getCc();
 		this.test = ammy.getTest();
 		this.playerCreator = ammy.getPlayerCreator();
-		this.activePlayer = ammy.getPlayerCreator().playerList.get(0);
+		this.activePlayer = ammy.getActivePlayer();
 		this.tc = ammy.getTc();
 	}
 
-	public void start()
+	public void start(Player activePlayer)
 	{
+		this.activePlayer = activePlayer;
 		System.out.println("Ammy: ~~~~~~~~~I'm changing towards the Conquest phase. ~~~~~~~~~ \n\n");
 		System.out.println("A: All right. Let's allow " + activePlayer.getName() + " to attack some stuff. \n");
-
-
-		activePlayer = playerCreator.playerList.get(0);
-
-
 
 		tc.setAllAttackableAreas(activePlayer);						//Setting isAttackable for each area player x has
 		tc.setAllAdjacentAreas(activePlayer);						//Setting isAdjacent for each area player x has
