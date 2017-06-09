@@ -11,7 +11,8 @@ import player.Player;
 public class Adventurous extends Ability implements CalculatableIncome
 {
 	TerrainController tc;
-
+	private int abilityIncome;
+	Map map;
 	public Adventurous()
 	{
 		amountOfTokens = 5;
@@ -24,11 +25,20 @@ public class Adventurous extends Ability implements CalculatableIncome
 	{
 		this.activePlayer = ammy.getActivePlayer();
 		this.tc = ammy.getTc();
+		abilityIncome = 0;
 
+		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
+		{
+			if (activePlayer.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace()) &&
+					map.getTerrain(terrainCounter).getAmountOfTokens() >= 3)
+			{
+				abilityIncome++;
+			}
+		}
 	}
 
 	@Override
 	public int getAbilityIncome() {
-		return 0;
+		return abilityIncome;
 	}
 }
