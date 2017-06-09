@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.List;
 import java.util.Scanner;
 
 import main.Ammy;
@@ -15,8 +16,10 @@ public class CombatController
 	private int terrainCounter;
 	private int terrainStringCounter;
 	private int elementCounter;
-	private int terrain;
 	private int value;
+	private Terrain terrain;
+	List playerList;
+
 	Die die;
 	Player activePlayer;
 	Map map;
@@ -28,6 +31,7 @@ public class CombatController
 		this.die = ammy.getDie();
 		this.map = ammy.getMap();
 		this.tc = ammy.getTc();
+		this.playerList = ammy.getPlayerList();
 	}
 
 	public void calculateCombat(Terrain terrain, Player activePlayer)		//Calculating win or lose
@@ -85,6 +89,13 @@ public class CombatController
 
 	}
 
+	public void processLoss(Terrain terrain, Player activePlayer) {
+		int x = 0;
+//		terrain.getRace().equals(playerList.get(x);
+		terrain.getAmountOfTokens();
+
+	}
+
 
 	public int getTerrainCounter() {
 		return terrainCounter;
@@ -116,12 +127,12 @@ public class CombatController
 	}
 
 
-	public int getTerrain() {
+	public Terrain getTerrain() {
 		return terrain;
 	}
 
 
-	public void setTerrain(int terrain) {
+	public void setTerrain(Terrain terrain) {
 		this.terrain = terrain;
 	}
 
