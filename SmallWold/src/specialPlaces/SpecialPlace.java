@@ -1,10 +1,14 @@
 package specialPlaces;
 
+import main.Ammy;
+import player.Player;
+
 public abstract class SpecialPlace
 {
 	protected String name;
 	protected String traitText;
 	protected boolean active;
+	protected Player activePlayer;
 
 	public SpecialPlace()
 	{
@@ -28,5 +32,7 @@ public abstract class SpecialPlace
 	{
 		return active;
 	}
+
+	public abstract void processSpecialPlace(Ammy ammy);
 }
 

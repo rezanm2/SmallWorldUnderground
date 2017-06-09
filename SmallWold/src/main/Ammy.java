@@ -114,6 +114,8 @@ public class Ammy
 				dc.start(activePlayer);
 				ra.start(this);
 				etc.start(activePlayer);
+
+
 		//		decline.shuffleSets();
 		//		decline.chooseNewSet();
 		//		decline.goInDecline();

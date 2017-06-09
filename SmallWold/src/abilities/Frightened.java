@@ -22,7 +22,7 @@ public class Frightened extends Ability implements CalculatableIncome {
 
 		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
-			if (activePlayer.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace()) && 
+			if (activePlayer.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace()) &&
 					map.getTerrain(terrainCounter).getAmountOfTokens() >= 3)
 			{
 				abilityIncome++;
