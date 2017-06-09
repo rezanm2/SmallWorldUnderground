@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import abilities.Ability;
+import relics.Relic;
 import specialPlaces.Empty;
 import specialPlaces.AltarOfSouls;
 import specialPlaces.BrassPipe;
@@ -40,7 +41,14 @@ public class SpecialPlaceListCreator
 		specialPlaceList.add(mineOfTheLostDwarf);
 		specialPlaceList.add(stoneHedge);
 		specialPlaceList.add(wickedestPentacle);
+	}
+	public List<SpecialPlace> getSpecialPlaceList()
+	{
+		return specialPlaceList;
+	}
 
-
+	public SpecialPlace getListElement(int listElement)
+	{
+		return specialPlaceList.get(listElement);
 	}
 }
