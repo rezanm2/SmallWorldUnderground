@@ -1,5 +1,7 @@
 package relics;
 
+import main.Ammy;
+
 public class FroggysRing extends Relic {
 	
 	public FroggysRing(){
@@ -7,6 +9,12 @@ public class FroggysRing extends Relic {
 		name = "Froggy's Ring";
 		traitText = "At turn's end, place the Ring in 1 of your Regions to collect a bonus coin "
 					+ "from each opponent with at least 1 Active race token bordering the Ring";
+	}
+
+	@Override
+	public void processRelic(Ammy ammy) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
