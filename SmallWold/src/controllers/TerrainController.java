@@ -83,11 +83,11 @@ public class TerrainController
 		terrainCounter = 0;
 		elementCounter = 0;
 		terrain = 0;
-		value = 0;
+		value = 1;
 
 		while(terrainCounter<map.getAllTerrains().size())				//While there's still terrains left
 		{
-			while(elementCounter<map.getTerrain(terrain).getIdArray().length)	//While there's still numbers in the terrain's array
+			while(elementCounter<map.getTerrain(terrain).getIdArray().length-1)	//While there's still numbers in the terrain's array
 			{
 				if(map.getTerrain(terrain).getElement(value) == code)
 				{
@@ -96,7 +96,7 @@ public class TerrainController
 				value++;											//Look at the next value in the terrain's array, "eye"
 				elementCounter++;									//Keep track of which number in the array we're at
 			}
-			value = 0;												//"Eye" back at number 0 in the array
+			value = 1;												//"Eye" back at number 0 in the array
 			elementCounter = 0;										//Back at number 0 in a fresh terrain
 			terrainCounter++;										//Keep track of which terrain we're at
 			terrain++;												//Look at the next terrain, "eye"

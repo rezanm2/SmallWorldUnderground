@@ -17,12 +17,12 @@ public class Frightened extends Ability implements CalculatableIncome {
 	@Override
 	public void processAbility(Ammy ammy) {
 		this.activePlayer = ammy.getActivePlayer();
-
+		this.map = ammy.getMap();
 		abilityIncome = 0;
 
 		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
-			if (activePlayer.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace()) && 
+			if (activePlayer.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace()) &&
 					map.getTerrain(terrainCounter).getAmountOfTokens() >= 3)
 			{
 				abilityIncome++;

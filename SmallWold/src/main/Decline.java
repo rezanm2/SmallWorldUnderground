@@ -76,8 +76,6 @@ public  class Decline {
 
 			scanner = new Scanner(System.in);;
 			String yesOrNo ="";
-			
-
 			do
 			{
 				System.out.println("Do you want to set your race and ability to decline?");
@@ -95,16 +93,16 @@ public  class Decline {
 					break;
 				}
 				System.out.println(yesOrNo);
-				
+
 			}while(!yesOrNo.equals("yes") || !yesOrNo.equals("no"));
-			
+
 		}
 
 		public void shuffleSets()
 		{
 
 			Random r = new Random();
-			for(int x=0;x<playerList.size();x++) //this removes the active sets 
+			for(int x=0;x<playerList.size();x++) //this removes the active sets
 			{
 				for(int j=0;j<raceList.getRaceList().size();j++)
 				{
@@ -125,9 +123,9 @@ public  class Decline {
 			{
 				getal1 = r.nextInt(abilityList.getAbilityList().size());
 				getal2 = r.nextInt(abilityList.getAbilityList().size());
-			
+
 				tempAbility = abilityList.getListElement(getal1);
-				
+
 				abilityList.getAbilityList().set(getal1, abilityList.getListElement(getal2));
 				abilityList.getAbilityList().set(getal2, tempAbility);
 			}
@@ -165,7 +163,7 @@ public  class Decline {
 				System.out.print((x+1) + ": " +  abilityList.getListElement(x).getName() + " " +  raceList.getListElement(x).getName());
 				System.out.println();
 			}
-			
+
 			System.out.println("Choose a new set: ");
 			try
 			{
@@ -180,10 +178,10 @@ public  class Decline {
 				System.out.println("Enter the set number: ");
 				setNr = scanner.nextInt();
 			}
-			
+
 			//This make a new set that the player has chosen.
 			tempSet = new Set(abilityList.getListElement(setNr-1), raceList.getListElement(setNr-1));
-			
+
 			activePlayer.setActiveSet(tempSet);
 			System.out.println(activePlayer.getActiveSet().getAbility().getName() + " and " + activePlayer.getActiveSet().getRace().getName() + " for " + activePlayer.getName()  + " is now activated.");
 			for(int x=0;x<abilityList.getAbilityList().size();x++)

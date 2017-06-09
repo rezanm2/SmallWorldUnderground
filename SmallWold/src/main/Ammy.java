@@ -105,20 +105,24 @@ public class Ammy
 		this.activePlayer = playerList.get(0);
 		System.out.println("A: It is now " + activePlayer.getName() + "'s turn.");
 		pickRegions.start();
+//		tc.set
+		test.whichAreAdjacent();
+		dc.start(activePlayer);
+		etc.start(activePlayer);
 
-		for(int totalTurnCounter=0;totalTurnCounter<mapCreator.getMaxTotalTurns();totalTurnCounter++)
-		{
-			for(int playerTurnCounter=0;playerTurnCounter<playerList.size();playerTurnCounter++)
-			{
-				activePlayer = playerList.get(playerTurnCounter);
-				dc.start(activePlayer);
-				ra.start(this);
-				etc.start(activePlayer);
-		//		decline.shuffleSets();
-		//		decline.chooseNewSet();
-		//		decline.goInDecline();
-			}
-		}
+//		for(int totalTurnCounter=0;totalTurnCounter<mapCreator.getMaxTotalTurns();totalTurnCounter++)
+//		{
+//			for(int playerTurnCounter=0;playerTurnCounter<playerList.size();playerTurnCounter++)
+//			{
+////				activePlayer = playerList.get(playerTurnCounter);
+////				dc.start(activePlayer);
+////				ra.start(this);
+//
+////				decline.shuffleSets();
+////				decline.chooseNewSet();
+////				decline.goInDecline();
+//			}
+//		}
 	}
 
 	//Getters and Setters below this line ---------------------------------------------------

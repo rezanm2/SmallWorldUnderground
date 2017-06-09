@@ -131,7 +131,6 @@ public class PickRegions
 		map.getTerrain(0).setAmountOfTokens(5);
 		map.getTerrain(1).setRace(playerList.get(0).getActiveSet().getRace());
 		map.getTerrain(1).setAmountOfTokens(5);
-
 		map.getTerrain(2).setRace(playerList.get(1).getActiveSet().getRace());
 		map.getTerrain(2).setAmountOfTokens(2);
 		map.getTerrain(3).setRace(playerList.get(1).getActiveSet().getRace());
