@@ -50,4 +50,9 @@ public abstract class Ability
 	public int getAbilityIncome() {
 		return abilityIncome;
 	}
+
+	public void processAbility(Ammy ammy, int replaceAmount) {
+		// TODO Auto-generated method stub
+
+	}
 }

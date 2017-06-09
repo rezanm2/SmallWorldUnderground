@@ -7,9 +7,11 @@ import controllers.EndTurnController;
 import controllers.MapTester;
 import controllers.SleepController;
 import controllers.TerrainController;
+import controllers.TokenController;
 import listCreators.AbilityListCreator;
 import listCreators.RaceListCreator;
 import listCreators.RelicListCreator;
+import listCreators.SpecialPlaceListCreator;
 import mapInitializers.Initializer;
 import playBoard.Die;
 import playBoard.Map;
@@ -43,7 +45,9 @@ public class Ammy
 	AbilityListCreator abilityList;
 	RaceListCreator raceList;
 	RelicListCreator relicList;
+	SpecialPlaceListCreator specialPlaceList;
 	int maxTotalTurns;
+	TokenController toc;
 
 	public void playerSetup()		//This method sets up the players, the amount of Players, and their names.
 	{
@@ -78,6 +82,8 @@ public class Ammy
 		System.out.println("Ammy: I'm creating all the creators. \n" );
 		tc = new TerrainController(this);
 		test = new MapTester(this);
+
+		toc = new TokenController(this);
 		cc = new CombatController(this);
 		pickRegions = new PickRegions(this);
 		dc = new DeclareCombat(this);
@@ -93,6 +99,7 @@ public class Ammy
 		abilityList = new AbilityListCreator();
 		raceList = new RaceListCreator();
 		relicList = new RelicListCreator();
+		specialPlaceList = new SpecialPlaceListCreator();
 	}
 
 	public void setEverythingOnAmmy()
@@ -110,21 +117,21 @@ public class Ammy
 		dc.start(activePlayer);
 		etc.start(activePlayer);
 
-		for(int totalTurnCounter=0;totalTurnCounter<mapCreator.getMaxTotalTurns();totalTurnCounter++)
-		{
-			for(int playerTurnCounter=0;playerTurnCounter<playerList.size();playerTurnCounter++)
-			{
-				activePlayer = playerList.get(playerTurnCounter);
-				dc.start(activePlayer);
-				ra.start(this);
-				etc.start(activePlayer);
-
-
-		//		decline.shuffleSets();
-		//		decline.chooseNewSet();
-		//		decline.goInDecline();
-			}
-		}
+//		for(int totalTurnCounter=0;totalTurnCounter<mapCreator.getMaxTotalTurns();totalTurnCounter++)
+//		{
+//			for(int playerTurnCounter=0;playerTurnCounter<playerList.size();playerTurnCounter++)
+//			{
+//				activePlayer = playerList.get(playerTurnCounter);
+//				dc.start(activePlayer);
+//				ra.start(this);
+//				etc.start(activePlayer);
+//
+//
+//		//		decline.shuffleSets();
+//		//		decline.chooseNewSet();
+//		//		decline.goInDecline();
+//			}
+//		}
 	}
 
 	//Getters and Setters below this line ---------------------------------------------------
@@ -270,5 +277,15 @@ public class Ammy
 
 	public void setTc(TerrainController tc) {
 		this.tc = tc;
+	}
+
+	public void setToc(TokenController toc)
+	{
+		this.toc = toc;
+	}
+
+	public TokenController getToc()
+	{
+		return toc;
 	}
 }

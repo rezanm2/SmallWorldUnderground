@@ -18,9 +18,12 @@ public class Mining extends Ability  implements CalculatableIncome
 	}
 
 	@Override
-	public void processAbility(Ammy ammy) {
-		this.tc = ammy.getTc();
+	public void processAbility(Ammy ammy)
+	{
 		this.activePlayer = ammy.getActivePlayer();
+		this.tc = ammy.getTc();
+		tc.checkTerrainType("Mine");
+		abilityIncome = tc.getTerrainStringCounter();
 	}
 
 

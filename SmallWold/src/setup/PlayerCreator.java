@@ -30,13 +30,22 @@ public class PlayerCreator
 	Set activeSetThree;
 	Set activeSetFour;
 	Set activeSetFive;
+
+	Set declineSetOne;
+	Set declineSetTwo;
+	Set declineSetThree;
+	Set declineSetFour;
+	Set declineSetFive;
 	Scanner input = new Scanner(System.in);
 
 
 	public void setDefaultSets()
 
 	{
-		activeSetOne = new Set(abilityList.getListElement(3), raceList.getListElement(1));	//Setting random set defaults for players
+		activeSetOne = new Set(abilityList.getListElement(1), raceList.getListElement(1));	//Setting random set defaults for players
+		playerList.get(0).setActiveSet(activeSetOne);
+
+		declineSetOne = new Set(abilityList.getListElement(2), raceList.getListElement(2));	//Setting random set defaults for players
 		playerList.get(0).setActiveSet(activeSetOne);
 
 		activeSetTwo = new Set(abilityList.getListElement(2), raceList.getListElement(2));

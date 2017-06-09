@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.List;
 import java.util.Scanner;
 
 import main.Ammy;
@@ -15,12 +16,15 @@ public class CombatController
 	private int terrainCounter;
 	private int terrainStringCounter;
 	private int elementCounter;
-	private int terrain;
 	private int value;
+	private Race losingRace;
+	private Terrain terrain;
+	List playerList;
 	Die die;
 	Player activePlayer;
 	Map map;
 	TerrainController tc;
+	TokenController toc;
 	Scanner input = new Scanner(System.in);
 
 	public CombatController(Ammy ammy)
@@ -28,6 +32,9 @@ public class CombatController
 		this.die = ammy.getDie();
 		this.map = ammy.getMap();
 		this.tc = ammy.getTc();
+		this.toc = ammy.getToc();
+		this.playerList = ammy.getPlayerList();
+
 	}
 
 	public void calculateCombat(Terrain terrain, Player activePlayer)		//Calculating win or lose
@@ -70,6 +77,9 @@ public class CombatController
 	}
 
 	public void doAttack(Terrain terrain, Player activePlayer) {
+		losingRace = terrain.getRace();
+		toc.linkRaceToPlayer(losingRace);
+
 		terrain.setRace(activePlayer.getActiveSet().getRace());	 							//Make the terrain be the player's Race
 		terrain.setAmountOfTokens(declaredAmountOfTokens);							  		//The declared amount is set on the terrain
 		System.out.println("A: Attack succesful!");
@@ -84,6 +94,7 @@ public class CombatController
 		System.out.println("A: I'm doin' this shit. declaredAmountOfTokens: " + declaredAmountOfTokens + "activePlayer: " + activePlayer.getName());
 
 	}
+
 
 
 	public int getTerrainCounter() {
@@ -116,12 +127,12 @@ public class CombatController
 	}
 
 
-	public int getTerrain() {
+	public Terrain getTerrain() {
 		return terrain;
 	}
 
 
-	public void setTerrain(int terrain) {
+	public void setTerrain(Terrain terrain) {
 		this.terrain = terrain;
 	}
 
