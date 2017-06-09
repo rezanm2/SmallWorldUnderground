@@ -17,10 +17,12 @@ public class CombatController
 	private int elementCounter;
 	private int terrain;
 	private int value;
+	private Race losingRace;
 	Die die;
 	Player activePlayer;
 	Map map;
 	TerrainController tc;
+	TokenController toc;
 	Scanner input = new Scanner(System.in);
 
 	public CombatController(Ammy ammy)
@@ -28,6 +30,7 @@ public class CombatController
 		this.die = ammy.getDie();
 		this.map = ammy.getMap();
 		this.tc = ammy.getTc();
+		this.toc = ammy.getToc();
 	}
 
 	public void calculateCombat(Terrain terrain, Player activePlayer)		//Calculating win or lose
@@ -70,6 +73,9 @@ public class CombatController
 	}
 
 	public void doAttack(Terrain terrain, Player activePlayer) {
+		losingRace = terrain.getRace();
+
+
 		terrain.setRace(activePlayer.getActiveSet().getRace());	 							//Make the terrain be the player's Race
 		terrain.setAmountOfTokens(declaredAmountOfTokens);							  		//The declared amount is set on the terrain
 		System.out.println("A: Attack succesful!");

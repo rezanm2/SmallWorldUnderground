@@ -7,6 +7,7 @@ import controllers.EndTurnController;
 import controllers.MapTester;
 import controllers.SleepController;
 import controllers.TerrainController;
+import controllers.TokenController;
 import listCreators.AbilityListCreator;
 import listCreators.RaceListCreator;
 import listCreators.RelicListCreator;
@@ -44,6 +45,7 @@ public class Ammy
 	RaceListCreator raceList;
 	RelicListCreator relicList;
 	int maxTotalTurns;
+	TokenController toc;
 
 	public void playerSetup()		//This method sets up the players, the amount of Players, and their names.
 	{
@@ -84,6 +86,7 @@ public class Ammy
 		etc = new EndTurnController(this);
 		ra = new RedeployAreas(this);
 		decline = new Decline(this);
+		toc = new TokenController(this);
 		System.out.println("Ammy: Done creating creators... \n");
 		System.out.println("A: I'm starting your game... \n");
 	}
@@ -270,5 +273,15 @@ public class Ammy
 
 	public void setTc(TerrainController tc) {
 		this.tc = tc;
+	}
+
+	public void setToc(TokenController toc)
+	{
+		this.toc = toc;
+	}
+
+	public TokenController getToc()
+	{
+		return toc;
 	}
 }

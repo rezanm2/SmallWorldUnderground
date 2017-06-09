@@ -13,8 +13,9 @@ public class Reborn extends Ability
 	}
 
 	@Override
-	public void processAbility(Ammy ammy) {
-		// TODO Auto-generated method stub
+	public void processAbility(Ammy ammy)
+	{
+
 
 	}
 
