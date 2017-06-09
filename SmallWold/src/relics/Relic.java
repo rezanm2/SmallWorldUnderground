@@ -1,5 +1,7 @@
 package relics;
 
+import main.Ammy;
+
 public abstract class Relic
 {
 	protected String name;
@@ -9,6 +11,8 @@ public abstract class Relic
 	public Relic()
 	{
 	};
+	
+	public abstract void processRelic(Ammy ammy);
 
 	public void setName(String name)
 	{
