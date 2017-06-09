@@ -11,6 +11,7 @@ import controllers.TokenController;
 import listCreators.AbilityListCreator;
 import listCreators.RaceListCreator;
 import listCreators.RelicListCreator;
+import listCreators.SpecialPlaceListCreator;
 import mapInitializers.Initializer;
 import playBoard.Die;
 import playBoard.Map;
@@ -44,6 +45,7 @@ public class Ammy
 	AbilityListCreator abilityList;
 	RaceListCreator raceList;
 	RelicListCreator relicList;
+	SpecialPlaceListCreator specialPlaceList;
 	int maxTotalTurns;
 	TokenController toc;
 
@@ -80,13 +82,14 @@ public class Ammy
 		System.out.println("Ammy: I'm creating all the creators. \n" );
 		tc = new TerrainController(this);
 		test = new MapTester(this);
+
+		toc = new TokenController(this);
 		cc = new CombatController(this);
 		pickRegions = new PickRegions(this);
 		dc = new DeclareCombat(this);
 		etc = new EndTurnController(this);
 		ra = new RedeployAreas(this);
 		decline = new Decline(this);
-		toc = new TokenController(this);
 		System.out.println("Ammy: Done creating creators... \n");
 		System.out.println("A: I'm starting your game... \n");
 	}
@@ -96,6 +99,7 @@ public class Ammy
 		abilityList = new AbilityListCreator();
 		raceList = new RaceListCreator();
 		relicList = new RelicListCreator();
+		specialPlaceList = new SpecialPlaceListCreator();
 	}
 
 	public void setEverythingOnAmmy()
@@ -113,21 +117,21 @@ public class Ammy
 		dc.start(activePlayer);
 		etc.start(activePlayer);
 
-		for(int totalTurnCounter=0;totalTurnCounter<mapCreator.getMaxTotalTurns();totalTurnCounter++)
-		{
-			for(int playerTurnCounter=0;playerTurnCounter<playerList.size();playerTurnCounter++)
-			{
-				activePlayer = playerList.get(playerTurnCounter);
-				dc.start(activePlayer);
-				ra.start(this);
-				etc.start(activePlayer);
-
-
-		//		decline.shuffleSets();
-		//		decline.chooseNewSet();
-		//		decline.goInDecline();
-			}
-		}
+//		for(int totalTurnCounter=0;totalTurnCounter<mapCreator.getMaxTotalTurns();totalTurnCounter++)
+//		{
+//			for(int playerTurnCounter=0;playerTurnCounter<playerList.size();playerTurnCounter++)
+//			{
+//				activePlayer = playerList.get(playerTurnCounter);
+//				dc.start(activePlayer);
+//				ra.start(this);
+//				etc.start(activePlayer);
+//
+//
+//		//		decline.shuffleSets();
+//		//		decline.chooseNewSet();
+//		//		decline.goInDecline();
+//			}
+//		}
 	}
 
 	//Getters and Setters below this line ---------------------------------------------------

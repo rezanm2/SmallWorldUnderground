@@ -78,7 +78,7 @@ public class CombatController
 
 	public void doAttack(Terrain terrain, Player activePlayer) {
 		losingRace = terrain.getRace();
-
+		toc.linkRaceToPlayer(losingRace);
 
 		terrain.setRace(activePlayer.getActiveSet().getRace());	 							//Make the terrain be the player's Race
 		terrain.setAmountOfTokens(declaredAmountOfTokens);							  		//The declared amount is set on the terrain
