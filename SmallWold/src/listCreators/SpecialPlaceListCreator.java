@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import abilities.Ability;
+import specialPlaces.Empty;
 import specialPlaces.AltarOfSouls;
 import specialPlaces.BrassPipe;
 import specialPlaces.CryptOfTombRaider;
@@ -20,6 +21,7 @@ public class SpecialPlaceListCreator
 
 	public SpecialPlaceListCreator()
 	{
+		SpecialPlace empty = new Empty();
 		SpecialPlace altarOfSouls = new AltarOfSouls();
 		SpecialPlace brassPipe = new BrassPipe();
 		SpecialPlace cryptOfTombRaider = new CryptOfTombRaider();
@@ -29,7 +31,7 @@ public class SpecialPlaceListCreator
 		SpecialPlace stoneHedge = new Stonehedge();
 		SpecialPlace wickedestPentacle = new WickedestPentacle();
 
-//		specialPlaceList.add(empty);
+		specialPlaceList.add(empty);
 		specialPlaceList.add(altarOfSouls);
 		specialPlaceList.add(brassPipe);
 		specialPlaceList.add(cryptOfTombRaider);
