@@ -2,6 +2,7 @@ package abilities;
 
 import controllers.MapTester;
 import controllers.TerrainController;
+import controllers.TokenController;
 import listCreators.RaceListCreator;
 import main.Ammy;
 import playBoard.Map;
@@ -13,6 +14,8 @@ public class Thieving extends Ability implements CalculatableIncome
 	MapTester test;
 	Map map;
 	RaceListCreator raceList;
+	TokenController tokenController;
+	private int abilityIncome;
 
 	public Thieving()
 	{
@@ -29,27 +32,30 @@ public class Thieving extends Ability implements CalculatableIncome
 		this.test = ammy.getTest();
 		this.map = ammy.getMap();
 		this.raceList = ammy.getRaceList();
+		this.tokenController = ammy.getToc();
 
 		tc.setAllAdjacentAreas(activePlayer);
 		test.whichAreAdjacent(activePlayer);
 
-
-
 		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
 			if(map.getTerrain(terrainCounter).getIsAdjacent() == true &&
-					!map.getTerrain(terrainCounter).getRace().equals(activePlayer.getActiveSet().getRace()) &&
-					map.getTerrain(terrainCounter).getRace().equals(raceList.getListElement(0)));
-			{
-
+			   map.getTerrain(terrainCounter).getRace().equals(activePlayer.getActiveSet().getRace()) &&
+			   map.getTerrain(terrainCounter).getRace().equals(raceList.getListElement(0)))
+				{
+					tokenController.linkRaceToPlayer(map.getTerrain(terrainCounter).getRace());
+					tokenController.getRacesPlayer().setCoins(amountOfTokens - 1);
+					abilityIncome++;
+				}
 			}
 		}
 
+	public void setAbilityIncome(int abilityIncome) {
+		this.abilityIncome = abilityIncome;
 	}
 
 	@Override
 	public int getAbilityIncome() {
-		// TODO Auto-generated method stub
-		return 0;
+		return abilityIncome;
 	}
 }

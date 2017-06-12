@@ -37,6 +37,7 @@ public class Vanishing extends Ability
 		}
 	}
 
+	@Override
 	public int getAbilityIncome() {
 		return abilityIncome;
 	}
