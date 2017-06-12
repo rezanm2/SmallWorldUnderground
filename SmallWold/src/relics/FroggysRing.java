@@ -1,10 +1,18 @@
 package relics;
 
+import controllers.MapTester;
+import controllers.TerrainController;
 import main.Ammy;
 import playBoard.Map;
-import player.Player;
 
 public class FroggysRing extends Relic {
+	
+	Map map;
+	boolean active = false;
+	int terrainNumber;
+	private TerrainController terrainController;
+	private MapTester mapTester;
+	private int relicIncome;
 	
 	public FroggysRing(){
 		
@@ -14,15 +22,15 @@ public class FroggysRing extends Relic {
 	}
 
 	@Override
-	public void processRelic(Map map, Player activePlayer) {
-		// TODO Auto-generated method stub
-		
+	public void changeTerrain(int terrainNumber) {
+		map.getTerrain(this.terrainNumber).setRelic(new Empty());
+		map.getTerrain(terrainNumber).setRelic(this);
+		this.terrainNumber = terrainNumber;
 	}
 
 	@Override
-	public void changeTerrain(int terrainNumber) {
-		// TODO Auto-generated method stub
-		
+	public void processRelic(Ammy ammy) {
+	
 	}
 
 }
