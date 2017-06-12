@@ -3,7 +3,7 @@ package races;
 import main.Ammy;
 import player.Player;
 
-public class Shrooms extends Race
+public class Shrooms extends Race implements CalculatableIncome
 {
 	public Shrooms()
 	{
@@ -15,7 +15,23 @@ public class Shrooms extends Race
 
 	@Override
 	public void processAbility(Ammy ammy) {
-		// TODO Auto-generated method stub
+		this.activePlayer = ammy.getActivePlayer();
+		this.map = ammy.getMap();
+		for(int x=0;x<map.getAllTerrains().size();x++)
+		{
+			if(map.getTerrain(x).getTerrainName().equals(map.getTerrain(x).getRace().getName()))
+			{
+				raceIncome++;
+				System.out.println("Naam terrein: " + map.getTerrain(x).getTerrainName() + " Naam Race: " + map.getTerrain(x).getRace().getName());
+
+				System.out.println("+1 bonus recieved.");
+			}
+		}
 		
+	}
+
+	
+	public int getRaceIncome() {
+		return raceIncome;
 	}
 }
