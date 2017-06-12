@@ -24,7 +24,7 @@ public class Mystic extends Ability  implements CalculatableIncome
 	public void processAbility(Ammy ammy) {
 		this.activePlayer = ammy.getActivePlayer();
 		this.tc = ammy.getTc();
-		tc.checkTerrainType("Mystic");
+		tc.checkTerrainType("Mystic", activePlayer);
 		this.setAbilityIncome(tc.getTerrainStringCounter());
 	}
 
