@@ -29,6 +29,7 @@ public class ClientMain extends Application{
 	public static void main(String[] args) throws RemoteException {
 		System.out.println(ClientMain.getHostIP());
 		RemoteClient remoteObject = new RemoteClient();
+		remoteObject.loadServer();
 		remoteObject.register();
 
 		//launch();

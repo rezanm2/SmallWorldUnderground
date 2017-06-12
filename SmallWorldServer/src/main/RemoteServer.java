@@ -31,9 +31,6 @@ public class RemoteServer extends UnicastRemoteObject{
 		//super(1099);		// Port where RMI Registry listens
 
 	}
-	public void echo(){
-System.out.println("satasasdasd");
-	}
 
 	public void startServer(int amount) throws MalformedURLException {					// server requirs a amount of players
 		this.amountPlayers = amount;
@@ -50,13 +47,9 @@ System.out.println("satasasdasd");
 					}
 					else
 					{
-						//clients = new ClientSkeleton [amountPlayers];			// makes the client array with the amount of selected players
 						System.out.println("Amount of players: " + amountPlayers);
 						isRunning = true;										// sets isRunning to true
-						serverImpl = new ServerImpl(this);							// creates a serverimplementation
-						//ServerSkeleton serverSkeleton = (ServerSkeleton) UnicastRemoteObject.exportObject(serverImpl, 0);	// creates the serverskeleton as an export object
-						//registry.rebind("server", serverSkeleton);				// binds object on the registery with the name server
-						Naming.rebind("ServerService", serverImpl);
+						serverImpl = new ServerImpl(this);							// creates a serverimplementation						Naming.rebind("ServerService", serverImpl);
 						System.out.println("Server: server registered as \'ServerService\' in RMI registry.");
 						System.out.println("Server is running");
 					}
@@ -72,9 +65,10 @@ System.out.println("satasasdasd");
 			this.clientList.add(client);
 			System.out.println("Server: Client added");
 			client.notifyMessage("Server: Server joined!!");
+			client.updatePlayerList(clientList);
 		}else {
 			System.out.println("SERVER IS FULL");
-			//client.notifyMessage("Failed joining: server is full");
+			client.notifyMessage("Failed joining: server is full");
 
 		}
 	}
