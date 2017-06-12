@@ -1,5 +1,6 @@
 package relics;
 
+import controllers.CombatController;
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
@@ -9,6 +10,8 @@ public class KillerRabbitSword extends Relic
 	Map map;
 	boolean active = false;
 	int terrainNumber;
+	private CombatController CombatController;
+	
 
 	public KillerRabbitSword()
 	{
@@ -24,8 +27,8 @@ public class KillerRabbitSword extends Relic
 
 	@Override
 	public void processRelic(Ammy ammy) {
-		// TODO Auto-generated method stub
-		
+		this.CombatController = ammy.getCc();
+		CombatController.setMiscModifier(2);
 	}
 
 

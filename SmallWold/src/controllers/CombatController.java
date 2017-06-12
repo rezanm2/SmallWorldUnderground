@@ -19,6 +19,7 @@ public class CombatController
 	private int value;
 	private Race losingRace;
 	private Terrain terrain;
+	private int miscModifier = 0;
 	List playerList;
 	Die die;
 	Player activePlayer;
@@ -40,7 +41,7 @@ public class CombatController
 
 	public void calculateCombat(Terrain terrain, Player activePlayer)		//Calculating win or lose
 	{
-		if(terrain.getAmountOfTokens() + terrain.getDefense() + 2 <= declaredAmountOfTokens)	//If the player wins
+		if(terrain.getAmountOfTokens() + terrain.getDefense() + 2 <= declaredAmountOfTokens + miscModifier)	//If the player wins
 		{
 			doAttack(terrain, activePlayer);
 		}
@@ -93,7 +94,7 @@ public class CombatController
 
 		activePlayer.getHand().setCurrentTokens(activePlayer.getHand().getCurrentTokens() - declaredAmountOfTokens);
 		System.out.println("A: I'm doin' this shit. declaredAmountOfTokens: " + declaredAmountOfTokens + "activePlayer: " + activePlayer.getName());
-
+		miscModifier = 0;
 	}
 
 
@@ -176,5 +177,13 @@ public class CombatController
 	public void setDeclaredAmountOfTokens(int declaredAmountOfTokens)				//Player declaring amount of tokens for attack
 	{
 		this.declaredAmountOfTokens = declaredAmountOfTokens;
+	}
+	
+	public int getMiscModifier() {
+		return miscModifier;
+	}
+	
+	public void setMiscModifier(int miscModifier) { 
+		this.miscModifier = miscModifier;
 	}
 }

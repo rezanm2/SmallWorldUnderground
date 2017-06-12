@@ -52,6 +52,10 @@ public class ScepterOfAvarice extends Relic {
 			//this.terrainNumber = terrainController.getAreaPicked();
 			System.out.println(map.getTerrain(terrainController.getAreaPicked()).getRelic().getName());
 			active = true;
+			
+			/*
+			 * Ergens hier nog n dubbeling uitvoeren.
+			 */
 		}
 		
 	}
