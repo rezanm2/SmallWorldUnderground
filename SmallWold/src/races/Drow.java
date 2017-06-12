@@ -6,7 +6,7 @@ import main.Ammy;
 import playBoard.Map;
 import player.Player;
 
-public class Drow extends Race
+public class Drow extends Race implements CalculatableIncome
 {
 	TerrainController tc;
 	MapTester test;
@@ -49,8 +49,14 @@ public class Drow extends Race
 		}
 		if(countTerrains == countRaces)
 		{
-			countCoins++;
+			raceIncome++;
 			System.out.println("1 bonus coin recieved");
 		}
+	}
+
+	@Override
+	public int getRaceIncome() 
+	{
+		return raceIncome;
 	}
 }
