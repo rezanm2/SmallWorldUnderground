@@ -19,7 +19,7 @@ public class Shrooms extends Race implements CalculatableIncome
 		this.map = ammy.getMap();
 		for(int x=0;x<map.getAllTerrains().size();x++)
 		{
-			if(map.getTerrain(x).getTerrainName().equals(map.getTerrain(x).getRace().getName()))
+			if(map.getTerrain(x).getTerrainName().equals(map.getTerrain(x).getRace().getName()) && activePlayer.getActiveSet().getRace().getName().equals(this.name))
 			{
 				raceIncome++;
 				System.out.println("Naam terrein: " + map.getTerrain(x).getTerrainName() + " Naam Race: " + map.getTerrain(x).getRace().getName());

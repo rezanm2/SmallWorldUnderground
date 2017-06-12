@@ -121,12 +121,30 @@ public class Ammy
 				dc.start(activePlayer);
 				ra.start(this);
 				etc.start(activePlayer);
-				sleep.sleep(1000);
 
 //				decline.shuffleSets();
 //				decline.chooseNewSet();
 //				decline.goInDecline();
 			}
+		}
+		declareWinner();
+	}
+
+
+	public void declareWinner()
+	{
+		System.out.println("Ammy: Your game has ended!");
+
+		System.out.println(playerList.get(0).getName() + " has earned " + playerList.get(0).getCoins() + " coins.");
+		System.out.println(playerList.get(1).getName() + " has earned " + playerList.get(1).getCoins() + " coins.");
+
+		if(playerList.get(0).getCoins() > playerList.get(1).getCoins())
+		{
+			System.out.println("A: " + playerList.get(0).getName() + " won!");
+		}
+		else
+		{
+			System.out.println("A: " + playerList.get(1).getName() + " won!");
 		}
 	}
 
