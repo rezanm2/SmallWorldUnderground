@@ -167,9 +167,19 @@ public class PickRegions
 
 		playerList.get(0).getHand().setCurrentTokens(0);
 		playerList.get(1).getHand().setCurrentTokens(0);
-		playerList.get(2).getHand().setCurrentTokens(0);
-		playerList.get(3).getHand().setCurrentTokens(0);
-		playerList.get(4).getHand().setCurrentTokens(0);
-		hasBroken = true;
+
+		if(playerList.size() > 2)
+		{
+			playerList.get(2).getHand().setCurrentTokens(0);
+		}
+		if(playerList.size() > 3)
+		{
+			playerList.get(3).getHand().setCurrentTokens(0);
+		}
+		if(playerList.size() > 4)
+		{
+			playerList.get(4).getHand().setCurrentTokens(0);
+		}
+
 	}
 }
