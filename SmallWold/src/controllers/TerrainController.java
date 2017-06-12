@@ -249,6 +249,31 @@ public class TerrainController
 			terrain++;												//Look at the next terrain, "eye"
 		}
 	}
+	
+	public void checkTerrainType(String terrainString, Player activePlayer)
+	{
+		terrainCounter = 0;
+		elementCounter = 0;
+		terrain = 0;
+		value = 0;
+		terrainStringCounter = 0;
+		while(terrainCounter<map.getAllTerrains().size())				//While there's still terrains left
+		{
+			while(elementCounter<1)		//While there's still numbers in the terrain's array
+			{
+				if(map.getTerrain(terrain).getTerrainName().equals(terrainString) && map.getTerrain(terrain).getRace() == activePlayer.getActiveSet().getRace())
+				{
+					terrainStringCounter++;
+				}
+				value++;											//Look at the next value in the terrain's array, "eye"
+				elementCounter++;									//Keep track of which number in the array we're at
+			}
+			value = 0;												//"Eye" back at number 0 in the array
+			elementCounter = 0;										//Back at number 0 in a fresh terrain
+			terrainCounter++;										//Keep track of which terrain we're at
+			terrain++;												//Look at the next terrain, "eye"
+		}
+	}
 
 
 	public int getReturnedTokens() {

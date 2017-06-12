@@ -6,6 +6,9 @@ import player.Player;
 
 public class KillerRabbitSword extends Relic
 {
+	Map map;
+	boolean active = false;
+	int terrainNumber;
 
 	public KillerRabbitSword()
 	{
@@ -14,13 +17,13 @@ public class KillerRabbitSword extends Relic
 	}
 
 	@Override
-	public void processRelic(Map map, Player activePlayer) {
+	public void changeTerrain(int terrainNumber) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void changeTerrain(int terrainNumber) {
+	public void processRelic(Ammy ammy) {
 		// TODO Auto-generated method stub
 		
 	}

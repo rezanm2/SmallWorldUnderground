@@ -14,7 +14,7 @@ public abstract class Relic
 	{
 	};
 	
-	public abstract void processRelic(Map map, Player activePlayer);
+	public abstract void processRelic(Ammy ammy);
 	
 	public abstract void changeTerrain(int terrainNumber); 
 
