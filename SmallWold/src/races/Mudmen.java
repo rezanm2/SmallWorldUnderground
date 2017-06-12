@@ -15,7 +15,16 @@ public class Mudmen extends Race
 
 	@Override
 	public void processAbility(Ammy ammy) {
-		// TODO Auto-generated method stub
+		this.activePlayer = ammy.getActivePlayer();
+		this.map = ammy.getMap();
+		for(int x=0;x<map.getAllTerrains().size();x++)
+		{
+			if(map.getTerrain(x).getTerrainName().equals(map.getTerrain(x).getRace().getName()))
+			{
+				amountOfTokens++;
+				System.out.println(amountOfTokens);
+			}
+		}
 		
 	}
 

@@ -21,7 +21,7 @@ public class Muddy extends Ability implements CalculatableIncome
 	public void processAbility(Ammy ammy) {
 		this.activePlayer = ammy.getActivePlayer();
 		this.tc = ammy.getTc();
-		tc.checkTerrainType("Muddy");
+		tc.checkTerrainType("Muddy", activePlayer);
 		this.setAbilityIncome(tc.getTerrainStringCounter());
 	}
 

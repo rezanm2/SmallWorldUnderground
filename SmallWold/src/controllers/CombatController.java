@@ -29,6 +29,7 @@ public class CombatController
 	TerrainController tc;
 	TokenController toc;
 	Scanner input = new Scanner(System.in);
+	private Ammy ammy;
 
 	public CombatController(Ammy ammy)
 	{
@@ -38,7 +39,7 @@ public class CombatController
 		this.toc = ammy.getToc();
 		this.playerList = ammy.getPlayerList();
 		this.raceList = ammy.getRaceList();
-
+		this.ammy = ammy;
 	}
 
 	public void calculateCombat(Terrain terrain, Player activePlayer)		//Calculating win or lose

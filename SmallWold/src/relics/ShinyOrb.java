@@ -14,13 +14,13 @@ public class ShinyOrb extends Relic {
 	}
 
 	@Override
-	public void processRelic(Map map, Player activePlayer) {
+	public void changeTerrain(int terrainNumber) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void changeTerrain(int terrainNumber) {
+	public void processRelic(Ammy ammy) {
 		// TODO Auto-generated method stub
 		
 	}

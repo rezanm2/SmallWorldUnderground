@@ -22,7 +22,7 @@ public class Mining extends Ability  implements CalculatableIncome
 	{
 		this.activePlayer = ammy.getActivePlayer();
 		this.tc = ammy.getTc();
-		tc.checkTerrainType("Mine");
+		tc.checkTerrainType("Mine", activePlayer);
 		abilityIncome = tc.getTerrainStringCounter();
 	}
 
