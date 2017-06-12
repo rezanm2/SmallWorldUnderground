@@ -18,4 +18,10 @@ public class ShinyOrb extends Relic {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void changeTerrain(int terrainNumber) {
+		// TODO Auto-generated method stub
+		
+	}
 }

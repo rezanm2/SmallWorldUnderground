@@ -18,4 +18,10 @@ public class StinkyTrollSocks extends Relic {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void changeTerrain(int terrainNumber) {
+		// TODO Auto-generated method stub
+		
+	}
 }

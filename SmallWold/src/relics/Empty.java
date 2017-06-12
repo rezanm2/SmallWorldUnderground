@@ -17,4 +17,10 @@ public class Empty extends Relic {
 		
 	}
 
+	@Override
+	public void changeTerrain(int terrainNumber) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

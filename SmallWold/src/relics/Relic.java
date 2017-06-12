@@ -15,6 +15,8 @@ public abstract class Relic
 	};
 	
 	public abstract void processRelic(Map map, Player activePlayer);
+	
+	public abstract void changeTerrain(int terrainNumber); 
 
 	public void setName(String name)
 	{
