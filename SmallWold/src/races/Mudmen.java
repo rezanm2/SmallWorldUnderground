@@ -19,9 +19,10 @@ public class Mudmen extends Race
 		this.map = ammy.getMap();
 		for(int x=0;x<map.getAllTerrains().size();x++)
 		{
-			if(map.getTerrain(x).getTerrainName().equals(map.getTerrain(x).getRace().getName()))
-			{
-				amountOfTokens++;
+			if(map.getTerrain(x).getRace().getName().equals(activePlayer.getActiveSet().getRace().getName()) && map.getTerrain(x).getTerrainName().equals("Mud"))
+			{ 
+				this.amountOfTokens++;
+				System.out.println("Naam Race: " + map.getTerrain(x).getRace().getName() + " Naam terrein: " + map.getTerrain(x).getTerrainName());
 				System.out.println(amountOfTokens);
 			}
 		}
