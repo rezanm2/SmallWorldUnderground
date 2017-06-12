@@ -1,5 +1,7 @@
 package main;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import controllers.CombatController;
@@ -46,6 +48,7 @@ public class Ammy
 	RaceListCreator raceList;
 	RelicListCreator relicList;
 	SpecialPlaceListCreator specialPlaceList;
+	private int largest;
 	int maxTotalTurns;
 	TokenController toc;
 
@@ -137,14 +140,54 @@ public class Ammy
 
 		System.out.println(playerList.get(0).getName() + " has earned " + playerList.get(0).getCoins() + " coins.");
 		System.out.println(playerList.get(1).getName() + " has earned " + playerList.get(1).getCoins() + " coins.");
+		System.out.println(playerList.get(2).getName() + " has earned " + playerList.get(2).getCoins() + " coins.");
+		System.out.println(playerList.get(3).getName() + " has earned " + playerList.get(3).getCoins() + " coins.");
+		System.out.println(playerList.get(4).getName() + " has earned " + playerList.get(4).getCoins() + " coins.");
 
-		if(playerList.get(0).getCoins() > playerList.get(1).getCoins())
+		if(playerList.size() == 2)
 		{
-			System.out.println("A: " + playerList.get(0).getName() + " won!");
+			largest = Collections.max(Arrays.asList(playerList.get(0).getCoins(), playerList.get(1).getCoins()));
 		}
-		else
+		if(playerList.size() == 3)
 		{
-			System.out.println("A: " + playerList.get(1).getName() + " won!");
+			largest = Collections.max(Arrays.asList(playerList.get(0).getCoins(), playerList.get(1).getCoins(),
+					playerList.get(2).getCoins()));
+		}
+		if(playerList.size() == 4)
+		{
+			largest = Collections.max(Arrays.asList(playerList.get(0).getCoins(), playerList.get(1).getCoins(),
+					playerList.get(2).getCoins(), playerList.get(3).getCoins()));
+		}
+
+		if(playerList.size() == 5)
+		{
+			largest = Collections.max(Arrays.asList(playerList.get(0).getCoins(), playerList.get(1).getCoins(),
+					playerList.get(2).getCoins(), playerList.get(3).getCoins(), playerList.get(4).getCoins()));
+		}
+
+		if(playerList.get(0).getCoins() == largest)
+		{
+			System.out.println("A: Congrats " + playerList.get(0).getName() + ", you won!");
+		}
+
+		if(playerList.get(1).getCoins() == largest)
+		{
+			System.out.println("A: Congrats " + playerList.get(1).getName() + ", you won!");
+		}
+
+		if(playerList.get(2).getCoins() == largest)
+		{
+			System.out.println("A: Congrats " + playerList.get(2).getName() + ", you won!");
+		}
+
+		if(playerList.get(3).getCoins() == largest)
+		{
+			System.out.println("A: Congrats " + playerList.get(3).getName() + ", you won!");
+		}
+
+		if(playerList.get(4).getCoins() == largest)
+		{
+			System.out.println("A: Congrats " + playerList.get(4).getName() + ", you won!");
 		}
 	}
 
