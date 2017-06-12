@@ -15,6 +15,7 @@ public class EndTurnController
 	private int terrainIncome;
 	private int totalSum;
 	private int coins;
+	private int newBalance;
 	private int abilityIncome;
 	private int raceIncome;
 	private int relicIncome;
@@ -43,6 +44,7 @@ public class EndTurnController
 		calculateAbilityIncome();
 		calculateRaceIncome();
 		addSum();
+		calculateNewBalance();
 	}
 
 	public void calculateTerrainIncome()
@@ -89,10 +91,10 @@ public class EndTurnController
 		System.out.println("A: Making for " + totalSum + " total income.");
 	}
 
-	public void calculateNewBalance(int currentBalance, int totalIncome)
+	public void calculateNewBalance()
 	{
-		coins = activePlayer.getCoins() + getTotalSum();
-		activePlayer.setCoins(coins);
+		newBalance = activePlayer.getCoins() + getTotalSum();
+		activePlayer.setCoins(newBalance);
 
 		System.out.println("A: So, " + activePlayer.getName() + "'s total will get to be " + activePlayer.getCoins());
 	}

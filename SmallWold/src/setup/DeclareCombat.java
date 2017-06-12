@@ -36,6 +36,8 @@ public class DeclareCombat
 	public void start(Player activePlayer)
 	{
 		this.activePlayer = activePlayer;
+
+		System.out.println(activePlayer.getHand().getCurrentTokens());
 		System.out.println("Ammy: ~~~~~~~~~I'm changing towards the Conquest phase. ~~~~~~~~~ \n\n");
 		System.out.println("A: All right. Let's allow " + activePlayer.getName() + " to attack some stuff. \n");
 
@@ -43,7 +45,8 @@ public class DeclareCombat
 		tc.setAllAdjacentAreas(activePlayer);						//Setting isAdjacent for each area player x has
 		tc.setAllRedeployableAreas(activePlayer);					//Setting isReinforcable for each area player x has
 		tc.calculateReturnedTokens();
-		activePlayer.getHand().setCurrentTokens(tc.getReturnedTokens());
+
+		activePlayer.getHand().setCurrentTokens(activePlayer.getHand().getCurrentTokens() + tc.getReturnedTokens());
 		System.out.println("A: Currently, " + activePlayer.getName() + " controls the following areas and has "
 							+ activePlayer.getHand().getCurrentTokens() + " " + activePlayer.getActiveSet().getRace().getName()
 							+ " tokens in their hand.");

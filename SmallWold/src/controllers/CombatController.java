@@ -3,6 +3,7 @@ package controllers;
 import java.util.List;
 import java.util.Scanner;
 
+import listCreators.RaceListCreator;
 import main.Ammy;
 import playBoard.Die;
 import playBoard.Map;
@@ -19,6 +20,8 @@ public class CombatController
 	private int value;
 	private Race losingRace;
 	private Terrain terrain;
+	RaceListCreator raceList;
+	Player losingPlayer;
 	List playerList;
 	Die die;
 	Player activePlayer;
@@ -34,6 +37,7 @@ public class CombatController
 		this.tc = ammy.getTc();
 		this.toc = ammy.getToc();
 		this.playerList = ammy.getPlayerList();
+		this.raceList = ammy.getRaceList();
 
 	}
 
@@ -79,6 +83,21 @@ public class CombatController
 	public void doAttack(Terrain terrain, Player activePlayer) {
 		losingRace = terrain.getRace();
 		toc.linkRaceToPlayer(losingRace);
+		losingPlayer = toc.getRacesPlayer();
+
+
+		if(!terrain.getRace().equals(raceList.getListElement(0)))
+		{
+			losingPlayer.getHand().setCurrentTokens(losingPlayer.getHand().getCurrentTokens() + (terrain.getAmountOfTokens() - 1)); //Calculate loss
+
+			System.out.println("A: " + losingPlayer.getName() + " just lost combat. Now has: " + losingPlayer.getHand().getCurrentTokens()
+					+ " in hand, because " + terrain.getAmountOfTokens() + " - 1 were returned to his hand.");
+		}
+		else
+		{
+			System.out.println("A: The terrain was empty, so no tokens are returned.");
+		}
+
 
 		terrain.setRace(activePlayer.getActiveSet().getRace());	 							//Make the terrain be the player's Race
 		terrain.setAmountOfTokens(declaredAmountOfTokens);							  		//The declared amount is set on the terrain
@@ -91,8 +110,6 @@ public class CombatController
 		tc.setAllRedeployableAreas(activePlayer);
 
 		activePlayer.getHand().setCurrentTokens(activePlayer.getHand().getCurrentTokens() - declaredAmountOfTokens);
-		System.out.println("A: I'm doin' this shit. declaredAmountOfTokens: " + declaredAmountOfTokens + "activePlayer: " + activePlayer.getName());
-
 	}
 
 
