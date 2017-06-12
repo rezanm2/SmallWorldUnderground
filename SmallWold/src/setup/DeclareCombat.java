@@ -30,7 +30,6 @@ public class DeclareCombat
 		this.cc = ammy.getCc();
 		this.test = ammy.getTest();
 		this.playerCreator = ammy.getPlayerCreator();
-		this.activePlayer = ammy.getActivePlayer();
 		this.tc = ammy.getTc();
 	}
 
@@ -48,13 +47,13 @@ public class DeclareCombat
 		System.out.println("A: Currently, " + activePlayer.getName() + " controls the following areas and has "
 							+ activePlayer.getHand().getCurrentTokens() + " " + activePlayer.getActiveSet().getRace().getName()
 							+ " tokens in their hand.");
-		test.whichAreRedeployable();													//Show each area that isReinforcable
+		test.whichAreRedeployable(activePlayer);													//Show each area that isReinforcable
 
 		System.out.println("A: Which means that " + activePlayer.getName() + " can attack the following areas.");
 
 		while(activePlayer.getHand().getCurrentTokens()>0)
 		{
-			test.whichAreAttackable();
+			test.whichAreAttackable(activePlayer);
 
 			System.out.println("A: You have " + activePlayer.getHand().getCurrentTokens() + " tokens left.");
 			System.out.println("A: Which area do  you wish to attack?");

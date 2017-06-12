@@ -25,15 +25,11 @@ public class TokenController
 				System.out.println("A: The race is " + race.getName() + " and it is "
 						+ playerList.get(playerCounter).getName() + "'s active race.");
 			}
-//			else if(playerList.get(playerCounter).getDeclineSet().getRace().equals(race))
-//			{
-//				System.out.println("A: The race is " + race.getName() + " and it is "
-//						+ playerList.get(playerCounter).getName() + "'s decline race.");
-//			}
+			else if(playerList.get(playerCounter).getDeclineSet().getRace().equals(race))
+			{
+				System.out.println("A: The race is " + race.getName() + " and it is "
+						+ playerList.get(playerCounter).getName() + "'s decline race.");
+			}
 		}
-
-
-
-
 	}
 }

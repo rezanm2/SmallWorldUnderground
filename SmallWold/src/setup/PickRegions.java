@@ -140,6 +140,12 @@ public class PickRegions
 		map.getTerrain(5).setRace(playerList.get(1).getActiveSet().getRace());
 		map.getTerrain(5).setAmountOfTokens(3);
 
+		if(playerList.size() > 2)
+		{
+			map.getTerrain(9).setRace(playerList.get(2).getActiveSet().getRace());
+			map.getTerrain(9).setAmountOfTokens(10);
+		}
+
 		playerList.get(0).getHand().setCurrentTokens(0);
 		playerList.get(1).getHand().setCurrentTokens(0);
 		hasBroken = true;

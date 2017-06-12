@@ -110,31 +110,51 @@ public class Ammy
 	public void startGame()
 	{
 		this.activePlayer = playerList.get(0);
-		System.out.println("A: It is now " + activePlayer.getName() + "'s turn.");
 		pickRegions.start();
-//		tc.set
-		test.whichAreAdjacent();
-		dc.start(activePlayer);
-		etc.start(activePlayer);
 
-//		for(int totalTurnCounter=0;totalTurnCounter<mapCreator.getMaxTotalTurns();totalTurnCounter++)
-//		{
-//			for(int playerTurnCounter=0;playerTurnCounter<playerList.size();playerTurnCounter++)
-//			{
-//				activePlayer = playerList.get(playerTurnCounter);
-//				dc.start(activePlayer);
-//				ra.start(this);
-//				etc.start(activePlayer);
-//
-//
-//		//		decline.shuffleSets();
-//		//		decline.chooseNewSet();
-//		//		decline.goInDecline();
-//			}
-//		}
+		for(int totalTurnCounter=0;totalTurnCounter<mapCreator.getMaxTotalTurns();totalTurnCounter++)
+		{
+			for(int playerTurnCounter=0;playerTurnCounter<playerList.size();playerTurnCounter++)
+			{
+				activePlayer = playerList.get(playerTurnCounter);
+				System.out.println("A: It is now " + activePlayer.getName() + "'s turn.");
+				dc.start(activePlayer);
+				ra.start(this);
+				etc.start(activePlayer);
+				sleep.sleep(1000);
+
+//				decline.shuffleSets();
+//				decline.chooseNewSet();
+//				decline.goInDecline();
+			}
+		}
 	}
 
 	//Getters and Setters below this line ---------------------------------------------------
+
+	public Decline getDecline() {
+		return decline;
+	}
+
+	public void setDecline(Decline decline) {
+		this.decline = decline;
+	}
+
+	public SpecialPlaceListCreator getSpecialPlaceList() {
+		return specialPlaceList;
+	}
+
+	public void setSpecialPlaceList(SpecialPlaceListCreator specialPlaceList) {
+		this.specialPlaceList = specialPlaceList;
+	}
+
+	public int getMaxTotalTurns() {
+		return maxTotalTurns;
+	}
+
+	public void setMaxTotalTurns(int maxTotalTurns) {
+		this.maxTotalTurns = maxTotalTurns;
+	}
 
 	public MapCreator getMapCreator() {
 		return mapCreator;

@@ -29,16 +29,16 @@ public class Drow extends Race
 		int countTerrains = 0;
 		int countRaces = 0;
 		tc.setAllAdjacentAreas(activePlayer);
-		test.whichAreAdjacent();
+		test.whichAreAdjacent(activePlayer);
 
-		
+
 		for(int x=0;x<map.getAllTerrains().size();x++)
 		{
 			if(map.getTerrain(x).getIsAdjacent() == true)
 			{
 				countTerrains++;
 				System.out.println("if1: " + map.getTerrain(x).getIsAdjacent());
-				if(map.getTerrain(x).getRace().getName().equals(activePlayer.getActiveSet().getRace().getName()) || 
+				if(map.getTerrain(x).getRace().getName().equals(activePlayer.getActiveSet().getRace().getName()) ||
 						map.getTerrain(x).getRace().getName().equals("Empty "))
 				{
 					countRaces++;

@@ -55,8 +55,7 @@ public class RedeployAreas
 
 			tc.setAllRedeployableAreas(activePlayer);
 
-			test.whichAreAdjacent();
-			test.whichAreRedeployable();
+			test.whichAreRedeployable(activePlayer);
 
 
 			System.out.println("A: Which area do  you wish to redeploy in?");
