@@ -3,6 +3,7 @@ package relics;
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
+import terrain.Terrain;
 
 public abstract class Relic
 {
@@ -18,11 +19,7 @@ public abstract class Relic
 	
 	public abstract void processRelic(Ammy ammy);
 	
-	public void changeTerrain(int terrainNumber) {
-		map.getTerrain(this.terrainNumber).setRelic(new Empty());
-		map.getTerrain(terrainNumber).setRelic(this);
-		this.terrainNumber = terrainNumber;
-	}
+	public abstract void changeTerrain(int terrainNumber);
 
 	public void setName(String name)
 	{
@@ -33,9 +30,9 @@ public abstract class Relic
 		return name;
 	}
 
-	public void setActive(boolean active)
+	public void setActive()
 	{
-		this.active = active;
+		this.active = true;
 	}
 
 	public boolean getActive()
