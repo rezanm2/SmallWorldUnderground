@@ -40,4 +40,10 @@ public class ShinyOrb extends Relic {
 		 * Werkt maar eenmaal dus niet elke speler
 		 */
 	}
+	
+	public void changeTerrain(int terrainNumber) {
+		map.getTerrain(this.terrainNumber).setRelic(new Empty());
+		map.getTerrain(terrainNumber).setRelic(this);
+		this.terrainNumber = terrainNumber;
+	}
 }
