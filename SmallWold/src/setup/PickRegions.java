@@ -132,16 +132,54 @@ public class PickRegions
 		map.getTerrain(1).setRace(playerList.get(0).getActiveSet().getRace());
 		map.getTerrain(1).setAmountOfTokens(5);
 		map.getTerrain(2).setRace(playerList.get(1).getActiveSet().getRace());
-		map.getTerrain(2).setAmountOfTokens(2);
+		map.getTerrain(2).setAmountOfTokens(3);
 		map.getTerrain(3).setRace(playerList.get(1).getActiveSet().getRace());
-		map.getTerrain(3).setAmountOfTokens(3);
+		map.getTerrain(3).setAmountOfTokens(2);
 		map.getTerrain(4).setRace(playerList.get(1).getActiveSet().getRace());
-		map.getTerrain(4).setAmountOfTokens(2);
+		map.getTerrain(4).setAmountOfTokens(3);
 		map.getTerrain(5).setRace(playerList.get(1).getActiveSet().getRace());
-		map.getTerrain(5).setAmountOfTokens(3);
+		map.getTerrain(5).setAmountOfTokens(2);
+
+		if(playerList.size() > 2)
+		{
+			map.getTerrain(11).setRace(playerList.get(2).getActiveSet().getRace());
+			map.getTerrain(11).setAmountOfTokens(10);
+		}
+		if(playerList.size() > 3)
+		{
+			map.getTerrain(10).setRace(playerList.get(3).getActiveSet().getRace());
+			map.getTerrain(10).setAmountOfTokens(3);
+			map.getTerrain(6).setRace(playerList.get(3).getActiveSet().getRace());
+			map.getTerrain(6).setAmountOfTokens(4);
+			map.getTerrain(16).setRace(playerList.get(3).getActiveSet().getRace());
+			map.getTerrain(16).setAmountOfTokens(3);
+		}
+
+		if(playerList.size() > 4)
+		{
+			map.getTerrain(7).setRace(playerList.get(4).getActiveSet().getRace());
+			map.getTerrain(7).setAmountOfTokens(5);
+			map.getTerrain(8).setRace(playerList.get(4).getActiveSet().getRace());
+			map.getTerrain(8).setAmountOfTokens(3);
+			map.getTerrain(9).setRace(playerList.get(4).getActiveSet().getRace());
+			map.getTerrain(9).setAmountOfTokens(2);
+		}
 
 		playerList.get(0).getHand().setCurrentTokens(0);
 		playerList.get(1).getHand().setCurrentTokens(0);
-		hasBroken = true;
+
+		if(playerList.size() > 2)
+		{
+			playerList.get(2).getHand().setCurrentTokens(0);
+		}
+		if(playerList.size() > 3)
+		{
+			playerList.get(3).getHand().setCurrentTokens(0);
+		}
+		if(playerList.size() > 4)
+		{
+			playerList.get(4).getHand().setCurrentTokens(0);
+		}
+
 	}
 }

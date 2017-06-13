@@ -12,7 +12,7 @@ public abstract class Race
 	protected String traitText;
 	protected Player activePlayer;
 	protected Map map;
-	protected int countCoins;
+	protected int raceIncome;
 
 	public void setAmountOfTokens(int amountOfTokens)
 	{

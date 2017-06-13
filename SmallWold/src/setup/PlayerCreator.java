@@ -42,31 +42,43 @@ public class PlayerCreator
 	public void setDefaultSets()
 
 	{
-		activeSetOne = new Set(abilityList.getListElement(1), raceList.getListElement(1));	//Setting random set defaults for players
+		activeSetOne = new Set(abilityList.getListElement(1), raceList.getListElement(1));	//Setting set defaults for players
 		playerList.get(0).setActiveSet(activeSetOne);
 
-		declineSetOne = new Set(abilityList.getListElement(2), raceList.getListElement(2));	//Setting random set defaults for players
-		playerList.get(0).setActiveSet(activeSetOne);
+		declineSetOne = new Set(abilityList.getListElement(2), raceList.getListElement(2));
+		playerList.get(0).setDeclineSet(declineSetOne);
 
-		activeSetTwo = new Set(abilityList.getListElement(2), raceList.getListElement(2));
+		activeSetTwo = new Set(abilityList.getListElement(3), raceList.getListElement(3));
 		playerList.get(1).setActiveSet(activeSetTwo);
+
+		declineSetTwo = new Set(abilityList.getListElement(4), raceList.getListElement(4));
+		playerList.get(1).setDeclineSet(declineSetTwo);
 
 		if(playerList.size() > 2)
 		{
-			activeSetThree = new Set(abilityList.getListElement(3), raceList.getListElement(3));
+			activeSetThree = new Set(abilityList.getListElement(5), raceList.getListElement(5));
 			playerList.get(2).setActiveSet(activeSetThree);
+
+			declineSetThree = new Set(abilityList.getListElement(6), raceList.getListElement(6));
+			playerList.get(2).setDeclineSet(declineSetThree);
 		}
 
 		if(playerList.size() > 3)
 		{
-			activeSetFour = new Set(abilityList.getListElement(4), raceList.getListElement(4));
+			activeSetFour = new Set(abilityList.getListElement(7), raceList.getListElement(7));
 			playerList.get(3).setActiveSet(activeSetFour);
+
+			declineSetFour = new Set(abilityList.getListElement(8), raceList.getListElement(8));
+			playerList.get(3).setDeclineSet(declineSetFour);
 		}
 
 		if(playerList.size() > 4)
 		{
-			activeSetFive = new Set(abilityList.getListElement(5), raceList.getListElement(5));
+			activeSetFive = new Set(abilityList.getListElement(9), raceList.getListElement(9));
 			playerList.get(4).setActiveSet(activeSetFive);
+
+			declineSetFive = new Set(abilityList.getListElement(10), raceList.getListElement(10));
+			playerList.get(4).setDeclineSet(declineSetFive);
 		}
 	}
 

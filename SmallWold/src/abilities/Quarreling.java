@@ -28,7 +28,7 @@ public class Quarreling extends Ability implements CalculatableIncome
 		this.map = ammy.getMap();
 
 		tc.setAllAdjacentAreas(activePlayer);
-		test.whichAreAdjacent();
+		test.whichAreAdjacent(activePlayer);
 
 
 		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains

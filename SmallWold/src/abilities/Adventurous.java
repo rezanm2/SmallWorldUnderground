@@ -28,12 +28,14 @@ public class Adventurous extends Ability implements CalculatableIncome
 	{
 		this.activePlayer = ammy.getActivePlayer();
 		this.tc = ammy.getTc();
+		this.map = ammy.getMap();
+		this.specialPlaceList = ammy.getSpecialPlaceList();
 		abilityIncome = 0;
 
 		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
 			if(activePlayer.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace()) &&
-					map.getTerrain(terrainCounter).getSpecialPlace().equals(specialPlaceList.getListElement(0)))
+					!map.getTerrain(terrainCounter).getSpecialPlace().equals(specialPlaceList.getListElement(0)))
 						{
 						abilityIncome++;
 						}

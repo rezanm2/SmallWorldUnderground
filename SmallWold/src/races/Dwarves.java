@@ -1,10 +1,12 @@
 package races;
 
 import main.Ammy;
+import player.Hand;
 import player.Player;
 
 public class Dwarves extends Race
 {
+	int silverHammer;
 	public Dwarves()
 	{
 		amountOfTokens = 7;
@@ -15,8 +17,17 @@ public class Dwarves extends Race
 
 	@Override
 	public void processAbility(Ammy ammy) {
-		// TODO Auto-generated method stub
-		
+		this.activePlayer = ammy.getActivePlayer();
+		this.map = ammy.getMap();
+		for(int x=0;x<map.getAllTerrains().size();x++)
+		{
+			if(map.getTerrain(x).getRace().getName().equals(activePlayer.getActiveSet().getRace().getName())
+					&& map.getTerrain(x).getTerrainName().equals("Mine"))
+			{
+				silverHammer = activePlayer.getHand().getSilverHammers() + 1;
+				activePlayer.getHand().setSilverHammers(silverHammer);
+			}
+		}
 	}
-
+		
 }

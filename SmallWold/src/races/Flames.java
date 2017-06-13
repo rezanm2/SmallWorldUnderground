@@ -1,10 +1,12 @@
 package races;
 
+import controllers.TerrainController;
 import main.Ammy;
 import player.Player;
 
 public class Flames extends Race
 {
+	TerrainController terrainController;
 	public Flames()
 	{
 		amountOfTokens = 5;
@@ -15,8 +17,16 @@ public class Flames extends Race
 
 	@Override
 	public void processAbility(Ammy ammy) {
-		// TODO Auto-generated method stub
-		
+
+		this.terrainController = ammy.getTc();
+
+		terrainController.checkTerrainType("Chasm");
+		for(int i = 0; i < terrainController.getTerrainslist().size(); i++)
+		{
+			System.out.println((terrainController.getTerrainslist().get(i)) + 1);
+		}
+
+
 	}
 
 }

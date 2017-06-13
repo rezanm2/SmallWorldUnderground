@@ -10,6 +10,8 @@ import races.Race;
 public class TokenController
 {
 
+	Player racesPlayer;
+
 	List<Player> playerList;
 	public TokenController(Ammy ammy)
 	{
@@ -24,16 +26,25 @@ public class TokenController
 			{
 				System.out.println("A: The race is " + race.getName() + " and it is "
 						+ playerList.get(playerCounter).getName() + "'s active race.");
+
+				racesPlayer = playerList.get(playerCounter);
 			}
-//			else if(playerList.get(playerCounter).getDeclineSet().getRace().equals(race))
-//			{
-//				System.out.println("A: The race is " + race.getName() + " and it is "
-//						+ playerList.get(playerCounter).getName() + "'s decline race.");
-//			}
+			else if(playerList.get(playerCounter).getDeclineSet().getRace().equals(race))
+			{
+				System.out.println("A: The race is " + race.getName() + " and it is "
+						+ playerList.get(playerCounter).getName() + "'s decline race.");
+
+				racesPlayer = playerList.get(playerCounter);
+			}
 		}
+	}
 
-
-
-
+	public void setRacesPlayer(Player racesPlayer)
+	{
+		this.racesPlayer = racesPlayer;
+	}
+	public Player getRacesPlayer()
+	{
+		return racesPlayer;
 	}
 }

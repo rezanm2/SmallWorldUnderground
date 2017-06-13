@@ -1,5 +1,7 @@
 package main;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import controllers.CombatController;
@@ -46,6 +48,7 @@ public class Ammy
 	RaceListCreator raceList;
 	RelicListCreator relicList;
 	SpecialPlaceListCreator specialPlaceList;
+	private int largest;
 	int maxTotalTurns;
 	TokenController toc;
 
@@ -110,31 +113,109 @@ public class Ammy
 	public void startGame()
 	{
 		this.activePlayer = playerList.get(0);
-		System.out.println("A: It is now " + activePlayer.getName() + "'s turn.");
 		pickRegions.start();
-//		tc.set
-		test.whichAreAdjacent();
-		dc.start(activePlayer);
-		etc.start(activePlayer);
 
-//		for(int totalTurnCounter=0;totalTurnCounter<mapCreator.getMaxTotalTurns();totalTurnCounter++)
-//		{
-//			for(int playerTurnCounter=0;playerTurnCounter<playerList.size();playerTurnCounter++)
-//			{
-//				activePlayer = playerList.get(playerTurnCounter);
-//				dc.start(activePlayer);
-//				ra.start(this);
-//				etc.start(activePlayer);
-//
-//
-//		//		decline.shuffleSets();
-//		//		decline.chooseNewSet();
-//		//		decline.goInDecline();
-//			}
-//		}
+		for(int totalTurnCounter=0;totalTurnCounter<mapCreator.getMaxTotalTurns();totalTurnCounter++)
+		{
+			for(int playerTurnCounter=0;playerTurnCounter<playerList.size();playerTurnCounter++)
+			{
+				activePlayer = playerList.get(playerTurnCounter);
+				System.out.println("A: It is now " + activePlayer.getName() + "'s turn.");
+				dc.start(activePlayer);
+				ra.start(this);
+				etc.start(activePlayer);
+
+//				decline.shuffleSets();
+//				decline.chooseNewSet();
+//				decline.goInDecline();
+			}
+		}
+		declareWinner();
+	}
+
+
+	public void declareWinner()
+	{
+		System.out.println("Ammy: Your game has ended!");
+
+		System.out.println(playerList.get(0).getName() + " has earned " + playerList.get(0).getCoins() + " coins.");
+		System.out.println(playerList.get(1).getName() + " has earned " + playerList.get(1).getCoins() + " coins.");
+		System.out.println(playerList.get(2).getName() + " has earned " + playerList.get(2).getCoins() + " coins.");
+		System.out.println(playerList.get(3).getName() + " has earned " + playerList.get(3).getCoins() + " coins.");
+		System.out.println(playerList.get(4).getName() + " has earned " + playerList.get(4).getCoins() + " coins.");
+
+		if(playerList.size() == 2)
+		{
+			largest = Collections.max(Arrays.asList(playerList.get(0).getCoins(), playerList.get(1).getCoins()));
+		}
+		if(playerList.size() == 3)
+		{
+			largest = Collections.max(Arrays.asList(playerList.get(0).getCoins(), playerList.get(1).getCoins(),
+					playerList.get(2).getCoins()));
+		}
+		if(playerList.size() == 4)
+		{
+			largest = Collections.max(Arrays.asList(playerList.get(0).getCoins(), playerList.get(1).getCoins(),
+					playerList.get(2).getCoins(), playerList.get(3).getCoins()));
+		}
+
+		if(playerList.size() == 5)
+		{
+			largest = Collections.max(Arrays.asList(playerList.get(0).getCoins(), playerList.get(1).getCoins(),
+					playerList.get(2).getCoins(), playerList.get(3).getCoins(), playerList.get(4).getCoins()));
+		}
+
+		if(playerList.get(0).getCoins() == largest)
+		{
+			System.out.println("A: Congrats " + playerList.get(0).getName() + ", you won!");
+		}
+
+		if(playerList.get(1).getCoins() == largest)
+		{
+			System.out.println("A: Congrats " + playerList.get(1).getName() + ", you won!");
+		}
+
+		if(playerList.get(2).getCoins() == largest)
+		{
+			System.out.println("A: Congrats " + playerList.get(2).getName() + ", you won!");
+		}
+
+		if(playerList.get(3).getCoins() == largest)
+		{
+			System.out.println("A: Congrats " + playerList.get(3).getName() + ", you won!");
+		}
+
+		if(playerList.get(4).getCoins() == largest)
+		{
+			System.out.println("A: Congrats " + playerList.get(4).getName() + ", you won!");
+		}
 	}
 
 	//Getters and Setters below this line ---------------------------------------------------
+
+	public Decline getDecline() {
+		return decline;
+	}
+
+	public void setDecline(Decline decline) {
+		this.decline = decline;
+	}
+
+	public SpecialPlaceListCreator getSpecialPlaceList() {
+		return specialPlaceList;
+	}
+
+	public void setSpecialPlaceList(SpecialPlaceListCreator specialPlaceList) {
+		this.specialPlaceList = specialPlaceList;
+	}
+
+	public int getMaxTotalTurns() {
+		return maxTotalTurns;
+	}
+
+	public void setMaxTotalTurns(int maxTotalTurns) {
+		this.maxTotalTurns = maxTotalTurns;
+	}
 
 	public MapCreator getMapCreator() {
 		return mapCreator;

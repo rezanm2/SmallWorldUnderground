@@ -30,7 +30,7 @@ public class MapTester
 		}
 	}
 
-	public void whichAreAdjacent()					//Show all areas which are currently attackable
+	public void whichAreAdjacent(Player activePlayer)					//Show all areas which are currently attackable
 	{
 
 
@@ -48,7 +48,7 @@ public class MapTester
 		}
 	}
 
-	public void whichAreAttackable()					//Show all areas which are currently attackable
+	public void whichAreAttackable(Player activePlayer)					//Show all areas which are currently attackable
 	{
 		System.out.println("A: Showing which areas are attackable for " + activePlayer.getName() + "\n");
 		System.out.println("A: Number : Terrain : Tokentype : Amount of Tokens");
@@ -64,7 +64,7 @@ public class MapTester
 		}
 	}
 
-	public void whichAreRedeployable()					//Show all areas which are currently attackable
+	public void whichAreRedeployable(Player activePlayer)					//Show all areas which are currently attackable
 	{
 		System.out.println("A: Showing which areas are redeployable for " + activePlayer.getName() + "\n");
 		System.out.println("A: Number : Terrain : Tokentype : Amount of Tokens");

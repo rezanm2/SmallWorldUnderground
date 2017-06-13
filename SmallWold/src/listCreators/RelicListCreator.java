@@ -3,7 +3,7 @@ package listCreators;
 import java.util.ArrayList;
 import java.util.List;
 
-import races.Race;
+import relics.Empty;
 import relics.FlyingDoormat;
 import relics.FroggysRing;
 import relics.KillerRabbitSword;
@@ -18,7 +18,7 @@ public class RelicListCreator
 	public RelicListCreator()
 	{
 
-
+		Relic empty = new Empty();
 		Relic flyingDoorMat = new FlyingDoormat();
 		Relic froggysRing = new FroggysRing();
 		Relic killerRabbitSword = new KillerRabbitSword();
@@ -26,6 +26,7 @@ public class RelicListCreator
 		Relic shinyOrb = new ShinyOrb();
 		Relic stinkyTrollSocks = new StinkyTrollSocks();
 
+		relicList.add(empty);
 		relicList.add(flyingDoorMat);
 		relicList.add(froggysRing);
 		relicList.add(killerRabbitSword);

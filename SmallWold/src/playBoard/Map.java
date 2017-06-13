@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import controllers.SleepController;
+import listCreators.RaceListCreator;
+import listCreators.RelicListCreator;
+import listCreators.SpecialPlaceListCreator;
 import main.Ammy;
 import mapInitializers.FourPlayer;
 import races.Empty;
@@ -14,15 +17,20 @@ public class Map
 {
 
 	List<Terrain> terrains = new ArrayList<Terrain>();
+	RaceListCreator raceList;
+	RelicListCreator relicList;
+	SpecialPlaceListCreator specialPlaceList;
 	Die die = new Die();
 	private int terrainCounter;
-	Race empty = new Empty();
 	SleepController sleep = new SleepController();
 
 
 	public Map(Ammy ammy)
 	{
 		this.terrains = ammy.getMapCreator().getTerrainList();
+		this.relicList = ammy.getRelicList();
+		this.specialPlaceList = ammy.getSpecialPlaceList();
+		this.raceList = ammy.getRaceList();
 		this.setEmpty();
 	}
 
@@ -30,7 +38,9 @@ public class Map
 	{
 		for(terrainCounter=0;terrainCounter<getAllTerrains().size();terrainCounter++)				//As long as there are terrains
 		{
-			getTerrain(terrainCounter).setRace(empty);
+			getTerrain(terrainCounter).setRace(raceList.getListElement(0));
+			getTerrain(terrainCounter).setRelic(relicList.getListElement(0));
+			getTerrain(terrainCounter).setSpecialPlace(specialPlaceList.getListElement(0));
 		}
 	}
 

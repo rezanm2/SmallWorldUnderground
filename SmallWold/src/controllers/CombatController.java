@@ -3,6 +3,7 @@ package controllers;
 import java.util.List;
 import java.util.Scanner;
 
+import listCreators.RaceListCreator;
 import main.Ammy;
 import playBoard.Die;
 import playBoard.Map;
@@ -19,6 +20,9 @@ public class CombatController
 	private int value;
 	private Race losingRace;
 	private Terrain terrain;
+	private int miscModifier = 0;
+	RaceListCreator raceList;
+	Player losingPlayer;
 	List playerList;
 	Die die;
 	Player activePlayer;
@@ -26,6 +30,7 @@ public class CombatController
 	TerrainController tc;
 	TokenController toc;
 	Scanner input = new Scanner(System.in);
+	private Ammy ammy;
 
 	public CombatController(Ammy ammy)
 	{
@@ -34,12 +39,13 @@ public class CombatController
 		this.tc = ammy.getTc();
 		this.toc = ammy.getToc();
 		this.playerList = ammy.getPlayerList();
-
+		this.raceList = ammy.getRaceList();
+		this.ammy = ammy;
 	}
 
 	public void calculateCombat(Terrain terrain, Player activePlayer)		//Calculating win or lose
 	{
-		if(terrain.getAmountOfTokens() + terrain.getDefense() + 2 <= declaredAmountOfTokens)	//If the player wins
+		if(terrain.getAmountOfTokens() + terrain.getDefense() + 2 <= declaredAmountOfTokens + miscModifier)	//If the player wins
 		{
 			doAttack(terrain, activePlayer);
 		}
@@ -79,6 +85,28 @@ public class CombatController
 	public void doAttack(Terrain terrain, Player activePlayer) {
 		losingRace = terrain.getRace();
 		toc.linkRaceToPlayer(losingRace);
+		losingPlayer = toc.getRacesPlayer();
+
+		if(miscModifier > 20){
+			losingPlayer.getHand().setCurrentTokens(losingPlayer.getHand().getCurrentTokens() + (terrain.getAmountOfTokens())); //Calculate loss
+			
+			System.out.println("A: StinkyTrollSocks in effect");
+			
+			System.out.println("A: " + losingPlayer.getName() + " just lost combat. Now has: " + losingPlayer.getHand().getCurrentTokens()
+					+ " in hand, because " + terrain.getAmountOfTokens() + " were returned to his hand.");
+		}
+		else if(!terrain.getRace().equals(raceList.getListElement(0)))
+		{
+			losingPlayer.getHand().setCurrentTokens(losingPlayer.getHand().getCurrentTokens() + (terrain.getAmountOfTokens() - 1)); //Calculate loss
+
+			System.out.println("A: " + losingPlayer.getName() + " just lost combat. Now has: " + losingPlayer.getHand().getCurrentTokens()
+					+ " in hand, because " + terrain.getAmountOfTokens() + " - 1 were returned to his hand.");
+		}
+		else
+		{
+			System.out.println("A: The terrain was empty, so no tokens are returned.");
+		}
+
 
 		terrain.setRace(activePlayer.getActiveSet().getRace());	 							//Make the terrain be the player's Race
 		terrain.setAmountOfTokens(declaredAmountOfTokens);							  		//The declared amount is set on the terrain
@@ -92,7 +120,7 @@ public class CombatController
 
 		activePlayer.getHand().setCurrentTokens(activePlayer.getHand().getCurrentTokens() - declaredAmountOfTokens);
 		System.out.println("A: I'm doin' this shit. declaredAmountOfTokens: " + declaredAmountOfTokens + "activePlayer: " + activePlayer.getName());
-
+		miscModifier = 0;
 	}
 
 
@@ -175,5 +203,13 @@ public class CombatController
 	public void setDeclaredAmountOfTokens(int declaredAmountOfTokens)				//Player declaring amount of tokens for attack
 	{
 		this.declaredAmountOfTokens = declaredAmountOfTokens;
+	}
+	
+	public int getMiscModifier() {
+		return miscModifier;
+	}
+	
+	public void setMiscModifier(int miscModifier) { 
+		this.miscModifier = miscModifier;
 	}
 }
