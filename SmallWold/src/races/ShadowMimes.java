@@ -32,6 +32,5 @@ public class ShadowMimes extends Race
 		this.map = ammy.getMap();
 		this.decline = ammy.getDecline();
 		decline.changeAbility();
-
 	}
 }
