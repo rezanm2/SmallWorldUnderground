@@ -27,6 +27,7 @@ public class Immortal extends Ability implements CalculatableIncome
 				if (activePlayer.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace()))
 				{
 					returnTokens = returnTokens + map.getTerrain(terrainCounter).getAmountOfTokens();
+					activePlayer.getHand().setCurrentTokens(activePlayer.getHand().getCurrentTokens() + returnTokens);
 					map.getTerrain(terrainCounter).setRace(raceList.getListElement(0));
 				}
 			}
