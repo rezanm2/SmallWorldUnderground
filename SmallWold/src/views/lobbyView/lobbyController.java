@@ -1,6 +1,5 @@
 package views.lobbyView;
 
-import java.rmi.ConnectException;
 import java.rmi.RemoteException;
 
 import client.RemoteClient;
