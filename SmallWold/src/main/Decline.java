@@ -142,6 +142,51 @@ public  class Decline {
 				raceList.getRaceList().set(getal2, tempRace);
 			}
 		}
+		public void changeAbility()
+		{
+			int abilityNr = 0;
+			if(activePlayer.getActiveSet().getRace().getName().equals(shadowMimes.getName()))
+			{
+				System.out.println("Do you want change your ability? ");
+				scanner = new Scanner(System.in);;
+				
+				do
+				{
+					System.out.println("Say yes or no");
+					yesOrNo = scanner.nextLine();
+					if(yesOrNo.equals("yes"))
+					{			
+						for(int x=0;x<6;x++) // This for loops shows the first 6 ability's after shuffling.
+						{
+							//decline.chooseNewSet();
+							System.out.print((x+1) + ": " +  abilityList.getListElement(x).getName());
+							System.out.println();
+						}
+						System.out.println("Choose a new ability: ");
+						abilityNr = scanner.nextInt();
+						while(abilityNr < 1 || abilityNr > 6 )
+						{
+							System.out.println("Enter the set number: ");
+							abilityNr = scanner.nextInt();
+						}
+						//this changes the player's ability
+						activePlayer.getActiveSet().setAbility(abilityList.getListElement(abilityNr-1));
+						System.out.println(activePlayer.getActiveSet().getAbility().getName() + " and " + activePlayer.getActiveSet().getRace().getName() + " for " + activePlayer.getName()  + " is now activated.");
+
+						break;
+					}
+					if(yesOrNo.equals("no"))
+					{
+						System.out.println("Continue");
+						break;
+					}
+					System.out.println(yesOrNo);
+
+				}while(!yesOrNo.equals("yes") || !yesOrNo.equals("no"));
+			
+			}
+		}
+		
 		public void chooseNewSet()
 		{
 			Set tempSet;
@@ -187,62 +232,28 @@ public  class Decline {
 			activePlayer.setActiveSet(tempSet);
 			System.out.println(activePlayer.getActiveSet().getAbility().getName() + " and " + activePlayer.getActiveSet().getRace().getName() + " for " + activePlayer.getName()  + " is now activated.");
 			
-			//This check of the player have ShadowMime as race 
+			
 			if(activePlayer.getActiveSet().getRace().getName().equals(shadowMimes.getName()))
 			{
-				System.out.println("Do you want change your ability? ");
-				scanner = new Scanner(System.in);;
 				
-				do
-				{
-					System.out.println("Say yes or no");
-					yesOrNo = scanner.nextLine();
-					if(yesOrNo.equals("yes"))
-					{			
-						for(int x=0;x<6;x++) // This for loops shows the first 6 ability's after shuffling.
-						{
-							System.out.print((x+1) + ": " +  abilityList.getListElement(x).getName());
-							System.out.println();
-						}
-
-						while(setNr < 1 || setNr > 6 )
-						{
-							System.out.println("Enter the set number: ");
-							setNr = scanner.nextInt();
-						}
-						System.out.println("Choose a new ability: ");
-						setNr = scanner.nextInt();
-						
-						//this changes the player's ability
-						activePlayer.getActiveSet().setAbility(abilityList.getListElement(setNr-1));
-						System.out.println(activePlayer.getActiveSet().getAbility().getName() + " and " + activePlayer.getActiveSet().getRace().getName() + " for " + activePlayer.getName()  + " is now activated.");
-
-						break;
-					}
-					if(yesOrNo.equals("no"))
-					{
-						System.out.println("Continue");
-						break;
-					}
-					System.out.println(yesOrNo);
-
-				}while(!yesOrNo.equals("yes") || !yesOrNo.equals("no"));
-			
-			
-			for(int x=0;x<abilityList.getAbilityList().size();x++)
-			{
-				if(activePlayer.getActiveSet().getAbility().getName() == abilityList.getListElement(x).getName())
-				{
-					abilityList.getAbilityList().remove(x);
-				}
 			}
-			for(int x=0;x<raceList.getRaceList().size();x++)
+			else
 			{
-				if(activePlayer.getActiveSet().getRace().getName() == raceList.getListElement(x).getName())
+				for(int x=0;x<abilityList.getAbilityList().size();x++)
 				{
-					raceList.getRaceList().remove(x);
+					if(activePlayer.getActiveSet().getAbility().getName() == abilityList.getListElement(x).getName())
+					{
+						abilityList.getAbilityList().remove(x);
+					}
+				}
+				for(int x=0;x<raceList.getRaceList().size();x++)
+				{
+					if(activePlayer.getActiveSet().getRace().getName() == raceList.getListElement(x).getName())
+					{
+						raceList.getRaceList().remove(x);
+					}
 				}
 			}
 		}
-	}
+	
 }
