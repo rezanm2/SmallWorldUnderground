@@ -21,12 +21,6 @@ public class KillerRabbitSword extends Relic
 	}
 
 	@Override
-	public void changeTerrain(int terrainNumber) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void processRelic(Ammy ammy) {
 		this.map = ammy.getMap();
 		this.activePlayer = ammy.getActivePlayer();

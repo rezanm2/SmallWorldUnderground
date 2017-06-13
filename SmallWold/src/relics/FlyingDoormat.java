@@ -42,10 +42,5 @@ public class FlyingDoormat extends Relic {
 		}
 			
 	}
-	
-	public void changeTerrain(int terrainNumber) {
-		map.getTerrain(this.terrainNumber).setRelic(new Empty());
-		map.getTerrain(terrainNumber).setRelic(this);
-		this.terrainNumber = terrainNumber;
-	}
+
 }

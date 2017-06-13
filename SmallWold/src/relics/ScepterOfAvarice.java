@@ -20,14 +20,7 @@ public class ScepterOfAvarice extends Relic {
 		traitText = "At turn's end, place the Scepter in one of your Regions to double the number"
 				+ " of coins you recieve from it(except from other players).";
 	}
-
-	@Override
-	public void changeTerrain(int terrainNumber) {
-		map.getTerrain(this.terrainNumber).setRelic(new Empty());
-		map.getTerrain(terrainNumber).setRelic(this);
-		this.terrainNumber = terrainNumber;
-	}
-
+	
 	@Override
 	public void processRelic(Ammy ammy) {
 		this.terrainController = ammy.getTc();
