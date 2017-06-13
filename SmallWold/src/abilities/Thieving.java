@@ -18,7 +18,7 @@ public class Thieving extends Ability implements CalculatableIncome
 	private int abilityIncome;
 
 	public Thieving()
-	{
+	{	
 		amountOfTokens = 4;
 		name = "Thieving";
 		traitText = "Steal 1 coin from each adjacent active race";

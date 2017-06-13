@@ -7,7 +7,7 @@ import main.Ammy;
 import playBoard.Map;
 import player.Player;
 
-public class Vanishing extends Ability
+public class Vanishing extends Ability implements CalculatableIncome
 {
 	TerrainController tc;
 	MapTester test;
