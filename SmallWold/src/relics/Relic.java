@@ -33,9 +33,9 @@ public abstract class Relic
 		return name;
 	}
 
-	public void setActive(boolean active)
+	public void setActive()
 	{
-		this.active = active;
+		this.active = true;
 	}
 
 	public boolean getActive()

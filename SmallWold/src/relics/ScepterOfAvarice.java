@@ -13,6 +13,7 @@ public class ScepterOfAvarice extends Relic {
 	private Map map;
 	private int terrainNumber;
 	private Player activePlayer;
+	private boolean active = true;
 
 	public ScepterOfAvarice(){
 		
@@ -33,7 +34,7 @@ public class ScepterOfAvarice extends Relic {
 				terrainNumber = i;
 			}
 		}
-		if(active == false && activePlayer.getActiveSet().getRace().getName() == map.getTerrain(terrainNumber).getRace().getName())
+		if(active == true && activePlayer.getActiveSet().getRace().getName() == map.getTerrain(terrainNumber).getRace().getName())
 		{
 			terrainController.setAllRedeployableAreas(activePlayer);
 			mapTester.whichAreRedeployable(activePlayer);
@@ -44,7 +45,7 @@ public class ScepterOfAvarice extends Relic {
 			changeTerrain(terrainController.getAreaPicked());
 			//this.terrainNumber = terrainController.getAreaPicked();
 			System.out.println(map.getTerrain(terrainController.getAreaPicked()).getRelic().getName());
-			active = true;
+			active = false;
 			
 			/*
 			 * Ergens hier nog n dubbeling uitvoeren.

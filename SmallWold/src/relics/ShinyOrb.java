@@ -1,11 +1,18 @@
 package relics;
 
+import controllers.CombatController;
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
 
 public class ShinyOrb extends Relic {
 	
+	private Map map;
+	private Player activePlayer;
+	private CombatController CombatController;
+	private int terrainNumber;
+	private boolean active = true;
+
 	public ShinyOrb(){
 		
 		name = "Shiny Orb";
@@ -15,7 +22,22 @@ public class ShinyOrb extends Relic {
 
 	@Override
 	public void processRelic(Ammy ammy) {
-		// TODO Auto-generated method stub
+		this.map = ammy.getMap();
+		this.activePlayer = ammy.getActivePlayer();
+		this.CombatController = ammy.getCc();
+		for(int i = 0; i < map.getAllTerrains().size(); i++) {
+			if(map.getTerrain(i).getRelic().getName() == name)
+			{
+				terrainNumber = i;
+			}
+		}
+		if(active == true && activePlayer.getActiveSet().getRace().getName() == map.getTerrain(terrainNumber).getRace().getName()) {
+			CombatController.setMiscModifier(1); 
+			active = false;
+		}
 		
+		/*
+		 * Werkt maar eenmaal dus niet elke speler
+		 */
 	}
 }
