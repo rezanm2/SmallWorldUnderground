@@ -17,6 +17,7 @@ public class ShadowMimes extends Race
 
 	@Override
 	public void processAbility(Ammy ammy) {
+		// IMPORTATNT: 
 		// Integrated in Decline class, method chooseNewSet()
 	}
 	public String getName()
