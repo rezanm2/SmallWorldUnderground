@@ -1,27 +1,41 @@
 package relics;
 
+import controllers.CombatController;
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
+import terrain.Terrain;
 
 public class StinkyTrollSocks extends Relic {
 	
+	Map map;
+	boolean active = false;
+	int terrainNumber;
+	private Player activePlayer;
+	private CombatController CombatController;
+	
 	public StinkyTrollSocks(){
-		
 		name = "Stinky Troll's Socks";
 		traitText = "Once per turn, use it to conquer 1 Region as if it was empty. Your opponent loses"
 					+ "	no token though, redeploying them all at turn's end.";
 	}
 
 	@Override
-	public void changeTerrain(int terrainNumber) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void processRelic(Ammy ammy) {
-		// TODO Auto-generated method stub
+		this.map = ammy.getMap();
+		this.map = ammy.getMap();
+		this.activePlayer = ammy.getActivePlayer();
+		this.CombatController = ammy.getCc();
+		for(int i = 0; i < map.getAllTerrains().size(); i++) {
+			if(map.getTerrain(i).getRelic().getName() == name)
+			{
+				terrainNumber = i;
+			}
+		}
+		if(active == false && activePlayer.getActiveSet().getRace().getName() == map.getTerrain(terrainNumber).getRace().getName()) {
+			CombatController.setMiscModifier(22);
+			active = true;
+		}
 		
 	}
 }
