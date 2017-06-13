@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import main.Ammy;
@@ -18,6 +19,7 @@ public class TerrainController
 	private int areaPicked;
 	private int returnedTokens;
 	private int terrainStringCounter;
+	private ArrayList<Integer> Terrainslist = new ArrayList<Integer>();
 	Scanner input = new Scanner(System.in);
 
 	public TerrainController(Ammy ammy)
@@ -232,6 +234,7 @@ public class TerrainController
 		terrain = 0;
 		value = 0;
 		terrainStringCounter = 0;
+		Terrainslist.clear();
 		while(terrainCounter<map.getAllTerrains().size())				//While there's still terrains left
 		{
 			while(elementCounter<1)		//While there's still numbers in the terrain's array
@@ -239,6 +242,7 @@ public class TerrainController
 				if(map.getTerrain(terrain).getTerrainName().equals(terrainString))
 				{
 					terrainStringCounter++;
+					Terrainslist.add(terrain);
 				}
 				value++;											//Look at the next value in the terrain's array, "eye"
 				elementCounter++;									//Keep track of which number in the array we're at
@@ -300,4 +304,14 @@ public class TerrainController
 	{
 		this.terrainStringCounter = terrainStringCounter;
 	}
+
+	public ArrayList<Integer> getTerrainslist() {
+		return Terrainslist;
+	}
+
+	public void setTerrainslist(ArrayList<Integer> terrainslist) {
+		Terrainslist = terrainslist;
+	}
+
+	
 }
