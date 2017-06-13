@@ -104,23 +104,7 @@ public  class Decline {
 		{
 
 			Random r = new Random();
-			for(int x=0;x<playerList.size();x++) //this removes the active sets
-			{
-				for(int j=0;j<raceList.getRaceList().size();j++)
-				{
-					if(playerList.get(x).getActiveSet().getRace().getName() == raceList.getListElement(j).getName())
-					{
-						raceList.getRaceList().remove(j);
-					}
-				}
-				for(int j=0;j<abilityList.getAbilityList().size();j++)
-				{
-					if(playerList.get(x).getActiveSet().getAbility().getName() == abilityList.getListElement(j).getName())
-					{
-						abilityList.getAbilityList().remove(j);
-					}
-				}
-			}
+			removeActiveSets();
 			for(int x=0;x<100;x++) //the next two for loops is to shuffle the sets
 			{
 				getal1 = r.nextInt(abilityList.getAbilityList().size());
@@ -142,6 +126,12 @@ public  class Decline {
 				raceList.getRaceList().set(getal2, tempRace);
 			}
 		}
+		
+		/*
+		 * This method is to change the ability if the player have the Spider Mimes as race
+		 * 
+		 * 
+		 */
 		public void changeAbility()
 		{
 			int abilityNr = 0;
@@ -158,7 +148,6 @@ public  class Decline {
 					{			
 						for(int x=0;x<6;x++) // This for loops shows the first 6 ability's after shuffling.
 						{
-							//decline.chooseNewSet();
 							System.out.print((x+1) + ": " +  abilityList.getListElement(x).getName());
 							System.out.println();
 						}
@@ -185,6 +174,7 @@ public  class Decline {
 				}while(!yesOrNo.equals("yes") || !yesOrNo.equals("no"));
 			
 			}
+			removeActiveSets();
 		}
 		
 		public void chooseNewSet()
@@ -239,18 +229,28 @@ public  class Decline {
 			}
 			else
 			{
-				for(int x=0;x<abilityList.getAbilityList().size();x++)
+				removeActiveSets();
+			}
+		}
+		
+		
+		
+		public void removeActiveSets()
+		{
+			for(int x=0;x<playerList.size();x++) //this removes the active sets
+			{
+				for(int j=0;j<raceList.getRaceList().size();j++)
 				{
-					if(activePlayer.getActiveSet().getAbility().getName() == abilityList.getListElement(x).getName())
+					if(playerList.get(x).getActiveSet().getRace().getName() == raceList.getListElement(j).getName())
 					{
-						abilityList.getAbilityList().remove(x);
+						raceList.getRaceList().remove(j);
 					}
 				}
-				for(int x=0;x<raceList.getRaceList().size();x++)
+				for(int j=0;j<abilityList.getAbilityList().size();j++)
 				{
-					if(activePlayer.getActiveSet().getRace().getName() == raceList.getListElement(x).getName())
+					if(playerList.get(x).getActiveSet().getAbility().getName() == abilityList.getListElement(j).getName())
 					{
-						raceList.getRaceList().remove(x);
+						abilityList.getAbilityList().remove(j);
 					}
 				}
 			}
