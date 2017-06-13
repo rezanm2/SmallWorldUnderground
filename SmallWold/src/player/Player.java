@@ -12,11 +12,10 @@ public class Player
 	private Set activeSet;
 	private Set declineSet;
 
-	Hand hand;
+	private Hand hand;
 	public Player(String name)
 	{
-		Hand hand = new Hand();
-		this.hand = hand;
+		this.hand = new Hand();
 		this.name = name;
 	};
 
