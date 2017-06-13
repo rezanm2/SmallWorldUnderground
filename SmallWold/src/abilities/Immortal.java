@@ -8,7 +8,7 @@ import player.Player;
 public class Immortal extends Ability implements CalculatableIncome
 {
 	Map map;
-	private int abilityIncome;
+	private int returnTokens;
 	RaceListCreator raceList;
 
 	public Immortal()
@@ -26,17 +26,17 @@ public class Immortal extends Ability implements CalculatableIncome
 			{
 				if (activePlayer.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace()))
 				{
-					abilityIncome = abilityIncome + map.getTerrain(terrainCounter).getAmountOfTokens();
+					returnTokens = returnTokens + map.getTerrain(terrainCounter).getAmountOfTokens();
 					map.getTerrain(terrainCounter).setRace(raceList.getListElement(0));
 				}
 			}
 	}
 
-	public int getAbilityIncome() {
-		return abilityIncome;
+	public int getreturnTokens() {
+		return returnTokens;
 	}
 
-	public void setAbilityIncome(int abilityIncome) {
-		this.abilityIncome = abilityIncome;
+	public void setreturnTokens(int returnTokens) {
+		this.returnTokens = returnTokens;
 	}
 }
