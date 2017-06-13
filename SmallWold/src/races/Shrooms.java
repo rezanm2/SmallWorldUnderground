@@ -24,7 +24,7 @@ public class Shrooms extends Race implements CalculatableIncome
 				raceIncome++;
 				System.out.println("Naam terrein: " + map.getTerrain(x).getTerrainName() + " Naam Race: " + map.getTerrain(x).getRace().getName());
 
-				System.out.println("+1 bonus recieved.");
+				System.out.println("+1 bonus coin received.");
 			}
 		}
 		
