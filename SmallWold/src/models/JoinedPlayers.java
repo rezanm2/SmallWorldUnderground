@@ -16,7 +16,8 @@ public class JoinedPlayers {
 public StringProperty getPlayerNameProperty(){
 	 return this.playerName;
 }
-	 public void setPlayerName(String name){
+	 public Runnable setPlayerName(String name){
 		 this.playerName.set(name);
+		return null;
 	 }
 }

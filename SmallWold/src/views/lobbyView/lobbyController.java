@@ -3,7 +3,6 @@ package views.lobbyView;
 import java.rmi.ConnectException;
 import java.rmi.RemoteException;
 
-import client.ClientMain;
 import client.RemoteClient;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -38,7 +37,7 @@ public class lobbyController {
 		}else{
 			client.setHost(serverIP.getText());			//case ip is filled set ip
 			client.loadServer();  						//loads the server
-			//client.register();
+			client.register();
 			joinButton.setDisable(true);
 		}
 
@@ -71,11 +70,5 @@ public class lobbyController {
 
 	}
 
-	public void setOtherPlayers() throws RemoteException {
-		for(int j = 0; j < ClientMain.getamountPlayers(); j++)
-		{
-			//players[j].setText(ClientMain.getUsername(j));
-		}
-	}
 
 }

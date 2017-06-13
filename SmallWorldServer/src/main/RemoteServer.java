@@ -49,7 +49,8 @@ public class RemoteServer extends UnicastRemoteObject{
 					{
 						System.out.println("Amount of players: " + amountPlayers);
 						isRunning = true;										// sets isRunning to true
-						serverImpl = new ServerImpl(this);							// creates a serverimplementation						Naming.rebind("ServerService", serverImpl);
+						serverImpl = new ServerImpl(this);							// creates a serverimplementation
+						Naming.rebind("ServerService", serverImpl);
 						System.out.println("Server: server registered as \'ServerService\' in RMI registry.");
 						System.out.println("Server is running");
 					}
@@ -65,12 +66,20 @@ public class RemoteServer extends UnicastRemoteObject{
 			this.clientList.add(client);
 			System.out.println("Server: Client added");
 			client.notifyMessage("Server: Server joined!!");
-			client.updatePlayerList(clientList);
+			sendPlayerList();
+
 		}else {
 			System.out.println("SERVER IS FULL");
 			client.notifyMessage("Failed joining: server is full");
 
 		}
+	}
+
+	public void sendPlayerList() throws RemoteException{
+		for (ClientSkeleton client : clientList) {
+			client.updatePlayerList(clientList);
+		}
+
 	}
 
 	/*

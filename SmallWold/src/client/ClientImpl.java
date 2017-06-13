@@ -15,7 +15,7 @@ public class ClientImpl extends UnicastRemoteObject implements ClientSkeleton{
 	private String username;
 	private RemoteClient remoteClient;
 
-	public ClientImpl() throws RemoteException{
+	public ClientImpl(RemoteClient remoteClient) throws RemoteException{
 		this.remoteClient = remoteClient;
 	}
 
