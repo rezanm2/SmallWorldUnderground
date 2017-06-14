@@ -18,7 +18,7 @@ public class Thieving extends Ability implements CalculatableIncome
 	private int abilityIncome;
 
 	public Thieving()
-	{	
+	{
 		amountOfTokens = 4;
 		name = "Thieving";
 		traitText = "Steal 1 coin from each adjacent active race";
@@ -35,7 +35,7 @@ public class Thieving extends Ability implements CalculatableIncome
 		this.tokenController = ammy.getToc();
 
 		tc.setAllAdjacentAreas(activePlayer);
-		test.whichAreAdjacent(activePlayer);
+		test.whichAreAdjacent();
 
 		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
 		{

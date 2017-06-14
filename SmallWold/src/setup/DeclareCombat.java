@@ -56,7 +56,7 @@ public class DeclareCombat
 
 		while(activePlayer.getHand().getCurrentTokens()>0)
 		{
-			test.whichAreAttackable(activePlayer);
+			test.whichAreAttackable();
 
 			System.out.println("A: You have " + activePlayer.getHand().getCurrentTokens() + " tokens left.");
 			System.out.println("A: Which area do  you wish to attack?");

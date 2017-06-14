@@ -93,7 +93,6 @@ public class TerrainController
 				{
 					map.getTerrain(terrainCounter).setIsAdjacent(true);			//If the idCode is found, set isAdjacent to true
 
-					System.out.println("A: " + terrainCounter + " is adjacent");
 				}
 			}
 		}
@@ -125,7 +124,6 @@ public class TerrainController
 				{
 					map.getTerrain(terrainCounter).setIsAttackable(true);			//If the idCode is found, set isAdjacent to true
 
-					System.out.println("A: " + terrainCounter + " is attackable");
 				}
 			}
 		}
@@ -156,7 +154,6 @@ public class TerrainController
 				{
 					map.getTerrain(terrainCounter).setIsRedeployable(true);			//If the idCode is found, set isAdjacent to true
 
-					System.out.println("A: " + terrainCounter + " is redeployable");
 				}
 			}
 		}
@@ -203,12 +200,12 @@ public class TerrainController
 
 	public void checkAdjacentToTerrainType(String terrainString)
 	{
-		for(typeTerrainCounter = 0; typeTerrainCounter<map.getAllTerrains().size(); typeTerrainCounter++)
+		for(terrainCounter = 0; terrainCounter<map.getAllTerrains().size(); terrainCounter++)
 		{
-			if(map.getTerrain(typeTerrainCounter).getTerrainName().equals(terrainString))
+			if(map.getTerrain(terrainCounter).getTerrainName().equals(terrainString))
 			{
-				System.out.println("A: " + typeTerrainCounter + " setting to adjacent.");
-				changeAllAdjacentAreas(map.getTerrain(typeTerrainCounter).getElement(0));
+				System.out.println("A: " + terrainCounter + " setting to adjacent.");
+				changeAllAdjacentAreas(map.getTerrain(terrainCounter).getElement(0));
 
 			}
 		}

@@ -29,7 +29,7 @@ public class Flocking extends Ability implements CalculatableIncome
 		this.map = ammy.getMap();
 
 		tc.setAllAdjacentAreas(activePlayer);
-		test.whichAreAdjacent(activePlayer);
+		test.whichAreAdjacent();
 
 
 		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
