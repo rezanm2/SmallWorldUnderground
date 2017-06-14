@@ -37,14 +37,14 @@ public class Drow extends Race implements CalculatableIncome
 			if(map.getTerrain(x).getIsAdjacent() == true)
 			{
 				countTerrains++;
-				System.out.println("if1: " + map.getTerrain(x).getIsAdjacent());
-				if(map.getTerrain(x).getRace().getName().equals(activePlayer.getActiveSet().getRace().getName()) ||
+				if(map.getTerrain(x).getRace().getName().equals(this.name) ||
 						map.getTerrain(x).getRace().getName().equals("Empty "))
 				{
 					countRaces++;
-					System.out.println("if: " + map.getTerrain(x).getRace().getName());
 				}
+				
 			}
+			
 
 		}
 		if(countTerrains == countRaces)
