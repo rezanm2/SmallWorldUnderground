@@ -2,9 +2,9 @@ package terrain;
 
 import races.Race;
 import relics.Relic;
-import relics.Empty;
 //import specialPlaces.Empty;
 import specialPlaces.SpecialPlace;
+import specialToken.SpecialToken;
 
 public abstract class Terrain
 {
@@ -21,8 +21,9 @@ public abstract class Terrain
 	protected boolean isRedeployable;
 	protected boolean isImmune;
 
-	protected Relic relic = new Empty();
+	protected Relic relic = new relics.Empty();
 	protected SpecialPlace specialPlace;
+	protected SpecialToken specialToken = new specialToken.Empty();
 
 	public Terrain(int[] idArray)
 	{
@@ -116,6 +117,14 @@ public abstract class Terrain
 	public Relic getRelic()
 	{
 		return relic;
+	}
+
+	public SpecialToken getSpecialToken() {
+		return specialToken;
+	}
+
+	public void setSpecialToken(SpecialToken specialToken) {
+		this.specialToken = specialToken;
 	}
 
 	public void setSpecialPlace(SpecialPlace specialPlace)
