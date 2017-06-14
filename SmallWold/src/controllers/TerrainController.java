@@ -74,6 +74,7 @@ public class TerrainController
 		setNotAdjacent();
 		System.out.println("A: Setting all adjacent terrains for " + activePlayer.getName() + "\n");
 		this.activePlayer = activePlayer;
+
 		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
 			if (activePlayer.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace())) //For every land that's the current player's
@@ -97,8 +98,6 @@ public class TerrainController
 		}
 	}
 
-
-
 	public void setAllAttackableAreas(Player activePlayer)
 	{
 		setNotAttackable();
@@ -106,7 +105,7 @@ public class TerrainController
 		this.activePlayer = activePlayer;
 		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
-			if (activePlayer.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace()))
+			if(activePlayer.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace()))
 			{
 				changeAllAttackableAreas(map.getTerrain(terrainCounter).getElement(0));
 			}
@@ -119,7 +118,8 @@ public class TerrainController
 		{
 			for(elementCounter = 1; elementCounter<map.getTerrain(terrainCounter).getIdArray().length-1; elementCounter++) //While there's still elements left
 			{
-				if(map.getTerrain(terrainCounter).getElement(elementCounter) == code)
+				if(map.getTerrain(terrainCounter).getElement(elementCounter) == code
+						&& !map.getTerrain(terrainCounter).getRace().equals(activePlayer.getActiveSet().getRace()))
 				{
 					map.getTerrain(terrainCounter).setIsAttackable(true);			//If the idCode is found, set isAdjacent to true
 
@@ -137,27 +137,11 @@ public class TerrainController
 		{
 			if (activePlayer.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace()))
 			{
-				changeAllRedeployableAreas(map.getTerrain(terrainCounter).getElement(0));
+				map.getTerrain(terrainCounter).setIsRedeployable(true);
 			}
 		}
 
 	}
-
-	private void changeAllRedeployableAreas(int code)
-	{
-		for(terrainCounter = 0; terrainCounter<map.getAllTerrains().size(); terrainCounter++)
-		{
-			for(elementCounter = 1; elementCounter<map.getTerrain(terrainCounter).getIdArray().length-1; elementCounter++) //While there's still elements left
-			{
-				if(map.getTerrain(terrainCounter).getElement(elementCounter) == code)
-				{
-					map.getTerrain(terrainCounter).setIsRedeployable(true);			//If the idCode is found, set isAdjacent to true
-
-				}
-			}
-		}
-	}
-
 
 	public void setNotAdjacent()					//Set all the "isAttackable" booleans to false again
 	{
