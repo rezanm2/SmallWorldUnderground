@@ -80,7 +80,7 @@ public class TerrainController
 		}
 	}
 
-	private void changeAllAdjacentAreas(int code)
+	public void changeAllAdjacentAreas(int code)
 	{
 		terrainCounter = 0;
 		elementCounter = 0;
