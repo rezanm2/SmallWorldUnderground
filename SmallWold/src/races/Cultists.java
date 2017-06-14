@@ -16,7 +16,7 @@ public class Cultists extends Race
 	@Override
 	public void processAbility(Ammy ammy) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

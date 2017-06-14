@@ -40,10 +40,7 @@ public class ScepterOfAvarice extends Relic {
 			mapTester.whichAreRedeployable(activePlayer);
 			terrainController.checkIfRedeployable();
 			System.out.println(map.getTerrain(terrainController.getAreaPicked()).getRelic().getName());
-			//map.getTerrain(terrainController.getAreaPicked()).setRelic(new ScepterOfAvarice());
-			//map.getTerrain(terrainNumber).setRelic(new Empty());
 			changeTerrain(terrainController.getAreaPicked());
-			//this.terrainNumber = terrainController.getAreaPicked();
 			System.out.println(map.getTerrain(terrainController.getAreaPicked()).getRelic().getName());
 			active = false;
 			

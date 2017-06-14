@@ -181,5 +181,6 @@ public class PickRegions
 			playerList.get(4).getHand().setCurrentTokens(0);
 		}
 
+		hasBroken = true;
 	}
 }

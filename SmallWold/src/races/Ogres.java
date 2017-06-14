@@ -1,10 +1,14 @@
 package races;
 
+import controllers.CombatController;
 import main.Ammy;
 import player.Player;
 
 public class Ogres extends Race
 {
+	CombatController cc;
+	int terrainNumber;
+	boolean active = false;
 	public Ogres()
 	{
 		amountOfTokens = 5;
@@ -15,7 +19,9 @@ public class Ogres extends Race
 
 	@Override
 	public void processAbility(Ammy ammy) {
-		// TODO Auto-generated method stub
+		this.map = ammy.getMap();
+		this.activePlayer = ammy.getActivePlayer();
+		cc.setMiscModifier(1);
 		
 	}
 

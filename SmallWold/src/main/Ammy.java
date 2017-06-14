@@ -112,25 +112,28 @@ public class Ammy
 
 	public void startGame()
 	{
-		this.activePlayer = playerList.get(0);
-		pickRegions.start();
+		abilityList.getListElement(2).processAbility(this);
 
-		for(int totalTurnCounter=0;totalTurnCounter<mapCreator.getMaxTotalTurns();totalTurnCounter++)
-		{
-			for(int playerTurnCounter=0;playerTurnCounter<playerList.size();playerTurnCounter++)
-			{
-				activePlayer = playerList.get(playerTurnCounter);
-				System.out.println("A: It is now " + activePlayer.getName() + "'s turn.");
-				dc.start(activePlayer);
-				ra.start(this);
-				etc.start(activePlayer);
+		test.whichAreAdjacent();
+//		this.activePlayer = playerList.get(0);
+//		pickRegions.start();
+//
+//		for(int totalTurnCounter=0;totalTurnCounter<mapCreator.getMaxTotalTurns();totalTurnCounter++)
+//		{
+//			for(int playerTurnCounter=0;playerTurnCounter<playerList.size();playerTurnCounter++)
+//			{
+//				activePlayer = playerList.get(playerTurnCounter);
+//				System.out.println("A: It is now " + activePlayer.getName() + "'s turn.");
+//				dc.start(activePlayer);
+//				ra.start(this);
+//				etc.start(activePlayer);
 
 //				decline.shuffleSets();
 //				decline.chooseNewSet();
 //				decline.goInDecline();
-			}
-		}
-		declareWinner();
+//			}
+//		}
+//		declareWinner();
 	}
 
 

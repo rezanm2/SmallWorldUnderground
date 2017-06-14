@@ -29,7 +29,7 @@ public class Drow extends Race implements CalculatableIncome
 		int countTerrains = 0;
 		int countRaces = 0;
 		tc.setAllAdjacentAreas(activePlayer);
-		test.whichAreAdjacent(activePlayer);
+		test.whichAreAdjacent();
 
 
 		for(int x=0;x<map.getAllTerrains().size();x++)
@@ -55,7 +55,7 @@ public class Drow extends Race implements CalculatableIncome
 	}
 
 	@Override
-	public int getRaceIncome() 
+	public int getRaceIncome()
 	{
 		return raceIncome;
 	}

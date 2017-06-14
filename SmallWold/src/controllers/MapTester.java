@@ -30,11 +30,11 @@ public class MapTester
 		}
 	}
 
-	public void whichAreAdjacent(Player activePlayer)					//Show all areas which are currently attackable
+	public void whichAreAdjacent()					//Show all areas which are currently attackable
 	{
 
 
-		System.out.println("A: Showing which areas are adjacent for " + activePlayer.getName() + "\n");
+		System.out.println("A: Showing which areas are adjacent \n");
 		System.out.println("A: Number : Terrain : Tokentype : Amount of Tokens");
 		for(terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
@@ -48,9 +48,9 @@ public class MapTester
 		}
 	}
 
-	public void whichAreAttackable(Player activePlayer)					//Show all areas which are currently attackable
+	public void whichAreAttackable()					//Show all areas which are currently attackable
 	{
-		System.out.println("A: Showing which areas are attackable for " + activePlayer.getName() + "\n");
+		System.out.println("A: Showing which areas are attackable \n");
 		System.out.println("A: Number : Terrain : Tokentype : Amount of Tokens");
 		for(terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
@@ -66,7 +66,7 @@ public class MapTester
 
 	public void whichAreRedeployable(Player activePlayer)					//Show all areas which are currently attackable
 	{
-		System.out.println("A: Showing which areas are redeployable for " + activePlayer.getName() + "\n");
+		System.out.println("A: Showing which areas are redeployable \n");
 		System.out.println("A: Number : Terrain : Tokentype : Amount of Tokens");
 		for(terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
