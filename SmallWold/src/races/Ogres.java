@@ -7,8 +7,6 @@ import player.Player;
 public class Ogres extends Race
 {
 	CombatController cc;
-	int terrainNumber;
-	boolean active = false;
 	public Ogres()
 	{
 		amountOfTokens = 5;
