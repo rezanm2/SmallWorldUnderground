@@ -78,4 +78,8 @@ public class Map
 		}
 	System.out.println();
 	}
+
+	public void setTerrain(Terrain terrain, int pos) {
+		terrains.set(pos, terrain);
+	}
 }
