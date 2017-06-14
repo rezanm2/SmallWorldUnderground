@@ -1,10 +1,12 @@
 package races;
 
+import controllers.CombatController;
 import main.Ammy;
 import player.Player;
 
 public class Mummies extends Race
 {
+	CombatController cc;
 	public Mummies()
 	{
 		amountOfTokens = 10;
@@ -15,8 +17,16 @@ public class Mummies extends Race
 
 	@Override
 	public void processAbility(Ammy ammy) {
-		// TODO Auto-generated method stub
-		
+		this.map = ammy.getMap();
+		this.activePlayer = ammy.getActivePlayer();
+		this.cc = ammy.getCc();
+		for(int x=0;x<map.getAllTerrains().size();x++)
+		{
+			if(activePlayer.getActiveSet().getRace().getName().equals(this.name))
+			{
+				cc.setMiscModifier(-1);
+			}
+		}
 	}
 
 }
