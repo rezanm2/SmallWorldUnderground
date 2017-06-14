@@ -189,7 +189,7 @@ public class TerrainController
 			{
 				changeAllAdjacentAreas(map.getTerrain(typeTerrainCounter).getElement(0));
 
-				System.out.println("A: Beeping area (ArrayListPosition) " + typeTerrainCounter);
+				System.out.println("A: Beeping area (ArrayListPosition) " + (typeTerrainCounter+1));
 			}
 		}
 		excludeAdjacent(terrainString);

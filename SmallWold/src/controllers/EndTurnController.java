@@ -78,8 +78,11 @@ public class EndTurnController
 	public void calculateAbilityIncome()
 	{
 		System.out.println("A: Player one got the " + activePlayer.getActiveSet().getAbility().getName() + " ability now.");
+
 		activePlayer.getActiveSet().getAbility().processAbility(ammy);
+
 		abilityIncome = activePlayer.getActiveSet().getAbility().getAbilityIncome();
+
 		System.out.println("A: " + activePlayer.getName() + " gets " + abilityIncome + " amount of coins from their ability ability.");
 
 	}

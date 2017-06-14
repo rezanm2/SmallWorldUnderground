@@ -42,10 +42,10 @@ public class PlayerCreator
 	public void setDefaultSets()
 
 	{
-		activeSetOne = new Set(abilityList.getListElement(1), raceList.getListElement(1));	//Setting set defaults for players
+		activeSetOne = new Set(abilityList.getListElement(2), raceList.getListElement(1));	//Setting set defaults for players
 		playerList.get(0).setActiveSet(activeSetOne);
 
-		declineSetOne = new Set(abilityList.getListElement(2), raceList.getListElement(2));
+		declineSetOne = new Set(abilityList.getListElement(1), raceList.getListElement(2));
 		playerList.get(0).setDeclineSet(declineSetOne);
 
 		activeSetTwo = new Set(abilityList.getListElement(3), raceList.getListElement(3));
