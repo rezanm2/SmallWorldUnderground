@@ -20,12 +20,9 @@ public class Mummies extends Race
 		this.map = ammy.getMap();
 		this.activePlayer = ammy.getActivePlayer();
 		this.cc = ammy.getCc();
-		for(int x=0;x<map.getAllTerrains().size();x++)
+		if(activePlayer.getActiveSet().getRace().getName().equals(this.name))
 		{
-			if(activePlayer.getActiveSet().getRace().getName().equals(this.name))
-			{
-				cc.setMiscModifier(-1);
-			}
+			cc.setMiscModifier(-1);
 		}
 	}
 
