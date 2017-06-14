@@ -83,7 +83,7 @@ public class TerrainController
 		}
 	}
 
-	private void changeAllAdjacentAreas(int code)
+	public void changeAllAdjacentAreas(int code)
 	{
 		for(terrainCounter = 0; terrainCounter<map.getAllTerrains().size(); terrainCounter++)
 		{
