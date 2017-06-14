@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import controllers.MapTester;
 import controllers.TerrainController;
+import controllers.TokenController;
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
@@ -21,6 +22,7 @@ public class FroggysRing extends Relic {
 	private int terrainCounter;
 	private ArrayList<String> stolenRaces = new ArrayList<String>();
 	private boolean doThief;
+	private TokenController tokenController;
 	
 	public FroggysRing(){
 		
@@ -36,6 +38,7 @@ public class FroggysRing extends Relic {
 		this.mapTester = ammy.getTest();
 		this.map = ammy.getMap();
 		this.activePlayer = ammy.getActivePlayer();
+		this.tokenController = ammy.getToc();
 		for(int i = 0; i < map.getAllTerrains().size(); i++) {
 			if(map.getTerrain(i).getRelic().getName() == name)
 			{
@@ -60,10 +63,6 @@ public class FroggysRing extends Relic {
 				if(map.getTerrain(terrainCounter).getIsAdjacent() == true && !map.getTerrain(terrainCounter).getRace().getName().equals("Empty ")
 						&& !activePlayer.getActiveSet().getRace().getName().equals(map.getTerrain(terrainCounter).getRace().getName()))						//If isAttackable is true
 				{
-					System.out.println("A: " + (terrainCounter + 1) + "\t     "
-							+ map.getTerrain(terrainCounter).getTerrainName() + "\t"
-							+ map.getTerrain(terrainCounter).getRace().getName()
-							+ "\t" + map.getTerrain(terrainCounter).getAmountOfTokens());
 					for(int i = 0; i < stolenRaces.size(); i++)
 					{
 						if(stolenRaces.get(i).equals(map.getTerrain(terrainCounter).getRace().getName()))
@@ -75,9 +74,10 @@ public class FroggysRing extends Relic {
 					{
 						stolenRaces.add(map.getTerrain(terrainCounter).getRace().getName());
 						System.out.println("Stole 1 coin from " + map.getTerrain(terrainCounter).getRace().getName());
+						tokenController.linkRaceToPlayer(map.getTerrain(terrainCounter).getRace());
+						tokenController.getRacesPlayer().setCoins(tokenController.getRacesPlayer().getCoins() - 1);
 						relicIncome++;
 					}
-					
 				}
 				doThief = true;
 			}
