@@ -1,8 +1,8 @@
 package terrain;
 
-public class Vulcano extends Chasm {
+public class Volcano extends Chasm {
 
-	public Vulcano(int[] arrayId) {
+	public Volcano(int[] arrayId) {
 		super(arrayId);
 		isImmune = true;
 		terrainName = "Vulcano";

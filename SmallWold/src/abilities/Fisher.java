@@ -12,13 +12,17 @@ public class Fisher extends Ability implements CalculatableIncome
 	{
 		amountOfTokens = 4;
 		name = "Fisher";
-		traitText = "+1 coin for every coastal region";
+		traitText = "+1 coin for every pair of coastal regions";
 	}
 
 	@Override
 	public void processAbility(Ammy ammy) {
 		this.tc = ammy.getTc();
 		this.activePlayer = ammy.getActivePlayer();
+
+
+		tc.checkAdjacentToTerrainType("River");
+
 	}
 
 	@Override
