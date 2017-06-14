@@ -29,7 +29,7 @@ public class Flames extends Race
 		this.terrainController = ammy.getTc();
 		this.map = ammy.getMap();
 
-		terrainController.checkTerrainType("Chasm");
+		terrainController.checkAdjacentToTerrainType("Chasm");
 		for(int i = 0; i < terrainController.getTerrainslist().size(); i++)
 		{
 			System.out.println((terrainController.getTerrainslist().get(i)) + 1);
