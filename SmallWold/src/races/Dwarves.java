@@ -6,7 +6,6 @@ import player.Player;
 
 public class Dwarves extends Race
 {
-	int silverHammer;
 	public Dwarves()
 	{
 		amountOfTokens = 7;
@@ -24,8 +23,7 @@ public class Dwarves extends Race
 			if(map.getTerrain(x).getRace().getName().equals(activePlayer.getActiveSet().getRace().getName())
 					&& map.getTerrain(x).getTerrainName().equals("Mine"))
 			{
-				silverHammer = activePlayer.getHand().getSilverHammers() + 1;
-				activePlayer.getHand().setSilverHammers(silverHammer);
+				activePlayer.getHand().setSilverHammers(activePlayer.getHand().getSilverHammers() + 1);
 			}
 		}
 	}
