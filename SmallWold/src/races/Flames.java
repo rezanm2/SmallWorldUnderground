@@ -29,22 +29,23 @@ public class Flames extends Race
 		this.activePlayer = ammy.getActivePlayer();
 		this.terrainController = ammy.getTc();
 		this.map = ammy.getMap();
-
-		terrainController.checkAdjacentToTerrainType("Vulcano");
+		
 		for(int x=0;x<map.getAllTerrains().size();x++)
 		{
 			System.out.println((x+1) + " " + map.getTerrain(x).getTerrainName());
 		}
 		input = scanner.nextInt();
 		map.setTerrain(new Volcano(map.getTerrain(input-1).getIdArray()), (input-1));	
+		terrainController.checkAdjacentToTerrainType("Vulcano");
 		
 		for(int x=0;x<map.getAllTerrains().size();x++)
 		{
-			if(map.getTerrain(x).getIsAdjacent() == true 
+			if(map.getTerrain(x).getIsAdjacent() == true
 					&& map.getTerrain(x).getRace().getName().equals("Empty "))
 			{
 				map.getTerrain(x).setIsAttackable(true);
 			}
+			System.out.println(map.getTerrain(x).getIsAttackable());
 		}
 		
 //		for(int i = 0; i < terrainController.getTerrainslist().size(); i++)
