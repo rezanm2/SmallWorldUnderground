@@ -74,6 +74,7 @@ public class TerrainController
 		setNotAdjacent();
 		System.out.println("A: Setting all adjacent terrains for " + activePlayer.getName() + "\n");
 		this.activePlayer = activePlayer;
+
 		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
 			if (activePlayer.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace())) //For every land that's the current player's
@@ -83,23 +84,19 @@ public class TerrainController
 		}
 	}
 
-	private void changeAllAdjacentAreas(int code)
+	public void changeAllAdjacentAreas(int code)
 	{
 		for(terrainCounter = 0; terrainCounter<map.getAllTerrains().size(); terrainCounter++)
 		{
-			for(elementCounter = 1; elementCounter<map.getTerrain(terrainCounter).getIdArray().length-1; elementCounter++) //While there's still elements left
+			for(elementCounter = 1; elementCounter<map.getTerrain(terrainCounter).getIdArray().length; elementCounter++) //While there's still elements left
 			{
 				if(map.getTerrain(terrainCounter).getElement(elementCounter) == code)
 				{
 					map.getTerrain(terrainCounter).setIsAdjacent(true);			//If the idCode is found, set isAdjacent to true
-
-					System.out.println("A: " + terrainCounter + " is adjacent");
 				}
 			}
 		}
 	}
-
-
 
 	public void setAllAttackableAreas(Player activePlayer)
 	{
@@ -108,7 +105,7 @@ public class TerrainController
 		this.activePlayer = activePlayer;
 		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
-			if (activePlayer.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace()))
+			if(activePlayer.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace()))
 			{
 				changeAllAttackableAreas(map.getTerrain(terrainCounter).getElement(0));
 			}
@@ -121,11 +118,11 @@ public class TerrainController
 		{
 			for(elementCounter = 1; elementCounter<map.getTerrain(terrainCounter).getIdArray().length-1; elementCounter++) //While there's still elements left
 			{
-				if(map.getTerrain(terrainCounter).getElement(elementCounter) == code)
+				if(map.getTerrain(terrainCounter).getElement(elementCounter) == code
+						&& !map.getTerrain(terrainCounter).getRace().equals(activePlayer.getActiveSet().getRace()))
 				{
 					map.getTerrain(terrainCounter).setIsAttackable(true);			//If the idCode is found, set isAdjacent to true
 
-					System.out.println("A: " + terrainCounter + " is attackable");
 				}
 			}
 		}
@@ -140,28 +137,11 @@ public class TerrainController
 		{
 			if (activePlayer.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace()))
 			{
-				changeAllRedeployableAreas(map.getTerrain(terrainCounter).getElement(0));
+				map.getTerrain(terrainCounter).setIsRedeployable(true);
 			}
 		}
 
 	}
-
-	private void changeAllRedeployableAreas(int code)
-	{
-		for(terrainCounter = 0; terrainCounter<map.getAllTerrains().size(); terrainCounter++)
-		{
-			for(elementCounter = 1; elementCounter<map.getTerrain(terrainCounter).getIdArray().length-1; elementCounter++) //While there's still elements left
-			{
-				if(map.getTerrain(terrainCounter).getElement(elementCounter) == code)
-				{
-					map.getTerrain(terrainCounter).setIsRedeployable(true);			//If the idCode is found, set isAdjacent to true
-
-					System.out.println("A: " + terrainCounter + " is redeployable");
-				}
-			}
-		}
-	}
-
 
 	public void setNotAdjacent()					//Set all the "isAttackable" booleans to false again
 	{
@@ -207,34 +187,33 @@ public class TerrainController
 		{
 			if(map.getTerrain(typeTerrainCounter).getTerrainName().equals(terrainString))
 			{
-				System.out.println("A: " + typeTerrainCounter + " setting to adjacent.");
 				changeAllAdjacentAreas(map.getTerrain(typeTerrainCounter).getElement(0));
 
+				System.out.println("A: Beeping area (ArrayListPosition) " + typeTerrainCounter);
 			}
 		}
-//		excludeAdjacent(terrainString);
+		excludeAdjacent(terrainString);
 	}
 
 	public void checkAdjacentToSingleTerrain(Terrain terrain)
 	{
 		for(typeTerrainCounter = 0; typeTerrainCounter<map.getAllTerrains().size(); typeTerrainCounter++)	//As long as there's terrains
 		{
-			System.out.println(terrain.getElement(0));
 			changeAllAdjacentAreas(terrain.getElement(0));
 		}
 	}
 
+	public void excludeAdjacent(String terrainType)
+	{
+		for(typeTerrainCounter = 0; typeTerrainCounter<map.getAllTerrains().size(); typeTerrainCounter++)
+		{
+			if(map.getTerrain(typeTerrainCounter).getIsAdjacent() == true && map.getTerrain(typeTerrainCounter).getTerrainName() == terrainType)
+			{
+				map.getTerrain(typeTerrainCounter).setIsAdjacent(false);
+			}
+		}
+	}
 
-//	public void excludeAdjacent(String terrainType)
-//	{
-//		for(typeTerrainCounter = 0; typeTerrainCounter<map.getAllTerrains().size(); typeTerrainCounter++)
-//		{
-//			if(map.getTerrain(typeTerrainCounter).getIsAdjacent() == true && map.getTerrain(typeTerrainCounter).getTerrainName() == terrainType)
-//			{
-//				map.getTerrain(typeTerrainCounter).setIsAdjacent(false);
-//			}
-//		}
-//	}
 
 
 	public void checkTerrainType(String terrainString, Player activePlayer)

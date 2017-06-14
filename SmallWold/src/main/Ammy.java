@@ -112,10 +112,9 @@ public class Ammy
 
 	public void startGame()
 	{
-		tc.checkAdjacentToSingleTerrain(map.getTerrain(2));
-		test.whichAreAdjacent(activePlayer);
+		abilityList.getListElement(2).processAbility(this);
 
-
+		test.whichAreAdjacent();
 //		this.activePlayer = playerList.get(0);
 //		pickRegions.start();
 //
