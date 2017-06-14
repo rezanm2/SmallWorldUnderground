@@ -46,8 +46,8 @@ public class ClientImpl extends UnicastRemoteObject implements ClientSkeleton{
 	}
 
 	@Override
-	public void updatePlayerList(ArrayList<ClientSkeleton> clientList) throws RemoteException {
-		remoteClient.updatePlayerList(clientList);
+	public void updatePlayerList(ArrayList<String> playerList) throws RemoteException {
+		remoteClient.updatePlayerList(playerList);
 
 	}
 

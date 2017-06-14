@@ -58,22 +58,22 @@ public class RemoteClient {
 		return players;
 	}
 
-	public void updatePlayerList(ArrayList<ClientSkeleton> clientList) {
+	public void updatePlayerList(ArrayList<String> playerList) {
 
 		System.out.println("reached0");
 		Platform.runLater(() -> {
 			try {
-				test(clientList);
+				test(playerList);
 			} catch (RemoteException e) {
 				e.printStackTrace();
 			}
 		});
 	}
 
-	public void test(ArrayList<ClientSkeleton> clientList) throws RemoteException {
+	public void test(ArrayList<String> playerList) throws RemoteException {
 		int i = 0;
-		for (ClientSkeleton client : clientList) {
-			players.get(i).setPlayerName(client.getUsername());
+		for (String player : playerList) {
+			players.get(i).setPlayerName(player);
 			i++;
 		}
 

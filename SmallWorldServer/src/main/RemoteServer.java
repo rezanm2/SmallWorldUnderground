@@ -1,5 +1,6 @@
 package main;
 
+import java.awt.List;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
@@ -66,6 +67,7 @@ public class RemoteServer extends UnicastRemoteObject{
 			this.clientList.add(client);
 			System.out.println("Server: Client added");
 			client.notifyMessage("Server: Server joined!!");
+
 			sendPlayerList();
 
 		}else {
@@ -75,10 +77,26 @@ public class RemoteServer extends UnicastRemoteObject{
 		}
 	}
 
+
+
 	public void sendPlayerList() throws RemoteException{
-		for (ClientSkeleton client : clientList) {
-			client.updatePlayerList(clientList);
-		}
+		ArrayList<String> playerList = new ArrayList<String>();
+		new Thread(() -> {
+			try {
+			for (ClientSkeleton client : clientList) {
+
+					playerList.add(client.getUsername());
+
+				//client.updatePlayerList();
+			}
+			for (ClientSkeleton client : clientList) {
+				client.updatePlayerList(playerList);
+			}
+			} catch (RemoteException e) {
+				e.printStackTrace();
+			}
+		}).start();
+
 
 	}
 

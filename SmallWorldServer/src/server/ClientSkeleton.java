@@ -11,5 +11,5 @@ public interface ClientSkeleton extends Remote{
 	public String getHostIP() throws RemoteException;
 	public void startGame() throws RemoteException, IOException;
 	public void notifyMessage(String message)throws RemoteException;
-	public void updatePlayerList(ArrayList<ClientSkeleton> clientList)throws RemoteException;
+	public void updatePlayerList(ArrayList<String> playerList)throws RemoteException;
 }
