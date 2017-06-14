@@ -92,7 +92,6 @@ public class TerrainController
 				if(map.getTerrain(terrainCounter).getElement(elementCounter) == code)
 				{
 					map.getTerrain(terrainCounter).setIsAdjacent(true);			//If the idCode is found, set isAdjacent to true
-
 				}
 			}
 		}
@@ -200,13 +199,16 @@ public class TerrainController
 
 	public void checkAdjacentToTerrainType(String terrainString)
 	{
-		for(terrainCounter = 0; terrainCounter<map.getAllTerrains().size(); terrainCounter++)
+		for(typeTerrainCounter = 0; typeTerrainCounter<map.getAllTerrains().size(); typeTerrainCounter++)
 		{
-			if(map.getTerrain(terrainCounter).getTerrainName().equals(terrainString))
-			{
-				System.out.println("A: " + terrainCounter + " setting to adjacent.");
-				changeAllAdjacentAreas(map.getTerrain(terrainCounter).getElement(0));
+			System.out.println("A: Iteration " + typeTerrainCounter);
+			System.out.println(map.getAllTerrains().size());
 
+			if(map.getTerrain(typeTerrainCounter).getTerrainName().equals(terrainString))
+			{
+				changeAllAdjacentAreas(map.getTerrain(typeTerrainCounter).getElement(0));
+
+				System.out.println("A: Beeping area (ArrayListPosition) " + typeTerrainCounter);
 			}
 		}
 //		excludeAdjacent(terrainString);
@@ -216,7 +218,6 @@ public class TerrainController
 	{
 		for(typeTerrainCounter = 0; typeTerrainCounter<map.getAllTerrains().size(); typeTerrainCounter++)	//As long as there's terrains
 		{
-			System.out.println(terrain.getElement(0));
 			changeAllAdjacentAreas(terrain.getElement(0));
 		}
 	}

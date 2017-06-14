@@ -26,16 +26,21 @@ public class Fisher extends Ability implements CalculatableIncome
 
 
 		tc.checkAdjacentToTerrainType("River");
-		for(terrainCounter = 0; terrainCounter<map.getAllTerrains().size(); terrainCounter++)
-		{
-			if(map.getTerrain(terrainCounter).getIsAdjacent() == true
-					&& map.getTerrain(terrainCounter).getRace().equals(activePlayer.getActiveSet().getRace()))
-			{
-				tc.checkAdjacentToSingleTerrain(map.getTerrain(terrainCounter));
 
 
-			}
-		}
+
+
+
+//		for(terrainCounter = 0; terrainCounter<map.getAllTerrains().size(); terrainCounter++)
+//		{
+//			if(map.getTerrain(terrainCounter).getIsAdjacent() == true
+//					&& map.getTerrain(terrainCounter).getRace().equals(activePlayer.getActiveSet().getRace()))
+//			{
+//				tc.checkAdjacentToSingleTerrain(map.getTerrain(terrainCounter));
+//
+//
+//			}
+//		}
 
 	}
 
