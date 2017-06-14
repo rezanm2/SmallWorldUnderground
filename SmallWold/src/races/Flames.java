@@ -40,7 +40,7 @@ public class Flames extends Race
 		
 		for(int x=0;x<map.getAllTerrains().size();x++)
 		{
-			if(map.getTerrain(x).getIsAttackable() == true 
+			if(map.getTerrain(x).getIsAdjacent() == true 
 					&& map.getTerrain(x).getRace().getName().equals("Empty "))
 			{
 				map.getTerrain(x).setIsAttackable(true);
