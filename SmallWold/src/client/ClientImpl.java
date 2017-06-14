@@ -1,25 +1,54 @@
 package client;
 
+import java.io.IOException;
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 
-public class ClientImpl implements ClientSkeleton{
-	
+import server.ClientSkeleton;
+
+public class ClientImpl extends UnicastRemoteObject implements ClientSkeleton{
+
+
+	private static final long serialVersionUID = 1L;
 	private String hostIP;
 	private String username;
-	
-	public ClientImpl(String hostIP, String username) {
-		this.hostIP = hostIP;
+	private RemoteClient remoteClient;
+
+	public ClientImpl(RemoteClient remoteClient) throws RemoteException{
+		this.remoteClient = remoteClient;
+	}
+
+	public void setUsername(String username) {
 		this.username = username;
 	}
-	
+
 	@Override
 	public String getUsername(){
 		return username;
 	}
-	
+
 	@Override
 	public String getHostIP(){
 		return hostIP;
+	}
+
+	@Override
+	public void startGame() throws RemoteException, IOException {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void notifyMessage(String string) {
+	System.out.println(string);
+
+	}
+
+	@Override
+	public void updatePlayerList(ArrayList<ClientSkeleton> clientList) throws RemoteException {
+		remoteClient.updatePlayerList(clientList);
+
 	}
 
 }

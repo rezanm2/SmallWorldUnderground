@@ -26,7 +26,7 @@ public class Spiderines extends Race
 		{
 			if(activePlayer.getActiveSet().getRace().getName().equals(this.name) && map.getTerrain(x).getTerrainName().equals("Chasm"))
 			{
-				map.getTerrain(x).setIsImmune(false);
+				map.getTerrain(x).setIsImmune(false);//Player with Spiderines can attacj Chasm region
 			}
 		}
 	}

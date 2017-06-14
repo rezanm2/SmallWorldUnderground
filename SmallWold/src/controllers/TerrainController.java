@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import main.Ammy;
@@ -21,6 +22,7 @@ public class TerrainController
 	private int areaPicked;
 	private int returnedTokens;
 	private int terrainStringCounter;
+	private ArrayList<Integer> Terrainslist = new ArrayList<Integer>();
 	Scanner input = new Scanner(System.in);
 
 	public TerrainController(Ammy ammy)
@@ -230,7 +232,6 @@ public class TerrainController
 			if(map.getTerrain(typeTerrainCounter).getTerrainName().equals(terrainString))
 			{
 				changeAllAdjacentAreas(map.getTerrain(typeTerrainCounter).getElement(0));
-
 			}
 		}
 		excludeAdjacent(terrainString);
@@ -307,4 +308,14 @@ public class TerrainController
 	{
 		this.terrainStringCounter = terrainStringCounter;
 	}
+
+	public ArrayList<Integer> getTerrainslist() {
+		return Terrainslist;
+	}
+
+	public void setTerrainslist(ArrayList<Integer> terrainslist) {
+		Terrainslist = terrainslist;
+	}
+
+
 }

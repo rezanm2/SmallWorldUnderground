@@ -18,7 +18,7 @@ public class Thieving extends Ability implements CalculatableIncome
 	private int abilityIncome;
 
 	public Thieving()
-	{
+	{	
 		amountOfTokens = 4;
 		name = "Thieving";
 		traitText = "Steal 1 coin from each adjacent active race";
@@ -44,7 +44,7 @@ public class Thieving extends Ability implements CalculatableIncome
 			   map.getTerrain(terrainCounter).getRace().equals(raceList.getListElement(0)))
 				{
 					tokenController.linkRaceToPlayer(map.getTerrain(terrainCounter).getRace());
-					tokenController.getRacesPlayer().setCoins(amountOfTokens - 1);
+					tokenController.getRacesPlayer().setCoins(tokenController.getRacesPlayer().getCoins() - 1);
 					abilityIncome++;
 				}
 			}

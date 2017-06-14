@@ -55,6 +55,7 @@ public  class Decline {
 		AbilityListCreator abilityList = new AbilityListCreator();
 		RaceListCreator raceList = new RaceListCreator();
 		List<Player> playerList;
+		ShadowMimes shadowMimes =new ShadowMimes();
 
 		private int getal1;
 		private int getal2;
@@ -62,7 +63,8 @@ public  class Decline {
 		private Ability tempAbility;
 		private int setNr;
 		private Scanner scanner;
-
+		String yesOrNo ="";
+		
 		public Decline(Ammy ammy)
 		{
 
@@ -75,7 +77,7 @@ public  class Decline {
 		{
 
 			scanner = new Scanner(System.in);;
-			String yesOrNo ="";
+			
 			do
 			{
 				System.out.println("Do you want to set your race and ability to decline?");
@@ -102,23 +104,7 @@ public  class Decline {
 		{
 
 			Random r = new Random();
-			for(int x=0;x<playerList.size();x++) //this removes the active sets
-			{
-				for(int j=0;j<raceList.getRaceList().size();j++)
-				{
-					if(playerList.get(x).getActiveSet().getRace().getName() == raceList.getListElement(j).getName())
-					{
-						raceList.getRaceList().remove(j);
-					}
-				}
-				for(int j=0;j<abilityList.getAbilityList().size();j++)
-				{
-					if(playerList.get(x).getActiveSet().getAbility().getName() == abilityList.getListElement(j).getName())
-					{
-						abilityList.getAbilityList().remove(j);
-					}
-				}
-			}
+			removeActiveSets();
 			for(int x=0;x<100;x++) //the next two for loops is to shuffle the sets
 			{
 				getal1 = r.nextInt(abilityList.getAbilityList().size());
@@ -140,6 +126,57 @@ public  class Decline {
 				raceList.getRaceList().set(getal2, tempRace);
 			}
 		}
+		
+		/*
+		 * This method is to change the ability if the player have the Spider Mimes as race
+		 * 
+		 * 
+		 */
+		public void changeAbility()
+		{
+			int abilityNr = 0;
+			if(activePlayer.getActiveSet().getRace().getName().equals(shadowMimes.getName()))
+			{
+				System.out.println("Do you want change your ability? ");
+				scanner = new Scanner(System.in);;
+				
+				do
+				{
+					System.out.println("Say yes or no");
+					yesOrNo = scanner.nextLine();
+					if(yesOrNo.equals("yes"))
+					{			
+						for(int x=0;x<6;x++) // This for loops shows the first 6 ability's after shuffling.
+						{
+							System.out.print((x+1) + ": " +  abilityList.getListElement(x).getName());
+							System.out.println();
+						}
+						System.out.println("Choose a new ability: ");
+						abilityNr = scanner.nextInt();
+						while(abilityNr < 1 || abilityNr > 6 )
+						{
+							System.out.println("Enter the set number: ");
+							abilityNr = scanner.nextInt();
+						}
+						//this changes the player's ability
+						activePlayer.getActiveSet().setAbility(abilityList.getListElement(abilityNr-1));
+						System.out.println(activePlayer.getActiveSet().getAbility().getName() + " and " + activePlayer.getActiveSet().getRace().getName() + " for " + activePlayer.getName()  + " is now activated.");
+
+						break;
+					}
+					if(yesOrNo.equals("no"))
+					{
+						System.out.println("Continue");
+						break;
+					}
+					System.out.println(yesOrNo);
+
+				}while(!yesOrNo.equals("yes") || !yesOrNo.equals("no"));
+			
+			}
+			removeActiveSets();
+		}
+		
 		public void chooseNewSet()
 		{
 			Set tempSet;
@@ -184,19 +221,39 @@ public  class Decline {
 
 			activePlayer.setActiveSet(tempSet);
 			System.out.println(activePlayer.getActiveSet().getAbility().getName() + " and " + activePlayer.getActiveSet().getRace().getName() + " for " + activePlayer.getName()  + " is now activated.");
-			for(int x=0;x<abilityList.getAbilityList().size();x++)
+			
+			
+			if(activePlayer.getActiveSet().getRace().getName().equals(shadowMimes.getName()))
 			{
-				if(activePlayer.getActiveSet().getAbility().getName() == abilityList.getListElement(x).getName())
-				{
-					abilityList.getAbilityList().remove(x);
-				}
+				
 			}
-			for(int x=0;x<raceList.getRaceList().size();x++)
+			else
 			{
-				if(activePlayer.getActiveSet().getRace().getName() == raceList.getListElement(x).getName())
+				removeActiveSets();
+			}
+		}
+		
+		
+		
+		public void removeActiveSets()
+		{
+			for(int x=0;x<playerList.size();x++) //this removes the active sets
+			{
+				for(int j=0;j<raceList.getRaceList().size();j++)
 				{
-					raceList.getRaceList().remove(x);
+					if(playerList.get(x).getActiveSet().getRace().getName() == raceList.getListElement(j).getName())
+					{
+						raceList.getRaceList().remove(j);
+					}
+				}
+				for(int j=0;j<abilityList.getAbilityList().size();j++)
+				{
+					if(playerList.get(x).getActiveSet().getAbility().getName() == abilityList.getListElement(j).getName())
+					{
+						abilityList.getAbilityList().remove(j);
+					}
 				}
 			}
 		}
+	
 }
