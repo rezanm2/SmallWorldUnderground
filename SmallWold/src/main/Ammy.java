@@ -112,7 +112,7 @@ public class Ammy
 
 	public void startGame()
 	{
-		tc.checkAdjacentToSingleTerrain(map.getTerrain(3));
+		tc.checkAdjacentToSingleTerrain(map.getTerrain(2));
 		test.whichAreAdjacent(activePlayer);
 
 

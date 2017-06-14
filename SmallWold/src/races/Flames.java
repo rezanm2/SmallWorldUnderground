@@ -25,8 +25,6 @@ public class Flames extends Race
 		{
 			System.out.println((terrainController.getTerrainslist().get(i)) + 1);
 		}
-
-
 	}
 
 }
