@@ -201,9 +201,6 @@ public class TerrainController
 	{
 		for(typeTerrainCounter = 0; typeTerrainCounter<map.getAllTerrains().size(); typeTerrainCounter++)
 		{
-			System.out.println("A: Iteration " + typeTerrainCounter);
-			System.out.println(map.getAllTerrains().size());
-
 			if(map.getTerrain(typeTerrainCounter).getTerrainName().equals(terrainString))
 			{
 				changeAllAdjacentAreas(map.getTerrain(typeTerrainCounter).getElement(0));
@@ -211,7 +208,7 @@ public class TerrainController
 				System.out.println("A: Beeping area (ArrayListPosition) " + typeTerrainCounter);
 			}
 		}
-//		excludeAdjacent(terrainString);
+		excludeAdjacent(terrainString);
 	}
 
 	public void checkAdjacentToSingleTerrain(Terrain terrain)
@@ -222,17 +219,17 @@ public class TerrainController
 		}
 	}
 
+	public void excludeAdjacent(String terrainType)
+	{
+		for(typeTerrainCounter = 0; typeTerrainCounter<map.getAllTerrains().size(); typeTerrainCounter++)
+		{
+			if(map.getTerrain(typeTerrainCounter).getIsAdjacent() == true && map.getTerrain(typeTerrainCounter).getTerrainName() == terrainType)
+			{
+				map.getTerrain(typeTerrainCounter).setIsAdjacent(false);
+			}
+		}
+	}
 
-//	public void excludeAdjacent(String terrainType)
-//	{
-//		for(typeTerrainCounter = 0; typeTerrainCounter<map.getAllTerrains().size(); typeTerrainCounter++)
-//		{
-//			if(map.getTerrain(typeTerrainCounter).getIsAdjacent() == true && map.getTerrain(typeTerrainCounter).getTerrainName() == terrainType)
-//			{
-//				map.getTerrain(typeTerrainCounter).setIsAdjacent(false);
-//			}
-//		}
-//	}
 
 
 	public void checkTerrainType(String terrainString, Player activePlayer)
