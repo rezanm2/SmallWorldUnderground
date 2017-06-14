@@ -8,6 +8,9 @@ import controllers.TerrainController;
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
+import races.Mummies;
+import races.Ogres;
+import races.Race;
 import terrain.Terrain;
 
 public class DeclareCombat
@@ -23,7 +26,9 @@ public class DeclareCombat
 	Scanner input = new Scanner(System.in);
 	boolean validChoice;
 	TerrainController tc;
-
+	Mummies mummie = new Mummies();
+	Ogres ogres = new Ogres();
+	Ammy ammy;
 	public DeclareCombat(Ammy ammy)
 	{
 		this.map = ammy.getMap();
@@ -31,6 +36,7 @@ public class DeclareCombat
 		this.test = ammy.getTest();
 		this.playerCreator = ammy.getPlayerCreator();
 		this.tc = ammy.getTc();
+		this.ammy = ammy;
 	}
 
 	public void start(Player activePlayer)
@@ -56,6 +62,10 @@ public class DeclareCombat
 
 		while(activePlayer.getHand().getCurrentTokens()>0)
 		{
+			mummie.processAbility(ammy);
+			ogres.processAbility(ammy);
+			
+			
 			test.whichAreAttackable();
 
 			System.out.println("A: You have " + activePlayer.getHand().getCurrentTokens() + " tokens left.");
@@ -66,7 +76,7 @@ public class DeclareCombat
 			System.out.println("A: Okay, there's currently " + map.getTerrain(tc.getAreaPicked()).getAmountOfTokens()
 								+ " tokens on it, and the place has " + map.getTerrain(tc.getAreaPicked()).getDefense() + " defense."
 								+ " You need " + (map.getTerrain(tc.getAreaPicked()).getAmountOfTokens() + map.getTerrain(tc.getAreaPicked())
-								.getDefense() + 2) + " tokens to take this area over.\n How many tokens do you wish to use?");
+								.getDefense() - cc.getMiscModifier() + 2) + " tokens to take this area over.\n How many tokens do you wish to use?");
 
 
 			declaredAmountOfTokens = -5;

@@ -1,12 +1,20 @@
 package races;
 
 import controllers.CombatController;
+import controllers.TerrainController;
 import main.Ammy;
+import player.Hand;
 import player.Player;
+import setup.DeclareCombat;
+import setup.RedeployAreas;
 
 public class Mummies extends Race
 {
 	CombatController cc;
+	TerrainController tc;
+	RedeployAreas ra;
+	DeclareCombat dc;
+	int hand;
 	public Mummies()
 	{
 		amountOfTokens = 10;
@@ -18,8 +26,10 @@ public class Mummies extends Race
 	@Override
 	public void processAbility(Ammy ammy) {
 		this.map = ammy.getMap();
-		this.activePlayer = ammy.getActivePlayer();
 		this.cc = ammy.getCc();
+		this.activePlayer = ammy.getActivePlayer();
+		
+		//This will be repeated in DeclareCombat class
 		if(activePlayer.getActiveSet().getRace().getName().equals(this.name))
 		{
 			cc.setMiscModifier(-1);
