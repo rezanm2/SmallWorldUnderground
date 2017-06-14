@@ -87,7 +87,7 @@ public class TerrainController
 	{
 		for(terrainCounter = 0; terrainCounter<map.getAllTerrains().size(); terrainCounter++)
 		{
-			for(elementCounter = 1; elementCounter<map.getTerrain(terrainCounter).getIdArray().length-1; elementCounter++) //While there's still elements left
+			for(elementCounter = 1; elementCounter<map.getTerrain(terrainCounter).getIdArray().length; elementCounter++) //While there's still elements left
 			{
 				if(map.getTerrain(terrainCounter).getElement(elementCounter) == code)
 				{
