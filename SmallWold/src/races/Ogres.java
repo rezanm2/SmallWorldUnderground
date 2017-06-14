@@ -21,7 +21,15 @@ public class Ogres extends Race
 	public void processAbility(Ammy ammy) {
 		this.map = ammy.getMap();
 		this.activePlayer = ammy.getActivePlayer();
-		cc.setMiscModifier(1);
+		this.cc = ammy.getCc();
+		for(int x=0;x<map.getAllTerrains().size();x++)
+		{
+			if(activePlayer.getActiveSet().getRace().getName().equals(this.name))
+			{
+				cc.setMiscModifier(1);
+			}
+		}
+		
 		
 	}
 
