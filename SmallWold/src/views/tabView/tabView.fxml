@@ -10,14 +10,14 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="mainPane" visible="false" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.tabView.TabViewController">
+<StackPane fx:id="mainPane" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.tabView.TabViewController">
    <children>
-      <ImageView fitHeight="864.0" fitWidth="1536.0" pickOnBounds="true">
+      <ImageView fitHeight="862.0" fitWidth="1557.0" pickOnBounds="true">
          <image>
-            <Image url="@../../images/icons/grey-bg.jpg.pagespeed.ce.EKbFM1jjsW.jpg" />
+            <Image url="@../../images/icons/menu.png" />
          </image>
       </ImageView>
-      <GridPane gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="864.0" prefWidth="1536.0">
+      <GridPane gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="864.0" prefWidth="1573.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="975.0" minWidth="10.0" prefWidth="388.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="964.0" minWidth="10.0" prefWidth="378.0" />
@@ -38,146 +38,146 @@
          <children>
             <HBox prefHeight="166.0" prefWidth="472.0" GridPane.rowIndex="1">
                <children>
-                  <ImageView fx:id="ac_ab_1" fitHeight="130.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../images/abilitys/frightend.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="ac_rc_1" fitHeight="130.0" fitWidth="279.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="ac_ab_1" fitHeight="130.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/races/placeHolder.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView id="ac_rc_1" fitHeight="130.0" fitWidth="279.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/races/placeHolder.png" />
                      </image>
                   </ImageView>
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
                <children>
-                  <ImageView fx:id="ac_ab_2" fitHeight="130.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="ac_ab_2" fitHeight="130.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/abilitys/frightend.png" />
+                        <Image url="@../images/abilitys/frightend.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="ac_rc_2" fitHeight="130.0" fitWidth="279.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="ac_rc_2" fitHeight="130.0" fitWidth="279.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/races/placeHolder.png" />
+                        <Image url="@../images/races/placeHolder.png" />
                      </image>
                   </ImageView>
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
                <children>
-                  <ImageView fx:id="ac_ab_3" fitHeight="130.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="ac_ab_3" fitHeight="130.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/abilitys/frightend.png" />
+                        <Image url="@../images/abilitys/frightend.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="ac_rc_3" fitHeight="130.0" fitWidth="279.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="ac_rc_3" fitHeight="130.0" fitWidth="279.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/races/placeHolder.png" />
+                        <Image url="@../images/races/placeHolder.png" />
                      </image>
                   </ImageView>
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
                <children>
-                  <ImageView fx:id="ac_ab_4" fitHeight="130.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="ac_ab_4" fitHeight="130.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/abilitys/frightend.png" />
+                        <Image url="@../images/abilitys/frightend.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="ac_rc_4" fitHeight="130.0" fitWidth="279.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="ac_rc_4" fitHeight="130.0" fitWidth="279.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/races/placeHolder.png" />
+                        <Image url="@../images/races/placeHolder.png" />
                      </image>
                   </ImageView>
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <ImageView fx:id="de_rc_1" fitHeight="130.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="de_rc_1" fitHeight="130.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/races/placeholder%20-%20decline.png" />
+                        <Image url="@../images/races/placeholder%20-%20decline.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="de_ab_1" fitHeight="130.0" fitWidth="279.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="de_ab_1" fitHeight="130.0" fitWidth="279.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/abilitys/decline.png" />
+                        <Image url="@../images/abilitys/decline.png" />
                      </image>
                   </ImageView>
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <ImageView fx:id="de_rc_2" fitHeight="130.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="de_rc_2" fitHeight="130.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/races/placeholder%20-%20decline.png" />
+                        <Image url="@../images/races/placeholder%20-%20decline.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="de_ab_2" fitHeight="130.0" fitWidth="279.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="de_ab_2" fitHeight="130.0" fitWidth="279.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/abilitys/decline.png" />
+                        <Image url="@../images/abilitys/decline.png" />
                      </image>
                   </ImageView>
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <children>
-                  <ImageView fx:id="de_rc_3" fitHeight="130.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="de_rc_3" fitHeight="130.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/races/placeholder%20-%20decline.png" />
+                        <Image url="@../images/races/placeholder%20-%20decline.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="de_ab_3" fitHeight="130.0" fitWidth="279.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="de_ab_3" fitHeight="130.0" fitWidth="279.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/abilitys/decline.png" />
+                        <Image url="@../images/abilitys/decline.png" />
                      </image>
                   </ImageView>
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <children>
-                  <ImageView fx:id="de_rc_4" fitHeight="130.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="de_rc_4" fitHeight="130.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/races/placeholder%20-%20decline.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="de_ab_4" fitHeight="130.0" fitWidth="279.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="de_ab_4" fitHeight="130.0" fitWidth="279.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/abilitys/decline.png" />
                      </image>
                   </ImageView>
                </children>
             </HBox>
-            <Label fx:id="player_1"  text="PLAYER 1" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Label id="player_1" fx:id="player_1" text="PLAYER 1" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font size="33.0" />
                </font>
             </Label>
-            <Label fx:id="player_2" text="PLAYER 2" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <Label id="player_2" text="PLAYER 2" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <font>
                   <Font size="33.0" />
                </font>
             </Label>
-            <Label fx:id="player_3" text="PLAYER 3" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <Label id="player_3" text="PLAYER 3" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <font>
                   <Font size="33.0" />
                </font>
             </Label>
-            <Label fx:id="player_4" text="PLAYER 4" GridPane.columnIndex="2" GridPane.rowIndex="4">
+            <Label id="player_4" text="PLAYER 4" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <font>
                   <Font size="33.0" />
                </font>
             </Label>
             <HBox prefHeight="166.0" prefWidth="472.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <children>
-                  <ImageView fx:id="pick_ab_1" fitHeight="130.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="pick_ab_1" fitHeight="130.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/abilitys/frightend.png" />
+                        <Image url="@../images/abilitys/frightend.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="130.0" fitWidth="279.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/races/placeHolder.png" />
+                        <Image url="@../images/races/placeHolder.png" />
                      </image>
                   </ImageView>
                </children>
@@ -186,7 +186,7 @@
                <children>
                   <ImageView fitHeight="90.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/icons/coin.png" />
+                        <Image url="@../images/icons/coin.png" />
                      </image>
                   </ImageView>
                   <Label text="5">
@@ -198,14 +198,14 @@
             </StackPane>
             <HBox prefHeight="166.0" prefWidth="472.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
                <children>
-                  <ImageView fx:id="pick_ab_2" fitHeight="130.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="pick_ab_2" fitHeight="130.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/abilitys/frightend.png" />
+                        <Image url="@../images/abilitys/frightend.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="130.0" fitWidth="279.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/races/placeHolder.png" />
+                        <Image url="@../images/races/placeHolder.png" />
                      </image>
                   </ImageView>
                </children>
@@ -214,7 +214,7 @@
                <children>
                   <ImageView fitHeight="90.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/icons/coin.png" />
+                        <Image url="@../images/icons/coin.png" />
                      </image>
                   </ImageView>
                   <Label text="4">
@@ -228,10 +228,10 @@
                <children>
                   <ImageView fitHeight="90.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/icons/coin.png" />
+                        <Image url="@../images/icons/coin.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="gain_2" text="0">
+                  <Label id="gain_2" text="0">
                      <font>
                         <Font size="58.0" />
                      </font>
@@ -242,7 +242,7 @@
                <children>
                   <ImageView fitHeight="90.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/icons/coin.png" />
+                        <Image url="@../images/icons/coin.png" />
                      </image>
                   </ImageView>
                   <Label text="3">
@@ -256,10 +256,10 @@
                <children>
                   <ImageView fitHeight="90.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/icons/coin.png" />
+                        <Image url="@../images/icons/coin.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="gain_3" text="0">
+                  <Label id="gain_3" text="0">
                      <font>
                         <Font size="58.0" />
                      </font>
@@ -270,7 +270,7 @@
                <children>
                   <ImageView fitHeight="90.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/icons/coin.png" />
+                        <Image url="@../images/icons/coin.png" />
                      </image>
                   </ImageView>
                   <Label text="2">
@@ -284,10 +284,10 @@
                <children>
                   <ImageView fitHeight="90.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/icons/coin.png" />
+                        <Image url="@../images/icons/coin.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="gain_4" text="1">
+                  <Label id="gain_4" text="1">
                      <font>
                         <Font size="58.0" />
                      </font>
@@ -298,7 +298,7 @@
                <children>
                   <ImageView fitHeight="90.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/icons/coin.png" />
+                        <Image url="@../images/icons/coin.png" />
                      </image>
                   </ImageView>
                   <Label text="1">
@@ -310,9 +310,9 @@
             </StackPane>
             <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="5">
                <children>
-                  <ImageView fx:id="gain_5" fitHeight="90.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="gain_5" fitHeight="90.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/icons/coin.png" />
+                        <Image url="@../images/icons/coin.png" />
                      </image>
                   </ImageView>
                   <Label text="2">
@@ -326,7 +326,7 @@
                <children>
                   <ImageView fitHeight="90.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/icons/coin.png" />
+                        <Image url="@../images/icons/coin.png" />
                      </image>
                   </ImageView>
                   <Label text="0">
@@ -338,9 +338,9 @@
             </StackPane>
             <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="6">
                <children>
-                  <ImageView fx:id="gain_6" fitHeight="90.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="gain_6" fitHeight="90.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/icons/coin.png" />
+                        <Image url="@../images/icons/coin.png" />
                      </image>
                   </ImageView>
                   <Label text="3">
@@ -352,56 +352,56 @@
             </StackPane>
             <HBox prefHeight="166.0" prefWidth="472.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
                <children>
-                  <ImageView fx:id="pick_ab_3" fitHeight="130.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="pick_ab_3" fitHeight="130.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/abilitys/frightend.png" />
+                        <Image url="@../images/abilitys/frightend.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="130.0" fitWidth="279.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/races/placeHolder.png" />
+                        <Image url="@../images/races/placeHolder.png" />
                      </image>
                   </ImageView>
                </children>
             </HBox>
             <HBox prefHeight="166.0" prefWidth="472.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
                <children>
-                  <ImageView fx:id="pick_ab_4" fitHeight="130.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="pick_ab_4" fitHeight="130.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/abilitys/frightend.png" />
+                        <Image url="@../images/abilitys/frightend.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="130.0" fitWidth="279.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/races/placeHolder.png" />
+                        <Image url="@../images/races/placeHolder.png" />
                      </image>
                   </ImageView>
                </children>
             </HBox>
             <HBox prefHeight="166.0" prefWidth="472.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
                <children>
-                  <ImageView fx:id="pick_ab_5" fitHeight="130.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="pick_ab_5" fitHeight="130.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/abilitys/frightend.png" />
+                        <Image url="@../images/abilitys/frightend.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="130.0" fitWidth="279.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/races/placeHolder.png" />
+                        <Image url="@../images/races/placeHolder.png" />
                      </image>
                   </ImageView>
                </children>
             </HBox>
             <HBox prefHeight="166.0" prefWidth="472.0" GridPane.columnIndex="3" GridPane.rowIndex="6">
                <children>
-                  <ImageView fx:id="pick_ab_6" fitHeight="130.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="pick_ab_6" fitHeight="130.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/abilitys/frightend.png" />
+                        <Image url="@../images/abilitys/frightend.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="130.0" fitWidth="279.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/races/placeHolder.png" />
+                        <Image url="@../images/races/placeHolder.png" />
                      </image>
                   </ImageView>
                </children>
@@ -430,10 +430,10 @@
                <children>
                   <ImageView fitHeight="90.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/icons/coin.png" />
+                        <Image url="@../images/icons/coin.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="gain_1" text="0">
+                  <Label id="gain_1" text="0">
                      <font>
                         <Font size="58.0" />
                      </font>

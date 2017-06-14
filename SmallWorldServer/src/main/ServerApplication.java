@@ -15,19 +15,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import rmi.ServerImpl;
 import server.ClientSkeleton;
 import views.ServerController;
 
 public class ServerApplication  extends Application{
 
-	private static boolean isRunning = false;
-	private static boolean onFirstStart = true;
 	private static Registry registry;
 	private static ServerImpl serverImpl;
-	private static int portNumber = 1099;
 	private static ClientSkeleton [] Clients;
-	private static int i = 0;
-	private static int amountPlayers;
 	private static RemoteServer server;
 
 
@@ -42,7 +38,6 @@ public class ServerApplication  extends Application{
 			registry.unbind("server");								//unbinds the serverobject
 			System.out.println("Shutting down");
 			UnicastRemoteObject.unexportObject(serverImpl, true);	//unexports the object from the server
-			isRunning = false;										// sets isRunning false so the server is off
 		} catch (NoSuchObjectException e) {
 			e.printStackTrace();
 		} catch (AccessException e) {

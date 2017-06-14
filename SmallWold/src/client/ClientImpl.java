@@ -35,7 +35,6 @@ public class ClientImpl extends UnicastRemoteObject implements ClientSkeleton{
 
 	@Override
 	public void startGame() throws RemoteException, IOException {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -48,6 +47,26 @@ public class ClientImpl extends UnicastRemoteObject implements ClientSkeleton{
 	@Override
 	public void updatePlayerList(ArrayList<String> playerList) throws RemoteException {
 		remoteClient.updatePlayerList(playerList);
+
+	}
+
+
+	@Override
+	public void updatePlayerTurn(String player) throws RemoteException {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void StartTurn() throws RemoteException {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void notifyOfStart(int playerAmount) throws RemoteException, IOException {
+	remoteClient.startGame(playerAmount);
+	remoteClient.setTurnService();
 
 	}
 
