@@ -1,5 +1,7 @@
 package relics;
 
+import java.util.ArrayList;
+
 import controllers.MapTester;
 import controllers.TerrainController;
 import main.Ammy;
@@ -17,6 +19,8 @@ public class FroggysRing extends Relic {
 	private int relicIncome;
 	private Player activePlayer;
 	private int terrainCounter;
+	private ArrayList<String> stolenRaces = new ArrayList<String>();
+	private boolean doThief;
 	
 	public FroggysRing(){
 		
@@ -27,6 +31,7 @@ public class FroggysRing extends Relic {
 
 	@Override
 	public void processRelic(Ammy ammy) {
+		relicIncome = 0;
 		this.terrainController = ammy.getTc();
 		this.mapTester = ammy.getTest();
 		this.map = ammy.getMap();
@@ -46,24 +51,36 @@ public class FroggysRing extends Relic {
 			changeTerrain(terrainController.getAreaPicked());
 			active = false;
 			System.out.println(terrainController.getAreaPicked());
-			terrainController.changeAllAdjacentAreas(map.getTerrain(terrainController.getAreaPicked()).getIdArray()[0]);
+			terrainController.checkAdjacentToSingleTerrain(map.getTerrain(terrainNumber));
 			System.out.println("Did some shit");
 			for(terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
 			{
-				System.out.println(activePlayer.getActiveSet().getRace().getName());
-				System.out.println(map.getTerrain(terrainCounter).getRace().getName());
+				//System.out.println(activePlayer.getActiveSet().getRace().getName());
+				//System.out.println(map.getTerrain(terrainCounter).getRace().getName());
 				if(map.getTerrain(terrainCounter).getIsAdjacent() == true && !map.getTerrain(terrainCounter).getRace().getName().equals("Empty ")
-						&& activePlayer.getActiveSet().getRace().getName().equals(map.getTerrain(terrainCounter).getRace().getName()))						//If isAttackable is true
+						&& !activePlayer.getActiveSet().getRace().getName().equals(map.getTerrain(terrainCounter).getRace().getName()))						//If isAttackable is true
 				{
 					System.out.println("A: " + (terrainCounter + 1) + "\t     "
 							+ map.getTerrain(terrainCounter).getTerrainName() + "\t"
 							+ map.getTerrain(terrainCounter).getRace().getName()
 							+ "\t" + map.getTerrain(terrainCounter).getAmountOfTokens());
+					for(int i = 0; i < stolenRaces.size(); i++)
+					{
+						if(stolenRaces.get(i).equals(map.getTerrain(terrainCounter).getRace().getName()))
+						{
+							doThief = false;
+						}
+					}
+					if(doThief = true)
+					{
+						stolenRaces.add(map.getTerrain(terrainCounter).getRace().getName());
+						System.out.println("Stole 1 coin from " + map.getTerrain(terrainCounter).getRace().getName());
+						relicIncome++;
+					}
+					
 				}
+				doThief = true;
 			}
-			/*
-			 * Ergens hier nog n thief actie toevoegen
-			 */
 		}
 	}
 	
@@ -76,5 +93,21 @@ public class FroggysRing extends Relic {
 	public int getTerrainNumber() {
 		return terrainNumber;
 	}
+	
+	@Override
+	public void setActive()
+	{
+		stolenRaces.clear();
+		this.active = true;
+	}
+	
+	public int getRelicIncome() {
+		return relicIncome;
+	}
+
+	public void setRelicIncome(int relicIncome) {
+		this.relicIncome = relicIncome;
+	}
+
 
 }
