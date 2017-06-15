@@ -133,25 +133,27 @@ public class Ammy
 				System.out.println("A: It is now " + activePlayer.getName() + "'s turn.");
 
 
+				System.out.println("A: MEEP!~ " + raceList.getListElement(0).getName());
+				System.out.println("A: Wanna go decline? ^-^ ");
+				System.out.println("1: Yes 2: No 3: Am in decline");
+				choice = input.nextInt();
 
-				if(!activePlayer.getActiveSet().getAbility().equals(abilityList.getListElement(0)))
+				switch(choice)
 				{
-					System.out.println("A: Wanna go decline? ^-^ ");
-					System.out.println("1: Yes 2: No");
-					choice = input.nextInt();
 
-					switch(choice)
-					{
+				case 1:
+					decline.goInDecline();
+					break;
 
-					case 1:
-						decline.goInDecline();
-						break;
+				case 2:
+					dc.start(activePlayer);
+					ra.start(this);
+					break;
 
-					case 2:
-						dc.start(activePlayer);
-						ra.start(this);
-						break;
-					}
+				case 3:
+					decline.chooseNewSet(activePlayer);
+
+
 				}
 				etc.start(activePlayer);
 			}

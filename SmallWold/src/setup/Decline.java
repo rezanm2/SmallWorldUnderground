@@ -74,6 +74,7 @@ public  class Decline {
 			this.abilityList = ammy.getAbilityList();
 			this.raceList = ammy.getRaceList();
 			this.playerList = ammy.getPlayerList();
+			shuffleSets();
 		}
 		public void goInDecline()
 		{
@@ -96,23 +97,23 @@ public  class Decline {
 			removeActiveSets();
 			for(int x=0;x<100;x++) //the next two for loops is to shuffle the sets
 			{
-				getal1 = 1 + (r.nextInt(abilityList.getAbilityList().size()-1));
-				getal2 = 1 + (r.nextInt(abilityList.getAbilityList().size()-1));
+				getal1 = r.nextInt(abilityList.getAbilityList().size()-1);
+				getal2 = r.nextInt(abilityList.getAbilityList().size()-1);
 
-				tempAbility = abilityList.getListElement(getal1);
+				tempAbility = abilityList.getListElement(getal1+1);
 
-				abilityList.getAbilityList().set(getal1, abilityList.getListElement(getal2));
-				abilityList.getAbilityList().set(getal2, tempAbility);
+				abilityList.getAbilityList().set(getal1+1, abilityList.getListElement(getal2+1));
+				abilityList.getAbilityList().set(getal2+1, tempAbility);
 			}
 			for(int x=0;x<100;x++)
 			{
-				getal1 = r.nextInt(raceList.getRaceList().size());
-				getal2 = r.nextInt(raceList.getRaceList().size());
+				getal1 = r.nextInt(raceList.getRaceList().size()-1);
+				getal2 = r.nextInt(raceList.getRaceList().size()-1);
 
-				tempRace = raceList.getListElement(getal1);
+				tempRace = raceList.getListElement(getal1+1);
 
-				raceList.getRaceList().set(getal1, raceList.getListElement(getal2));
-				raceList.getRaceList().set(getal2, tempRace);
+				raceList.getRaceList().set(getal1+1, raceList.getListElement(getal2+1));
+				raceList.getRaceList().set(getal2+1, tempRace);
 			}
 		}
 
