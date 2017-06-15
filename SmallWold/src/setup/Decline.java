@@ -70,12 +70,10 @@ public  class Decline {
 
 		public Decline(Ammy ammy)
 		{
-
 			this.activePlayer = ammy.getActivePlayer();
 			this.abilityList = ammy.getAbilityList();
 			this.raceList = ammy.getRaceList();
 			this.playerList = ammy.getPlayerList();
-			shuffleSets();
 		}
 		public void goInDecline()
 		{
@@ -98,8 +96,8 @@ public  class Decline {
 			removeActiveSets();
 			for(int x=0;x<100;x++) //the next two for loops is to shuffle the sets
 			{
-				getal1 = r.nextInt(abilityList.getAbilityList().size());
-				getal2 = r.nextInt(abilityList.getAbilityList().size());
+				getal1 = 1 + (r.nextInt(abilityList.getAbilityList().size()-1));
+				getal2 = 1 + (r.nextInt(abilityList.getAbilityList().size()-1));
 
 				tempAbility = abilityList.getListElement(getal1);
 
@@ -227,14 +225,14 @@ public  class Decline {
 		{
 			for(int x=0;x<playerList.size();x++) //this removes the active sets
 			{
-				for(int j=0;j<raceList.getRaceList().size();j++)
+				for(int j=1;j<raceList.getRaceList().size() ;j++)
 				{
 					if(playerList.get(x).getActiveSet().getRace().getName() == raceList.getListElement(j).getName())
 					{
 						raceList.getRaceList().remove(j);
 					}
 				}
-				for(int j=0;j<abilityList.getAbilityList().size();j++)
+				for(int j=1;j<abilityList.getAbilityList().size();j++)
 				{
 					if(playerList.get(x).getActiveSet().getAbility().getName() == abilityList.getListElement(j).getName())
 					{
