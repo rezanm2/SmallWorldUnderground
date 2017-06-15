@@ -42,9 +42,9 @@ public class Drow extends Race implements CalculatableIncome
 				{
 					countRaces++;
 				}
-				
+
 			}
-			
+
 
 		}
 		if(countTerrains == countRaces)
