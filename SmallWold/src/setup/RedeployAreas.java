@@ -44,7 +44,7 @@ public class RedeployAreas
 		System.out.println("A: All right. Let's allow " + activePlayer.getName() + " to redeploy his stuff. \n");
 
 		tc.setAllRedeployableAreas(activePlayer);
-		toc.calculateReturnedTokens();
+		toc.calculateReturnedTokens(activePlayer);
 
 		activePlayer.getHand().setCurrentTokens(activePlayer.getHand().getCurrentTokens() + tc.getReturnedTokens());
 
