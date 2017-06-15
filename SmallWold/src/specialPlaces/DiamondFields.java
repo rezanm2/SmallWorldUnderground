@@ -34,7 +34,7 @@ public class DiamondFields extends SpecialPlace
 		if(active == true && activePlayer.getActiveSet().getRace().getName() == map.getTerrain(terrainNumber).getRace().getName()) {
 			
 			terrainController.checkTerrainType(map.getTerrain(terrainNumber).getTerrainName(), activePlayer);
-			specialPlaceIncome = terrainController.getTerrainStringCounter();
+			setSpecialPlaceIncome(terrainController.getTerrainStringCounter());
 			System.out.println("Income specialPlace " + specialPlaceIncome);
 		}
 	}
