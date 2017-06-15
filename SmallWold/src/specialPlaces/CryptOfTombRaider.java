@@ -8,6 +8,7 @@ import playBoard.Map;
 public class CryptOfTombRaider extends SpecialPlace
 {
 	private int terrainNumber;
+	private int terrainOfGhost;
 	private TerrainController terrainController;
 	private Map map;
 	private MapTester mapTester;
@@ -25,25 +26,25 @@ public class CryptOfTombRaider extends SpecialPlace
 		this.terrainController = ammy.getTc();
 		this.mapTester = ammy.getTest();
 		for(int i = 0; i < map.getAllTerrains().size(); i++) {
-			if(map.getTerrain(i).getRelic().getName() == name)
+			if(map.getTerrain(i).getSpecialPlace().getName() == name)
 			{
 				terrainNumber = i;
 				break;
 			}
 		}
-		if(active == true && activePlayer.getActiveSet().getRace().getName() == map.getTerrain(terrainNumber).getRace().getName()) {
+		if(activePlayer.getActiveSet().getRace().getName() == map.getTerrain(terrainNumber).getRace().getName()) {
 			terrainController.setAllRedeployableAreas(activePlayer);
 			mapTester.whichAreRedeployable(activePlayer);
 			terrainController.checkIfRedeployable();
 			changeTerrain(terrainController.getAreaPicked());
-			System.out.println(map.getTerrain(terrainNumber).getIsImmune());
+			System.out.println(map.getTerrain(terrainOfGhost).getIsImmune());
 		}
 		
 	}
 	
-	public void changeTerrain(int terrainNumber) {
-		map.getTerrain(this.terrainNumber).setIsImmune(false);
-		map.getTerrain(terrainNumber).setIsImmune(true);
-		this.terrainNumber = terrainNumber;
+	public void changeTerrain(int terrainOfGhost) {
+		map.getTerrain(this.terrainOfGhost).setIsImmune(false);
+		map.getTerrain(terrainOfGhost).setIsImmune(true);
+		this.terrainOfGhost = terrainNumber;
 	}
 }
