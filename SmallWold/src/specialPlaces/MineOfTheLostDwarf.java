@@ -17,6 +17,7 @@ public class MineOfTheLostDwarf extends SpecialPlace
 
 	@Override
 	public void processSpecialPlace(Ammy ammy) {
+		setSpecialPlaceIncome(0);
 		this.map = ammy.getMap();
 		for(int i = 0; i < map.getAllTerrains().size(); i++) {
 			if(map.getTerrain(i).getSpecialPlace().getName() == name)
@@ -25,7 +26,9 @@ public class MineOfTheLostDwarf extends SpecialPlace
 				break;
 			}
 		}
-		setSpecialPlaceIncome(2);
+		if(active == true && activePlayer.getActiveSet().getRace().getName() == map.getTerrain(terrainNumber).getRace().getName()) {
+			setSpecialPlaceIncome(2);
+		}
 	}
 
 	public int getSpecialPlaceIncome() {

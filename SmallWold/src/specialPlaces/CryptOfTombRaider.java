@@ -31,11 +31,14 @@ public class CryptOfTombRaider extends SpecialPlace
 				break;
 			}
 		}
-		terrainController.setAllRedeployableAreas(activePlayer);
-		mapTester.whichAreRedeployable(activePlayer);
-		terrainController.checkIfRedeployable();
-		changeTerrain(terrainController.getAreaPicked());
-		System.out.println(map.getTerrain(terrainNumber).getIsImmune());
+		if(active == true && activePlayer.getActiveSet().getRace().getName() == map.getTerrain(terrainNumber).getRace().getName()) {
+			terrainController.setAllRedeployableAreas(activePlayer);
+			mapTester.whichAreRedeployable(activePlayer);
+			terrainController.checkIfRedeployable();
+			changeTerrain(terrainController.getAreaPicked());
+			System.out.println(map.getTerrain(terrainNumber).getIsImmune());
+		}
+		
 	}
 	
 	public void changeTerrain(int terrainNumber) {

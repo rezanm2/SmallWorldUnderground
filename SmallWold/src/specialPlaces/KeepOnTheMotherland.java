@@ -19,6 +19,7 @@ public class KeepOnTheMotherland extends SpecialPlace
 	@Override
 	public void processSpecialPlace(Ammy ammy) {
 		this.map = ammy.getMap();
+		setSpecialPlaceIncome(0);
 		for(int i = 0; i < map.getAllTerrains().size(); i++) {
 			if(map.getTerrain(i).getSpecialPlace().getName() == name)
 			{
@@ -27,7 +28,9 @@ public class KeepOnTheMotherland extends SpecialPlace
 			}
 		}
 		map.getTerrain(terrainNumber).setDefense(1);
-		setSpecialPlaceIncome(1);
+		if(active == true && activePlayer.getActiveSet().getRace().getName() == map.getTerrain(terrainNumber).getRace().getName()) {
+			setSpecialPlaceIncome(1);
+		}
 	}
 
 	public int getSpecialPlaceIncome() {
