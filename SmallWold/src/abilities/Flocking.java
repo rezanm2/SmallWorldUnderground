@@ -23,6 +23,7 @@ public class Flocking extends Ability implements CalculatableIncome
 	@Override
 	public void processAbility(Ammy ammy)
 	{
+		abilityIncome = 0;
 		this.activePlayer = ammy.getActivePlayer();
 		this.tc = ammy.getTc();
 		this.test = ammy.getTest();

@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 import listCreators.AbilityListCreator;
 import main.Ammy;
-import main.Decline;
 import player.Player;
+import setup.Decline;
 
 public class ShadowMimes extends Race
 {

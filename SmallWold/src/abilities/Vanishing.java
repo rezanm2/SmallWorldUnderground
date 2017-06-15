@@ -32,7 +32,7 @@ public class Vanishing extends Ability implements CalculatableIncome
 
 		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
-			abilityIncome = abilityIncome + 2 ;
+			abilityIncome += 2;
 			map.getTerrain(terrainCounter).setRace(raceList.getListElement(0));
 		}
 	}

@@ -5,6 +5,7 @@ import java.util.Scanner;
 import controllers.CombatController;
 import controllers.MapTester;
 import controllers.TerrainController;
+import controllers.TokenController;
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
@@ -23,6 +24,7 @@ public class DeclareCombat
 	Scanner input = new Scanner(System.in);
 	boolean validChoice;
 	TerrainController tc;
+	TokenController toc;
 
 	public DeclareCombat(Ammy ammy)
 	{
@@ -31,6 +33,7 @@ public class DeclareCombat
 		this.test = ammy.getTest();
 		this.playerCreator = ammy.getPlayerCreator();
 		this.tc = ammy.getTc();
+		this.toc = ammy.getToc();
 	}
 
 	public void start(Player activePlayer)
@@ -44,7 +47,7 @@ public class DeclareCombat
 		tc.setAllAttackableAreas(activePlayer);						//Setting isAttackable for each area player x has
 		tc.setAllAdjacentAreas(activePlayer);						//Setting isAdjacent for each area player x has
 		tc.setAllRedeployableAreas(activePlayer);					//Setting isReinforcable for each area player x has
-		tc.calculateReturnedTokens();
+		toc.calculateReturnedTokens();
 
 		activePlayer.getHand().setCurrentTokens(activePlayer.getHand().getCurrentTokens() + tc.getReturnedTokens());
 		System.out.println("A: Currently, " + activePlayer.getName() + " controls the following areas and has "

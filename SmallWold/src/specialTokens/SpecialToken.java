@@ -1,4 +1,4 @@
-package specialToken;
+package specialTokens;
 
 import main.Ammy;
 import playBoard.Map;

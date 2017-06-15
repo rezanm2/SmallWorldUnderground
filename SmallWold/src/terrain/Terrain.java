@@ -4,7 +4,7 @@ import races.Race;
 import relics.Relic;
 //import specialPlaces.Empty;
 import specialPlaces.SpecialPlace;
-import specialToken.SpecialToken;
+import specialTokens.SpecialToken;
 
 public abstract class Terrain
 {
@@ -23,7 +23,7 @@ public abstract class Terrain
 
 	protected Relic relic = new relics.Empty();
 	protected SpecialPlace specialPlace;
-	protected SpecialToken specialToken = new specialToken.Empty();
+	protected SpecialToken specialToken = new specialTokens.Empty();
 
 	public Terrain(int[] idArray)
 	{

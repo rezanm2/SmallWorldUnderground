@@ -3,6 +3,7 @@ package controllers;
 import java.util.List;
 
 import main.Ammy;
+import playBoard.Map;
 import player.Player;
 import races.Race;
 
@@ -13,9 +14,12 @@ public class TokenController
 	Player racesPlayer;
 
 	List<Player> playerList;
+	private int returnedTokens;
+	Map map;
 	public TokenController(Ammy ammy)
 	{
 		this.playerList = ammy.getPlayerCreator().getPlayerList();
+		this.map = ammy.getMap();
 	}
 
 	public void linkRaceToPlayer(Race race)
@@ -35,6 +39,19 @@ public class TokenController
 						+ playerList.get(playerCounter).getName() + "'s decline race.");
 
 				racesPlayer = playerList.get(playerCounter);
+			}
+		}
+	}
+
+	public void calculateReturnedTokens()
+	{
+		returnedTokens = 0;
+		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
+		{
+			if(map.getTerrain(terrainCounter).getIsRedeployable() == true)						//If isAttackable is true
+			{
+				this.returnedTokens = returnedTokens + map.getTerrain(terrainCounter).getAmountOfTokens() - 1;
+				map.getTerrain(terrainCounter).setToOne();
 			}
 		}
 	}
