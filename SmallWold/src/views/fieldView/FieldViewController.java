@@ -3,7 +3,6 @@ package views.fieldView;
 import javafx.fxml.FXML;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.StackPane;
 import views.sideBarView.SideBarController;
 import views.tabView.TabViewController;
 
@@ -28,6 +27,7 @@ public class FieldViewController {
     	if (ke.getCode().equals(KeyCode.TAB)){
     		tabViewControl.showView();
     		sideBarControl.changeImagePressed();
+
     	}
     }
 

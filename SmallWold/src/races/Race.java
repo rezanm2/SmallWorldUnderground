@@ -13,9 +13,11 @@ public abstract class Race
 	protected Player activePlayer;
 	protected Map map;
 	protected int raceIncome;
+	protected String image;
 
 	public void setAmountOfTokens(int amountOfTokens)
 	{
+		this.image = "../../images/races/placeHolder.png";
 		this.amountOfTokens = amountOfTokens;
 	}
 

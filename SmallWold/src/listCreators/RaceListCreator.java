@@ -42,6 +42,7 @@ public class RaceListCreator
 		Race shrooms = new Shrooms();
 		Race spiderines = new Spiderines();
 		Race willOWisp = new WillOWisp();
+		
 
 		raceList.add(empty);
 		raceList.add(cultists);

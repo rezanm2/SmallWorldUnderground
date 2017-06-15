@@ -19,14 +19,14 @@ public class ShadowMimes extends Race
 
 		amountOfTokens = 7;
 		maxTokens = 12;
-		name = "Shadow Mimes";
+		name = "ShadowMimes";
 		traitText = "Swap the current special power with a different one while picking this race.";
 	}
 	public String getName(){
 		return this.name;
 	}
 	@Override
-	public void processAbility(Ammy ammy) 
+	public void processAbility(Ammy ammy)
 	{
 		this.activePlayer = ammy.getActivePlayer();
 		this.map = ammy.getMap();

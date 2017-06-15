@@ -11,6 +11,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
 import rmi.ServerImpl;
+import rmi.SetService;
 import rmi.TurnService;
 import server.ClientSkeleton;
 
@@ -114,6 +115,11 @@ public class RemoteServer {
 			turnService = new TurnService(playerList, amountPlayers);
 			Naming.rebind("ServerTurnService", turnService);
 			System.out.println("Server: turnService registered as \'ServerTurnService\' in RMI registry.");
+
+			SetService setService = new SetService(amountPlayers);
+			Naming.rebind("ServerSetService", setService);
+			System.out.println("Server: SetService registered as \'ServerSetService\' in RMI registry.");
+
 			notifyClientOfStart();
 
 
