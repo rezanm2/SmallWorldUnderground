@@ -9,14 +9,14 @@ public class WillOWisp extends Race
 	{
 		amountOfTokens = 6;
 		maxTokens = 11;
-		name = "Will-o-Wisp";
+		name = "WillOWisp";
 		traitText = "Can roll the conquest die infinitely when adjacent to or on mystic regions";
 	}
 
 	@Override
 	public void processAbility(Ammy ammy) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

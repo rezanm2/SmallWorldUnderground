@@ -12,27 +12,29 @@ import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import models.JoinedPlayers;
+import rmi.SetService;
 import rmi.TurnService;
 import server.ClientSkeleton;
 import server.ServerSkeleton;
+import server.SetServiceClientSkeleton;
+import server.SetServiceSkeleton;
 import server.TurnServiceClientSkeleton;
 import server.TurnServiceSkeleton;
+import views.tabView.TabViewController;
 
 public class RemoteClient {
 
 	private ServerSkeleton server = null;
-	private TurnServiceSkeleton serverTurnService;
 	private String host = "127.0.0.1";
 	private ClientImpl clientImpl;
 	private ObservableList<JoinedPlayers> players = FXCollections.observableArrayList();
 	private ClientApplication app;
-	private TurnService turnClient;
+	private String username;
 
 	protected RemoteClient(ClientApplication app) throws RemoteException {
 		this.app = app;
 		this.clientImpl = new ClientImpl(this);
-		players.addAll(new JoinedPlayers("-"), new JoinedPlayers("-"), new JoinedPlayers("-"), new JoinedPlayers("-"),
-				new JoinedPlayers("-")); // make list of joinable places
+		players.addAll(new JoinedPlayers("-"), new JoinedPlayers("-"), new JoinedPlayers("-"), new JoinedPlayers("-"),new JoinedPlayers("-")); // make list of joinable places
 
 	}
 
@@ -53,7 +55,9 @@ public class RemoteClient {
 	}
 
 	public void setImplName(String username) {
+		this.username = username;
 		clientImpl.setUsername(username);
+		System.out.println(username);
 	}
 
 	public void register() throws RemoteException {
@@ -79,7 +83,9 @@ public class RemoteClient {
 	public void startGame(int playerAmount) throws IOException{
 		Platform.runLater(() -> {
 			try {
-				app.StartGameScreen(playerAmount);
+				app.StartGameScreen(playerAmount, players);
+
+				setTurnService(app.getTabController());
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -87,15 +93,22 @@ public class RemoteClient {
 		});
 	}
 
-	public void setTurnService() {
+	public void setTurnService(TabViewController tabController) {
 
 
 		try {
 
 			System.out.println("Client: looking up turnServiceServer in RMI Registry...");
-			serverTurnService = (TurnServiceSkeleton) Naming.lookup("//" + host + "/ServerTurnService");
-			turnClient = new TurnService();
+			TurnServiceSkeleton serverTurnService = (TurnServiceSkeleton) Naming.lookup("//" + host + "/ServerTurnService");
+			TurnService turnClient = new TurnService();
 			serverTurnService.addTurnClient(turnClient);
+
+			System.out.println("Client: looking up ServerSetService in RMI Registry...");
+			SetServiceSkeleton serverSetService = (SetServiceSkeleton) Naming.lookup("//" + host + "/ServerSetService");
+		//	System.out.println(app.getTabController());
+			SetService setClient = new SetService(tabController);
+			serverSetService.addSetClient(setClient);
+
 
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block

@@ -76,7 +76,7 @@ public  class Decline {
 			this.playerList = ammy.getPlayerList();
 			shuffleSets();
 		}
-		public void goInDecline()
+		public void goInDecline(Player activePlayer)
 		{
 
 			activePlayer.setDeclineSet(activePlayer.getActiveSet());

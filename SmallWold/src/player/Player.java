@@ -4,8 +4,7 @@ import abilities.Ability;
 import main.Set;
 import races.Race;
 
-public class Player
-{
+public class Player {
 	private boolean hasVengeful;
 	private String name;
 	private int coins = 0;
@@ -13,18 +12,17 @@ public class Player
 	private Set declineSet;
 
 	private Hand hand;
-	public Player(String name)
-	{
+
+	public Player(String name) {
 		this.hand = new Hand();
 		this.name = name;
 	};
 
-	public void setCoins(int coins){
+	public void setCoins(int coins) {
 		this.coins = coins;
 	}
 
-	public int getCoins()
-	{
+	public int getCoins() {
 		return coins;
 	}
 
@@ -61,13 +59,11 @@ public class Player
 		this.name = name;
 	}
 
-	public void setHasVengeful(boolean hasVengeful)
-	{
+	public void setHasVengeful(boolean hasVengeful) {
 		this.hasVengeful = hasVengeful;
 	}
 
-	public boolean getHasVengeful()
-	{
+	public boolean getHasVengeful() {
 		return hasVengeful;
 	}
 }

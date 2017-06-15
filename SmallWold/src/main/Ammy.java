@@ -132,29 +132,25 @@ public class Ammy
 				activePlayer = playerList.get(playerTurnCounter);
 				System.out.println("A: It is now " + activePlayer.getName() + "'s turn.");
 
-
-				if(activePlayer.getActiveSet().getRace().getName().equals(raceList.getListElement(0).getName()))
-				{
-					decline.chooseNewSet(activePlayer);
-				}
-				else
+				if(!activePlayer.getActiveSet().getAbility().equals(abilityList.getListElement(0)))
 				{
 					System.out.println("A: Wanna go decline? ^-^ ");
 					System.out.println("1: Yes 2: No");
 					choice = input.nextInt();
 
-				switch(choice)
-				{
+					switch(choice)
+					{
 
-				case 1:
-					decline.goInDecline();
-					break;
+					case 1:
+						decline.goInDecline(activePlayer);
 
-				case 2:
+
+					case 2:
 					dc.start(activePlayer);
 					ra.start(this);
 					break;
 				}
+
 				}
 				etc.start(activePlayer);
 			}

@@ -1,14 +1,17 @@
-package client;
+	package client;
 
 import java.io.IOException;
 import java.rmi.RemoteException;
 import javafx.application.Application;
+import javafx.application.Preloader;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import models.JoinedPlayers;
 import views.fieldView.FieldViewController;
 import views.lobbyView.lobbyController;
 import views.sideBarView.SideBarController;
@@ -18,16 +21,17 @@ public class ClientApplication extends Application{
 
 	private static RemoteClient client;
 	private Stage primaryStage;
-
+	private FXMLLoader tabViewLoader;
+	private TabViewController tabController;
 
 
 	public ClientApplication() throws RemoteException {
+
 		client = new RemoteClient(this);
 	}
 
 
 	public static void main(String[] args) throws RemoteException {
-
 
 		launch(args);
 	}
@@ -49,11 +53,13 @@ public class ClientApplication extends Application{
 		primaryStage.show();
 
 	}
-	public void StartGameScreen(int playerAmount) throws IOException{
+
+	public void StartGameScreen(int playerAmount , ObservableList<JoinedPlayers> players ) throws IOException{
         primaryStage.setTitle("SmallWorld - Underground");
 
+
         //set the layout of the view. fielView
-        FXMLLoader rootLayoutLoader = new FXMLLoader(getClass().getResource("../views/fieldView/fieldView.fxml"));	//get xml file
+        FXMLLoader rootLayoutLoader = new FXMLLoader(getClass().getResource("../views/fieldView/fieldView"+playerAmount+".fxml"));	//get xml file
         BorderPane rootLayout = (BorderPane) rootLayoutLoader.load();										//load xml file to object
         FieldViewController fieldController = rootLayoutLoader.getController();								//set controller
 
@@ -69,29 +75,35 @@ public class ClientApplication extends Application{
        rootLayout.setRight(sideBar);
 
         //add tabview thats hidden to rootLayout
+       this.tabViewLoader = new FXMLLoader(getClass().getResource("../views/tabView/tabView.fxml"));			//get xml file
+       StackPane tabView = this.tabViewLoader.load();																//load xml file to object
+       this.tabController = tabViewLoader.getController();										//set controller tabView
 
-        FXMLLoader tabViewLoader = new FXMLLoader(getClass().getResource("../views/tabView/tabView.fxml"));			//get xml file
-        StackPane tabView = tabViewLoader.load();																//load xml file to object
         StackPane tabPane = (StackPane)rootLayoutLoader.getNamespace().get("stackPane"); 						//get stackPane from fieldView
         tabPane.getChildren().add(tabView);																	//add tabview to stackpane from Fieldview
-        TabViewController tabController = tabViewLoader.getController();										//set controller tabView
+
+       // tabController.setPlayers(players);
 
         //give controllers objects of controllers
-        fieldController.setControllers(tabController, sidebarController);
+        fieldController.setControllers(this.tabController, sidebarController);
         sidebarController.setControllers(tabController);
 
 
 
         //show the scene with the root layout
-        Scene scene = new Scene(rootLayout);
-        primaryStage.setScene(scene);
+        Scene Scene = new Scene(rootLayout);
+        primaryStage.setScene(Scene);
         primaryStage.setFullScreen(false);
-        primaryStage.show();
         rootLayout.requestFocus();
+        rootLayout.setFocusTraversable(true);
 
 
 
 	}
+	public TabViewController getTabController(){
+		return this.tabController;
+	}
+
 
 
 

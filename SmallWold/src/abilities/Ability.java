@@ -11,9 +11,11 @@ public abstract class Ability
 	protected String traitText;
 	protected boolean active;
 	protected Player activePlayer;
+	protected String image;
 
 	public Ability()
 	{
+		image = "../../images/abilitys/placeHolder.png";
 	}
 
 	public abstract void processAbility(Ammy ammy);
