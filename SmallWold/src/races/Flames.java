@@ -6,6 +6,7 @@ import controllers.TerrainController;
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
+import races.Race;
 import terrain.Volcano;
 
 public class Flames extends Race
@@ -25,25 +26,42 @@ public class Flames extends Race
 
 	@Override
 	public void processAbility(Ammy ammy) {
-
+		this.activePlayer = ammy.getActivePlayer();
 		this.terrainController = ammy.getTc();
 		this.map = ammy.getMap();
-
-		terrainController.checkAdjacentToTerrainType("Chasm");
-		for(int i = 0; i < terrainController.getTerrainslist().size(); i++)
+		
+		for(int x=0;x<map.getAllTerrains().size();x++)
 		{
-			System.out.println((terrainController.getTerrainslist().get(i)) + 1);
+			System.out.println((x+1) + " " + map.getTerrain(x).getTerrainName());
 		}
-
 		input = scanner.nextInt();
-		for(int i = 0; i < terrainController.getTerrainslist().size(); i++)
+		map.setTerrain(new Volcano(map.getTerrain(input-1).getIdArray()), (input-1));	
+		terrainController.checkAdjacentToTerrainType("Vulcano");
+		
+		for(int x=0;x<map.getAllTerrains().size();x++)
 		{
-			if (input ==  (terrainController.getTerrainslist().get(i)) + 1){
-				map.setTerrain(new Volcano(map.getTerrain(terrainController.getTerrainslist().get(i)).getIdArray()), terrainController.getTerrainslist().get(i));
+			if(map.getTerrain(x).getIsAdjacent() == true
+					&& map.getTerrain(x).getRace().getName().equals("Empty "))
+			{
+				map.getTerrain(x).setIsAttackable(true);
 			}
-
-
+			System.out.println(map.getTerrain(x).getIsAttackable());
 		}
+		
+//		for(int i = 0; i < terrainController.getTerrainslist().size(); i++)
+//		{
+//			System.out.println((terrainController.getTerrainslist().get(i)) + 1);
+//		}
+//
+//		input = scanner.nextInt();
+//		for(int i = 0; i < terrainController.getTerrainslist().size(); i++)
+//		{
+//			if (input ==  (terrainController.getTerrainslist().get(i)) + 1){
+//				map.setTerrain(new Volcano(map.getTerrain(terrainController.getTerrainslist().get(i)).getIdArray()), terrainController.getTerrainslist().get(i));
+//			}
+//
+//
+//		}
 
 	}
 
