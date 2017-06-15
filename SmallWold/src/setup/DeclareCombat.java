@@ -12,6 +12,7 @@ import player.Player;
 import races.Mummies;
 import races.Ogres;
 import races.Race;
+import relics.FlyingDoormat;
 import terrain.Terrain;
 
 public class DeclareCombat
@@ -61,42 +62,51 @@ public class DeclareCombat
 		test.whichAreRedeployable(activePlayer);													//Show each area that isReinforcable
 
 		System.out.println("A: Which means that " + activePlayer.getName() + " can attack the following areas.");
+		
+		
+		
+		map.getTerrain(0).setRelic(new FlyingDoormat());
+		map.getTerrain(0).getRelic().processRelic(ammy);
 
 		while(activePlayer.getHand().getCurrentTokens()>0)
 		{
-//			mummy.processAbility(ammy);
-//			ogres.processAbility(ammy);
-
-
 			test.whichAreAttackable();
-
-			System.out.println("A: You have " + activePlayer.getHand().getCurrentTokens() + " tokens left.");
-			System.out.println("A: Which area do  you wish to attack?");
-
-			tc.checkIfAttackable();
-
-			System.out.println("A: Okay, there's currently " + map.getTerrain(tc.getAreaPicked()).getAmountOfTokens()
-								+ " tokens on it, and the place has " + map.getTerrain(tc.getAreaPicked()).getDefense() + " defense."
-								+ " You need " + (map.getTerrain(tc.getAreaPicked()).getAmountOfTokens() + map.getTerrain(tc.getAreaPicked())
-								.getDefense() - cc.getMiscModifier() + 2) + " tokens to take this area over.\n How many tokens do you wish to use?");
-
-
-			declaredAmountOfTokens = -5;
-			while(declaredAmountOfTokens<0 || declaredAmountOfTokens > activePlayer.getHand().getCurrentTokens())
-			{
-				declaredAmountOfTokens = input.nextInt();								//Player declaring amount to attack with
-				input.nextLine();
-				System.out.print("A: No");
-			}
-			System.out.println(" problems");
-			cc.setDeclaredAmountOfTokens(declaredAmountOfTokens);					//CombatController taking this declared amount
-			cc.calculateCombat(map.getTerrain(tc.getAreaPicked()), activePlayer);	//CombatController calculating the combat done
-
-
+			processAttack(activePlayer);
 		}
 
 
 		System.out.println("A: Looks like you're out of tokens. Combat phase over.");
+	}
+	
+	public void processAttack(Player activePlayer) {
+		
+//		mummy.processAbility(ammy);
+//		ogres.processAbility(ammy);
+
+		
+
+		System.out.println("A: You have " + activePlayer.getHand().getCurrentTokens() + " tokens left.");
+		System.out.println("A: Which area do  you wish to attack?");
+
+		tc.checkIfAttackable();
+
+		System.out.println("A: Okay, there's currently " + map.getTerrain(tc.getAreaPicked()).getAmountOfTokens()
+							+ " tokens on it, and the place has " + map.getTerrain(tc.getAreaPicked()).getDefense() + " defense."
+							+ " You need " + (map.getTerrain(tc.getAreaPicked()).getAmountOfTokens() + map.getTerrain(tc.getAreaPicked())
+							.getDefense() - cc.getMiscModifier() + 2) + " tokens to take this area over.\n How many tokens do you wish to use?");
+
+
+		declaredAmountOfTokens = -5;
+		while(declaredAmountOfTokens<0 || declaredAmountOfTokens > activePlayer.getHand().getCurrentTokens())
+		{
+			declaredAmountOfTokens = input.nextInt();								//Player declaring amount to attack with
+			input.nextLine();
+			System.out.print("A: No");
+		}
+		System.out.println(" problems");
+		cc.setDeclaredAmountOfTokens(declaredAmountOfTokens);					//CombatController taking this declared amount
+		cc.calculateCombat(map.getTerrain(tc.getAreaPicked()), activePlayer);	//CombatController calculating the combat done
+		
 	}
 
 	public void setActivePlayer(Player activePlayer)
