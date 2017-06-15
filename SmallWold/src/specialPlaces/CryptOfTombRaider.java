@@ -33,11 +33,21 @@ public class CryptOfTombRaider extends SpecialPlace
 			}
 		}
 		if(activePlayer.getActiveSet().getRace().getName() == map.getTerrain(terrainNumber).getRace().getName()) {
-			terrainController.setAllRedeployableAreas(activePlayer);
-			mapTester.whichAreRedeployable(activePlayer);
-			terrainController.checkIfRedeployable();
+			for(int i = 0; i < map.getAllTerrains().size(); i++) {
+				if(!map.getTerrain(i).getTerrainName().equals("Chasm") && !(i == terrainNumber))
+				map.getTerrain(i).setIsAttackable(true);
+			}
+			mapTester.whichAreAttackable();
+			terrainController.checkIfAttackable();
 			changeTerrain(terrainController.getAreaPicked());
 			System.out.println(map.getTerrain(terrainOfGhost).getIsImmune());
+			
+			terrainController.setNotAdjacent();
+			terrainController.setNotAttackable();
+			terrainController.setNotRedeployable();
+			terrainController.setAllAttackableAreas(activePlayer);
+			terrainController.setAllAdjacentAreas(activePlayer);
+			terrainController.setAllRedeployableAreas(activePlayer);
 		}
 		
 	}
