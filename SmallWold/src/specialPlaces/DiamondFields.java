@@ -4,7 +4,7 @@ import controllers.TerrainController;
 import main.Ammy;
 import playBoard.Map;
 
-public class DiamondFields extends SpecialPlace
+public class DiamondFields extends SpecialPlace implements CalculatableIncome
 {
 	private Map map;
 	private TerrainController terrainController;
@@ -39,6 +39,7 @@ public class DiamondFields extends SpecialPlace
 		}
 	}
 
+	@Override
 	public int getSpecialPlaceIncome() {
 		return specialPlaceIncome;
 	}

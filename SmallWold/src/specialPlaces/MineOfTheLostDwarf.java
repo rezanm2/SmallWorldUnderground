@@ -3,7 +3,7 @@ package specialPlaces;
 import main.Ammy;
 import playBoard.Map;
 
-public class MineOfTheLostDwarf extends SpecialPlace
+public class MineOfTheLostDwarf extends SpecialPlace implements CalculatableIncome
 {
 	private int terrainNumber;
 	private Map map;
@@ -31,6 +31,7 @@ public class MineOfTheLostDwarf extends SpecialPlace
 		}
 	}
 
+	@Override
 	public int getSpecialPlaceIncome() {
 		return specialPlaceIncome;
 	}

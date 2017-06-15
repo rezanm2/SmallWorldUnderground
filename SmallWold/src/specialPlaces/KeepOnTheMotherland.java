@@ -3,7 +3,7 @@ package specialPlaces;
 import main.Ammy;
 import playBoard.Map;
 
-public class KeepOnTheMotherland extends SpecialPlace
+public class KeepOnTheMotherland extends SpecialPlace implements CalculatableIncome
 {
 
 	private Map map;
@@ -33,6 +33,7 @@ public class KeepOnTheMotherland extends SpecialPlace
 		}
 	}
 
+	@Override
 	public int getSpecialPlaceIncome() {
 		return specialPlaceIncome;
 	}
