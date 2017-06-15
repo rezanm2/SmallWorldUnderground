@@ -20,7 +20,7 @@ public class Dwarves extends Race
 		this.map = ammy.getMap();
 		for(int x=0;x<map.getAllTerrains().size();x++)
 		{
-			if(map.getTerrain(x).getRace().getName().equals(activePlayer.getActiveSet().getRace().getName())
+			if(map.getTerrain(x).getRace().getName().equals(this.name)
 					&& map.getTerrain(x).getTerrainName().equals("Mine"))
 			{
 				activePlayer.getHand().setSilverHammers(activePlayer.getHand().getSilverHammers() + 1);
