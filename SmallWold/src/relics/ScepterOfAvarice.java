@@ -6,7 +6,7 @@ import main.Ammy;
 import playBoard.Map;
 import player.Player;
 
-public class ScepterOfAvarice extends Relic {
+public class ScepterOfAvarice extends Relic implements CalculatableIncome{
 	
 	private TerrainController terrainController;
 	private MapTester mapTester;
@@ -14,6 +14,7 @@ public class ScepterOfAvarice extends Relic {
 	private int terrainNumber;
 	private Player activePlayer;
 	private boolean active = true;
+	private int relicIncome;
 
 	public ScepterOfAvarice(){
 		
@@ -54,5 +55,10 @@ public class ScepterOfAvarice extends Relic {
 		map.getTerrain(this.terrainNumber).setRelic(new Empty());
 		map.getTerrain(terrainNumber).setRelic(this);
 		this.terrainNumber = terrainNumber;
+	}
+
+	@Override
+	public int getRelicIncome() {
+		return relicIncome;
 	}
 }

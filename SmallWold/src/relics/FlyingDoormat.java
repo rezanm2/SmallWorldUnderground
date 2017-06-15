@@ -32,14 +32,12 @@ public class FlyingDoormat extends Relic {
 				break;
 			}
 		}
-		System.out.println(map.getTerrain(terrainNumber).getTerrainName());
-		System.out.println(map.getTerrain(terrainNumber).getRelic().getName());
-		System.out.println(map.getTerrain(terrainNumber).getRace().getName());
-		
 		
 		if(active == true && activePlayer.getActiveSet().getRace().getName() == map.getTerrain(terrainNumber).getRace().getName()) {
 			for(int i = 0; i < map.getAllTerrains().size(); i++) {
-				map.getTerrain(i).setIsAttackable(true);
+				if(map.getTerrain(i).getTerrainName().equals("Chasm") && map.getTerrain(i).getRace().getName().equals(activePlayer.getActiveSet().getRace().getName())) {
+					map.getTerrain(i).setIsAttackable(true);
+				}
 			}
 			System.out.println("Set everything attackable");
 			active = false;
