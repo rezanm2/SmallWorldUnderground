@@ -36,9 +36,9 @@ public class Adventurous extends Ability implements CalculatableIncome
 		{
 			if(activePlayer.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace()) &&
 					!map.getTerrain(terrainCounter).getSpecialPlace().equals(specialPlaceList.getListElement(0)))
-						{
-						abilityIncome++;
-						}
+			{
+				abilityIncome++;
+			}
 		}
 	}
 

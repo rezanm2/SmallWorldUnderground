@@ -413,7 +413,7 @@
             </Label>
             <Label text="Pickable races" textFill="WHITE" GridPane.columnIndex="3">
                <font>
-                  <Font size="21.0" />
+                  <Font name="System Bold" size="21.0" />
                </font>
             </Label>
             <Label contentDisplay="CENTER" text="Cost" textFill="WHITE" GridPane.columnIndex="4">
@@ -423,7 +423,7 @@
             </Label>
             <Label text="Gain" textFill="WHITE" GridPane.columnIndex="5">
                <font>
-                  <Font size="25.0" />
+                  <Font name="System Bold" size="24.0" />
                </font>
             </Label>
             <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="1">

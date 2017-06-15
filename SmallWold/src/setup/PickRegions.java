@@ -85,6 +85,7 @@ public class PickRegions
 					}
 
 					if(tempAreaPicked>map.getAllTerrains().size()) { 					// checks if area is in the map
+						System.out.println("A: Beep beep, terrain size" + map.getAllTerrains().size());
 						System.out.println("A: Looks like that area's not choosable at the moment. Please pick a different area.");
 					}
 

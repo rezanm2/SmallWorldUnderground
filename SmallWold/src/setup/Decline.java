@@ -1,4 +1,4 @@
-package main;
+package setup;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -57,80 +57,70 @@ public  class Decline {
 		List<Player> playerList;
 		ShadowMimes shadowMimes =new ShadowMimes();
 
+		Set emptySet = new Set(abilityList.getListElement(0), raceList.getListElement(0));
+
 		private int getal1;
 		private int getal2;
 		private Race tempRace;
 		private Ability tempAbility;
 		private int setNr;
 		private Scanner scanner;
+		Random r = new Random();
 		String yesOrNo ="";
-		
+
 		public Decline(Ammy ammy)
 		{
-
 			this.activePlayer = ammy.getActivePlayer();
 			this.abilityList = ammy.getAbilityList();
 			this.raceList = ammy.getRaceList();
 			this.playerList = ammy.getPlayerList();
+			shuffleSets();
 		}
 		public void goInDecline()
 		{
 
-			scanner = new Scanner(System.in);;
-			
-			do
-			{
-				System.out.println("Do you want to set your race and ability to decline?");
-				System.out.println("Say yes or no");
-				yesOrNo = scanner.nextLine();
-				if(yesOrNo.equals("yes"))
-				{
-					 activePlayer.setDeclineSet(activePlayer.getActiveSet());
-					 System.out.println(activePlayer.getDeclineSet().getAbility().getName() + " and " + activePlayer.getDeclineSet().getRace().getName() + " for player: " + activePlayer.getName() +  " are declined");
-					 break;
-				}
-				if(yesOrNo.equals("no"))
-				{
-					System.out.println("Continue");
-					break;
-				}
-				System.out.println(yesOrNo);
+			activePlayer.setDeclineSet(activePlayer.getActiveSet());
+			activePlayer.setActiveSet(emptySet);
 
-			}while(!yesOrNo.equals("yes") || !yesOrNo.equals("no"));
+			System.out.println(activePlayer.getDeclineSet().getAbility().getName() + " and "
+								+ activePlayer.getDeclineSet().getRace().getName() + " for player: "
+								+ activePlayer.getName() +  " are declined");
+
+			System.out.println(activePlayer.getActiveSet().getAbility().getName() + " and "
+					+ activePlayer.getActiveSet().getRace().getName() + " for player: "
+					+ activePlayer.getName() +  " are active.\n");
 
 		}
 
 		public void shuffleSets()
 		{
-
-			Random r = new Random();
 			removeActiveSets();
 			for(int x=0;x<100;x++) //the next two for loops is to shuffle the sets
 			{
-				getal1 = r.nextInt(abilityList.getAbilityList().size());
-				getal2 = r.nextInt(abilityList.getAbilityList().size());
+				getal1 = r.nextInt(abilityList.getAbilityList().size()-1);
+				getal2 = r.nextInt(abilityList.getAbilityList().size()-1);
 
-				tempAbility = abilityList.getListElement(getal1);
+				tempAbility = abilityList.getListElement(getal1+1);
 
-				abilityList.getAbilityList().set(getal1, abilityList.getListElement(getal2));
-				abilityList.getAbilityList().set(getal2, tempAbility);
+				abilityList.getAbilityList().set(getal1+1, abilityList.getListElement(getal2+1));
+				abilityList.getAbilityList().set(getal2+1, tempAbility);
 			}
 			for(int x=0;x<100;x++)
 			{
-				getal1 = r.nextInt(raceList.getRaceList().size());
-				getal2 = r.nextInt(raceList.getRaceList().size());
+				getal1 = r.nextInt(raceList.getRaceList().size()-1);
+				getal2 = r.nextInt(raceList.getRaceList().size()-1);
 
-				tempRace = raceList.getListElement(getal1);
+				tempRace = raceList.getListElement(getal1+1);
 
-				raceList.getRaceList().set(getal1, raceList.getListElement(getal2));
-				raceList.getRaceList().set(getal2, tempRace);
+				raceList.getRaceList().set(getal1+1, raceList.getListElement(getal2+1));
+				raceList.getRaceList().set(getal2+1, tempRace);
 			}
 		}
-		
+
 		/*
 		 * This method is to change the ability if the player have the Spider Mimes as race
-		 * 
-		 * 
+		 *
+		 *
 		 */
 		public void changeAbility()
 		{
@@ -139,13 +129,13 @@ public  class Decline {
 			{
 				System.out.println("Do you want change your ability? ");
 				scanner = new Scanner(System.in);;
-				
+
 				do
 				{
 					System.out.println("Say yes or no");
 					yesOrNo = scanner.nextLine();
 					if(yesOrNo.equals("yes"))
-					{			
+					{
 						for(int x=0;x<6;x++) // This for loops shows the first 6 ability's after shuffling.
 						{
 							System.out.print((x+1) + ": " +  abilityList.getListElement(x).getName());
@@ -172,13 +162,15 @@ public  class Decline {
 					System.out.println(yesOrNo);
 
 				}while(!yesOrNo.equals("yes") || !yesOrNo.equals("no"));
-			
+
 			}
 			removeActiveSets();
 		}
-		
-		public void chooseNewSet()
+
+		public void chooseNewSet(Player activePlayer)
 		{
+			this.activePlayer = activePlayer;
+
 			Set tempSet;
 			scanner = new Scanner(System.in);
 			System.out.println(activePlayer.getName());
@@ -190,7 +182,7 @@ public  class Decline {
 			}
 			for(int x=0;x<raceList.getRaceList().size();x++)//this removes the race and ability that have the name "Empty"
 			{
-				if(raceList.getListElement(x).getName().equals("Empty "))
+				if(raceList.getListElement(x).getName().equals("Empty"))
 				{
 					raceList.getRaceList().remove(x);
 				}
@@ -221,32 +213,27 @@ public  class Decline {
 
 			activePlayer.setActiveSet(tempSet);
 			System.out.println(activePlayer.getActiveSet().getAbility().getName() + " and " + activePlayer.getActiveSet().getRace().getName() + " for " + activePlayer.getName()  + " is now activated.");
-			
-			
-			if(activePlayer.getActiveSet().getRace().getName().equals(shadowMimes.getName()))
-			{
-				
-			}
-			else
+
+			if(!activePlayer.getActiveSet().getRace().getName().equals(shadowMimes.getName()))
 			{
 				removeActiveSets();
 			}
 		}
-		
-		
-		
+
+
+
 		public void removeActiveSets()
 		{
 			for(int x=0;x<playerList.size();x++) //this removes the active sets
 			{
-				for(int j=0;j<raceList.getRaceList().size();j++)
+				for(int j=1;j<raceList.getRaceList().size() ;j++)
 				{
 					if(playerList.get(x).getActiveSet().getRace().getName() == raceList.getListElement(j).getName())
 					{
 						raceList.getRaceList().remove(j);
 					}
 				}
-				for(int j=0;j<abilityList.getAbilityList().size();j++)
+				for(int j=1;j<abilityList.getAbilityList().size();j++)
 				{
 					if(playerList.get(x).getActiveSet().getAbility().getName() == abilityList.getListElement(j).getName())
 					{
@@ -255,5 +242,5 @@ public  class Decline {
 				}
 			}
 		}
-	
+
 }

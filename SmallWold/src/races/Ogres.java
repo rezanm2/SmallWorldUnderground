@@ -7,8 +7,6 @@ import player.Player;
 public class Ogres extends Race
 {
 	CombatController cc;
-	int terrainNumber;
-	boolean active = false;
 	public Ogres()
 	{
 		amountOfTokens = 5;
@@ -19,12 +17,16 @@ public class Ogres extends Race
 
 	@Override
 	public void processAbility(Ammy ammy) {
-		this.map = ammy.getMap();
-		this.activePlayer = ammy.getActivePlayer();
-		cc.setMiscModifier(1);
 		
+		this.map = ammy.getMap();
+		this.cc = ammy.getCc();
+		this.activePlayer = ammy.getActivePlayer();
+		
+		//This will be repeated in DeclareCombat class
+		if(activePlayer.getActiveSet().getRace().getName().equals(this.name))
+		{
+			cc.setMiscModifier(1);
+		}
 	}
-
-
 
 }

@@ -10,7 +10,7 @@ import playBoard.Map;
 import player.Player;
 import races.Race;
 
-public class FroggysRing extends Relic {
+public class FroggysRing extends Relic implements CalculatableIncome{
 	
 	Map map;
 	boolean active = true;
@@ -101,6 +101,7 @@ public class FroggysRing extends Relic {
 		this.active = true;
 	}
 	
+	@Override
 	public int getRelicIncome() {
 		return relicIncome;
 	}

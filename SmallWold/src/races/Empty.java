@@ -10,15 +10,15 @@ public class Empty extends Race
 	{
 		amountOfTokens = 0;
 		maxTokens = 0;
-		name = "Empty ";
+		name = "Empty";
 		traitText = "There is no race selected.";
 	}
 
 	@Override
 	public void processAbility(Ammy ammy) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
-	
+
 }

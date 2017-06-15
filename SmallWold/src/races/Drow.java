@@ -52,6 +52,9 @@ public class Drow extends Race implements CalculatableIncome
 			raceIncome++;
 			System.out.println("1 bonus coin recieved");
 		}
+		countTerrains = 0;
+		countRaces = 0;
+		
 	}
 
 	@Override

@@ -5,6 +5,7 @@ import java.util.Scanner;
 import controllers.CombatController;
 import controllers.MapTester;
 import controllers.TerrainController;
+import controllers.TokenController;
 import listCreators.RaceListCreator;
 import main.Ammy;
 import playBoard.Map;
@@ -21,6 +22,7 @@ public class RedeployAreas
 	private CombatController cc;
 	Scanner input = new Scanner(System.in);
 	RaceListCreator raceList;
+	TokenController toc;
 
 	public RedeployAreas(Ammy ammy)
 	{
@@ -30,6 +32,7 @@ public class RedeployAreas
 		this.map = ammy.getMap();
 		this.cc = ammy.getCc();
 		this.raceList = ammy.getRaceList();
+		this.toc = ammy.getToc();
 	}
 
 	public void start(Ammy ammy)
@@ -41,7 +44,7 @@ public class RedeployAreas
 		System.out.println("A: All right. Let's allow " + activePlayer.getName() + " to redeploy his stuff. \n");
 
 		tc.setAllRedeployableAreas(activePlayer);
-		tc.calculateReturnedTokens();
+		toc.calculateReturnedTokens(activePlayer);
 
 		activePlayer.getHand().setCurrentTokens(activePlayer.getHand().getCurrentTokens() + tc.getReturnedTokens());
 

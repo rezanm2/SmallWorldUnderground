@@ -18,8 +18,8 @@ public class Martyr extends Ability implements CalculatableIncome
 	}
 
 	@Override
-	public int getAbilityIncome() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getAbilityIncome()
+	{
+		return abilityIncome;
 	}
 }
