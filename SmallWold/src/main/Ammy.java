@@ -3,6 +3,7 @@ package main;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 
 import controllers.CombatController;
 import controllers.EndTurnController;
@@ -49,7 +50,10 @@ public class Ammy
 	RaceListCreator raceList;
 	RelicListCreator relicList;
 	SpecialPlaceListCreator specialPlaceList;
+	Scanner input = new Scanner(System.in);
+	Set emptySet;
 	private int largest;
+	private int choice;
 	int maxTotalTurns;
 	TokenController toc;
 
@@ -104,6 +108,9 @@ public class Ammy
 		raceList = new RaceListCreator();
 		relicList = new RelicListCreator();
 		specialPlaceList = new SpecialPlaceListCreator();
+
+
+		emptySet = new Set(abilityList.getListElement(0), raceList.getListElement(0));
 	}
 
 	public void setEverythingOnAmmy()
@@ -113,28 +120,43 @@ public class Ammy
 
 	public void startGame()
 	{
-		abilityList.getListElement(2).processAbility(this);
 
 		test.whichAreAdjacent();
-//		this.activePlayer = playerList.get(0);
-//		pickRegions.start();
-//
-//		for(int totalTurnCounter=0;totalTurnCounter<mapCreator.getMaxTotalTurns();totalTurnCounter++)
-//		{
-//			for(int playerTurnCounter=0;playerTurnCounter<playerList.size();playerTurnCounter++)
-//			{
-//				activePlayer = playerList.get(playerTurnCounter);
-//				System.out.println("A: It is now " + activePlayer.getName() + "'s turn.");
-//				dc.start(activePlayer);
-//				ra.start(this);
-//				etc.start(activePlayer);
+		this.activePlayer = playerList.get(0);
+		pickRegions.start();
 
-//				decline.shuffleSets();
-//				decline.chooseNewSet();
-//				decline.goInDecline();
-//			}
-//		}
-//		declareWinner();
+		for(int totalTurnCounter=0;totalTurnCounter<mapCreator.getMaxTotalTurns();totalTurnCounter++)
+		{
+			for(int playerTurnCounter=0;playerTurnCounter<playerList.size();playerTurnCounter++)
+			{
+				activePlayer = playerList.get(playerTurnCounter);
+				System.out.println("A: It is now " + activePlayer.getName() + "'s turn.");
+
+
+
+				if(!activePlayer.getActiveSet().getAbility().equals(abilityList.getListElement(0)))
+				{
+					System.out.println("A: Wanna go decline? ^-^ ");
+					System.out.println("1: Yes 2: No");
+					choice = input.nextInt();
+
+					switch(choice)
+					{
+
+					case 1:
+						decline.goInDecline();
+						break;
+
+					case 2:
+						dc.start(activePlayer);
+						ra.start(this);
+						break;
+					}
+				}
+				etc.start(activePlayer);
+			}
+		}
+		declareWinner();
 	}
 
 
@@ -144,23 +166,23 @@ public class Ammy
 
 		System.out.println(playerList.get(0).getName() + " has earned " + playerList.get(0).getCoins() + " coins.");
 		System.out.println(playerList.get(1).getName() + " has earned " + playerList.get(1).getCoins() + " coins.");
-		System.out.println(playerList.get(2).getName() + " has earned " + playerList.get(2).getCoins() + " coins.");
-		System.out.println(playerList.get(3).getName() + " has earned " + playerList.get(3).getCoins() + " coins.");
-		System.out.println(playerList.get(4).getName() + " has earned " + playerList.get(4).getCoins() + " coins.");
 
 		if(playerList.size() == 2)
 		{
 			largest = Collections.max(Arrays.asList(playerList.get(0).getCoins(), playerList.get(1).getCoins()));
+			System.out.println(playerList.get(2).getName() + " has earned " + playerList.get(2).getCoins() + " coins.");
 		}
 		if(playerList.size() == 3)
 		{
 			largest = Collections.max(Arrays.asList(playerList.get(0).getCoins(), playerList.get(1).getCoins(),
 					playerList.get(2).getCoins()));
+			System.out.println(playerList.get(3).getName() + " has earned " + playerList.get(3).getCoins() + " coins.");
 		}
 		if(playerList.size() == 4)
 		{
 			largest = Collections.max(Arrays.asList(playerList.get(0).getCoins(), playerList.get(1).getCoins(),
 					playerList.get(2).getCoins(), playerList.get(3).getCoins()));
+			System.out.println(playerList.get(4).getName() + " has earned " + playerList.get(4).getCoins() + " coins.");
 		}
 
 		if(playerList.size() == 5)

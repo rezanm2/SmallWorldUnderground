@@ -37,6 +37,8 @@ public class EndTurnController
 
 	public void start(Player activePlayer)
 	{
+
+		System.out.println("A: ~~~~~~~~~~~~~~~Calculating coins~~~~~~~~~~~~~~~~~~~`");
 		this.activePlayer = activePlayer;
 		calculateTerrainIncome();
 		calculateRelicIncome();

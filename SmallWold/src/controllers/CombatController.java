@@ -89,14 +89,17 @@ public class CombatController
 
 		if(miscModifier > 20){
 			losingPlayer.getHand().setCurrentTokens(losingPlayer.getHand().getCurrentTokens() + (terrain.getAmountOfTokens())); //Calculate loss
-			
+
 			System.out.println("A: StinkyTrollSocks in effect");
-			
+
 			System.out.println("A: " + losingPlayer.getName() + " just lost combat. Now has: " + losingPlayer.getHand().getCurrentTokens()
 					+ " in hand, because " + terrain.getAmountOfTokens() + " were returned to his hand.");
 		}
 		else if(!terrain.getRace().equals(raceList.getListElement(0)))
 		{
+			System.out.println(raceList.getListElement(0).getName());
+
+
 			losingPlayer.getHand().setCurrentTokens(losingPlayer.getHand().getCurrentTokens() + (terrain.getAmountOfTokens() - 1)); //Calculate loss
 
 			System.out.println("A: " + losingPlayer.getName() + " just lost combat. Now has: " + losingPlayer.getHand().getCurrentTokens()
@@ -204,12 +207,12 @@ public class CombatController
 	{
 		this.declaredAmountOfTokens = declaredAmountOfTokens;
 	}
-	
+
 	public int getMiscModifier() {
 		return miscModifier;
 	}
-	
-	public void setMiscModifier(int miscModifier) { 
+
+	public void setMiscModifier(int miscModifier) {
 		this.miscModifier = miscModifier;
 	}
 }
