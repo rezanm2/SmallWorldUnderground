@@ -13,6 +13,7 @@ import races.Mummies;
 import races.Ogres;
 import races.Race;
 import relics.FlyingDoormat;
+import relics.KillerRabbitSword;
 import terrain.Terrain;
 
 public class DeclareCombat
@@ -65,7 +66,7 @@ public class DeclareCombat
 		
 		
 		
-		map.getTerrain(0).setRelic(new FlyingDoormat());
+		map.getTerrain(0).setRelic(new KillerRabbitSword());
 		map.getTerrain(0).getRelic().processRelic(ammy);
 
 		while(activePlayer.getHand().getCurrentTokens()>0)
