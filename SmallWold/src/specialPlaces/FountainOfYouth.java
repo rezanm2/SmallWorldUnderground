@@ -29,7 +29,6 @@ public class FountainOfYouth extends SpecialPlace
 		}
 		if(activePlayer.getActiveSet().getRace().getName() == map.getTerrain(terrainNumber).getRace().getName()) {
 			playerTerrainAmount = 0;
-			System.out.println("iets van spam");
 			System.out.println(activePlayer.getActiveSet().getRace().getMaxTokens());
 			System.out.println(activePlayer.getHand().getCurrentTokens());
 			for(int terrainCounter = 0; terrainCounter < map.getAllTerrains().size(); terrainCounter++) 
