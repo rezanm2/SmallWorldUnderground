@@ -2,18 +2,56 @@
 
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
 
-<BorderPane onKeyPressed="#keyPressed" onKeyReleased="#keyReleased" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.fieldView.FieldViewController">
+<BorderPane onKeyPressed="#keyPressed" onKeyReleased="#keyReleased" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.fieldView.FieldViewController">
    <center>
       <StackPane fx:id="stackPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="915.0" prefWidth="1755.0" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="915.0" fitWidth="1755.0" pickOnBounds="true">
                <image>
-                  <Image url="@../../images/maps/field-4.png" />
+                  <Image url="@../../images/maps/field-3.png" />
                </image>
             </ImageView>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <StackPane fx:id="AA" layoutX="14.0" prefHeight="128.0" prefWidth="148.0" />
+                  <StackPane fx:id="AB" layoutX="183.0" layoutY="14.0" prefHeight="125.0" prefWidth="200.0" />
+                  <StackPane fx:id="AC" layoutX="397.0" layoutY="14.0" prefHeight="140.0" prefWidth="176.0" />
+                  <StackPane fx:id="AD" layoutX="619.0" layoutY="14.0" prefHeight="191.0" prefWidth="220.0" />
+                  <StackPane fx:id="AE" layoutX="834.0" layoutY="14.0" prefHeight="444.0" prefWidth="120.0" />
+                  <StackPane fx:id="AF" layoutX="1073.0" layoutY="2.0" prefHeight="135.0" prefWidth="200.0" />
+                  <StackPane fx:id="AG" layoutX="1337.0" layoutY="9.0" prefHeight="122.0" prefWidth="226.0" />
+                  <StackPane fx:id="AH" layoutX="1517.0" layoutY="139.0" prefHeight="150.0" prefWidth="224.0" />
+                  <StackPane fx:id="BA" layoutX="14.0" layoutY="161.0" prefHeight="199.0" prefWidth="216.0" />
+                  <StackPane fx:id="BB" layoutX="283.0" layoutY="171.0" prefHeight="150.0" prefWidth="200.0" />
+                  <StackPane fx:id="BC" layoutX="519.0" layoutY="236.0" prefHeight="150.0" prefWidth="200.0" />
+                  <StackPane fx:id="BD" layoutX="967.0" layoutY="171.0" prefHeight="150.0" prefWidth="200.0" />
+                  <StackPane fx:id="BE" layoutX="1208.0" layoutY="214.0" prefHeight="129.0" prefWidth="200.0" />
+                  <StackPane fx:id="CA" layoutX="14.0" layoutY="386.0" prefHeight="150.0" prefWidth="247.0" />
+                  <StackPane fx:id="CB" layoutX="331.0" layoutY="360.0" prefHeight="150.0" prefWidth="200.0" />
+                  <StackPane fx:id="CC" layoutX="561.0" layoutY="435.0" prefHeight="150.0" prefWidth="200.0" />
+                  <StackPane fx:id="CD" layoutX="930.0" layoutY="360.0" prefHeight="217.0" prefWidth="206.0" />
+                  <StackPane fx:id="CE" layoutX="1161.0" layoutY="383.0" prefHeight="150.0" prefWidth="200.0" />
+                  <StackPane fx:id="CF" layoutX="1379.0" layoutY="360.0" prefHeight="150.0" prefWidth="200.0" />
+                  <StackPane fx:id="CG" layoutX="1607.0" layoutY="343.0" prefHeight="150.0" prefWidth="134.0" />
+                  <StackPane fx:id="DA" layoutX="14.0" layoutY="536.0" prefHeight="150.0" prefWidth="200.0" />
+                  <StackPane fx:id="DB" layoutX="231.0" layoutY="536.0" prefHeight="150.0" prefWidth="200.0" />
+                  <StackPane fx:id="DC" layoutX="431.0" layoutY="611.0" prefHeight="150.0" prefWidth="200.0" />
+                  <StackPane fx:id="DD" layoutX="661.0" layoutY="626.0" prefHeight="189.0" prefWidth="135.0" />
+                  <StackPane fx:id="DE" layoutX="854.0" layoutY="626.0" prefHeight="113.0" prefWidth="176.0" />
+                  <StackPane fx:id="DF" layoutX="1136.0" layoutY="572.0" prefHeight="108.0" prefWidth="293.0" />
+                  <StackPane fx:id="DG" layoutX="1496.0" layoutY="515.0" prefHeight="186.0" prefWidth="200.0" />
+                  <StackPane fx:id="EA" layoutY="740.0" prefHeight="150.0" prefWidth="200.0" />
+                  <StackPane fx:id="EB" layoutX="215.0" layoutY="721.0" prefHeight="191.0" prefWidth="216.0" />
+                  <StackPane fx:id="EC" layoutX="628.0" layoutY="834.0" prefHeight="77.0" prefWidth="359.0" />
+                  <StackPane fx:id="ED" layoutX="1097.0" layoutY="740.0" prefHeight="150.0" prefWidth="200.0" />
+                  <StackPane fx:id="EE" layoutX="1344.0" layoutY="721.0" prefHeight="150.0" prefWidth="200.0" />
+                  <StackPane fx:id="EF" layoutX="1555.0" layoutY="759.0" prefHeight="150.0" prefWidth="200.0" />
+               </children>
+            </AnchorPane>
          </children>
       </StackPane>
    </center>

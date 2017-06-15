@@ -52,7 +52,7 @@ public class DeclareCombat
 		tc.setAllAttackableAreas(activePlayer);						//Setting isAttackable for each area player x has
 		tc.setAllAdjacentAreas(activePlayer);						//Setting isAdjacent for each area player x has
 		tc.setAllRedeployableAreas(activePlayer);					//Setting isReinforcable for each area player x has
-		toc.calculateReturnedTokens();
+		toc.calculateReturnedTokens(activePlayer);
 
 		activePlayer.getHand().setCurrentTokens(activePlayer.getHand().getCurrentTokens() + tc.getReturnedTokens());
 		System.out.println("A: Currently, " + activePlayer.getName() + " controls the following areas and has "

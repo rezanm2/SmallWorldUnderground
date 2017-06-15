@@ -16,6 +16,7 @@ public class TokenController
 	List<Player> playerList;
 	private int returnedTokens;
 	Map map;
+
 	public TokenController(Ammy ammy)
 	{
 		this.playerList = ammy.getPlayerCreator().getPlayerList();
@@ -43,7 +44,7 @@ public class TokenController
 		}
 	}
 
-	public void calculateReturnedTokens()
+	public void calculateReturnedTokens(Player activePlayer)
 	{
 		returnedTokens = 0;
 		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
@@ -54,6 +55,8 @@ public class TokenController
 				map.getTerrain(terrainCounter).setToOne();
 			}
 		}
+		activePlayer.getHand().setCurrentTokens(activePlayer.getHand().getCurrentTokens() + returnedTokens);
+		
 	}
 
 	public void setRacesPlayer(Player racesPlayer)

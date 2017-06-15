@@ -41,7 +41,6 @@ public class FlyingDoormat extends Relic {
 			for(int i = 0; i < map.getAllTerrains().size(); i++) {
 				map.getTerrain(i).setIsAttackable(true);
 			}
-			changeTerrain(12);
 			System.out.println("Set everything attackable");
 			active = false;
 		}
