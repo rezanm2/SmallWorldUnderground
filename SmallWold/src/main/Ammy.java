@@ -18,6 +18,7 @@ import mapInitializers.Initializer;
 import playBoard.Die;
 import playBoard.Map;
 import setup.DeclareCombat;
+import setup.Decline;
 import setup.MapCreator;
 import setup.PickRegions;
 import setup.PlayerCreator;

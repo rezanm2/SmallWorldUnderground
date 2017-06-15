@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
 
-<BorderPane onKeyPressed="#keyPressed" onKeyReleased="#keyReleased" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.fieldView.FieldViewController">
+<BorderPane onKeyPressed="#keyPressed" onKeyReleased="#keyReleased" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.fieldView.FieldViewController">
    <center>
       <StackPane fx:id="stackPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="915.0" prefWidth="1755.0" BorderPane.alignment="CENTER">
          <children>
@@ -17,7 +17,34 @@
             </ImageView>
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <StackPane layoutX="59.0" layoutY="47.0" prefHeight="150.0" prefWidth="200.0" />
+                  <StackPane fx:id="AA" layoutX="14.0" layoutY="14.0" prefHeight="204.0" prefWidth="308.0" />
+                  <StackPane fx:id="AB" layoutX="413.0" layoutY="14.0" prefHeight="150.0" prefWidth="261.0" />
+                  <StackPane fx:id="AC" layoutX="749.0" layoutY="14.0" prefHeight="363.0" prefWidth="200.0" />
+                  <StackPane layoutX="1073.0" layoutY="14.0" prefHeight="150.0" prefWidth="200.0" />
+                  <StackPane fx:id="AE" layoutX="1340.0" layoutY="14.0" prefHeight="135.0" prefWidth="200.0" />
+                  <StackPane fx:id="AF" layoutX="1490.0" layoutY="152.0" prefHeight="119.0" prefWidth="250.0" />
+                  <StackPane fx:id="BA" layoutX="14.0" layoutY="383.0" prefHeight="150.0" prefWidth="275.0" />
+                  <StackPane fx:id="BB" layoutX="289.0" layoutY="183.0" prefHeight="150.0" prefWidth="200.0" />
+                  <StackPane fx:id="BC" layoutX="521.0" layoutY="212.0" prefHeight="150.0" prefWidth="219.0" />
+                  <StackPane fx:id="BD" layoutX="961.0" layoutY="171.0" prefHeight="150.0" prefWidth="200.0" />
+                  <StackPane fx:id="BE" layoutX="1232.0" layoutY="183.0" prefHeight="168.0" prefWidth="200.0" />
+                  <StackPane fx:id="CA" layoutX="331.0" layoutY="362.0" prefHeight="150.0" prefWidth="200.0" />
+                  <StackPane fx:id="CB" layoutX="557.0" layoutY="437.0" prefHeight="150.0" prefWidth="200.0" />
+                  <StackPane fx:id="CC" layoutX="937.0" layoutY="371.0" prefHeight="209.0" prefWidth="200.0" />
+                  <StackPane fx:id="CD" layoutX="1152.0" layoutY="390.0" prefHeight="150.0" prefWidth="200.0" />
+                  <StackPane fx:id="CE" layoutX="1402.0" layoutY="371.0" prefHeight="150.0" prefWidth="200.0" />
+                  <StackPane fx:id="CF" layoutX="1657.0" layoutY="312.0" prefHeight="254.0" prefWidth="83.0" />
+                  <StackPane fx:id="DA" layoutX="247.0" layoutY="548.0" prefHeight="91.0" prefWidth="203.0" />
+                  <StackPane fx:id="DB" layoutX="413.0" layoutY="656.0" prefHeight="171.0" prefWidth="223.0" />
+                  <StackPane fx:id="DC" layoutX="657.0" layoutY="639.0" prefHeight="150.0" prefWidth="200.0" />
+                  <StackPane fx:id="DD" layoutX="857.0" layoutY="599.0" prefHeight="114.0" prefWidth="126.0" />
+                  <StackPane fx:id="DE" layoutX="1112.0" layoutY="580.0" prefHeight="118.0" prefWidth="341.0" />
+                  <StackPane fx:id="DF" layoutX="1490.0" layoutY="599.0" prefHeight="150.0" prefWidth="200.0" />
+                  <StackPane fx:id="EA" layoutX="14.0" layoutY="669.0" prefHeight="245.0" prefWidth="270.0" />
+                  <StackPane fx:id="EB" layoutX="678.0" layoutY="819.0" prefHeight="96.0" prefWidth="281.0" />
+                  <StackPane fx:id="EC" layoutX="1096.0" layoutY="735.0" prefHeight="150.0" prefWidth="200.0" />
+                  <StackPane fx:id="ED" layoutX="1315.0" layoutY="765.0" prefHeight="150.0" prefWidth="200.0" />
+                  <StackPane fx:id="EF" layoutX="1570.0" layoutY="787.0" prefHeight="128.0" prefWidth="185.0" />
                </children>
             </AnchorPane>
          </children>
