@@ -23,6 +23,7 @@ public class Fisher extends Ability implements CalculatableIncome
 
 	@Override
 	public void processAbility(Ammy ammy) {
+		abilityIncome = 0;
 		this.tc = ammy.getTc();
 		this.activePlayer = ammy.getActivePlayer();
 		this.map = ammy.getMap();
@@ -40,7 +41,6 @@ public class Fisher extends Ability implements CalculatableIncome
 			{
 				tempAbilityIncome += 0.5;
 			}
-
 			abilityIncome = (int)Math.floor(tempAbilityIncome);
 		}
 

@@ -167,20 +167,6 @@ public class TerrainController
 		}
 	}
 
-	//TokenController
-	public void calculateReturnedTokens()
-	{
-		returnedTokens = 0;
-		for(terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
-		{
-			if(map.getTerrain(terrainCounter).getIsRedeployable() == true)						//If isAttackable is true
-			{
-				this.returnedTokens = returnedTokens + map.getTerrain(terrainCounter).getAmountOfTokens() - 1;
-				map.getTerrain(terrainCounter).setToOne();
-			}
-		}
-	}
-
 	public void checkAdjacentToTerrainType(String terrainString)
 	{
 		for(typeTerrainCounter = 0; typeTerrainCounter<map.getAllTerrains().size(); typeTerrainCounter++)

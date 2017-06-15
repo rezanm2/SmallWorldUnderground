@@ -15,13 +15,13 @@ public class Muddy extends Ability implements CalculatableIncome
 		amountOfTokens = 3;
 		name = "Muddy ";
 		traitText = "+1 coin for each mud region";
-	}	
+	}
 
 	@Override
 	public void processAbility(Ammy ammy) {
 		this.activePlayer = ammy.getActivePlayer();
 		this.tc = ammy.getTc();
-		tc.checkTerrainType("Muddy", activePlayer);
+		tc.checkTerrainType("Mud", activePlayer);
 		this.setAbilityIncome(tc.getTerrainStringCounter());
 	}
 
