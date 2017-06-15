@@ -57,6 +57,8 @@ public  class Decline {
 		List<Player> playerList;
 		ShadowMimes shadowMimes =new ShadowMimes();
 
+		Set emptySet = new Set(abilityList.getListElement(0), raceList.getListElement(0));
+
 		private int getal1;
 		private int getal2;
 		private Race tempRace;
@@ -73,14 +75,22 @@ public  class Decline {
 			this.abilityList = ammy.getAbilityList();
 			this.raceList = ammy.getRaceList();
 			this.playerList = ammy.getPlayerList();
+			shuffleSets();
 		}
 		public void goInDecline()
 		{
 
 			activePlayer.setDeclineSet(activePlayer.getActiveSet());
+			activePlayer.setActiveSet(emptySet);
+
 			System.out.println(activePlayer.getDeclineSet().getAbility().getName() + " and "
 								+ activePlayer.getDeclineSet().getRace().getName() + " for player: "
 								+ activePlayer.getName() +  " are declined");
+
+			System.out.println(activePlayer.getActiveSet().getAbility().getName() + " and "
+					+ activePlayer.getActiveSet().getRace().getName() + " for player: "
+					+ activePlayer.getName() +  " are active.\n");
+
 		}
 
 		public void shuffleSets()
