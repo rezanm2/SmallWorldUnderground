@@ -1,8 +1,10 @@
 package rmi;
+import java.io.IOException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
+import javafx.application.Platform;
 import player.Player;
 import server.ClientSkeleton;
 import server.TurnServiceClientSkeleton;
@@ -20,21 +22,31 @@ public class TurnService extends UnicastRemoteObject implements TurnServiceClien
 	private Player selfPlayer;
 
 
-	public TurnService(Player selfPlayer) throws RemoteException {
+	public TurnService(Player selfPlayer, SideBarController sideBarController) throws RemoteException {
 		this.sideBarController = sideBarController;
 		this.selfPlayer = selfPlayer;
 	}
 
 	@Override
 	public void updatePlayerTurn(String playerName) {
-		sideBarController.UpdateText("Its " +playerName +"'s Turn");
+
 		selfPlayer.setMyTurn(false);
+		System.out.println("its "+ playerName+"'s turn");
+		Platform.runLater(() -> {
+			sideBarController.UpdateText("Its " +playerName +"'s Turn");
+		});
 	}
 
 	@Override
 	public void StartTurn() {
-		sideBarController.UpdateText("Its your Turn");
+
+		Platform.runLater(() -> {
+
+			sideBarController.UpdateText("Its your Turn");
+		});
+
 		selfPlayer.setMyTurn(true);
+		System.out.println("its my turn");
 	}
 
 

@@ -100,7 +100,7 @@ public class RemoteClient {
 
 			System.out.println("Client: looking up turnServiceServer in RMI Registry...");
 			TurnServiceSkeleton serverTurnService = (TurnServiceSkeleton) Naming.lookup("//" + host + "/ServerTurnService");
-			TurnService turnClient = new TurnService(app.getPlayer());
+			TurnService turnClient = new TurnService(app.getPlayer(), app.getSidebarController());
 			serverTurnService.addTurnClient(turnClient);
 
 			System.out.println("Client: looking up ServerSetService in RMI Registry...");

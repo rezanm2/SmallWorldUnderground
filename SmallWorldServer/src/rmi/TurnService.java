@@ -14,32 +14,30 @@ public class TurnService extends UnicastRemoteObject implements TurnServiceSkele
 	 *@author Wim van der Putten
 	 */
 	private static final long serialVersionUID = 1L;
-	private ArrayList<Player> playerList;
 	private int amountPlayers;
 	private ArrayList<TurnServiceClientSkeleton> turnClientList = new ArrayList<>();
+	private ArrayList<Player> playerList;
 	private int turn;
 	private int round;
 	private int endRound;
 	private int playerTurn;
 
 
-	public TurnService(ArrayList<String> playerNameList, int amountPlayers, ArrayList<Player> playerList) throws RemoteException {
+	public TurnService(ArrayList<Player> playerList) throws RemoteException {
+		this.amountPlayers = playerList.size();
 		this.playerList = playerList;
-		this.amountPlayers = amountPlayers;
 		this.turn = 0;
 		this.round = 0;
 		this.playerTurn = 0;
 		setEndRound();
-		setPlayers(playerNameList);
+		setPlayers(playerList);
 	}
-	public void setPlayers(ArrayList<String> playerNameList){
-		System.out.println(playerNameList);
-		for (String name : playerNameList) {
-			System.out.println(name);
-			this.playerList.add(new Player(name));
+	public void setPlayers( ArrayList<Player> playerList){
+		System.out.println(playerList);
+		for (Player player : playerList) {
+			System.out.println(player.getUserName());
 		}
 	}
-
 
 	public void setEndRound(){
 		switch (amountPlayers) {
@@ -65,9 +63,10 @@ public class TurnService extends UnicastRemoteObject implements TurnServiceSkele
 		int i = 0;
 		for (TurnServiceClientSkeleton Turnclient : turnClientList) {
 			if (i != playerTurn){
-				Turnclient.updatePlayerTurn(this.playerList.get(playerTurn).getUserName()); //notify's players who's turn it is.
+				Turnclient.updatePlayerTurn(playerList.get(playerTurn).getUserName()); //notify's players who's turn it is.
 
 			}else{
+				System.out.println(Turnclient);
 				Turnclient.StartTurn();								//start player's turn
 
 			}
