@@ -22,7 +22,6 @@ public class ClientApplication extends Application{
 
 	private static RemoteClient client;
 	private Stage primaryStage;
-
 	private TabViewController tabController;
 	private SideBarController sidebarController;
 
@@ -33,6 +32,7 @@ public class ClientApplication extends Application{
 	public ClientApplication() throws RemoteException {
 
 		client = new RemoteClient(this);
+		selfPlayer = new Player();
 	}
 
 

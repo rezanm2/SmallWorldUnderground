@@ -101,7 +101,16 @@ public class RemoteServer {
 
 		new Thread(() -> {
 			try {
-				playerNameList.add(addedClient.getUsername());
+				String name  = addedClient.getUsername();
+
+				if(name.equalsIgnoreCase("player")){
+					name = ("player_"+(playerList.size()+1));
+				}
+
+
+				playerList.add(new Player(name));		//add player to the player list, contains all var's of the player
+				playerNameList.add(name);				//add players name to list that gets send to all players
+
 				for (ClientSkeleton client : clientList) {
 					client.updatePlayerList(playerNameList);
 				}
@@ -114,11 +123,11 @@ public class RemoteServer {
 
 	public void startTurnService() throws InterruptedException, IOException {
 
-			turnService = new TurnService(playerNameList, amountPlayers,playerList);
+			turnService = new TurnService(playerList);
 			Naming.rebind("ServerTurnService", turnService);
 			System.out.println("Server: turnService registered as \'ServerTurnService\' in RMI registry.");
 
-			SetService setService = new SetService(amountPlayers);
+			SetService setService = new SetService(playerList);
 			Naming.rebind("ServerSetService", setService);
 			System.out.println("Server: SetService registered as \'ServerSetService\' in RMI registry.");
 

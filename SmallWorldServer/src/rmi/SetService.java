@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
+import data.Player;
 import data.Races;
 import server.SetServiceClientSkeleton;
 import server.SetServiceSkeleton;
@@ -21,9 +22,9 @@ public class SetService extends UnicastRemoteObject implements SetServiceSkeleto
 	private Races races;
 	private int amountPlayers;
 
-	public SetService(int amountPlayers) throws RemoteException {
+	public SetService(ArrayList<Player> playerList) throws RemoteException {
 		super();
-		this.amountPlayers = amountPlayers;
+		this.amountPlayers = playerList.size();
 		races = new Races();
 		races.shuffleMain();
 
