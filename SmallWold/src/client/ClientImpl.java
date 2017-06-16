@@ -66,7 +66,7 @@ public class ClientImpl extends UnicastRemoteObject implements ClientSkeleton{
 	@Override
 	public void notifyOfStart(int playerAmount) throws RemoteException, IOException {
 	remoteClient.startGame(playerAmount);
-	remoteClient.setTurnService();
+	//remoteClient.setTurnService();
 
 	}
 

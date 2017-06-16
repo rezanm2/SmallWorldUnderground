@@ -57,7 +57,7 @@ public class TurnService extends UnicastRemoteObject implements TurnServiceSkele
 		int i = 0;
 		for (TurnServiceClientSkeleton Turnclient : turnClientList) {
 			if (i != playerTurn){
-				Turnclient.updatePlayerTurn(this.playerList.get(i)); //notify's players who's turn it is.
+				Turnclient.updatePlayerTurn(this.playerList.get(playerTurn)); //notify's players who's turn it is.
 
 			}else{
 				Turnclient.StartTurn();								//start player's turn

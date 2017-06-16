@@ -97,9 +97,6 @@ public class CombatController
 		}
 		else if(!terrain.getRace().equals(raceList.getListElement(0)))
 		{
-			System.out.println(raceList.getListElement(0).getName());
-
-
 			losingPlayer.getHand().setCurrentTokens(losingPlayer.getHand().getCurrentTokens() + (terrain.getAmountOfTokens() - 1)); //Calculate loss
 
 			System.out.println("A: " + losingPlayer.getName() + " just lost combat. Now has: " + losingPlayer.getHand().getCurrentTokens()

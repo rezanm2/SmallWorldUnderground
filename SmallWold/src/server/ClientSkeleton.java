@@ -15,4 +15,5 @@ public interface ClientSkeleton extends Remote{
 	public void updatePlayerTurn(String player)throws RemoteException;
 	public void StartTurn() throws RemoteException;
 	public void notifyOfStart(int playerAmount) throws RemoteException, IOException;
+
 }

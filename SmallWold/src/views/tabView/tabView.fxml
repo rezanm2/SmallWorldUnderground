@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="mainPane" prefHeight="839.0" prefWidth="1557.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.tabView.TabViewController">
+<StackPane fx:id="mainPane" onMouseClicked="#onclick" prefHeight="839.0" prefWidth="1557.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.tabView.TabViewController">
    <children>
       <ImageView fitHeight="862.0" fitWidth="1557.0" pickOnBounds="true">
          <image>
@@ -170,12 +170,12 @@
             </Label>
             <HBox prefHeight="166.0" prefWidth="472.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <children>
-                  <ImageView id="pick_ab_1" fitHeight="106.0" fitWidth="107.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="106.0" fitWidth="107.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/abilitys/frightend.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="105.0" fitWidth="193.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="pick_race_1" fitHeight="105.0" fitWidth="193.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/races/placeHolder.png" />
                      </image>
@@ -198,12 +198,12 @@
             </StackPane>
             <HBox prefHeight="166.0" prefWidth="472.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
                <children>
-                  <ImageView id="pick_ab_2" fitHeight="110.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="110.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/abilitys/frightend.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="106.0" fitWidth="213.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="pick_race_2" fitHeight="106.0" fitWidth="213.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/races/placeHolder.png" />
                      </image>
@@ -352,12 +352,12 @@
             </StackPane>
             <HBox prefHeight="166.0" prefWidth="472.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
                <children>
-                  <ImageView id="pick_ab_3" fitHeight="113.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="113.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/abilitys/frightend.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="108.0" fitWidth="211.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="pick_race_3" fitHeight="108.0" fitWidth="211.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/races/placeHolder.png" />
                      </image>
@@ -366,12 +366,12 @@
             </HBox>
             <HBox prefHeight="166.0" prefWidth="472.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
                <children>
-                  <ImageView id="pick_ab_4" fitHeight="108.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="108.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/abilitys/frightend.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="107.0" fitWidth="214.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="pick_race_4" fitHeight="107.0" fitWidth="214.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/races/placeHolder.png" />
                      </image>
@@ -380,12 +380,12 @@
             </HBox>
             <HBox prefHeight="166.0" prefWidth="472.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
                <children>
-                  <ImageView id="pick_ab_5" fitHeight="110.0" fitWidth="111.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="110.0" fitWidth="111.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/abilitys/frightend.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="118.0" fitWidth="193.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="pick_race_5" fitHeight="118.0" fitWidth="193.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/races/placeHolder.png" />
                      </image>
@@ -394,12 +394,12 @@
             </HBox>
             <HBox prefHeight="166.0" prefWidth="472.0" GridPane.columnIndex="3" GridPane.rowIndex="6">
                <children>
-                  <ImageView id="pick_ab_6" fitHeight="110.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="110.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/abilitys/frightend.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="112.0" fitWidth="215.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="pick_race_6" fitHeight="112.0" fitWidth="215.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/races/placeHolder.png" />
                      </image>

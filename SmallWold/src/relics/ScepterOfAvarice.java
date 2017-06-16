@@ -47,7 +47,11 @@ public class ScepterOfAvarice extends Relic implements CalculatableIncome{
 			
 			/*
 			 * Ergens hier nog n dubbeling uitvoeren.
+			 * 
+			 * Tot die tijd dus
 			 */
+			setRelicIncome(2);
+			
 		}
 		
 	}
@@ -60,5 +64,9 @@ public class ScepterOfAvarice extends Relic implements CalculatableIncome{
 	@Override
 	public int getRelicIncome() {
 		return relicIncome;
+	}
+
+	public void setRelicIncome(int relicIncome) {
+		this.relicIncome = relicIncome;
 	}
 }

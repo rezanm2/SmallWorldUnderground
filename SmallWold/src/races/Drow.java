@@ -16,7 +16,7 @@ public class Drow extends Race implements CalculatableIncome
 	{
 		amountOfTokens = 4;
 		maxTokens = 9;
-		name = "Drow ";
+		name = "Drow";
 		traitText = "+1 Coin for each terrain that isn't sharing borders with non-drow.";
 	}
 
@@ -42,9 +42,9 @@ public class Drow extends Race implements CalculatableIncome
 				{
 					countRaces++;
 				}
-				
+
 			}
-			
+
 
 		}
 		if(countTerrains == countRaces)
