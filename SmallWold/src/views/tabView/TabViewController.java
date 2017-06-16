@@ -9,11 +9,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import models.JoinedPlayers;
 import models.Set;
+import models.StackSet;
 
 
 public class TabViewController {
 	@FXML
     private StackPane mainPane;
+	private StackSet stackset;
 
 	@FXML
     private Label player_1;
@@ -45,8 +47,22 @@ public class TabViewController {
 	public TabViewController(){
 
 	}
+	
+	public void pickSet1()
+	{
+		
+		mainPane.setOnMouseClicked(e -> {
+			ImageView test = (ImageView) e.getTarget();
+			System.out.println(test.getId());
+			char [] iets = test.getId().toCharArray();
+			//Character.isDigit(iets[iets.length-1]);
+			int choice = Character.getNumericValue(iets[iets.length-1]);
+			System.out.println(choice);
+			stackset.chooseSet(choice-1);
+		});
+	}
+	
 	public void onclick(){
-System.out.println("im not broken!!");
 	}
 
 
@@ -61,6 +77,9 @@ System.out.println("im not broken!!");
 
     public boolean isVisible(){
     	return mainPane.visibleProperty().get();
+    }
+    public void setStackRef(StackSet stack){
+    	this.stackset = stack;
     }
 	public void setStack(ObservableList<Set> sets) {
 		//    	tabImage.setImage(new Image("/images/icons/tab-bar-stripes-pressed.png"));
