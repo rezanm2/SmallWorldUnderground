@@ -60,20 +60,13 @@ public class StackSet {
 			for (Race race : raceList) {
 				if (race.getName().toUpperCase().equals(string.toUpperCase())) {
 					tempRace = race;
-					System.out.println("UGH!:  " +  race.getName());
 				}
 			}
-			sets.add(new Set(tempRace, null));
-			System.out.println("added");
+			sets.add(new Set(tempRace, null)); //TODO need to add ability.
 		}
 
 	}
 
-	public void testStack() {
-		for (Set set : sets) {
-			System.out.println(set.getRace().getName());
-		}
-	}
 	public void linkStack(){
 		tabController.setStack(this.sets);
 	}

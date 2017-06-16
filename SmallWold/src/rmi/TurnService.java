@@ -3,9 +3,11 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
+import player.Player;
 import server.ClientSkeleton;
 import server.TurnServiceClientSkeleton;
 import server.TurnServiceSkeleton;
+import views.sideBarView.SideBarController;
 
 
 public class TurnService extends UnicastRemoteObject implements TurnServiceClientSkeleton {
@@ -14,21 +16,25 @@ public class TurnService extends UnicastRemoteObject implements TurnServiceClien
 	 *
 	 */
 	private static final long serialVersionUID = 1L;
+	private SideBarController sideBarController;
+	private Player selfPlayer;
 
-	public TurnService() throws RemoteException {
+
+	public TurnService(Player selfPlayer) throws RemoteException {
+		this.sideBarController = sideBarController;
+		this.selfPlayer = selfPlayer;
 	}
 
 	@Override
-	public void updatePlayerTurn(String player) {
-		System.out.println("current players turn: " + player);
-
+	public void updatePlayerTurn(String playerName) {
+		sideBarController.UpdateText("Its " +playerName +"'s Turn");
+		selfPlayer.setMyTurn(false);
 	}
 
 	@Override
 	public void StartTurn() {
-		System.out.println("iTS YOUR TURN!!!");
-
-
+		sideBarController.UpdateText("Its your Turn");
+		selfPlayer.setMyTurn(true);
 	}
 
 

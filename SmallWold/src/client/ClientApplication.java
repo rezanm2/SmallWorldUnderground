@@ -12,6 +12,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import models.JoinedPlayers;
+import player.Player;
 import views.fieldView.FieldViewController;
 import views.lobbyView.lobbyController;
 import views.sideBarView.SideBarController;
@@ -21,8 +22,12 @@ public class ClientApplication extends Application{
 
 	private static RemoteClient client;
 	private Stage primaryStage;
-	private FXMLLoader tabViewLoader;
+
 	private TabViewController tabController;
+	private SideBarController sidebarController;
+
+	private Player selfPlayer;
+
 
 
 	public ClientApplication() throws RemoteException {
@@ -71,12 +76,12 @@ public class ClientApplication extends Application{
         //add SideBar to the rootLayout
 		FXMLLoader sideBarLoader = new FXMLLoader(getClass().getResource("../views/sideBarView/sideBarView.fxml"));			//get xml file
 		StackPane sideBar = sideBarLoader.load(); 															//load xml file to object
-		SideBarController sidebarController = sideBarLoader.getController();
+		this.sidebarController = sideBarLoader.getController();
        rootLayout.setRight(sideBar);
 
         //add tabview thats hidden to rootLayout
-       this.tabViewLoader = new FXMLLoader(getClass().getResource("../views/tabView/tabView.fxml"));			//get xml file
-       StackPane tabView = this.tabViewLoader.load();																//load xml file to object
+       FXMLLoader tabViewLoader = new FXMLLoader(getClass().getResource("../views/tabView/tabView.fxml"));			//get xml file
+       StackPane tabView = tabViewLoader.load();																//load xml file to object
        this.tabController = tabViewLoader.getController();										//set controller tabView
 
         StackPane tabPane = (StackPane)rootLayoutLoader.getNamespace().get("stackPane"); 						//get stackPane from fieldView
@@ -102,6 +107,12 @@ public class ClientApplication extends Application{
 	}
 	public TabViewController getTabController(){
 		return this.tabController;
+	}
+	public SideBarController getSidebarController(){
+		return this.sidebarController;
+	}
+	public Player getPlayer(){
+		return this.selfPlayer;
 	}
 
 

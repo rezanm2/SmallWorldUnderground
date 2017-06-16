@@ -1,6 +1,7 @@
 package views.sideBarView;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import views.tabView.TabViewController;
@@ -12,6 +13,10 @@ public class SideBarController {
 
     @FXML
     private ImageView tabImage;
+
+    @FXML
+    private Label turn_label;
+
 
     public SideBarController() {
 		// TODO Auto-generated constructor stub
@@ -40,4 +45,9 @@ public class SideBarController {
     	}
 
     }
+
+
+	public void UpdateText(String message) {
+		turn_label.setText(message);
+	}
 }

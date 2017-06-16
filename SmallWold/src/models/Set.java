@@ -3,31 +3,47 @@ package models;
 import abilities.Ability;
 import races.Race;
 
-public class Set {
+public class Set
+{
 
-	private Race race;
-	private Ability ability;
-	private int cost;
-	private int gain;
-	private int initialTokens;
+	protected Ability ability;
+	protected Race race;
+	protected int initialTokens;
+	protected int cost;
 
-	public Set(Race race, Ability ability) {
-		this.race = race;
+	public Set( Race race,Ability ability)
+	{
 		this.ability = ability;
-		//this.initialTokens = getInitialTokens();
-
+		this.race = race;
+		//this.initialTokens = ability.getAmountOfTokens() + race.getAmountOfTokens();
 	}
 
 	public int getInitialTokens() {
-		int tokens;
-		tokens = this.ability.getAmountOfTokens() + this.race.getAmountOfTokens();
-
-		return tokens;
-
+		return initialTokens;
 	}
 
-	public Race getRace() {
-		return this.race;
+	public void setInitialTokens(int initialTokens) {
+		this.initialTokens = initialTokens;
 	}
+
+	public void setAbility(Ability ability)
+	{
+		this.ability = ability;
+	}
+
+	public Ability getAbility()
+	{
+		return ability;
+	}
+
+	public void setRace(Race race)
+	{
+		this.race = race;
+	}
+	public Race getRace()
+	{
+		return race;
+	}
+
 
 }

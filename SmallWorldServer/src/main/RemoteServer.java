@@ -10,6 +10,7 @@ import java.rmi.server.ExportException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
+import data.Player;
 import rmi.ServerImpl;
 import rmi.SetService;
 import rmi.TurnService;
@@ -28,7 +29,8 @@ public class RemoteServer {
 	private ServerImpl serverImpl;
 	private TurnService turnService;
 	private ArrayList<ClientSkeleton> clientList = new ArrayList<ClientSkeleton>();
-	private ArrayList<String> playerList = new ArrayList<String>();
+	private ArrayList<String> playerNameList = new ArrayList<String>();
+	private ArrayList<Player> playerList = new ArrayList<Player>();
 
 	protected RemoteServer() throws RemoteException {
 		this.port = 1099;
@@ -99,9 +101,9 @@ public class RemoteServer {
 
 		new Thread(() -> {
 			try {
-				playerList.add(addedClient.getUsername());
+				playerNameList.add(addedClient.getUsername());
 				for (ClientSkeleton client : clientList) {
-					client.updatePlayerList(playerList);
+					client.updatePlayerList(playerNameList);
 				}
 			} catch (RemoteException e) {
 				e.printStackTrace();
@@ -112,7 +114,7 @@ public class RemoteServer {
 
 	public void startTurnService() throws InterruptedException, IOException {
 
-			turnService = new TurnService(playerList, amountPlayers);
+			turnService = new TurnService(playerNameList, amountPlayers,playerList);
 			Naming.rebind("ServerTurnService", turnService);
 			System.out.println("Server: turnService registered as \'ServerTurnService\' in RMI registry.");
 

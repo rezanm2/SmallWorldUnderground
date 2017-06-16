@@ -13,6 +13,10 @@ import server.TurnServiceSkeleton;
 public class SetService extends UnicastRemoteObject implements SetServiceSkeleton {
 
 
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
 	private ArrayList<SetServiceClientSkeleton> setClientList = new ArrayList<>();
 	private Races races;
 	private int amountPlayers;

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 import models.StackSet;
+import player.Player;
 import server.ClientSkeleton;
 import server.SetServiceClientSkeleton;
 import views.tabView.TabViewController;
@@ -18,6 +19,7 @@ public class SetService  extends UnicastRemoteObject implements SetServiceClient
 	private static final long serialVersionUID = 1L;
 	private TabViewController tabController;
 	private StackSet stack;
+
 
 	public SetService(TabViewController tabController) throws RemoteException {
 		super();

@@ -3,7 +3,7 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
-import server.ClientSkeleton;
+import data.Player;
 import server.TurnServiceClientSkeleton;
 import server.TurnServiceSkeleton;
 
@@ -11,10 +11,10 @@ import server.TurnServiceSkeleton;
 public class TurnService extends UnicastRemoteObject implements TurnServiceSkeleton {
 
 	/**
-	 *
+	 *@author Wim van der Putten
 	 */
 	private static final long serialVersionUID = 1L;
-	private ArrayList<String> playerList;
+	private ArrayList<Player> playerList;
 	private int amountPlayers;
 	private ArrayList<TurnServiceClientSkeleton> turnClientList = new ArrayList<>();
 	private int turn;
@@ -23,13 +23,21 @@ public class TurnService extends UnicastRemoteObject implements TurnServiceSkele
 	private int playerTurn;
 
 
-	public TurnService(ArrayList<String> playerList, int amountPlayers) throws RemoteException {
+	public TurnService(ArrayList<String> playerNameList, int amountPlayers, ArrayList<Player> playerList) throws RemoteException {
 		this.playerList = playerList;
 		this.amountPlayers = amountPlayers;
 		this.turn = 0;
 		this.round = 0;
 		this.playerTurn = 0;
 		setEndRound();
+		setPlayers(playerNameList);
+	}
+	public void setPlayers(ArrayList<String> playerNameList){
+		System.out.println(playerNameList);
+		for (String name : playerNameList) {
+			System.out.println(name);
+			this.playerList.add(new Player(name));
+		}
 	}
 
 
@@ -57,7 +65,7 @@ public class TurnService extends UnicastRemoteObject implements TurnServiceSkele
 		int i = 0;
 		for (TurnServiceClientSkeleton Turnclient : turnClientList) {
 			if (i != playerTurn){
-				Turnclient.updatePlayerTurn(this.playerList.get(playerTurn)); //notify's players who's turn it is.
+				Turnclient.updatePlayerTurn(this.playerList.get(playerTurn).getUserName()); //notify's players who's turn it is.
 
 			}else{
 				Turnclient.StartTurn();								//start player's turn

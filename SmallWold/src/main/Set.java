@@ -6,6 +6,8 @@ import races.Race;
 public class Set
 {
 
+	///@note DONT USE THIS ONE OUTSIDE OF AMMY!!!!!!!!!!!!!!!!!!!!!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 	protected Ability ability;
 	protected Race race;
 	protected int initialTokens;

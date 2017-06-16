@@ -27,7 +27,9 @@ public class lobbyController {
 	public void joinServer() throws RemoteException {
 
 		if(username.getText().isEmpty()){
+			username.setText("player");
 			client.setImplName("player");				//case name is empty give default name (player)
+
 		}else{
 			client.setImplName(username.getText());		//case name is filled set name
 		}
@@ -41,12 +43,6 @@ public class lobbyController {
 		}
 
 
-	/*	initLabel();
-		ClientMain.loadServer(serverIP.getText(), username.getText());
-//	ClientMain.joinServer();
-		setOtherPlayers();
-		joinButton.setDisable(true);
-		-*/
 
 
 	}

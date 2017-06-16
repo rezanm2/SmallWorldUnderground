@@ -20,6 +20,7 @@ import server.SetServiceClientSkeleton;
 import server.SetServiceSkeleton;
 import server.TurnServiceClientSkeleton;
 import server.TurnServiceSkeleton;
+import views.sideBarView.SideBarController;
 import views.tabView.TabViewController;
 
 public class RemoteClient {
@@ -29,7 +30,6 @@ public class RemoteClient {
 	private ClientImpl clientImpl;
 	private ObservableList<JoinedPlayers> players = FXCollections.observableArrayList();
 	private ClientApplication app;
-	private String username;
 
 	protected RemoteClient(ClientApplication app) throws RemoteException {
 		this.app = app;
@@ -55,14 +55,13 @@ public class RemoteClient {
 	}
 
 	public void setImplName(String username) {
-		this.username = username;
 		clientImpl.setUsername(username);
 		System.out.println(username);
 	}
 
 	public void register() throws RemoteException {
 
-		System.out.println("testing join");
+		System.out.println("testing join..");
 		server.addClient(clientImpl);
 	}
 
@@ -85,7 +84,7 @@ public class RemoteClient {
 			try {
 				app.StartGameScreen(playerAmount, players);
 
-				setTurnService(app.getTabController());
+				setTurnService(app.getTabController(), app.getSidebarController());
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -93,14 +92,14 @@ public class RemoteClient {
 		});
 	}
 
-	public void setTurnService(TabViewController tabController) {
+	public void setTurnService(TabViewController tabController, SideBarController sideBarController) {
 
 
 		try {
 
 			System.out.println("Client: looking up turnServiceServer in RMI Registry...");
 			TurnServiceSkeleton serverTurnService = (TurnServiceSkeleton) Naming.lookup("//" + host + "/ServerTurnService");
-			TurnService turnClient = new TurnService();
+			TurnService turnClient = new TurnService(app.getPlayer());
 			serverTurnService.addTurnClient(turnClient);
 
 			System.out.println("Client: looking up ServerSetService in RMI Registry...");
@@ -121,5 +120,6 @@ public class RemoteClient {
 			e.printStackTrace();
 		}
 	}
+
 
 }
