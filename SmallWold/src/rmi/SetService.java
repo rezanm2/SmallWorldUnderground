@@ -29,7 +29,7 @@ public class SetService  extends UnicastRemoteObject implements SetServiceClient
 	}
 
 	@Override
-	public synchronized void updateRaceList(ArrayList<String> raceList) throws RemoteException {
+	public synchronized void updateRaceList(ArrayList<String> raceList, ArrayList<String> abilityList) throws RemoteException {
 
 		System.out.println(raceList);
 
@@ -38,7 +38,7 @@ public class SetService  extends UnicastRemoteObject implements SetServiceClient
 		new Thread(() -> {
 			stack = new StackSet(tabController, selfPlayer);
 			System.out.println("reached1");
-			stack.makeStack(raceList);
+			stack.makeStack(raceList, abilityList);
 			System.out.println("reached2");
 
 			stack.linkStack();
@@ -48,6 +48,12 @@ public class SetService  extends UnicastRemoteObject implements SetServiceClient
 
 
 
+	}
+
+	@Override
+	public void updateAbilityList(ArrayList<String> abilityList) throws RemoteException {
+		// TODO Auto-generated method stub
+		
 	}
 
 
