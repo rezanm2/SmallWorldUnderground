@@ -38,7 +38,7 @@ public class SetService  extends UnicastRemoteObject implements SetServiceClient
 		new Thread(() -> {
 			stack = new StackSet(tabController, selfPlayer);
 			System.out.println("reached1");
-			stack.makeStack(raceList, abilityList);
+			stack.makeStack(raceList);
 			System.out.println("reached2");
 
 			stack.linkStack();
@@ -50,11 +50,6 @@ public class SetService  extends UnicastRemoteObject implements SetServiceClient
 
 	}
 
-	@Override
-	public void updateAbilityList(ArrayList<String> abilityList) throws RemoteException {
-		// TODO Auto-generated method stub
-		
-	}
 
 
 
