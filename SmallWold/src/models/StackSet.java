@@ -52,8 +52,8 @@ public class StackSet {
 	private ObservableList<Set> sets = FXCollections.observableArrayList();
 	private Player selfPlayer;
 	private ArrayList<Ability> abilityList = new ArrayList<Ability>();
-	// private List<Race> raceListGrave = new ArrayList<Race>();
-	// private List<Ability> abilityListGrave = new ArrayList<Ability>();
+	private ArrayList<Race> raceListGrave = new ArrayList<Race>();
+	private ArrayList<Ability> abilityListGrave = new ArrayList<Ability>();
 
 	public StackSet(TabViewController tabController, Player selfPlayer) {
 
@@ -110,6 +110,10 @@ public class StackSet {
 	{
 		System.out.println(selfPlayer);
 		selfPlayer.setActiveSet(new main.Set(new Muddy(), sets.get(nr).getRace()));	
+		raceListGrave.add(sets.get(nr).getRace());
+		//abilityListGrave.add(sets.get(nr).getAbility());
+		sets.remove(nr);
+		tabController.setStack(sets);
 		System.out.println(selfPlayer.getActiveSet().getRace().getName());
 	}
 	public void makeStack(ArrayList<String> arrayList) {
