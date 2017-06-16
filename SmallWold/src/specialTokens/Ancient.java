@@ -17,7 +17,10 @@ public class Ancient extends SpecialToken {
 	private TerrainController terrainController;
 	Scanner scanner = new Scanner(System.in);
 	String yesOrNo = "";
-
+	public Ancient()
+	{
+		name = "Ancient";
+	}
 	@Override
 	public void processSpecialToken(Ammy ammy) {
 		this.map = ammy.getMap();
@@ -64,5 +67,9 @@ public class Ancient extends SpecialToken {
 		map.getTerrain(this.terrainNumber).setSpecialToken(new Empty());
 		map.getTerrain(terrainNumber).setSpecialToken(this);
 		this.terrainNumber = terrainNumber;
+	}
+	public String getName()
+	{
+		return this.name;
 	}
 }
