@@ -43,7 +43,26 @@ public class TabViewController {
 
 	@FXML
     private ImageView pick_race_6;
+	
+	@FXML
+    private ImageView pick_ability_1;
 
+	@FXML
+    private ImageView pick_ability_2;
+
+	@FXML
+    private ImageView pick_ability_3;
+
+	@FXML
+    private ImageView pick_ability_4;
+
+	@FXML
+    private ImageView pick_ability_5;
+
+	@FXML
+    private ImageView pick_ability_6;
+
+	
 	public TabViewController(){
 
 	}
@@ -92,12 +111,27 @@ public class TabViewController {
 		System.out.println(sets.get(3).getRace());
 		System.out.println(sets.get(4).getRace());
 		System.out.println(sets.get(5).getRace());
+		
+		System.out.println(sets.get(0).getAbility());
+		System.out.println(sets.get(1).getAbility());
+		System.out.println(sets.get(2).getAbility());
+		System.out.println(sets.get(3).getAbility());
+		System.out.println(sets.get(4).getAbility());
+		System.out.println(sets.get(5).getAbility());
+		
 		pick_race_1.setImage(new Image("/images/races/active/"+sets.get(0).getRace().getName()+".png"));
 		pick_race_2.setImage(new Image("/images/races/active/"+sets.get(1).getRace().getName()+".png"));
 		pick_race_3.setImage(new Image("/images/races/active/"+sets.get(2).getRace().getName()+".png"));
 		pick_race_4.setImage(new Image("/images/races/active/"+sets.get(3).getRace().getName()+".png"));
 		pick_race_5.setImage(new Image("/images/races/active/"+sets.get(4).getRace().getName()+".png"));
 		pick_race_6.setImage(new Image("/images/races/active/"+sets.get(5).getRace().getName()+".png"));
+		
+		pick_race_1.setImage(new Image("/images/ability/active/"+sets.get(0).getAbility().getName()+".png"));
+		pick_race_2.setImage(new Image("/images/ability/active/"+sets.get(1).getAbility().getName()+".png"));
+		pick_race_3.setImage(new Image("/images/ability/active/"+sets.get(2).getAbility().getName()+".png"));
+		pick_race_4.setImage(new Image("/images/ability/active/"+sets.get(3).getAbility().getName()+".png"));
+		pick_race_5.setImage(new Image("/images/ability/active/"+sets.get(4).getAbility().getName()+".png"));
+		pick_race_6.setImage(new Image("/images/ability/active/"+sets.get(5).getAbility().getName()+".png"));
 
 	}
 
