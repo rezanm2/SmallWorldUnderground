@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import player.Player;
 import races.Cultists;
 import races.Drow;
 import races.Dwarves;
@@ -27,13 +28,15 @@ public class StackSet {
 	//private ArrayList<Set> sets = new ArrayList<Set>();
 	private TabViewController tabController;
 	private ObservableList<Set> sets = FXCollections.observableArrayList();
+	private Player selfPlayer;
 	// private List<Ability> abilityList = new ArrayList<Ability>();
 	// private List<Race> raceListGrave = new ArrayList<Race>();
 	// private List<Ability> abilityListGrave = new ArrayList<Ability>();
 
-	public StackSet(TabViewController tabController) {
+	public StackSet(TabViewController tabController, Player selfPlayer) {
 
 		this.tabController = tabController;
+		this.selfPlayer = selfPlayer;
 
 		raceList.add(new Cultists());
 		raceList.add(new Drow());

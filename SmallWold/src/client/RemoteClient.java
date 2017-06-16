@@ -12,6 +12,7 @@ import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import models.JoinedPlayers;
+import player.Player;
 import rmi.SetService;
 import rmi.TurnService;
 import server.ClientSkeleton;
@@ -84,7 +85,7 @@ public class RemoteClient {
 			try {
 				app.StartGameScreen(playerAmount, players);
 
-				setTurnService(app.getTabController(), app.getSidebarController());
+				setTurnService(app.getTabController(), app.getSidebarController(), app.getPlayer());
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -92,7 +93,7 @@ public class RemoteClient {
 		});
 	}
 
-	public void setTurnService(TabViewController tabController, SideBarController sideBarController) {
+	public void setTurnService(TabViewController tabController, SideBarController sideBarController, Player selfPlayer) {
 
 
 		try {
@@ -105,7 +106,7 @@ public class RemoteClient {
 			System.out.println("Client: looking up ServerSetService in RMI Registry...");
 			SetServiceSkeleton serverSetService = (SetServiceSkeleton) Naming.lookup("//" + host + "/ServerSetService");
 		//	System.out.println(app.getTabController());
-			SetService setClient = new SetService(tabController);
+			SetService setClient = new SetService(tabController, selfPlayer);
 			serverSetService.addSetClient(setClient);
 
 
