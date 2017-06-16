@@ -126,12 +126,12 @@ public class TabViewController {
 		pick_race_5.setImage(new Image("/images/races/active/"+sets.get(4).getRace().getName()+".png"));
 		pick_race_6.setImage(new Image("/images/races/active/"+sets.get(5).getRace().getName()+".png"));
 		
-		pick_race_1.setImage(new Image("/images/ability/active/"+sets.get(0).getAbility().getName()+".png"));
-		pick_race_2.setImage(new Image("/images/ability/active/"+sets.get(1).getAbility().getName()+".png"));
-		pick_race_3.setImage(new Image("/images/ability/active/"+sets.get(2).getAbility().getName()+".png"));
-		pick_race_4.setImage(new Image("/images/ability/active/"+sets.get(3).getAbility().getName()+".png"));
-		pick_race_5.setImage(new Image("/images/ability/active/"+sets.get(4).getAbility().getName()+".png"));
-		pick_race_6.setImage(new Image("/images/ability/active/"+sets.get(5).getAbility().getName()+".png"));
+		pick_ability_1.setImage(new Image("/images/ability/active/"+sets.get(0).getAbility().getName()+".png"));
+		pick_ability_2.setImage(new Image("/images/ability/active/"+sets.get(1).getAbility().getName()+".png"));
+		pick_ability_3.setImage(new Image("/images/ability/active/"+sets.get(2).getAbility().getName()+".png"));
+		pick_ability_4.setImage(new Image("/images/ability/active/"+sets.get(3).getAbility().getName()+".png"));
+		pick_ability_5.setImage(new Image("/images/ability/active/"+sets.get(4).getAbility().getName()+".png"));
+		pick_ability_6.setImage(new Image("/images/ability/active/"+sets.get(5).getAbility().getName()+".png"));
 
 	}
 
