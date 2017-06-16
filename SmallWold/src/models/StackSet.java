@@ -57,6 +57,11 @@ public class StackSet {
 		System.out.println(this.tabController);
 	}
 
+	public void chooseSet(int nr)
+	{
+		raceList.get(nr);
+		
+	}
 	public void makeStack(ArrayList<String> arrayList) {
 		for (String string : arrayList) {
 			Race tempRace = null;
