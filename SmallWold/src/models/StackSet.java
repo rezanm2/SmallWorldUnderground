@@ -2,6 +2,7 @@ package models;
 
 import java.util.ArrayList;
 
+import abilities.Muddy;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import player.Player;
@@ -37,6 +38,7 @@ public class StackSet {
 
 		this.tabController = tabController;
 		this.selfPlayer = selfPlayer;
+		setRef();
 
 		raceList.add(new Cultists());
 		raceList.add(new Drow());
@@ -56,11 +58,16 @@ public class StackSet {
 
 		System.out.println(this.tabController);
 	}
-
+	public void setRef()
+	{
+		tabController.setStackRef(this);
+	}
 	public void chooseSet(int nr)
 	{
-		raceList.get(nr);
-		
+		System.out.println(selfPlayer);
+		selfPlayer.setActiveSet(new main.Set(new Muddy(), sets.get(nr).getRace()));	
+		//selfPlayer.getActiveSet().setRace(raceList.get(nr));
+		System.out.println(selfPlayer.getActiveSet().getRace().getName());
 	}
 	public void makeStack(ArrayList<String> arrayList) {
 		for (String string : arrayList) {
@@ -78,5 +85,6 @@ public class StackSet {
 	public void linkStack(){
 		tabController.setStack(this.sets);
 	}
+	
 
 }
