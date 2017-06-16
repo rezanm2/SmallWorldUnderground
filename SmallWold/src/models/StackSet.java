@@ -2,7 +2,28 @@ package models;
 
 import java.util.ArrayList;
 
+import abilities.Ability;
+import abilities.Adventurous;
+import abilities.Fisher;
+import abilities.Flocking;
+import abilities.Frightened;
+import abilities.Immortal;
+import abilities.Magic;
+import abilities.Martyr;
+import abilities.Mining;
 import abilities.Muddy;
+import abilities.Mystic;
+import abilities.Quarreling;
+import abilities.Reborn;
+import abilities.Royal;
+import abilities.Shield;
+import abilities.Stone;
+import abilities.Thieving;
+import abilities.Tomb;
+import abilities.Vampire;
+import abilities.Vanishing;
+import abilities.Vengeful;
+import abilities.Wise;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import player.Player;
@@ -30,7 +51,7 @@ public class StackSet {
 	private TabViewController tabController;
 	private ObservableList<Set> sets = FXCollections.observableArrayList();
 	private Player selfPlayer;
-	// private List<Ability> abilityList = new ArrayList<Ability>();
+	private ArrayList<Ability> abilityList = new ArrayList<Ability>();
 	// private List<Race> raceListGrave = new ArrayList<Race>();
 	// private List<Ability> abilityListGrave = new ArrayList<Ability>();
 
@@ -55,6 +76,29 @@ public class StackSet {
 		raceList.add(new ShadowMimes());
 		raceList.add(new Spiderines());
 		raceList.add(new WillOWisp());
+		
+		abilityList.add(new Adventurous());
+		abilityList.add(new Fisher());
+		abilityList.add(new Flocking());
+		abilityList.add(new Frightened());
+		abilityList.add(new Immortal());
+		abilityList.add(new Magic());
+		abilityList.add(new Martyr());
+		abilityList.add(new Mining());
+		abilityList.add(new Muddy());
+		abilityList.add(new Mystic());
+		abilityList.add(new Quarreling());
+		abilityList.add(new Reborn());
+		abilityList.add(new Royal());
+		abilityList.add(new Shield());
+		abilityList.add(new Stone());
+		abilityList.add(new Thieving());
+		abilityList.add(new Tomb());
+		abilityList.add(new Vampire());
+		abilityList.add(new Vanishing());
+		abilityList.add(new Vengeful());
+		abilityList.add(new Wise());
+		
 
 		System.out.println(this.tabController);
 	}
@@ -66,7 +110,6 @@ public class StackSet {
 	{
 		System.out.println(selfPlayer);
 		selfPlayer.setActiveSet(new main.Set(new Muddy(), sets.get(nr).getRace()));	
-		//selfPlayer.getActiveSet().setRace(raceList.get(nr));
 		System.out.println(selfPlayer.getActiveSet().getRace().getName());
 	}
 	public void makeStack(ArrayList<String> arrayList) {
@@ -82,7 +125,8 @@ public class StackSet {
 
 	}
 
-	public void linkStack(){
+	public void linkStack()
+	{
 		tabController.setStack(this.sets);
 	}
 	
