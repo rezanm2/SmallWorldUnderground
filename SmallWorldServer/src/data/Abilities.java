@@ -38,7 +38,7 @@ public class Abilities {
 		Collections.shuffle(abilitylist);
 	}
 
-	public ArrayList<String> getRaceList(){
+	public ArrayList<String> getAbilityList(){
 		return this.abilitylist;
 	}
 	

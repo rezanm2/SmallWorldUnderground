@@ -170,7 +170,7 @@
             </Label>
             <HBox onMouseClicked="#pickSet1" prefHeight="166.0" prefWidth="472.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <children>
-                  <ImageView fitHeight="106.0" fitWidth="107.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="pick_ability_1" fitHeight="106.0" fitWidth="107.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/abilitys/frightend.png" />
                      </image>
@@ -198,7 +198,7 @@
             </StackPane>
             <HBox onMouseClicked="#pickSet1" prefHeight="166.0" prefWidth="472.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
                <children>
-                  <ImageView fitHeight="110.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="pick_ability_2" fitHeight="110.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/abilitys/frightend.png" />
                      </image>
@@ -352,7 +352,7 @@
             </StackPane>
             <HBox onMouseClicked="#pickSet1" prefHeight="166.0" prefWidth="472.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
                <children>
-                  <ImageView fitHeight="113.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="pick_ability_3" fitHeight="113.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/abilitys/frightend.png" />
                      </image>
@@ -366,7 +366,7 @@
             </HBox>
             <HBox onMouseClicked="#pickSet1" prefHeight="166.0" prefWidth="472.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
                <children>
-                  <ImageView fitHeight="108.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="pick_ability_4" fitHeight="108.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/abilitys/frightend.png" />
                      </image>
@@ -380,7 +380,7 @@
             </HBox>
             <HBox onMouseClicked="#pickSet1" prefHeight="166.0" prefWidth="472.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
                <children>
-                  <ImageView fitHeight="110.0" fitWidth="111.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="pick_ability_5" fitHeight="110.0" fitWidth="111.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/abilitys/frightend.png" />
                      </image>
@@ -394,7 +394,7 @@
             </HBox>
             <HBox onMouseClicked="#pickSet1" prefHeight="166.0" prefWidth="472.0" GridPane.columnIndex="3" GridPane.rowIndex="6">
                <children>
-                  <ImageView fitHeight="110.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="pick_ability_6" fitHeight="110.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/abilitys/frightend.png" />
                      </image>
