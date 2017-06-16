@@ -5,12 +5,10 @@ import java.util.Collections;
 
 
 public class Races {
-private ArrayList<String> raceList;
+private ArrayList<String> raceList  = new ArrayList<String>();
 
 
 public Races(){
-	raceList = new ArrayList<String>();
-
 	raceList.add("Cultists");
 	raceList.add("Drow");
 	raceList.add("Dwarves");

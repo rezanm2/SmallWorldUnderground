@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import rmi.SetService;
 
 public interface SetServiceClientSkeleton  extends Remote{
-	void updateRaceList(ArrayList<String> arrayList) throws RemoteException;
 
+	void updateStackList(ArrayList<String> raceList, ArrayList<String> abilityList) throws RemoteException;
 
 
 }

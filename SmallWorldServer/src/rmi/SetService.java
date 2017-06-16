@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
+import data.Abilitys;
 import data.Player;
 import data.Races;
 import server.SetServiceClientSkeleton;
@@ -20,13 +21,17 @@ public class SetService extends UnicastRemoteObject implements SetServiceSkeleto
 	private static final long serialVersionUID = 1L;
 	private ArrayList<SetServiceClientSkeleton> setClientList = new ArrayList<>();
 	private Races races;
+	private Abilitys abilitys;
 	private int amountPlayers;
+
 
 	public SetService(ArrayList<Player> playerList) throws RemoteException {
 		super();
 		this.amountPlayers = playerList.size();
 		races = new Races();
 		races.shuffleMain();
+		abilitys = new Abilitys();
+		abilitys.shuffleMain();
 
 
 	}
@@ -51,7 +56,7 @@ public class SetService extends UnicastRemoteObject implements SetServiceSkeleto
 	}
 	public void updateClientRaceList() throws RemoteException{
 		for (SetServiceClientSkeleton setClient : setClientList) {
-			setClient.updateRaceList(races.getRaceList());
+			setClient.updateStackList(races.getRaceList(), abilitys.getAbilityList());
 		}
 	}
 

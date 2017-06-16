@@ -76,7 +76,7 @@ public class StackSet {
 		raceList.add(new ShadowMimes());
 		raceList.add(new Spiderines());
 		raceList.add(new WillOWisp());
-		
+
 		abilityList.add(new Adventurous());
 		abilityList.add(new Fisher());
 		abilityList.add(new Flocking());
@@ -98,7 +98,7 @@ public class StackSet {
 		abilityList.add(new Vanishing());
 		abilityList.add(new Vengeful());
 		abilityList.add(new Wise());
-		
+
 
 		System.out.println(this.tabController);
 	}
@@ -109,18 +109,27 @@ public class StackSet {
 	public void chooseSet(int nr)
 	{
 		System.out.println(selfPlayer);
-		selfPlayer.setActiveSet(new main.Set(new Muddy(), sets.get(nr).getRace()));	
+		selfPlayer.setActiveSet(new main.Set(new Muddy(), sets.get(nr).getRace()));
 		System.out.println(selfPlayer.getActiveSet().getRace().getName());
 	}
-	public void makeStack(ArrayList<String> arrayList) {
-		for (String string : arrayList) {
-			Race tempRace = null;
+	public void syncStack(ArrayList<String> raceServerList, ArrayList<String> abilityServerList) {
+		Race tempRace = null;
+		Ability tempAbility = null;
+		int i = 0;
+		for (String raceString : raceServerList) { //do for each entry of the string list
+
 			for (Race race : raceList) {
-				if (race.getName().toUpperCase().equals(string.toUpperCase())) {
-					tempRace = race;
+				if (race.getName().toUpperCase().equals(raceString.toUpperCase())) {	//compare the name of the local race to server race
+					tempRace = race;													//if the same remember
 				}
 			}
-			sets.add(new Set(tempRace, null)); //TODO need to add ability.
+			for (Ability ability : abilityList) {
+				if(ability.getName().equalsIgnoreCase(abilityServerList.get(i))){	//compare the name of the local ability to the server ability
+					tempAbility = ability;											//if same remember
+				}
+			}
+			sets.add(new Set(tempRace, tempAbility)); 								// add to set
+			i++;
 		}
 
 	}
@@ -129,6 +138,12 @@ public class StackSet {
 	{
 		tabController.setStack(this.sets);
 	}
-	
+	public void test() {
+		for (Set set : sets) {
+			System.out.println("testing sets: " + set.getAbility().getName() + " - " + set.getRace().getName());
+		}
+
+	}
+
 
 }
