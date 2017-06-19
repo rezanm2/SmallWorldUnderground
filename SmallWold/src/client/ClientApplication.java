@@ -80,9 +80,10 @@ public class ClientApplication extends Application{
        rootLayout.setRight(sideBar);
 
         //add tabview thats hidden to rootLayout
-       FXMLLoader tabViewLoader = new FXMLLoader(getClass().getResource("../views/tabView/tabView.fxml"));			//get xml file
+       FXMLLoader tabViewLoader = new FXMLLoader(getClass().getResource("../views/tabView/tabView.fxml"));		//get xml file
        StackPane tabView = tabViewLoader.load();																//load xml file to object
-       this.tabController = tabViewLoader.getController();										//set controller tabView
+       this.tabController = tabViewLoader.getController();														//set controller tabView
+       this.tabController.setPlayerRef(this.selfPlayer);
 
         StackPane tabPane = (StackPane)rootLayoutLoader.getNamespace().get("stackPane"); 						//get stackPane from fieldView
         tabPane.getChildren().add(tabView);																	//add tabview to stackpane from Fieldview

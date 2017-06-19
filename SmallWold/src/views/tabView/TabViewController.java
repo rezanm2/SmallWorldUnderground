@@ -6,17 +6,22 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import models.JoinedPlayers;
 import models.Set;
 import models.StackSet;
+import player.Player;
 
 
 public class TabViewController {
+
+	private StackSet stackset;
+	private Player selfPlayer;
+
+
 	@FXML
     private StackPane mainPane;
-	private StackSet stackset;
-
 	@FXML
     private Label player_1;
 	@FXML
@@ -67,18 +72,17 @@ public class TabViewController {
 
 	}
 
-	public void pickSet1()
+	public void pickSet(MouseEvent ev)
 	{
-
-		mainPane.setOnMouseClicked(e -> {
-			ImageView test = (ImageView) e.getTarget();
+			if(this.selfPlayer.isMyTurn()){
+			ImageView test = (ImageView) ev.getTarget();
 			System.out.println(test.getId());
 			char [] iets = test.getId().toCharArray();
 			//Character.isDigit(iets[iets.length-1]);
 			int choice = Character.getNumericValue(iets[iets.length-1]);
 			System.out.println(choice);
 			stackset.chooseSet(choice-1);
-		});
+			}
 	}
 
 	public void onclick(){
@@ -100,7 +104,12 @@ public class TabViewController {
     public void setStackRef(StackSet stack){
     	this.stackset = stack;
     }
+    public void setPlayerRef(Player selfPlayer){
+    	this.selfPlayer = selfPlayer;
+    }
+
 	public void setStack(ObservableList<Set> sets) {
+
 		//    	tabImage.setImage(new Image("/images/icons/tab-bar-stripes-pressed.png"));
 		//player5.textProperty().bind(playerList.get(4).getPlayerNameProperty());
 		System.out.println(sets.size());
