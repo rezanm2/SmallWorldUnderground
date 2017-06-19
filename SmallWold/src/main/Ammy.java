@@ -130,9 +130,9 @@ public class Ammy
 			for(int playerTurnCounter=0;playerTurnCounter<playerList.size();playerTurnCounter++)
 			{
 				activePlayer = playerList.get(playerTurnCounter);
-				System.out.println("A: It is now " + activePlayer.getName() + "'s turn.");
+				System.out.println("A: ~~~~~~~ It is now " + "'s turn.~~~~~~~");
 
-				if(!activePlayer.getActiveSet().getAbility().equals(abilityList.getListElement(0)))
+				if(!activePlayer.getActiveSet().getAbility().getName().equals(abilityList.getListElement(0).getName()))
 				{
 					System.out.println("A: Wanna go decline? ^-^ ");
 					System.out.println("1: Yes 2: No");
@@ -140,17 +140,22 @@ public class Ammy
 
 					switch(choice)
 					{
-
 					case 1:
 						decline.goInDecline(activePlayer);
-
+						break;
 
 					case 2:
-					dc.start(activePlayer);
-					ra.start(this);
-					break;
+						dc.start(activePlayer);
+						ra.start(this);
+						break;
+					}
+
 				}
 
+				else
+				{
+					System.out.println("A: " + " has declined last turn.");
+					decline.chooseNewSet(activePlayer);
 				}
 				etc.start(activePlayer);
 			}
@@ -163,25 +168,25 @@ public class Ammy
 	{
 		System.out.println("Ammy: Your game has ended!");
 
-		System.out.println(playerList.get(0).getName() + " has earned " + playerList.get(0).getCoins() + " coins.");
-		System.out.println(playerList.get(1).getName() + " has earned " + playerList.get(1).getCoins() + " coins.");
+		System.out.println(" has earned " + playerList.get(0).getCoins() + " coins.");
+		System.out.println(" has earned " + playerList.get(1).getCoins() + " coins.");
 
 		if(playerList.size() == 2)
 		{
 			largest = Collections.max(Arrays.asList(playerList.get(0).getCoins(), playerList.get(1).getCoins()));
-			System.out.println(playerList.get(2).getName() + " has earned " + playerList.get(2).getCoins() + " coins.");
+			System.out.println(" has earned " + playerList.get(2).getCoins() + " coins.");
 		}
 		if(playerList.size() == 3)
 		{
 			largest = Collections.max(Arrays.asList(playerList.get(0).getCoins(), playerList.get(1).getCoins(),
 					playerList.get(2).getCoins()));
-			System.out.println(playerList.get(3).getName() + " has earned " + playerList.get(3).getCoins() + " coins.");
+			System.out.println(" has earned " + playerList.get(3).getCoins() + " coins.");
 		}
 		if(playerList.size() == 4)
 		{
 			largest = Collections.max(Arrays.asList(playerList.get(0).getCoins(), playerList.get(1).getCoins(),
 					playerList.get(2).getCoins(), playerList.get(3).getCoins()));
-			System.out.println(playerList.get(4).getName() + " has earned " + playerList.get(4).getCoins() + " coins.");
+			System.out.println(" has earned " + playerList.get(4).getCoins() + " coins.");
 		}
 
 		if(playerList.size() == 5)
@@ -192,27 +197,27 @@ public class Ammy
 
 		if(playerList.get(0).getCoins() == largest)
 		{
-			System.out.println("A: Congrats " + playerList.get(0).getName() + ", you won!");
+			System.out.println("A: Congrats " + ", you won!");
 		}
 
 		if(playerList.get(1).getCoins() == largest)
 		{
-			System.out.println("A: Congrats " + playerList.get(1).getName() + ", you won!");
+			System.out.println("A: Congrats " + ", you won!");
 		}
 
 		if(playerList.get(2).getCoins() == largest)
 		{
-			System.out.println("A: Congrats " + playerList.get(2).getName() + ", you won!");
+			System.out.println("A: Congrats " + ", you won!");
 		}
 
 		if(playerList.get(3).getCoins() == largest)
 		{
-			System.out.println("A: Congrats " + playerList.get(3).getName() + ", you won!");
+			System.out.println("A: Congrats " + ", you won!");
 		}
 
 		if(playerList.get(4).getCoins() == largest)
 		{
-			System.out.println("A: Congrats " + playerList.get(4).getName() + ", you won!");
+			System.out.println("A: Congrats " + ", you won!");
 		}
 	}
 

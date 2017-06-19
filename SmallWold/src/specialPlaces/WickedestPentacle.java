@@ -48,20 +48,19 @@ public class WickedestPentacle extends SpecialPlace
 			mapTester.whichAreAttackable();
 			terrainController.checkIfAttackable();
 			changeTerrain(terrainController.getAreaPicked());
-			
+
 			losingRace = map.getTerrain(terrainController.getAreaPicked()).getRace();
 			tokenController.linkRaceToPlayer(losingRace);
 			losingPlayer = tokenController.getRacesPlayer();
-			
+
 			losingPlayer.getHand().setCurrentTokens(losingPlayer.getHand().getCurrentTokens() + (map.getTerrain(terrainController.getAreaPicked()).getAmountOfTokens() - 2)); //Calculate loss
 
-			System.out.println("A: " + losingPlayer.getName() + " just lost combat. Now has: " + losingPlayer.getHand().getCurrentTokens()
-					+ " in hand, because " + map.getTerrain(terrainController.getAreaPicked()).getAmountOfTokens() + " - 2 were returned to his hand.");
+
 			System.out.println("A: Balrog strikes again");
 			map.getTerrain(terrainController.getAreaPicked()).setRace(new Empty());	 							//Make the terrain be the player's Race
 			map.getTerrain(terrainController.getAreaPicked()).setAmountOfTokens(0);							  		//The declared amount is set on the terrain
 			System.out.println("A: Attack succesful!");
-			
+
 			terrainController.setNotAdjacent();
 			terrainController.setNotAttackable();
 			terrainController.setNotRedeployable();
@@ -69,7 +68,7 @@ public class WickedestPentacle extends SpecialPlace
 			terrainController.setAllAdjacentAreas(activePlayer);
 			terrainController.setAllRedeployableAreas(activePlayer);
 		}
-		
+
 	}
 	public void changeTerrain (int terrainOfBalrog) {
 		map.getTerrain(this.terrainOfBalrog).setIsImmune(false);
