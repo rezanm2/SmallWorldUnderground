@@ -15,6 +15,7 @@ public class TokenController
 
 	List<Player> playerList;
 	private int returnedTokens;
+	private int declineTokens;
 	Map map;
 
 	public TokenController(Ammy ammy)
@@ -57,6 +58,26 @@ public class TokenController
 		}
 		activePlayer.getHand().setCurrentTokens(activePlayer.getHand().getCurrentTokens() + returnedTokens);
 
+	}
+
+	public void checkAmountOfDeclineTokens(Player activePlayer)
+	{
+		declineTokens = 0;
+		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
+		{
+			if(map.getTerrain(terrainCounter).getRace().getName().equals(activePlayer.getDeclineSet().getRace().getName()))
+			{
+				declineTokens = declineTokens + map.getTerrain(terrainCounter).getAmountOfTokens();
+			}
+		}
+	}
+
+	public int getDeclineTokens() {
+		return declineTokens;
+	}
+
+	public void setDeclineTokens(int declineTokens) {
+		this.declineTokens = declineTokens;
 	}
 
 	public void setRacesPlayer(Player racesPlayer)

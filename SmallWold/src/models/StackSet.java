@@ -26,6 +26,7 @@ import abilities.Vengeful;
 import abilities.Wise;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.image.Image;
 import player.Player;
 import races.Cultists;
 import races.Drow;
@@ -105,17 +106,28 @@ public class StackSet {
 	public void setRef()
 	{
 		tabController.setStackRef(this);
+		
+	}
+	public String getAb()
+	{
+		return selfPlayer.getActiveSet().getAbility().getName();
+	}
+	public String getRc()
+	{
+		return selfPlayer.getActiveSet().getRace().getName();
 	}
 	public void chooseSet(int nr)
 	{
 		System.out.println(selfPlayer);
 
-		selfPlayer.setActiveSet(new main.Set(new Muddy(), sets.get(nr).getRace()));
+		selfPlayer.setActiveSet(new main.Set(sets.get(nr).getAbility(), sets.get(nr).getRace()));
 		raceListGrave.add(sets.get(nr).getRace());
-		//abilityListGrave.add(sets.get(nr).getAbility());
+		abilityListGrave.add(sets.get(nr).getAbility());
 		sets.remove(nr);
 		tabController.setStack(sets);
 		System.out.println(selfPlayer.getActiveSet().getRace().getName());
+		System.out.println(selfPlayer.getActiveSet().getAbility().getName());
+		tabController.updateActiveSet();
 	}
 	public void syncStack(ArrayList<String> raceServerList, ArrayList<String> abilityServerList) {
 		Race tempRace = null;
