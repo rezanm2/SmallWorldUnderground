@@ -49,7 +49,7 @@ public class DeclareCombat
 
 		System.out.println(activePlayer.getHand().getCurrentTokens());
 		System.out.println("Ammy: ~~~~~~~~~I'm changing towards the Conquest phase. ~~~~~~~~~ \n\n");
-		System.out.println("A: All right. Let's allow " + activePlayer.getName() + " to attack some stuff. \n");
+		System.out.println("A: All right. Let's allow " + " to attack some stuff. \n");
 
 		tc.setAllAttackableAreas(activePlayer);						//Setting isAttackable for each area player x has
 		tc.setAllAdjacentAreas(activePlayer);						//Setting isAdjacent for each area player x has
@@ -57,15 +57,15 @@ public class DeclareCombat
 		toc.calculateReturnedTokens(activePlayer);
 
 		activePlayer.getHand().setCurrentTokens(activePlayer.getHand().getCurrentTokens() + tc.getReturnedTokens());
-		System.out.println("A: Currently, " + activePlayer.getName() + " controls the following areas and has "
+		System.out.println("A: Currently, " + " controls the following areas and has "
 							+ activePlayer.getHand().getCurrentTokens() + " " + activePlayer.getActiveSet().getRace().getName()
 							+ " tokens in their hand.");
 		test.whichAreRedeployable(activePlayer);													//Show each area that isReinforcable
 
-		System.out.println("A: Which means that " + activePlayer.getName() + " can attack the following areas.");
-		
-		
-		
+		System.out.println("A: Which means that " + " can attack the following areas.");
+
+
+
 		map.getTerrain(0).setRelic(new KillerRabbitSword());
 		map.getTerrain(0).getRelic().processRelic(ammy);
 
@@ -73,19 +73,18 @@ public class DeclareCombat
 		{
 			test.whichAreAttackable();
 			processAttack(activePlayer);
+			if(cc.isDiceUsed() == true)
+			{
+				break;
+			}
 		}
-
-
-		System.out.println("A: Looks like you're out of tokens. Combat phase over.");
+		System.out.println("A: Looks like you're out of tokens or used the diceroll. Combat phase over.");
 	}
-	
+
 	public void processAttack(Player activePlayer) {
-		
+
 //		mummy.processAbility(ammy);
 //		ogres.processAbility(ammy);
-
-		
-
 		System.out.println("A: You have " + activePlayer.getHand().getCurrentTokens() + " tokens left.");
 		System.out.println("A: Which area do  you wish to attack?");
 
@@ -94,7 +93,7 @@ public class DeclareCombat
 		System.out.println("A: Okay, there's currently " + map.getTerrain(tc.getAreaPicked()).getAmountOfTokens()
 							+ " tokens on it, and the place has " + map.getTerrain(tc.getAreaPicked()).getDefense() + " defense."
 							+ " You need " + (map.getTerrain(tc.getAreaPicked()).getAmountOfTokens() + map.getTerrain(tc.getAreaPicked())
-							.getDefense() - cc.getMiscModifier() + 2) + " tokens to take this area over.\n How many tokens do you wish to use?");
+							.getDefense() + cc.getMiscModifier() + 2) + " tokens to take this area over.\n How many tokens do you wish to use?");
 
 
 		declaredAmountOfTokens = -5;
@@ -107,7 +106,7 @@ public class DeclareCombat
 		System.out.println(" problems");
 		cc.setDeclaredAmountOfTokens(declaredAmountOfTokens);					//CombatController taking this declared amount
 		cc.calculateCombat(map.getTerrain(tc.getAreaPicked()), activePlayer);	//CombatController calculating the combat done
-		
+
 	}
 
 	public void setActivePlayer(Player activePlayer)

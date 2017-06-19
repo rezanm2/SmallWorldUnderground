@@ -206,9 +206,9 @@ public class PlayerCreator
 	public void createPlayers(String nameOne, String nameTwo)		//Bunch of playercreators, all the same except
 	{
 		System.out.println("A: Creating 2 players...");//for the amount of names set
-		Player playerOne = new Player(nameOne);						//Creating the actual Player object
+		Player playerOne = new Player();						//Creating the actual Player object
 		this.playerList.add(playerOne);									//Adding the player to the list of players in the game
-		Player playerTwo = new Player(nameTwo);
+		Player playerTwo = new Player();
 		this.playerList.add(playerTwo);
 		System.out.println("A: Done creating 2 players...");
 	}
@@ -216,11 +216,11 @@ public class PlayerCreator
 	public void createPlayers(String nameOne, String nameTwo, String nameThree)
 	{
 		System.out.println("A: Creating 3 players...");
-		Player playerOne = new Player(nameOne);
+		Player playerOne = new Player();
 		this.playerList.add(playerOne);
-		Player playerTwo = new Player(nameTwo);
+		Player playerTwo = new Player();
 		this.playerList.add(playerTwo);
-		Player playerThree = new Player(nameThree);
+		Player playerThree = new Player();
 		this.playerList.add(playerThree);
 		System.out.println("A: Done creating 3 players...");
 	}
@@ -228,13 +228,13 @@ public class PlayerCreator
 	public void createPlayers(String nameOne, String nameTwo, String nameThree, String nameFour)
 	{
 		System.out.println("A: Creating 4 players...");
-		Player playerOne = new Player(nameOne);
+		Player playerOne = new Player();
 		this.playerList.add(playerOne);
-		Player playerTwo = new Player(nameTwo);
+		Player playerTwo = new Player();
 		this.playerList.add(playerTwo);
-		Player playerThree = new Player(nameThree);
+		Player playerThree = new Player();
 		this.playerList.add(playerThree);
-		Player playerFour = new Player(nameFour);
+		Player playerFour = new Player();
 		this.playerList.add(playerFour);
 		System.out.println("A: Done creating 4 players...");
 	}
@@ -242,15 +242,15 @@ public class PlayerCreator
 	public void createPlayers(String nameOne, String nameTwo, String nameThree, String nameFour, String nameFive)
 	{
 		System.out.println("A: Creating 5 players...");
-		Player playerOne = new Player(nameOne);
+		Player playerOne = new Player();
 		this.playerList.add(playerOne);
-		Player playerTwo = new Player(nameTwo);
+		Player playerTwo = new Player();
 		this.playerList.add(playerTwo);
-		Player playerThree = new Player(nameThree);
+		Player playerThree = new Player();
 		this.playerList.add(playerThree);
-		Player playerFour = new Player(nameFour);
+		Player playerFour = new Player();
 		this.playerList.add(playerFour);
-		Player playerFive = new Player(nameFive);
+		Player playerFive = new Player();
 		this.playerList.add(playerFive);
 		System.out.println("A: Done creating 5 players...");
 
@@ -262,7 +262,6 @@ public class PlayerCreator
 		for(int i=0;i<playerList.size();i++)
 		{
 			System.out.println("Player:  Name");
-			System.out.println("   " + (i+1) + "	" + playerList.get(i).getName());
 		}
 		System.out.println();
 	}

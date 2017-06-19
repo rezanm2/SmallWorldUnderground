@@ -60,22 +60,22 @@ public class EndTurnController
 				terrainIncome++;
 			}
 		}
-		System.out.println("A: " + activePlayer.getName() + " gets " + terrainIncome + " amount of coins from their terrains.");
+		System.out.println("A: " +  " gets " + terrainIncome + " amount of coins from their terrains.");
 	}
 
 	public void calculateRelicIncome(){
 
-		System.out.println("A: " + activePlayer.getName() + " gets " + relicIncome + " amount of coins from their relics.");
+		System.out.println("A: gets " + relicIncome + " amount of coins from their relics.");
 	}
 
 	public void calculateSpecialPlaceIncome(){
 
-		System.out.println("A: " + activePlayer.getName() + " gets " + specialPlaceIncome + " amount of coins from their Special Places.");
+		System.out.println("A: " + " gets " + specialPlaceIncome + " amount of coins from their Special Places.");
 	}
 
 	public void calculateRaceIncome()
 	{
-		System.out.println("A: " + activePlayer.getName() + " gets " + raceIncome + " amount of coins from their race ability.");
+		System.out.println("A: " +  " gets " + raceIncome + " amount of coins from their race ability.");
 	}
 	public void calculateAbilityIncome()
 	{
@@ -85,7 +85,7 @@ public class EndTurnController
 
 		abilityIncome = activePlayer.getActiveSet().getAbility().getAbilityIncome();
 
-		System.out.println("A: " + activePlayer.getName() + " gets " + abilityIncome + " amount of coins from their ability ability.");
+		System.out.println("A: " +  " gets " + abilityIncome + " amount of coins from their ability ability.");
 
 	}
 
@@ -101,7 +101,7 @@ public class EndTurnController
 		newBalance = activePlayer.getCoins() + getTotalSum();
 		activePlayer.setCoins(newBalance);
 
-		System.out.println("A: So, " + activePlayer.getName() + "'s total will get to be " + activePlayer.getCoins());
+		System.out.println("A: So, " + "'s total will get to be " + activePlayer.getCoins());
 	}
 
 	public int getTerrainIncome() {

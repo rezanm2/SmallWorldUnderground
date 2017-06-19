@@ -48,7 +48,7 @@ public class PickRegions
 
 		for(int i=0;i<playerList.size();i++)			//As long as there is players
 		{
-			System.out.println("For now, " + playerList.get(i).getName() + " is going to be "
+			System.out.println("For now, " +" is going to be "
 							+	playerList.get(i).getActiveSet().getAbility().getName() + " "
 							+	playerList.get(i).getActiveSet().getRace().getName() + "." + "\n");
 		}
@@ -62,17 +62,17 @@ public class PickRegions
 				break;					//Break out of picking Areas
 			}
 
-			System.out.println("A: Pick 4 areas " + playerList.get(playerCounter).getName() + " wants to be on!");
+			System.out.println("A: Pick 4 areas " +" wants to be on!");
 
 			for(int terrainPickCounter=0; terrainPickCounter<4; terrainPickCounter++)	//As long as the player has regions left to pick
 			{
 				validChoice = false;
 				while(validChoice == false)					//Player has to pick a non-immune region
 				{											//And at this point in time, also a not-picked region yet.
-					System.out.println(playerList.get(playerCounter).getName() + " has picked " + terrainPickCounter
+					System.out.println(" has picked " + terrainPickCounter
 										+ " terrains. " + (4- terrainPickCounter) + " left to pick.");
 
-					System.out.println("A: Which area would " + playerList.get(playerCounter).getName() + " like to control?");
+					System.out.println("A: Which area would " +  " like to control?");
 					tempAreaPicked = input.nextInt() - 1 ;	//Player picks an area here; -1 because array starts at [0]
 					input.nextLine();						//Apparently input.nextInt needs this line
 

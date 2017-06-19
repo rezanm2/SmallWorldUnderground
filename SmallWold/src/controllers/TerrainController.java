@@ -72,7 +72,7 @@ public class TerrainController
 	public void setAllAdjacentAreas(Player activePlayer)
 	{
 		setNotAdjacent();
-		System.out.println("A: Setting all adjacent terrains for " + activePlayer.getName() + "\n");
+		System.out.println("A: Setting all adjacent terrains for " + "\n");
 		this.activePlayer = activePlayer;
 
 		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
@@ -101,7 +101,7 @@ public class TerrainController
 	public void setAllAttackableAreas(Player activePlayer)
 	{
 		setNotAttackable();
-		System.out.println("A: Setting all attackable terrains for " + activePlayer.getName() + "\n");
+		System.out.println("A: Setting all attackable terrains for " + "\n");
 		this.activePlayer = activePlayer;
 		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
@@ -131,7 +131,7 @@ public class TerrainController
 	public void setAllRedeployableAreas(Player activePlayer)
 	{
 		setNotRedeployable();
-		System.out.println("A: Setting all reinforcable terrains for " + activePlayer.getName() + "\n");
+		System.out.println("A: Setting all reinforcable terrains for " + "\n");
 		this.activePlayer = activePlayer;
 		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
 		{

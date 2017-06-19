@@ -13,6 +13,7 @@ import models.Set;
 import models.StackSet;
 import player.Player;
 
+import views.bottomBarView.BottomBarController;
 
 public class TabViewController {
 
@@ -22,6 +23,7 @@ public class TabViewController {
 
 	@FXML
     private StackPane mainPane;
+
 	@FXML
     private Label player_1;
 	@FXML
@@ -67,6 +69,14 @@ public class TabViewController {
 	@FXML
     private ImageView pick_ability_6;
 
+	@FXML
+    private ImageView ac_ab_1;
+
+	@FXML
+    private ImageView ac_rc_1;
+	private BottomBarController bottomBarController;
+
+
 
 	public TabViewController(){
 
@@ -97,15 +107,15 @@ public class TabViewController {
     	mainPane.setVisible(false); //activate on TAB key release - called in FieldViewController
 
     }
+	public void setPlayerRef(Player selfPlayer) {
+		this.selfPlayer = selfPlayer;
+	}
 
     public boolean isVisible(){
     	return mainPane.visibleProperty().get();
     }
     public void setStackRef(StackSet stack){
     	this.stackset = stack;
-    }
-    public void setPlayerRef(Player selfPlayer){
-    	this.selfPlayer = selfPlayer;
     }
 
 	public void setStack(ObservableList<Set> sets) {
@@ -142,6 +152,19 @@ public class TabViewController {
 		pick_ability_5.setImage(new Image("/images/abilitys/active/"+sets.get(4).getAbility().getName()+".png"));
 		pick_ability_6.setImage(new Image("/images/abilitys/active/"+sets.get(5).getAbility().getName()+".png"));
 
+		ac_ab_1.setImage(new Image("/images/abilitys/active/"+stackset.getAb()+".png"));
+		ac_rc_1.setImage(new Image("/images/races/active/"+stackset.getRc()+".png"));
+
+
+	}
+
+	public void setBottomController(BottomBarController bottomBarController) {
+
+		this.bottomBarController = bottomBarController;
+	}
+	public void updateActiveSet()
+	{
+		bottomBarController.setActiveSet();
 	}
 
 

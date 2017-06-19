@@ -21,6 +21,7 @@ public class Immortal extends Ability implements CalculatableIncome
 	@Override
 	public void processAbility(Ammy ammy) {
 		this.activePlayer = ammy.getActivePlayer();
+		this.map = ammy.getMap();
 
 			for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
 			{
