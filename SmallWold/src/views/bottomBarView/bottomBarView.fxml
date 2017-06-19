@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.bottomBarView.BottomBarController">
+<StackPane xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.bottomBarView.BottomBarController">
    <ImageView fitHeight="165.0" fitWidth="1920.0" pickOnBounds="true">
       <image>
          <Image url="@../../images/icons/wood-rexture.jpg" />
@@ -48,7 +48,7 @@
                         <Insets />
                      </HBox.margin>
                   </ImageView>
-                  <Label alignment="CENTER" prefHeight="147.0" prefWidth="121.0" text="0/0">
+                  <Label fx:id="currentTokens" alignment="CENTER" prefHeight="147.0" prefWidth="121.0" text="0/0">
                      <font>
                         <Font size="54.0" />
                      </font>
@@ -88,7 +88,7 @@
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
                   </ImageView>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="147.0" prefWidth="121.0" text="0">
+                  <Label fx:id="declineTokens" alignment="CENTER" contentDisplay="CENTER" prefHeight="147.0" prefWidth="121.0" text="0">
                      <font>
                         <Font size="54.0" />
                      </font>
@@ -136,7 +136,7 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </ImageView>
-            <Label alignment="CENTER" contentDisplay="TOP" text="0" textAlignment="CENTER" wrapText="true">
+            <Label fx:id="ownCoins" alignment="CENTER" contentDisplay="TOP" onMouseClicked="#updatePlayerCoins" text="0" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="96.0" />
                </font>
