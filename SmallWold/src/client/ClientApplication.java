@@ -98,7 +98,7 @@ public class ClientApplication extends Application{
         //show the scene with the root layout
         Scene Scene = new Scene(rootLayout);
         primaryStage.setScene(Scene);
-        primaryStage.setFullScreen(false);
+        primaryStage.setFullScreen(true);
         rootLayout.requestFocus();
         rootLayout.setFocusTraversable(true);
 
