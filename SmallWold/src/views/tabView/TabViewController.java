@@ -6,16 +6,23 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import models.JoinedPlayers;
 import models.Set;
 import models.StackSet;
+import player.Player;
 
+import views.bottomBarView.BottomBarController;
 
 public class TabViewController {
+
+	private StackSet stackset;
+	private Player selfPlayer;
+
+
 	@FXML
     private StackPane mainPane;
-	private StackSet stackset;
 
 	@FXML
     private Label player_1;
@@ -62,23 +69,30 @@ public class TabViewController {
 	@FXML
     private ImageView pick_ability_6;
 
+	@FXML
+    private ImageView ac_ab_1;
+
+	@FXML
+    private ImageView ac_rc_1;
+	private BottomBarController bottomBarController;
+
+
 
 	public TabViewController(){
 
 	}
 
-	public void pickSet1()
+	public void pickSet(MouseEvent ev)
 	{
-
-		mainPane.setOnMouseClicked(e -> {
-			ImageView test = (ImageView) e.getTarget();
+			if(this.selfPlayer.isMyTurn()){
+			ImageView test = (ImageView) ev.getTarget();
 			System.out.println(test.getId());
 			char [] iets = test.getId().toCharArray();
 			//Character.isDigit(iets[iets.length-1]);
 			int choice = Character.getNumericValue(iets[iets.length-1]);
 			System.out.println(choice);
 			stackset.chooseSet(choice-1);
-		});
+			}
 	}
 
 	public void onclick(){
@@ -93,6 +107,9 @@ public class TabViewController {
     	mainPane.setVisible(false); //activate on TAB key release - called in FieldViewController
 
     }
+	public void setPlayerRef(Player selfPlayer) {
+		this.selfPlayer = selfPlayer;
+	}
 
     public boolean isVisible(){
     	return mainPane.visibleProperty().get();
@@ -100,7 +117,9 @@ public class TabViewController {
     public void setStackRef(StackSet stack){
     	this.stackset = stack;
     }
+
 	public void setStack(ObservableList<Set> sets) {
+
 		//    	tabImage.setImage(new Image("/images/icons/tab-bar-stripes-pressed.png"));
 		//player5.textProperty().bind(playerList.get(4).getPlayerNameProperty());
 		System.out.println(sets.size());
@@ -133,6 +152,19 @@ public class TabViewController {
 		pick_ability_5.setImage(new Image("/images/abilitys/active/"+sets.get(4).getAbility().getName()+".png"));
 		pick_ability_6.setImage(new Image("/images/abilitys/active/"+sets.get(5).getAbility().getName()+".png"));
 
+		ac_ab_1.setImage(new Image("/images/abilitys/active/"+stackset.getAb()+".png"));
+		ac_rc_1.setImage(new Image("/images/races/active/"+stackset.getRc()+".png"));
+
+
+	}
+
+	public void setBottomController(BottomBarController bottomBarController) {
+
+		this.bottomBarController = bottomBarController;
+	}
+	public void updateActiveSet()
+	{
+		bottomBarController.setActiveSet();
 	}
 
 

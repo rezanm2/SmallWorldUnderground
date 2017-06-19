@@ -9,6 +9,7 @@ import models.StackSet;
 import player.Player;
 import server.ClientSkeleton;
 import server.SetServiceClientSkeleton;
+import server.SetServiceSkeleton;
 import views.tabView.TabViewController;
 
 public class SetService  extends UnicastRemoteObject implements SetServiceClientSkeleton {
@@ -22,7 +23,7 @@ public class SetService  extends UnicastRemoteObject implements SetServiceClient
 	private Player selfPlayer;
 
 
-	public SetService(TabViewController tabController, Player selfPlayer) throws RemoteException {
+	public SetService(TabViewController tabController, Player selfPlayer, SetServiceSkeleton serverSetService) throws RemoteException {
 		super();
 		this.tabController = tabController;
 		this.selfPlayer = selfPlayer;

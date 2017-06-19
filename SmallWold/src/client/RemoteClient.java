@@ -106,7 +106,7 @@ public class RemoteClient {
 			System.out.println("Client: looking up ServerSetService in RMI Registry...");
 			SetServiceSkeleton serverSetService = (SetServiceSkeleton) Naming.lookup("//" + host + "/ServerSetService");
 		//	System.out.println(app.getTabController());
-			SetService setClient = new SetService(tabController, selfPlayer);
+			SetService setClient = new SetService(tabController, selfPlayer, serverSetService);
 			serverSetService.addSetClient(setClient);
 
 

@@ -41,8 +41,8 @@ public class BottomBarController {
 	}
 
 	public void setActiveSet() {
-		activeRace.setImage(new Image("/images/abilitys/active/"+selfPlayer.getActiveSet().getRace().getName()+".png"));
-		activeRace.setImage(new Image("/images/abilitys/active/"+selfPlayer.getActiveSet().getAbility().getName()+".png"));
+		activeRace.setImage(new Image("/images/races/active/"+selfPlayer.getActiveSet().getRace().getName()+".png"));
+		activeAbility.setImage(new Image("/images/abilitys/active/"+selfPlayer.getActiveSet().getAbility().getName()+".png"));
 
 	}
 
