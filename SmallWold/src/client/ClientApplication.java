@@ -56,7 +56,7 @@ public class ClientApplication extends Application{
 		Scene scene = new Scene(View);
 		primaryStage.setScene(scene);
 		primaryStage.show();
-
+		StartGameScreen(2, null);
 
 
 
@@ -101,7 +101,7 @@ public class ClientApplication extends Application{
         //show the scene with the root layout
         Scene Scene = new Scene(rootLayout);
         primaryStage.setScene(Scene);
-        primaryStage.setFullScreen(true);
+        primaryStage.setFullScreen(false);
         rootLayout.requestFocus();
         rootLayout.setFocusTraversable(true);
 
