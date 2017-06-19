@@ -65,9 +65,9 @@
                                     </Button>
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="199.0">
                                        <children>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonPlus" prefHeight="31.0" prefWidth="41.0" text="+" />
-                                          <TextField fx:id="token_amount" alignment="CENTER" editable="false" prefHeight="31.0" prefWidth="46.0" text="0" />
                                           <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonMin" prefHeight="31.0" prefWidth="40.0" text="-" />
+                                          <TextField fx:id="token_amount" alignment="CENTER" editable="false" prefHeight="31.0" prefWidth="46.0" text="0" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonPlus" prefHeight="31.0" prefWidth="41.0" text="+" />
                                           <ImageView fitHeight="47.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../../images/icons/die.png" />
