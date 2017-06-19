@@ -112,10 +112,10 @@ public class StackSet {
 
 		selfPlayer.setActiveSet(new main.Set(new Muddy(), sets.get(nr).getRace()));
 		raceListGrave.add(sets.get(nr).getRace());
-		//abilityListGrave.add(sets.get(nr).getAbility());
+		abilityListGrave.add(sets.get(nr).getAbility());
 		sets.remove(nr);
 		tabController.setStack(sets);
-		System.out.println(selfPlayer.getActiveSet().getRace().getName());
+		System.out.println(selfPlayer.getActiveSet().getRace().getName() + " & " + selfPlayer.getActiveSet().getAbility().getName());
 	}
 	public void syncStack(ArrayList<String> raceServerList, ArrayList<String> abilityServerList) {
 		Race tempRace = null;
