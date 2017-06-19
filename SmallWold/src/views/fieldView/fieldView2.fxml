@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 
 <BorderPane onKeyPressed="#keyPressed" onKeyReleased="#keyReleased" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.fieldView.FieldViewController">
@@ -18,14 +21,66 @@
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
                   <StackPane fx:id="AA" layoutX="14.0" layoutY="14.0" prefHeight="204.0" prefWidth="308.0" />
-                  <StackPane fx:id="AB" layoutX="413.0" layoutY="14.0" prefHeight="150.0" prefWidth="261.0" />
+                  <StackPane fx:id="AB" layoutX="413.0" layoutY="14.0" onMouseClicked="#onClick" prefHeight="150.0" prefWidth="261.0">
+                     <children>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
+                           <children>
+                              <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/icons/areaClicked2.png" />
+                                 </image>
+                              </ImageView>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="199.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="41.0" text="+" />
+                                    <TextField prefHeight="31.0" prefWidth="54.0" />
+                                    <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="40.0" text="-" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </StackPane>
+                     </children></StackPane>
                   <StackPane fx:id="AC" layoutX="749.0" layoutY="14.0" prefHeight="363.0" prefWidth="200.0" />
                   <StackPane layoutX="1073.0" layoutY="14.0" prefHeight="150.0" prefWidth="200.0" />
                   <StackPane fx:id="AE" layoutX="1340.0" layoutY="14.0" prefHeight="135.0" prefWidth="200.0" />
                   <StackPane fx:id="AF" layoutX="1490.0" layoutY="152.0" prefHeight="119.0" prefWidth="250.0" />
                   <StackPane fx:id="BA" layoutX="14.0" layoutY="383.0" prefHeight="150.0" prefWidth="275.0" />
-                  <StackPane fx:id="BB" layoutX="289.0" layoutY="183.0" prefHeight="150.0" prefWidth="200.0" />
-                  <StackPane fx:id="BC" layoutX="521.0" layoutY="212.0" prefHeight="150.0" prefWidth="219.0" />
+                  <StackPane fx:id="BB" layoutX="289.0" layoutY="183.0" onMouseClicked="#onClick" prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <StackPane onMouseClicked="#onClick" prefHeight="150.0" prefWidth="200.0" visible="false">
+                           <children>
+                              <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/icons/areaClicked2.png" />
+                                 </image>
+                              </ImageView>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="199.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="41.0" text="+" />
+                                    <TextField prefHeight="31.0" prefWidth="46.0" />
+                                    <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="40.0" text="-" />
+                                 </children></HBox>
+                           </children>
+                        </StackPane>
+                     </children></StackPane>
+                  <StackPane fx:id="BC" layoutX="521.0" layoutY="212.0" onMouseClicked="#onClick" prefHeight="150.0" prefWidth="219.0">
+                     <children>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
+                           <children>
+                              <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/icons/areaClicked2.png" />
+                                 </image>
+                              </ImageView>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="199.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="41.0" text="+" />
+                                    <TextField prefHeight="31.0" prefWidth="54.0" />
+                                    <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="40.0" text="-" />
+                                 </children></HBox>
+                           </children>
+                        </StackPane>
+                     </children></StackPane>
                   <StackPane fx:id="BD" layoutX="961.0" layoutY="171.0" prefHeight="150.0" prefWidth="200.0" />
                   <StackPane fx:id="BE" layoutX="1232.0" layoutY="183.0" prefHeight="168.0" prefWidth="200.0" />
                   <StackPane fx:id="CA" layoutX="331.0" layoutY="362.0" prefHeight="150.0" prefWidth="200.0" />
