@@ -30,14 +30,14 @@ public class TokenController
 			if(playerList.get(playerCounter).getActiveSet().getRace().equals(race))
 			{
 				System.out.println("A: The race is " + race.getName() + " and it is "
-						+ playerList.get(playerCounter).getName() + "'s active race.");
+						+ "'s active race.");
 
 				racesPlayer = playerList.get(playerCounter);
 			}
 			else if(playerList.get(playerCounter).getDeclineSet().getRace().equals(race))
 			{
 				System.out.println("A: The race is " + race.getName() + " and it is "
-						+ playerList.get(playerCounter).getName() + "'s decline race.");
+						+ "'s decline race.");
 
 				racesPlayer = playerList.get(playerCounter);
 			}
@@ -56,7 +56,7 @@ public class TokenController
 			}
 		}
 		activePlayer.getHand().setCurrentTokens(activePlayer.getHand().getCurrentTokens() + returnedTokens);
-		
+
 	}
 
 	public void setRacesPlayer(Player racesPlayer)

@@ -84,11 +84,11 @@ public  class Decline {
 
 			System.out.println(activePlayer.getDeclineSet().getAbility().getName() + " and "
 								+ activePlayer.getDeclineSet().getRace().getName() + " for player: "
-								+ activePlayer.getName() +  " are declined");
+								+ " are declined");
 
 			System.out.println(activePlayer.getActiveSet().getAbility().getName() + " and "
 					+ activePlayer.getActiveSet().getRace().getName() + " for player: "
-					+ activePlayer.getName() +  " are active.\n");
+					+ " are active.\n");
 
 		}
 
@@ -150,7 +150,7 @@ public  class Decline {
 						}
 						//this changes the player's ability
 						activePlayer.getActiveSet().setAbility(abilityList.getListElement(abilityNr-1));
-						System.out.println(activePlayer.getActiveSet().getAbility().getName() + " and " + activePlayer.getActiveSet().getRace().getName() + " for " + activePlayer.getName()  + " is now activated.");
+						System.out.println(activePlayer.getActiveSet().getAbility().getName() + " and " + activePlayer.getActiveSet().getRace().getName() + " for " + " is now activated.");
 
 						break;
 					}
@@ -173,7 +173,7 @@ public  class Decline {
 
 			Set tempSet;
 			scanner = new Scanner(System.in);
-			System.out.println(activePlayer.getName());
+			System.out.println("A: Giving you the list of sets that are currently on the board.");
 			for(int x=0;x<abilityList.getAbilityList().size();x++) //this removes the race and ability that have the name "Empty"
 			{
 				if(abilityList.getListElement(x).getName().equals("Empty")){
@@ -193,7 +193,7 @@ public  class Decline {
 				System.out.println();
 			}
 
-			System.out.println("Choose a new set: ");
+			System.out.println("A: Choose a new set: ");
 			try
 			{
 				setNr = scanner.nextInt();
@@ -212,7 +212,8 @@ public  class Decline {
 			tempSet = new Set(abilityList.getListElement(setNr-1), raceList.getListElement(setNr-1));
 
 			activePlayer.setActiveSet(tempSet);
-			System.out.println(activePlayer.getActiveSet().getAbility().getName() + " and " + activePlayer.getActiveSet().getRace().getName() + " for " + activePlayer.getName()  + " is now activated.");
+			System.out.println(activePlayer.getActiveSet().getAbility().getName() + " and " +
+			activePlayer.getActiveSet().getRace().getName() + " for " + " is now activated.");
 
 			if(!activePlayer.getActiveSet().getRace().getName().equals(shadowMimes.getName()))
 			{

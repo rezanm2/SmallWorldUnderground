@@ -41,7 +41,6 @@ public class RedeployAreas
 
 		this.activePlayer = ammy.getActivePlayer();
 		System.out.println("Ammy: ~~~~~~~~~I'm changing towards the Redeployment phase. ~~~~~~~~~ \n\n");
-		System.out.println("A: All right. Let's allow " + activePlayer.getName() + " to redeploy his stuff. \n");
 
 		tc.setAllRedeployableAreas(activePlayer);
 		toc.calculateReturnedTokens(activePlayer);
@@ -52,9 +51,6 @@ public class RedeployAreas
 
 		while(activePlayer.getHand().getCurrentTokens()>0)
 		{
-			System.out.println(activePlayer.getName() + " has currently got " + activePlayer.getHand().getCurrentTokens()
-					+ " " + activePlayer.getActiveSet().getAbility().getName() + " " + activePlayer.getActiveSet().getRace().getName()
-					+ " tokens to redeploy on the following areas: ");
 
 			tc.setAllRedeployableAreas(activePlayer);
 
