@@ -18,6 +18,8 @@ public class CombatController
 	private int terrainStringCounter;
 	private int elementCounter;
 	private int value;
+	private char rollDice;
+	private boolean diceUsed;
 	private Race losingRace;
 	private Terrain terrain;
 	private int miscModifier = 0;
@@ -45,6 +47,9 @@ public class CombatController
 
 	public void calculateCombat(Terrain terrain, Player activePlayer)		//Calculating win or lose
 	{
+		this.terrain = terrain;
+		this.activePlayer = activePlayer;
+
 		if(terrain.getAmountOfTokens() + terrain.getDefense() + 2 <= declaredAmountOfTokens + miscModifier)	//If the player wins
 		{
 			doAttack(terrain, activePlayer);
@@ -52,29 +57,17 @@ public class CombatController
 		else																					//If the player loses
 		{
 			System.out.println("A: Not enough tokens selected. Wanna roll a die? ( (Y)es / (N)o )");
-			char rollDice = input.nextLine().toString().toUpperCase().charAt(0);
+			rollDice = input.nextLine().toString().toUpperCase().charAt(0);
 			System.out.println(rollDice);
-			if(rollDice == 'Y')
+			if(rollDice == 'Y' || rollDice == 'Z' || rollDice == 'X' || rollDice == 'C' || rollDice == 'V')
 			{
-				System.out.println("A: So you want to roll the die, great! ");
-				die.throwDie();
-				System.out.println("A: Let's see what you rolled: " + die.getResult() + "\n");
-				if(terrain.getAmountOfTokens() + terrain.getDefense() + 2 <= declaredAmountOfTokens + die.getResult())
-				{
-					System.out.println("A: The die CANT TALK. But you can take the terrain! ");
-					doAttack(terrain, activePlayer);
-					System.out.println("A: Ending your conquest phase");
-				}
-				else
-				{
-					System.out.println("A: Ayyy thats too bad. ");
-					System.out.println("A: Ending your conquest phase");
-				}
+				rollConquestDie();
 			}
 			else if(rollDice == 'N')
 			{
-				System.out.println("A: Ah okay, I will cancel the attack than. ");
+				System.out.println("A: Ah okay, I will cancel the attack then. ");
 			}
+
 			else
 			{
 				System.out.println("A: I didn't understand what you want me to do, so I am cancelling the attack. ");
@@ -92,14 +85,14 @@ public class CombatController
 
 			System.out.println("A: StinkyTrollSocks in effect");
 
-			System.out.println("A: " + losingPlayer.getName() + " just lost combat. Now has: " + losingPlayer.getHand().getCurrentTokens()
+			System.out.println("A: " +  " just lost combat. Now has: " + losingPlayer.getHand().getCurrentTokens()
 					+ " in hand, because " + terrain.getAmountOfTokens() + " were returned to his hand.");
 		}
 		else if(!terrain.getRace().equals(raceList.getListElement(0)))
 		{
 			losingPlayer.getHand().setCurrentTokens(losingPlayer.getHand().getCurrentTokens() + (terrain.getAmountOfTokens() - 1)); //Calculate loss
 
-			System.out.println("A: " + losingPlayer.getName() + " just lost combat. Now has: " + losingPlayer.getHand().getCurrentTokens()
+			System.out.println("A: " +  " just lost combat. Now has: " + losingPlayer.getHand().getCurrentTokens()
 					+ " in hand, because " + terrain.getAmountOfTokens() + " - 1 were returned to his hand.");
 		}
 		else
@@ -119,11 +112,55 @@ public class CombatController
 		tc.setAllRedeployableAreas(activePlayer);
 
 		activePlayer.getHand().setCurrentTokens(activePlayer.getHand().getCurrentTokens() - declaredAmountOfTokens);
-		System.out.println("A: I'm doin' this shit. declaredAmountOfTokens: " + declaredAmountOfTokens + "activePlayer: " + activePlayer.getName());
 		miscModifier = 0;
 	}
 
+	public void rollConquestDie()
+	{
 
+		if(rollDice == 'Z')
+		{
+			die.setResult(1);
+			System.out.println("A: Wow, you miraculously rolled a " + die.getResult() + ". How lucky.");
+		}
+		else if(rollDice == 'X')
+		{
+			die.setResult(2);
+			System.out.println("A: Wow, you miraculously rolled a " + die.getResult() + ". How lucky.");
+		}
+		else if(rollDice == 'C')
+		{
+			die.setResult(3);
+			System.out.println("A: Wow, you miraculously rolled a " + die.getResult() + ". How curious.");
+		}
+
+		else if(rollDice == 'V')
+		{
+			die.setResult(4);
+			System.out.println("A: Okay, man, you really can't roll a " + die.getResult() + " on this die. That's just cheating.");
+		}
+		else
+		{
+			System.out.println("A: So you want to roll the die, great! ");
+			die.throwDie();
+			System.out.println("A: Let's see what you rolled: " + die.getResult() + "\n");
+		}
+
+		if(terrain.getAmountOfTokens() + terrain.getDefense() + 2 <= declaredAmountOfTokens + die.getResult() + miscModifier)
+		{
+			System.out.println("A: The die CANT TALK. But you can take the terrain! ");
+			doAttack(terrain, activePlayer);
+			System.out.println("A: Ending your conquest phase");
+			diceUsed = true;
+		}
+		else
+		{
+			System.out.println("A: Ayyy thats too bad. ");
+			System.out.println("A: Ending your conquest phase");
+		}
+
+
+	}
 
 	public int getTerrainCounter() {
 		return terrainCounter;
@@ -154,6 +191,22 @@ public class CombatController
 		this.elementCounter = elementCounter;
 	}
 
+
+	public boolean isDiceUsed() {
+		return diceUsed;
+	}
+
+	public void setDiceUsed(boolean diceUsed) {
+		this.diceUsed = diceUsed;
+	}
+
+	public Race getLosingRace() {
+		return losingRace;
+	}
+
+	public void setLosingRace(Race losingRace) {
+		this.losingRace = losingRace;
+	}
 
 	public Terrain getTerrain() {
 		return terrain;
