@@ -13,6 +13,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import models.JoinedPlayers;
 import player.Player;
+import views.bottomBarView.BottomBarController;
 import views.fieldView.FieldViewController;
 import views.lobbyView.lobbyController;
 import views.sideBarView.SideBarController;
@@ -24,6 +25,7 @@ public class ClientApplication extends Application{
 	private Stage primaryStage;
 	private TabViewController tabController;
 	private SideBarController sidebarController;
+	private BottomBarController bottombarcontroller;
 
 	private Player selfPlayer;
 
@@ -71,7 +73,10 @@ public class ClientApplication extends Application{
         //add bottomBar to the rootLayout
         FXMLLoader bottomBarLoader = new FXMLLoader(getClass().getResource("../views/bottomBarView/bottomBarView.fxml"));	//get xml file
         StackPane bottomBar =  bottomBarLoader.load();														//load xml file to object																								//set controller
-        rootLayout.setBottom(bottomBar);																	//bind pane to layout
+        rootLayout.setBottom(bottomBar);
+        BottomBarController bottomBarController = bottomBarLoader.getController();
+        bottomBarController.setPlayerRef(this.selfPlayer);
+        //bind pane to layout
 
         //add SideBar to the rootLayout
 		FXMLLoader sideBarLoader = new FXMLLoader(getClass().getResource("../views/sideBarView/sideBarView.fxml"));			//get xml file
@@ -92,6 +97,7 @@ public class ClientApplication extends Application{
         //give controllers objects of controllers
         fieldController.setControllers(this.tabController, sidebarController);
         sidebarController.setControllers(tabController);
+        this.tabController.setBottomController(bottomBarController);
 
 
 
