@@ -58,6 +58,18 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </StackPane.margin>
             </HBox>
+               <HBox prefHeight="100.0" prefWidth="200.0">
+                  <children>
+                     <ImageView fx:id="abilityTextField" fitHeight="103.0" fitWidth="150.0" onMouseEntered="#showAbilityTraitText" onMouseExited="#hideAbilityTraitText" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../images/icons/areaClicked2.png" />
+                        </image>
+                        <HBox.margin>
+                           <Insets left="100.0" />
+                        </HBox.margin>
+                     </ImageView>
+                  </children>
+               </HBox>
          </children>
          <HBox.margin>
             <Insets />
