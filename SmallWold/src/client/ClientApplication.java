@@ -92,7 +92,7 @@ public class ClientApplication extends Application{
 
        //add manualView thats hidden to rootLayout
       FXMLLoader manualViewLoader = new FXMLLoader(getClass().getResource("../views/manualView/manualView.fxml"));			//get xml file
-      Pane manualView = manualViewLoader.load();																//load xml file to object
+      StackPane manualView = manualViewLoader.load();																//load xml file to object
       ManualController manualController = manualViewLoader.getController();	
       
         StackPane tabPane = (StackPane)rootLayoutLoader.getNamespace().get("stackPane"); 						//get stackPane from fieldView

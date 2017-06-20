@@ -4,13 +4,14 @@ import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 
 public class ManualController {
 	@FXML
 	private ImageView manualPage;
 	
 	@FXML
-	private Pane mainPane;
+	private StackPane mainPane;
 	
 	private int count= 1;
 	
@@ -34,13 +35,13 @@ public class ManualController {
 	}
 	public void zoomIn()
 	{
-		this.manualPage.setFitHeight(manualPage.getFitHeight()*1.0);
-		this.manualPage.setFitWidth(manualPage.getFitWidth()*1.0);
+		this.manualPage.setFitHeight(manualPage.getFitHeight()*1.1);
+		this.manualPage.setFitWidth(manualPage.getFitWidth()*1.1);
 	}
 	public void zoomOut()
 	{
-		this.manualPage.setFitHeight(manualPage.getFitHeight()/1.0);
-		this.manualPage.setFitWidth(manualPage.getFitWidth()/1.0);
+		this.manualPage.setFitHeight(manualPage.getFitHeight()/1.1);
+		this.manualPage.setFitWidth(manualPage.getFitWidth()/1.1);
 	}
 	
 	public void openManual()
