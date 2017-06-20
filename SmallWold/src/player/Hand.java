@@ -4,6 +4,7 @@ public class Hand
 {
 	private int currentTokens;
 	private int silverHammers;
+	private int declineTokens;
 
 
 	public Hand(){};
@@ -12,6 +13,15 @@ public class Hand
 	{
 		this.currentTokens = currentTokens;
 	}
+
+	public int getDeclineTokens() {
+		return declineTokens;
+	}
+
+	public void setDeclineTokens(int declineTokens) {
+		this.declineTokens = declineTokens;
+	}
+
 	public int getCurrentTokens()
 	{
 		return currentTokens;

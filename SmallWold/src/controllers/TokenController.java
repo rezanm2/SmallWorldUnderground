@@ -62,22 +62,15 @@ public class TokenController
 
 	public void checkAmountOfDeclineTokens(Player activePlayer)
 	{
-		declineTokens = 0;
+		activePlayer.getHand().setDeclineTokens(0);
 		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
 			if(map.getTerrain(terrainCounter).getRace().getName().equals(activePlayer.getDeclineSet().getRace().getName()))
 			{
-				declineTokens = declineTokens + map.getTerrain(terrainCounter).getAmountOfTokens();
+				activePlayer.getHand().setDeclineTokens(activePlayer.getHand().getDeclineTokens()
+						+ map.getTerrain(terrainCounter).getAmountOfTokens());
 			}
 		}
-	}
-
-	public int getDeclineTokens() {
-		return declineTokens;
-	}
-
-	public void setDeclineTokens(int declineTokens) {
-		this.declineTokens = declineTokens;
 	}
 
 	public void setRacesPlayer(Player racesPlayer)

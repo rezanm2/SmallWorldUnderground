@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import models.JoinedPlayers;
@@ -16,6 +17,7 @@ import player.Player;
 import views.bottomBarView.BottomBarController;
 import views.fieldView.FieldViewController;
 import views.lobbyView.lobbyController;
+import views.manualView.ManualController;
 import views.sideBarView.SideBarController;
 import views.tabView.TabViewController;
 
@@ -92,15 +94,25 @@ public class ClientApplication extends Application{
        this.tabController = tabViewLoader.getController();										//set controller tabView
 
 
+       //add manualView thats hidden to rootLayout
+      FXMLLoader manualViewLoader = new FXMLLoader(getClass().getResource("../views/manualView/manualView.fxml"));			//get xml file
+      StackPane manualView = manualViewLoader.load();																//load xml file to object
+      ManualController manualController = manualViewLoader.getController();
+
         StackPane tabPane = (StackPane)rootLayoutLoader.getNamespace().get("stackPane"); 						//get stackPane from fieldView
         tabPane.getChildren().add(tabView);																	//add tabview to stackpane from Fieldview
+        tabPane.getChildren().add(manualView);
 
        // tabController.setPlayers(players);
 
         //give controllers objects of controllers
         this.fieldController.setControllers(this.tabController, sidebarController);
         sidebarController.setControllers(tabController);
+
         this.tabController.setBottomController(bottomBarControl);
+
+        sidebarController.setControllers(manualController);
+
 
 
 

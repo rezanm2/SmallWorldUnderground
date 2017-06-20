@@ -4,12 +4,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import views.manualView.ManualController;
 import views.tabView.TabViewController;
 
 
 public class SideBarController {
 
     private TabViewController tabViewControl;
+    private ManualController manualController;
 
     @FXML
     private ImageView tabImage;
@@ -25,6 +27,9 @@ public class SideBarController {
 
     public void setControllers(TabViewController controller){
     	tabViewControl = controller;
+    }
+    public void setControllers(ManualController controller){
+    	manualController = controller;
     }
 
     public void changeImagePressed(){
@@ -45,8 +50,11 @@ public class SideBarController {
     	}
 
     }
-
-
+    public void openManual()
+    {
+    	manualController.openManual();
+    }
+    
 	public void UpdateText(String message) {
 		turn_label.setText(message);
 	}
