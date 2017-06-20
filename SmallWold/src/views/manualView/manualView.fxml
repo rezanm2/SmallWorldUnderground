@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.Pane?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="791.0" prefWidth="1133.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.manualView.ManualController">
+<Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="791.0" prefWidth="1133.0" visible="false" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.manualView.ManualController">
    <children>
-      <ImageView fitHeight="774.0" fitWidth="580.0" layoutX="268.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="manualPage" fitHeight="774.0" fitWidth="580.0" layoutX="268.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/manual/manual1.jpg" />
          </image>

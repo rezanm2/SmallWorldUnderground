@@ -104,6 +104,7 @@ public class ClientApplication extends Application{
         //give controllers objects of controllers
         fieldController.setControllers(this.tabController, sidebarController);
         sidebarController.setControllers(tabController);
+        sidebarController.setControllers(manualController);
 
 
 

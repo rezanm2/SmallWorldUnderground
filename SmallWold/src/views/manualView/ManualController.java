@@ -3,10 +3,14 @@ package views.manualView;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 
 public class ManualController {
 	@FXML
 	private ImageView manualPage;
+	
+	@FXML
+	private Pane mainPane;
 	
 	private int count= 0;
 	
@@ -31,7 +35,15 @@ public class ManualController {
 	
 	public void openManual()
 	{
-		this.manualPage.setImage(new Image("/images/manual/manual1.jpg"));
+		if(mainPane.isVisible())
+		{
+			this.mainPane.setVisible(false);
+		}
+		else
+		{
+			this.mainPane.setVisible(true);
+		}
+		//this.manualPage.setImage(new Image("/images/manual/manual1.jpg"));
 	}
 
 }
