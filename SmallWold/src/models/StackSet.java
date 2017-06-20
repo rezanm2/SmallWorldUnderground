@@ -24,7 +24,6 @@ import abilities.Vampire;
 import abilities.Vanishing;
 import abilities.Vengeful;
 import abilities.Wise;
-import controllers.StackController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
@@ -45,25 +44,22 @@ import races.ShadowMimes;
 import races.Shrooms;
 import races.Spiderines;
 import races.WillOWisp;
-import server.SetServiceSkeleton;
 import views.tabView.TabViewController;
 
 public class StackSet {
 	private ArrayList<Race> raceList = new ArrayList<Race>();
-	// private ArrayList<Set> sets = new ArrayList<Set>();
+	//private ArrayList<Set> sets = new ArrayList<Set>();
 	private TabViewController tabController;
 	private ObservableList<Set> sets = FXCollections.observableArrayList();
-
 	private Player selfPlayer;
 	private ArrayList<Ability> abilityList = new ArrayList<Ability>();
 	private ArrayList<Race> raceListGrave = new ArrayList<Race>();
 	private ArrayList<Ability> abilityListGrave = new ArrayList<Ability>();
-	private StackController stackController;
 
-	public StackSet(TabViewController tabController, Player selfPlayer, SetServiceSkeleton serverSetService) {
-		stackController = new StackController(this, serverSetService);
-		this.selfPlayer = selfPlayer;
+	public StackSet(TabViewController tabController, Player selfPlayer) {
+
 		this.tabController = tabController;
+		this.selfPlayer = selfPlayer;
 		setRef();
 
 		raceList.add(new Cultists());
@@ -104,74 +100,61 @@ public class StackSet {
 		abilityList.add(new Vengeful());
 		abilityList.add(new Wise());
 
+
 		System.out.println(this.tabController);
 	}
-
-	public ObservableList<Set> getSets() {
-		return sets;
-	}
-
-	public void setSets(ObservableList<Set> sets) {
-		this.sets = sets;
-	}
-
-	public TabViewController getTabViewController() {
-		return this.tabController;
-	}
-
-	public void setRef() {
+	public void setRef()
+	{
 		tabController.setStackRef(this);
+		
 	}
-	public StackController getStackController(){
-		return this.stackController;
+	public String getAb()
+	{
+		return selfPlayer.getActiveSet().getAbility().getName();
 	}
+	public String getRc()
+	{
+		return selfPlayer.getActiveSet().getRace().getName();
+	}
+	public void chooseSet(int nr)
+	{
+		System.out.println(selfPlayer);
 
+		selfPlayer.setActiveSet(new main.Set(sets.get(nr).getAbility(), sets.get(nr).getRace()));
+		raceListGrave.add(sets.get(nr).getRace());
+		abilityListGrave.add(sets.get(nr).getAbility());
+		sets.remove(nr);
+		tabController.setStack(sets);
+		System.out.println(selfPlayer.getActiveSet().getRace().getName());
+		System.out.println(selfPlayer.getActiveSet().getAbility().getName());
+		tabController.updateActiveSet();
+	}
 	public void syncStack(ArrayList<String> raceServerList, ArrayList<String> abilityServerList) {
 		Race tempRace = null;
 		Ability tempAbility = null;
 		int i = 0;
-		for (String raceString : raceServerList) { // do for each entry of the
-													// string list
+		for (String raceString : raceServerList) { //do for each entry of the string list
 
 			for (Race race : raceList) {
-				if (race.getName().toUpperCase().equals(raceString.toUpperCase())) { // compare
-																						// the
-																						// name
-																						// of
-																						// the
-																						// local
-																						// race
-																						// to
-																						// server
-																						// race
-					tempRace = race; // if the same remember
+				if (race.getName().toUpperCase().equals(raceString.toUpperCase())) {	//compare the name of the local race to server race
+					tempRace = race;													//if the same remember
 				}
 			}
 			for (Ability ability : abilityList) {
-				if (ability.getName().equalsIgnoreCase(abilityServerList.get(i))) { // compare
-																					// the
-																					// name
-																					// of
-																					// the
-																					// local
-																					// ability
-																					// to
-																					// the
-																					// server
-																					// ability
-					tempAbility = ability; // if same remember
+				if(ability.getName().equalsIgnoreCase(abilityServerList.get(i))){	//compare the name of the local ability to the server ability
+					tempAbility = ability;											//if same remember
 				}
 			}
-			sets.add(new Set(tempRace, tempAbility)); // add to set
+			sets.add(new Set(tempRace, tempAbility)); 								// add to set
 			i++;
 		}
 
 	}
 
-	public void linkStack() {
+	public void linkStack()
+	{
 		tabController.setStack(this.sets);
 	}
-
 	public void test() {
 		for (Set set : sets) {
 			System.out.println("testing sets: " + set.getAbility().getName() + " - " + set.getRace().getName());
@@ -179,24 +162,5 @@ public class StackSet {
 
 	}
 
-	public Player getPlayer() {
-		return this.selfPlayer;
-	}
-
-	public ArrayList<Ability> getAbilityListGrave() {
-		return abilityListGrave;
-	}
-
-	public void setAbilityListGrave(ArrayList<Ability> abilityListGrave) {
-		this.abilityListGrave = abilityListGrave;
-	}
-
-	public ArrayList<Race> getRaceListGrave() {
-		return raceListGrave;
-	}
-
-	public void setRaceListGrave(ArrayList<Race> raceListGrave) {
-		this.raceListGrave = raceListGrave;
-	}
 
 }

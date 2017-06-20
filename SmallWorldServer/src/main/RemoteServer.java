@@ -85,7 +85,7 @@ public class RemoteServer {
 
 			sendPlayerList(client);
 				if (this.clientList.size() == amountPlayers) { //last player joined made the lobby full
-					startRMIService();
+					startTurnService();
 				}
 
 
@@ -121,7 +121,7 @@ public class RemoteServer {
 
 	}
 
-	public void startRMIService() throws InterruptedException, IOException {
+	public void startTurnService() throws InterruptedException, IOException {
 
 			turnService = new TurnService(playerList);
 			Naming.rebind("ServerTurnService", turnService);

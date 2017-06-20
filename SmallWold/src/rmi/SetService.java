@@ -18,14 +18,16 @@ public class SetService  extends UnicastRemoteObject implements SetServiceClient
 	 *
 	 */
 	private static final long serialVersionUID = 1L;
+	private TabViewController tabController;
 	private StackSet stack;
+	private Player selfPlayer;
 
 
-	public SetService(StackSet stack) throws RemoteException {
+	public SetService(TabViewController tabController, Player selfPlayer, SetServiceSkeleton serverSetService) throws RemoteException {
 		super();
-		this.stack = stack;
+		this.tabController = tabController;
+		this.selfPlayer = selfPlayer;
 	}
-
 
 	@Override
 	public synchronized void updateStackList(ArrayList<String> raceList, ArrayList<String> abilityList) throws RemoteException {
@@ -35,6 +37,7 @@ public class SetService  extends UnicastRemoteObject implements SetServiceClient
 		//do in new thread!! heavy load
 
 		new Thread(() -> {
+			stack = new StackSet(tabController, selfPlayer);
 			stack.syncStack(raceList, abilityList);
 			stack.linkStack();
 			stack.test();

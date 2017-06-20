@@ -12,9 +12,7 @@ import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import models.JoinedPlayers;
-import models.StackSet;
 import player.Player;
-import rmi.ClientImpl;
 import rmi.SetService;
 import rmi.TurnService;
 import server.ClientSkeleton;
@@ -33,8 +31,6 @@ public class RemoteClient {
 	private ClientImpl clientImpl;
 	private ObservableList<JoinedPlayers> players = FXCollections.observableArrayList();
 	private ClientApplication app;
-
-
 
 	protected RemoteClient(ClientApplication app) throws RemoteException {
 		this.app = app;
@@ -66,7 +62,7 @@ public class RemoteClient {
 
 	public void register() throws RemoteException {
 
-		System.out.println("joining..");
+		System.out.println("testing join..");
 		server.addClient(clientImpl);
 	}
 
@@ -89,7 +85,7 @@ public class RemoteClient {
 			try {
 				app.StartGameScreen(playerAmount, players);
 
-				setRMIService(app.getTabController(), app.getSidebarController(), app.getPlayer());
+				setTurnService(app.getTabController(), app.getSidebarController(), app.getPlayer());
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -97,32 +93,21 @@ public class RemoteClient {
 		});
 	}
 
-	public void setRMIService(TabViewController tabController, SideBarController sideBarController, Player selfPlayer) {
+	public void setTurnService(TabViewController tabController, SideBarController sideBarController, Player selfPlayer) {
 
 
 		try {
 
-			//start setup for Turn service
 			System.out.println("Client: looking up turnServiceServer in RMI Registry...");
 			TurnServiceSkeleton serverTurnService = (TurnServiceSkeleton) Naming.lookup("//" + host + "/ServerTurnService");
-
-
-
-			TurnService turnClient = new TurnService(selfPlayer, sideBarController);
+			TurnService turnClient = new TurnService(app.getPlayer(), app.getSidebarController());
 			serverTurnService.addTurnClient(turnClient);
 
-
-			//start setup for set service
 			System.out.println("Client: looking up ServerSetService in RMI Registry...");
 			SetServiceSkeleton serverSetService = (SetServiceSkeleton) Naming.lookup("//" + host + "/ServerSetService");
-
-			StackSet stack = new StackSet(tabController, selfPlayer, serverSetService);
-
-			SetService setClient = new SetService(stack);
+		//	System.out.println(app.getTabController());
+			SetService setClient = new SetService(tabController, selfPlayer, serverSetService);
 			serverSetService.addSetClient(setClient);
-
-
-
 
 
 		} catch (MalformedURLException e) {

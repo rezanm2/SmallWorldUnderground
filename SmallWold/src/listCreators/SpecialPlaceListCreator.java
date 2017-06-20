@@ -42,9 +42,6 @@ public class SpecialPlaceListCreator
 		specialPlaceList.add(stoneHedge);
 		specialPlaceList.add(wickedestPentacle);
 	}
-
-
-	//@@make terain for marinus
 	public List<SpecialPlace> getSpecialPlaceList()
 	{
 		return specialPlaceList;
