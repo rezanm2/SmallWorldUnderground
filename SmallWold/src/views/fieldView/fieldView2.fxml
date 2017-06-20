@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 
@@ -21,7 +23,7 @@
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
                   <StackPane fx:id="AA" layoutX="14.0" layoutY="14.0" prefHeight="204.0" prefWidth="308.0" />
-                  <StackPane fx:id="AB" layoutX="413.0" layoutY="14.0" onMouseClicked="#onClick" prefHeight="150.0" prefWidth="261.0">
+                  <StackPane fx:id="AB" layoutX="413.0" layoutY="14.0" onMouseClicked="#declareTokenClick" prefHeight="150.0" prefWidth="261.0">
                      <children>
                         <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
                            <children>
@@ -45,25 +47,40 @@
                   <StackPane fx:id="AE" layoutX="1340.0" layoutY="14.0" prefHeight="135.0" prefWidth="200.0" />
                   <StackPane fx:id="AF" layoutX="1490.0" layoutY="152.0" prefHeight="119.0" prefWidth="250.0" />
                   <StackPane fx:id="BA" layoutX="14.0" layoutY="383.0" prefHeight="150.0" prefWidth="275.0" />
-                  <StackPane fx:id="BB" layoutX="289.0" layoutY="183.0" onMouseClicked="#onClick" prefHeight="150.0" prefWidth="200.0">
+                  <StackPane fx:id="BB" layoutX="289.0" layoutY="183.0" onMouseClicked="#declareTokenClick" prefHeight="150.0" prefWidth="200.0">
                      <children>
-                        <StackPane onMouseClicked="#onClick" prefHeight="150.0" prefWidth="200.0" visible="false">
+                        <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
                            <children>
                               <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../images/icons/areaClicked2.png" />
                                  </image>
                               </ImageView>
-                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="199.0">
+                              <FlowPane prefHeight="200.0" prefWidth="200.0">
                                  <children>
-                                    <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="41.0" text="+" />
-                                    <TextField prefHeight="31.0" prefWidth="46.0" />
-                                    <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="40.0" text="-" />
-                                 </children></HBox>
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonBevestig" prefHeight="31.0" prefWidth="147.0" text="Bevestig" textAlignment="CENTER">
+                                       <FlowPane.margin>
+                                          <Insets left="25.0" top="5.0" />
+                                       </FlowPane.margin>
+                                    </Button>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="199.0">
+                                       <children>
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonMin" prefHeight="31.0" prefWidth="40.0" text="-" />
+                                          <TextField fx:id="token_amount" alignment="CENTER" editable="false" prefHeight="31.0" prefWidth="46.0" text="0" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonPlus" prefHeight="31.0" prefWidth="41.0" text="+" />
+                                          <ImageView fitHeight="47.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../images/icons/die.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </FlowPane>
                            </children>
                         </StackPane>
                      </children></StackPane>
-                  <StackPane fx:id="BC" layoutX="521.0" layoutY="212.0" onMouseClicked="#onClick" prefHeight="150.0" prefWidth="219.0">
+                  <StackPane fx:id="BC" layoutX="521.0" layoutY="212.0" onMouseClicked="#declareTokenClick" prefHeight="150.0" prefWidth="219.0">
                      <children>
                         <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
                            <children>
@@ -86,7 +103,7 @@
                   <StackPane fx:id="CA" layoutX="331.0" layoutY="362.0" prefHeight="150.0" prefWidth="200.0" />
                   <StackPane fx:id="CB" layoutX="557.0" layoutY="437.0" prefHeight="150.0" prefWidth="200.0" />
                   <StackPane fx:id="CC" layoutX="937.0" layoutY="371.0" prefHeight="209.0" prefWidth="200.0" />
-                  <StackPane fx:id="CD" layoutX="1152.0" layoutY="390.0" prefHeight="150.0" prefWidth="200.0" />
+                  <StackPane fx:id="CD" layoutX="1161.0" layoutY="383.0" prefHeight="150.0" prefWidth="200.0" />
                   <StackPane fx:id="CE" layoutX="1402.0" layoutY="371.0" prefHeight="150.0" prefWidth="200.0" />
                   <StackPane fx:id="CF" layoutX="1657.0" layoutY="312.0" prefHeight="254.0" prefWidth="83.0" />
                   <StackPane fx:id="DA" layoutX="247.0" layoutY="548.0" prefHeight="91.0" prefWidth="203.0" />

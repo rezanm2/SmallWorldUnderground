@@ -13,7 +13,6 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import models.JoinedPlayers;
 import player.Player;
-import views.bottomBarView.BottomBarController;
 import views.fieldView.FieldViewController;
 import views.lobbyView.lobbyController;
 import views.sideBarView.SideBarController;
@@ -25,7 +24,6 @@ public class ClientApplication extends Application{
 	private Stage primaryStage;
 	private TabViewController tabController;
 	private SideBarController sidebarController;
-	private BottomBarController bottombarcontroller;
 
 	private Player selfPlayer;
 
@@ -58,6 +56,9 @@ public class ClientApplication extends Application{
 		Scene scene = new Scene(View);
 		primaryStage.setScene(scene);
 		primaryStage.show();
+		StartGameScreen(2, null);
+
+
 
 	}
 
@@ -73,10 +74,7 @@ public class ClientApplication extends Application{
         //add bottomBar to the rootLayout
         FXMLLoader bottomBarLoader = new FXMLLoader(getClass().getResource("../views/bottomBarView/bottomBarView.fxml"));	//get xml file
         StackPane bottomBar =  bottomBarLoader.load();														//load xml file to object																								//set controller
-        rootLayout.setBottom(bottomBar);
-        BottomBarController bottomBarController = bottomBarLoader.getController();
-        bottomBarController.setPlayerRef(this.selfPlayer);
-        //bind pane to layout
+        rootLayout.setBottom(bottomBar);																	//bind pane to layout
 
         //add SideBar to the rootLayout
 		FXMLLoader sideBarLoader = new FXMLLoader(getClass().getResource("../views/sideBarView/sideBarView.fxml"));			//get xml file
@@ -85,10 +83,9 @@ public class ClientApplication extends Application{
        rootLayout.setRight(sideBar);
 
         //add tabview thats hidden to rootLayout
-       FXMLLoader tabViewLoader = new FXMLLoader(getClass().getResource("../views/tabView/tabView.fxml"));		//get xml file
+       FXMLLoader tabViewLoader = new FXMLLoader(getClass().getResource("../views/tabView/tabView.fxml"));			//get xml file
        StackPane tabView = tabViewLoader.load();																//load xml file to object
-       this.tabController = tabViewLoader.getController();														//set controller tabView
-       this.tabController.setPlayerRef(this.selfPlayer);
+       this.tabController = tabViewLoader.getController();										//set controller tabView
 
         StackPane tabPane = (StackPane)rootLayoutLoader.getNamespace().get("stackPane"); 						//get stackPane from fieldView
         tabPane.getChildren().add(tabView);																	//add tabview to stackpane from Fieldview
@@ -98,7 +95,6 @@ public class ClientApplication extends Application{
         //give controllers objects of controllers
         fieldController.setControllers(this.tabController, sidebarController);
         sidebarController.setControllers(tabController);
-        this.tabController.setBottomController(bottomBarController);
 
 
 
