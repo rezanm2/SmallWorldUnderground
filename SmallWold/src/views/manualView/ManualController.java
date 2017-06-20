@@ -34,13 +34,13 @@ public class ManualController {
 	}
 	public void zoomIn()
 	{
-		this.manualPage.setFitHeight(manualPage.getFitHeight()*1.1);
-		this.manualPage.setFitWidth(manualPage.getFitWidth()*1.1);
+		this.manualPage.setFitHeight(manualPage.getFitHeight()*1.0);
+		this.manualPage.setFitWidth(manualPage.getFitWidth()*1.0);
 	}
 	public void zoomOut()
 	{
-		this.manualPage.setFitHeight(manualPage.getFitHeight()/1.1);
-		this.manualPage.setFitWidth(manualPage.getFitWidth()/1.1);
+		this.manualPage.setFitHeight(manualPage.getFitHeight()/1.0);
+		this.manualPage.setFitWidth(manualPage.getFitWidth()/1.0);
 	}
 	
 	public void openManual()
