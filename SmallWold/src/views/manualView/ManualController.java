@@ -12,7 +12,7 @@ public class ManualController {
 	@FXML
 	private Pane mainPane;
 	
-	private int count= 0;
+	private int count= 1;
 	
 	public void next()
 	{
@@ -31,6 +31,16 @@ public class ManualController {
 		}
 		count--;
 		this.manualPage.setImage(new Image("/images/manual/manual"+count+".png"));
+	}
+	public void zoomIn()
+	{
+		this.manualPage.setFitHeight(manualPage.getFitHeight()*1.1);
+		this.manualPage.setFitWidth(manualPage.getFitWidth()*1.1);
+	}
+	public void zoomOut()
+	{
+		this.manualPage.setFitHeight(manualPage.getFitHeight()/1.1);
+		this.manualPage.setFitWidth(manualPage.getFitWidth()/1.1);
 	}
 	
 	public void openManual()
