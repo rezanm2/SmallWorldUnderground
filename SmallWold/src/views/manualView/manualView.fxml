@@ -10,7 +10,7 @@
    <children>
       <Button layoutX="983.0" layoutY="396.0" mnemonicParsing="false" onMouseClicked="#next" prefHeight="66.0" prefWidth="111.0" text="Next" />
       <Button layoutX="28.0" layoutY="396.0" mnemonicParsing="false" onMouseClicked="#previous" prefHeight="66.0" prefWidth="111.0" text="Previous" />
-      <ScrollPane layoutX="266.0" layoutY="1.0" prefHeight="791.0" prefWidth="583.0">
+      <ScrollPane layoutX="266.0" layoutY="1.0" prefHeight="784.0" prefWidth="583.0">
          <content>
             <ImageView fx:id="manualPage" fitHeight="785.0" fitWidth="753.0" onScrollFinished="#zoomOut" onScrollStarted="#zoomIn" pickOnBounds="true" preserveRatio="true">
                <image>
