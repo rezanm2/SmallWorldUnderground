@@ -19,6 +19,7 @@ public class StackController {
 
 	public void chooseSet(int nr)
 	{
+		System.out.println("reached23");
 		Player player  = this.stack.getPlayer();
 		ObservableList<Set> sets = this.stack.getSets();
 		TabViewController controller  = this.stack.getTabViewController();

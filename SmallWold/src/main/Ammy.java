@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-import controllers.CombatController;
+import controllers.CombatController_old;
 import controllers.EndTurnController;
 import controllers.MapTester;
 import controllers.SleepController;
@@ -31,7 +31,7 @@ public class Ammy
 {
 	//This entire list is just for references, for the setters and getters of Ammy.
 	MapCreator mapCreator;
-	CombatController cc;
+	CombatController_old cc;
 	MapTester test;
 	PickRegions pickRegions;
 	DeclareCombat dc;
@@ -92,7 +92,7 @@ public class Ammy
 		test = new MapTester(this);
 
 		toc = new TokenController(this);
-		cc = new CombatController(this);
+		cc = new CombatController_old(this);
 		pickRegions = new PickRegions(this);
 		dc = new DeclareCombat(this);
 		etc = new EndTurnController(this);
@@ -222,11 +222,11 @@ public class Ammy
 		this.playerCreator = playerCreator;
 	}
 
-	public CombatController getCc() {
+	public CombatController_old getCc() {
 		return cc;
 	}
 
-	public void setCc(CombatController cc) {
+	public void setCc(CombatController_old cc) {
 		this.cc = cc;
 	}
 

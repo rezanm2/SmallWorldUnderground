@@ -1,12 +1,12 @@
 package races;
 
-import controllers.CombatController;
+import controllers.CombatController_old;
 import main.Ammy;
 import player.Player;
 
 public class Ogres extends Race
 {
-	CombatController cc;
+	CombatController_old cc;
 	public Ogres()
 	{
 		amountOfTokens = 5;

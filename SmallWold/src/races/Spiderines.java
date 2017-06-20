@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 import main.Ammy;
 import playBoard.Map;
-import controllers.CombatController;
+import controllers.CombatController_old;
 import controllers.MapTester;
 import controllers.TerrainController;
 import player.Player;
@@ -22,7 +22,7 @@ public class Spiderines extends Race
 	Scanner scanner = new Scanner(System.in);
 	private int nr;
 	private String yesOrNo = "";
-	CombatController cc;
+	CombatController_old cc;
 	Map map;
 	DeclareCombat dc;
 	RedeployAreas ra;

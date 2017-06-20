@@ -1,7 +1,7 @@
 package specialTokens;
 import java.util.Scanner;
 
-import controllers.CombatController;
+import controllers.CombatController_old;
 import controllers.MapTester;
 import controllers.TerrainController;
 import main.Ammy;
@@ -11,7 +11,7 @@ import player.Player;
 public class Ancient extends SpecialToken {
 	Map map;
 	MapTester mapTester;
-	CombatController cc;
+	CombatController_old cc;
 	int terrainNumber;
 	private Player activePlayer;
 	private TerrainController terrainController;

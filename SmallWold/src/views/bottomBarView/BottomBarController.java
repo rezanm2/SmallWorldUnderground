@@ -42,9 +42,7 @@ public class BottomBarController {
 	int randomNumber = 0;
 
 	public void setPlayerRef(Player selfPlayer) {
-		this.selfPlayer = new Player();
-		selfPlayer.getHand().setCurrentTokens(0);
-		selfPlayer.getHand().setDeclineTokens(0);
+		this.selfPlayer = selfPlayer;
 	}
 
 	public void setActiveSet() {

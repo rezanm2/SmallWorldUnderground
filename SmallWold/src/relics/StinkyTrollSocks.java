@@ -1,6 +1,6 @@
 package relics;
 
-import controllers.CombatController;
+import controllers.CombatController_old;
 import controllers.MapTester;
 import controllers.TerrainController;
 import main.Ammy;
@@ -15,7 +15,7 @@ public class StinkyTrollSocks extends Relic {
 	boolean active = true;
 	int terrainNumber;
 	private Player activePlayer;
-	private CombatController CombatController;
+	private CombatController_old CombatController;
 	private MapTester mapTester;
 	private DeclareCombat declareCombat;
 	private TerrainController terrainController;
