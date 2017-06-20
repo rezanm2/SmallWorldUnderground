@@ -123,6 +123,7 @@ public class StackSet {
 		tabController.setStackRef(this);
 	}
 	public StackController getStackController(){
+		System.out.println("returning controller..");
 		return this.stackController;
 	}
 
@@ -169,7 +170,9 @@ public class StackSet {
 	}
 
 	public void linkStack() {
+		System.out.println("test: reached");
 		tabController.setStack(this.sets);
+		System.out.println("test: reached2");
 	}
 
 	public void test() {

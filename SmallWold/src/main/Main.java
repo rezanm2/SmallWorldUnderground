@@ -8,7 +8,7 @@ import java.util.Scanner;
 import abilities.Ability;
 import abilities.Flocking;
 import abilities.Magic;
-import controllers.CombatController;
+import controllers.CombatController_old;
 import controllers.MapTester;
 import mapInitializers.FourPlayer;
 import mapInitializers.ThreePlayer;

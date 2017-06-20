@@ -1,16 +1,15 @@
 package main;
 
-import java.awt.List;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.server.ExportException;
-import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
 import data.Player;
+import rmi.CombatService;
 import rmi.ServerImpl;
 import rmi.SetService;
 import rmi.TurnService;
@@ -130,6 +129,10 @@ public class RemoteServer {
 			SetService setService = new SetService(playerList);
 			Naming.rebind("ServerSetService", setService);
 			System.out.println("Server: SetService registered as \'ServerSetService\' in RMI registry.");
+
+			CombatService combatService = new CombatService(playerList);
+			Naming.rebind("ServerCombatService", combatService);
+			System.out.println("Server: SetService registered as \'ServerCombatService\' in RMI registry.");
 
 			notifyClientOfStart();
 

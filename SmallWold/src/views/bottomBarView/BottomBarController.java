@@ -37,7 +37,7 @@ public class BottomBarController {
 	private Label label;
 
 	public void setPlayerRef(Player selfPlayer) {
-	//	this.selfPlayer = selfPlayer;
+		this.selfPlayer = selfPlayer;
 	}
 
 	public void setActiveSet() {

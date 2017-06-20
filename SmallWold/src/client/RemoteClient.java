@@ -8,6 +8,7 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
+import controllers.CombatController;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,14 +16,17 @@ import models.JoinedPlayers;
 import models.StackSet;
 import player.Player;
 import rmi.ClientImpl;
+import rmi.CombatService;
 import rmi.SetService;
 import rmi.TurnService;
 import server.ClientSkeleton;
+import server.CombatServiceSkeleton;
 import server.ServerSkeleton;
 import server.SetServiceClientSkeleton;
 import server.SetServiceSkeleton;
 import server.TurnServiceClientSkeleton;
 import server.TurnServiceSkeleton;
+import views.fieldView.FieldViewController;
 import views.sideBarView.SideBarController;
 import views.tabView.TabViewController;
 
@@ -89,7 +93,7 @@ public class RemoteClient {
 			try {
 				app.StartGameScreen(playerAmount, players);
 
-				setRMIService(app.getTabController(), app.getSidebarController(), app.getPlayer());
+				setRMIService(app.getTabController(), app.getSidebarController(),app.getFieldController(), app.getPlayer(), playerAmount);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -97,7 +101,7 @@ public class RemoteClient {
 		});
 	}
 
-	public void setRMIService(TabViewController tabController, SideBarController sideBarController, Player selfPlayer) {
+	public void setRMIService(TabViewController tabController, SideBarController sideBarController, FieldViewController fieldViewController, Player selfPlayer, int playerAmount) {
 
 
 		try {
@@ -105,9 +109,6 @@ public class RemoteClient {
 			//start setup for Turn service
 			System.out.println("Client: looking up turnServiceServer in RMI Registry...");
 			TurnServiceSkeleton serverTurnService = (TurnServiceSkeleton) Naming.lookup("//" + host + "/ServerTurnService");
-
-
-
 			TurnService turnClient = new TurnService(selfPlayer, sideBarController);
 			serverTurnService.addTurnClient(turnClient);
 
@@ -120,6 +121,17 @@ public class RemoteClient {
 
 			SetService setClient = new SetService(stack);
 			serverSetService.addSetClient(setClient);
+
+			/*
+			//start setup for CombatService
+			System.out.println("Client: looking up combatServiceServer in RMI Registry...");
+			CombatServiceSkeleton serverCombatService = (CombatServiceSkeleton) Naming.lookup("//" + host + "/ServerCombatService");
+
+			CombatController combatController = new CombatController(selfPlayer, playerAmount, fieldViewController);
+
+			CombatService combatClient = new CombatService(combatController);
+			serverSetService.addSetClient(setClient);
+*/
 
 
 

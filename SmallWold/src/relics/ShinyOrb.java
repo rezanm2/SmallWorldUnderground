@@ -1,6 +1,6 @@
 package relics;
 
-import controllers.CombatController;
+import controllers.CombatController_old;
 import controllers.MapTester;
 import controllers.TerrainController;
 import main.Ammy;
@@ -12,7 +12,7 @@ public class ShinyOrb extends Relic {
 	
 	private Map map;
 	private Player activePlayer;
-	private CombatController CombatController;
+	private CombatController_old CombatController;
 	private int terrainNumber;
 	private boolean active = true;
 	private MapTester mapTester;

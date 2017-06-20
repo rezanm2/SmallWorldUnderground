@@ -2,14 +2,14 @@ package abilities;
 
 import java.util.Scanner;
 
-import controllers.CombatController;
+import controllers.CombatController_old;
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
 
 public class Vampire extends Ability
 {
-	CombatController cc;
+	CombatController_old cc;
 	Map map;
 	private int terrainNumber;
 	Scanner scanner = new Scanner(System.in);

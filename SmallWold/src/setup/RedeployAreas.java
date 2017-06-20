@@ -2,7 +2,7 @@ package setup;
 
 import java.util.Scanner;
 
-import controllers.CombatController;
+import controllers.CombatController_old;
 import controllers.MapTester;
 import controllers.TerrainController;
 import controllers.TokenController;
@@ -19,7 +19,7 @@ public class RedeployAreas
 	TerrainController tc;
 	private int declaredTokenAmount;
 	private Map map;
-	private CombatController cc;
+	private CombatController_old cc;
 	Scanner input = new Scanner(System.in);
 	RaceListCreator raceList;
 	TokenController toc;

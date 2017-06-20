@@ -1,6 +1,6 @@
 package relics;
 
-import controllers.CombatController;
+import controllers.CombatController_old;
 import controllers.MapTester;
 import controllers.TerrainController;
 import main.Ammy;
@@ -13,7 +13,7 @@ public class KillerRabbitSword extends Relic
 	Map map;
 	boolean active = true;
 	int terrainNumber;
-	private CombatController CombatController;
+	private CombatController_old CombatController;
 	private Player activePlayer;
 	private MapTester mapTester;
 	private DeclareCombat declareCombat;

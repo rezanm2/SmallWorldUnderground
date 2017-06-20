@@ -1,6 +1,6 @@
 package races;
 
-import controllers.CombatController;
+import controllers.CombatController_old;
 import controllers.TerrainController;
 import main.Ammy;
 import player.Hand;
@@ -10,7 +10,7 @@ import setup.RedeployAreas;
 
 public class Mummies extends Race
 {
-	CombatController cc;
+	CombatController_old cc;
 	TerrainController tc;
 	RedeployAreas ra;
 	DeclareCombat dc;
