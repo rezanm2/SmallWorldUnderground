@@ -20,7 +20,7 @@
                   <Image url="@../../images/maps/field-2.png" />
                </image>
             </ImageView>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+            <AnchorPane fx:id="mainPane" onKeyPressed="#keyPressed" prefHeight="200.0" prefWidth="200.0">
                <children>
                   <StackPane fx:id="AA" layoutX="14.0" layoutY="14.0" prefHeight="204.0" prefWidth="308.0" />
                   <StackPane fx:id="AB" layoutX="413.0" layoutY="14.0" onMouseClicked="#declareTokenClick" prefHeight="150.0" prefWidth="261.0">
