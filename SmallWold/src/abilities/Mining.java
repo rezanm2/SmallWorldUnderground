@@ -1,6 +1,6 @@
 package abilities;
 
-import controllers.CombatController;
+import controllers.CombatController_old;
 import controllers.TerrainController;
 import main.Ammy;
 import player.Player;

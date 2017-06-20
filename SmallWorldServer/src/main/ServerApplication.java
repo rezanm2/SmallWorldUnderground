@@ -30,6 +30,7 @@ public class ServerApplication  extends Application{
 	public static void main(String[] args) throws RemoteException, MalformedURLException {
 		server = new RemoteServer();
 		launch(args);														// starts the javafx application
+
 	}
 
 
@@ -56,6 +57,7 @@ public class ServerApplication  extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/Server.fxml"));	//get xml file
+		System.out.println(loader);
 		Parent View  = loader.load();														//load xml file to object
 		ServerController controller = loader.getController();								//get controller
 		controller.setServer(server);														//give controller refrence to the server

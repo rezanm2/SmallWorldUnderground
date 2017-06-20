@@ -2,7 +2,7 @@ package races;
 
 import java.util.Scanner;
 
-import controllers.CombatController;
+import controllers.CombatController_old;
 import controllers.MapTester;
 import controllers.TerrainController;
 import main.Ammy;
@@ -15,7 +15,7 @@ public class Cultists extends Race
 	Ancient an = new Ancient();
 	MapTester mapTester;
 	TerrainController terrainController;
-	CombatController cc;
+	CombatController_old cc;
 	
 	public Cultists()
 	{

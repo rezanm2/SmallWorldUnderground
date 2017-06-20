@@ -1,6 +1,6 @@
 package setup;
 
-import controllers.CombatController;
+import controllers.CombatController_old;
 import controllers.EndTurnController;
 import controllers.MapTester;
 import controllers.SleepController;

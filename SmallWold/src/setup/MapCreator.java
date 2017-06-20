@@ -6,7 +6,7 @@ import java.util.List;
 import abilities.Ability;
 import abilities.Flocking;
 import abilities.Magic;
-import controllers.CombatController;
+import controllers.CombatController_old;
 import controllers.MapTester;
 import main.Ammy;
 import main.Set;

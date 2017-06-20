@@ -3,7 +3,7 @@ package setup;
 import java.util.List;
 import java.util.Scanner;
 
-import controllers.CombatController;
+import controllers.CombatController_old;
 import listCreators.AbilityListCreator;
 import listCreators.RaceListCreator;
 import main.Ammy;

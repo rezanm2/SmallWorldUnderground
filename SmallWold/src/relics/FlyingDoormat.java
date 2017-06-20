@@ -1,6 +1,6 @@
 package relics;
 
-import controllers.CombatController;
+import controllers.CombatController_old;
 import controllers.MapTester;
 import controllers.TerrainController;
 import main.Ammy;

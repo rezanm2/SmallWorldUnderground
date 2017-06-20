@@ -2,7 +2,7 @@ package setup;
 
 import java.util.Scanner;
 
-import controllers.CombatController;
+import controllers.CombatController_old;
 import controllers.MapTester;
 import controllers.TerrainController;
 import controllers.TokenController;
@@ -18,7 +18,7 @@ import terrain.Terrain;
 
 public class DeclareCombat
 {
-	CombatController cc;
+	CombatController_old cc;
 	MapTester test;
 	int code;
 	int declaredAmountOfTokens;

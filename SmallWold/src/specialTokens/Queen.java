@@ -2,7 +2,7 @@ package specialTokens;
 
 import java.util.Scanner;
 
-import controllers.CombatController;
+import controllers.CombatController_old;
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
@@ -11,7 +11,7 @@ public class Queen extends SpecialToken {
 
 	Map map;
 	Player activePlayer;
-	CombatController cc;
+	CombatController_old cc;
 	private int terrainNumber;
 	Scanner scanner;
 
