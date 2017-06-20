@@ -17,7 +17,7 @@ public class ManualController {
 			count = 0;
 		}
 		count++;
-		this.manualPage.setImage(new Image("/images/manual/manual"+count+".png"));
+		this.manualPage.setImage(new Image("/images/manual/manual"+count+".jpg"));
 	}
 	public void previous()
 	{
@@ -26,7 +26,12 @@ public class ManualController {
 			count = 16;
 		}
 		count--;
-		this.manualPage.setImage(new Image("/images/manual/manual"+count+".png"));
+		this.manualPage.setImage(new Image("/images/manual/manual"+count+".jpg"));
+	}
+	
+	public void openManual()
+	{
+		this.manualPage.setImage(new Image("/images/manual/manual1.jpg"));
 	}
 
 }
