@@ -2,20 +2,21 @@ package views.bottomBarView;
 
 
 
-import com.sun.glass.events.MouseEvent;
+
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import player.Player;
 import races.Drow;
 
 public class BottomBarController {
 
 
-
+	private boolean visible;
 	private boolean firstTime = true;
 
 	private Player selfPlayer;
@@ -36,7 +37,7 @@ public class BottomBarController {
 	private Label ownCoins;
 
 	@FXML
-	private TextField abilityTextField;
+	private HBox abilityTextField;
 
 	int randomNumber = 0;
 
@@ -82,13 +83,13 @@ public class BottomBarController {
 	@FXML
 	public void showAbilityTraitText()
 	{
-		abilityTextField.setVisible(true);
+		abilityTextField.setVisible(true);	
 	}
 
 	@FXML
 	public void hideAbilityTraitText()
 	{
-		abilityTextField.setVisible(true);
+		abilityTextField.setVisible(false);
 	}
 
 
