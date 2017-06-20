@@ -4,14 +4,26 @@ package views.bottomBarView;
 
 
 
+import abilities.Fisher;
+import abilities.Flocking;
+import abilities.Magic;
+import abilities.Mining;
+import abilities.Muddy;
+import abilities.Reborn;
+import abilities.Stone;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import main.Set;
 import player.Player;
 import races.Drow;
+import races.Kraken;
+import races.Liches;
+import races.Mudmen;
+import races.Shrooms;
 
 public class BottomBarController {
 
@@ -37,9 +49,41 @@ public class BottomBarController {
 	private Label ownCoins;
 
 	@FXML
-	private HBox abilityTextField;
+	private HBox abilityTextFieldHBox;
 
-	int randomNumber = 0;
+	@FXML
+	private Label abilityTextField;
+
+	@FXML
+	private HBox raceTextFieldHBox;
+
+	@FXML
+	private Label raceTextField;
+
+	@FXML
+	private HBox declineAbilityTextFieldHBox;
+
+	@FXML
+	private Label declineAbilityTextField;
+
+	@FXML
+	private HBox declineRaceTextFieldHBox;
+
+	@FXML
+	private Label declineRaceTextField;
+
+	@FXML
+	private ImageView relicOne;
+
+	@FXML
+	private ImageView relicTwo;
+
+	@FXML
+	private ImageView specialPlaceOne;
+
+	@FXML
+	private ImageView specialPlaceTwo;
+
 
 	public void setPlayerRef(Player selfPlayer) {
 		this.selfPlayer = selfPlayer;
@@ -81,15 +125,71 @@ public class BottomBarController {
 	@FXML
 	public void showAbilityTraitText()
 	{
-		abilityTextField.setVisible(true);	
+		if(abilityTextFieldHBox.isVisible() == false)
+		{
+			selfPlayer.setActiveSet(new Set(new Fisher(), new Shrooms()));
+
+
+			abilityTextField.setText(selfPlayer.getActiveSet().getAbility().getTraitText());
+			abilityTextFieldHBox.setVisible(true);
+		}
+
+		else
+		{
+			abilityTextFieldHBox.setVisible(false);
+		}
 	}
 
 	@FXML
-	public void hideAbilityTraitText()
+	public void showRaceTraitText()
 	{
-		abilityTextField.setVisible(false);
+		if(raceTextFieldHBox.isVisible() == false)
+		{
+			selfPlayer.setActiveSet(new Set(new Fisher(), new Shrooms()));
+
+			raceTextField.setText(selfPlayer.getActiveSet().getRace().getTraitText());
+			raceTextFieldHBox.setVisible(true);
+		}
+
+		else
+		{
+			raceTextFieldHBox.setVisible(false);
+		}
 	}
 
+	@FXML
+	public void showDeclineRaceTraitText()
+	{
+		if(declineRaceTextFieldHBox.isVisible() == false)
+		{
+			selfPlayer.setDeclineSet(new Set(new Flocking(), new Mudmen()));
+
+			declineRaceTextField.setText(selfPlayer.getDeclineSet().getRace().getDeclineTraitText());
+			declineRaceTextFieldHBox.setVisible(true);
+		}
+
+		else
+		{
+			declineRaceTextFieldHBox.setVisible(false);
+		}
+	}
+
+	@FXML
+	public void showDeclineAbilityTraitText()
+	{
+		if(declineAbilityTextFieldHBox.isVisible() == false)
+		{
+			selfPlayer.setDeclineSet(new Set(new Flocking(), new Mudmen()));
+
+			declineAbilityTextField.setText(selfPlayer.getDeclineSet().getAbility().getDeclineTraitText());
+			declineAbilityTextFieldHBox.setVisible(true);
+		}
+
+		else
+		{
+			declineAbilityTextFieldHBox.setVisible(false);
+		}
+	}
 
 
 }

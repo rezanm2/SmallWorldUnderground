@@ -10,6 +10,7 @@ public class Shield extends Ability
 		amountOfTokens = 3;
 		name = "Shield";
 		traitText = "Get a mushroom shield for each shroom region you control";
+		declineTraitText = traitText;
 	}
 
 	@Override

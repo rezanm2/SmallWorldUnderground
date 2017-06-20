@@ -21,6 +21,7 @@ public class Vanishing extends Ability implements CalculatableIncome
 		amountOfTokens = 5;
 		name = "Vanishing";
 		traitText = "Remove all tokens when going in decline and get 2 coins for each region";
+		declineTraitText = traitText;
 	}
 
 	@Override

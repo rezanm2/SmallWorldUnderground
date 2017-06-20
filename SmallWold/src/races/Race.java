@@ -10,6 +10,7 @@ public abstract class Race
 	protected int maxTokens;
 	protected String name;
 	protected String traitText;
+	protected String declineTraitText = "This race has no trait in decline.";
 	protected Player activePlayer;
 	protected Map map;
 	protected int raceIncome;
@@ -56,5 +57,14 @@ public abstract class Race
 	{
 		return traitText;
 	}
+
+	public String getDeclineTraitText() {
+		return declineTraitText;
+	}
+
+	public void setDeclineTraitText(String declineTraitText) {
+		this.declineTraitText = declineTraitText;
+	}
+
 }
 

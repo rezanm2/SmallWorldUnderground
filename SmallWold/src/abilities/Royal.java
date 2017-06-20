@@ -18,6 +18,7 @@ public class Royal extends Ability
 		amountOfTokens = 5;
 		name = "Royal";
 		traitText = "At the end of turn, place the queen in a region. That becomes immune.";
+		declineTraitText = "Queen still immune, but no longer movable.";
 	}
 
 	@Override
@@ -41,7 +42,7 @@ public class Royal extends Ability
 			System.out.println(map.getTerrain(terrainNumber).getIsImmune());
 		}
 	}
-	
+
 	public void changeTerrain(int terrainNumber) {
 		map.getTerrain(this.terrainNumber).setIsImmune(false);
 		map.getTerrain(terrainNumber).setIsImmune(true);

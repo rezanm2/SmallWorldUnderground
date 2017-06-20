@@ -15,6 +15,7 @@ public class Muddy extends Ability implements CalculatableIncome
 		amountOfTokens = 3;
 		name = "Muddy";
 		traitText = "+1 coin for each mud region";
+		declineTraitText = traitText;
 	}
 
 	@Override

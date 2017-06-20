@@ -12,10 +12,19 @@ public abstract class Ability
 	protected boolean active;
 	protected Player activePlayer;
 	protected String image;
+	protected String declineTraitText = "This ability has no trait in decline.";
 
 	public Ability()
 	{
 		image = "../../images/abilitys/placeHolder.png";
+	}
+
+	public String getDeclineTraitText() {
+		return declineTraitText;
+	}
+
+	public void setDeclineTraitText(String declineTraitText) {
+		this.declineTraitText = declineTraitText;
 	}
 
 	public abstract void processAbility(Ammy ammy);
@@ -56,5 +65,15 @@ public abstract class Ability
 	public void processAbility(Ammy ammy, int replaceAmount) {
 		// TODO Auto-generated method stub
 
+	}
+
+	public void setTraitText(String traitText)
+	{
+		this.traitText = traitText;
+	}
+
+	public String getTraitText()
+	{
+		return traitText;
 	}
 }
