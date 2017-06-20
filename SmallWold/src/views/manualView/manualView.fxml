@@ -15,7 +15,7 @@
          <content>
             <ImageView fx:id="manualPage" fitHeight="785.0" fitWidth="753.0" onScrollFinished="#zoomOut" onScrollStarted="#zoomIn" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../images/manual/manual1.jpg" />
+                  <Image url="@../../images/manual/manual1.png" />
                </image>
             </ImageView>
          </content>

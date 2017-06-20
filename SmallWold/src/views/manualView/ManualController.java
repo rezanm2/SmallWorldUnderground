@@ -16,21 +16,21 @@ public class ManualController {
 	
 	public void next()
 	{
-		if(count > 16)
+		if(count > 15)
 		{
 			count = 0;
 		}
 		count++;
-		this.manualPage.setImage(new Image("/images/manual/manual"+count+".jpg"));
+		this.manualPage.setImage(new Image("/images/manual/manual"+count+".png"));
 	}
 	public void previous()
 	{
-		if(count < 1)
+		if(count < 2)
 		{
 			count = 17;
 		}
 		count--;
-		this.manualPage.setImage(new Image("/images/manual/manual"+count+".jpg"));
+		this.manualPage.setImage(new Image("/images/manual/manual"+count+".png"));
 	}
 	public void zoomIn()
 	{
