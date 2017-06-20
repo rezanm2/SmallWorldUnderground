@@ -1,10 +1,11 @@
-package client;
+package rmi;
 
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
+import client.RemoteClient;
 import server.ClientSkeleton;
 
 public class ClientImpl extends UnicastRemoteObject implements ClientSkeleton{

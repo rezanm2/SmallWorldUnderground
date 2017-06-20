@@ -91,7 +91,7 @@ public class TabViewController {
 			//Character.isDigit(iets[iets.length-1]);
 			int choice = Character.getNumericValue(iets[iets.length-1]);
 			System.out.println(choice);
-			stackset.chooseSet(choice-1);
+			stackset.getStackController().chooseSet(choice-1);
 			}
 	}
 
@@ -152,8 +152,8 @@ public class TabViewController {
 		pick_ability_5.setImage(new Image("/images/abilitys/active/"+sets.get(4).getAbility().getName()+".png"));
 		pick_ability_6.setImage(new Image("/images/abilitys/active/"+sets.get(5).getAbility().getName()+".png"));
 
-		ac_ab_1.setImage(new Image("/images/abilitys/active/"+stackset.getAb()+".png"));
-		ac_rc_1.setImage(new Image("/images/races/active/"+stackset.getRc()+".png"));
+		//ac_ab_1.setImage(new Image("/images/abilitys/active/"+stackset.getAb()+".png"));
+		//ac_rc_1.setImage(new Image("/images/races/active/"+stackset.getRc()+".png"));
 
 
 	}
