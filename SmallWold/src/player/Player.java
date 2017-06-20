@@ -10,6 +10,8 @@ public class Player {
 	private Set activeSet;
 	private Set declineSet;
 	private boolean myTurn;
+	private String name;
+
 
 	private Hand hand;
 
@@ -65,5 +67,13 @@ public class Player {
 
 	public void setMyTurn(boolean myTurn) {
 		this.myTurn = myTurn;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 }
