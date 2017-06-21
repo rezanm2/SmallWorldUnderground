@@ -20,6 +20,12 @@ public class Player {
 		this.setMyTurn(false);
 	};
 
+	public Player(Set set){ //test constructor
+		this.hand = new Hand();
+		this.setMyTurn(true);
+		this.setActiveSet(set);
+	}
+
 	public void setCoins(int coins) {
 		this.coins = coins;
 	}
