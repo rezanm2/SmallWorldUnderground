@@ -24,6 +24,10 @@ import races.Kraken;
 import races.Liches;
 import races.Mudmen;
 import races.Shrooms;
+import relics.FlyingDoormat;
+import relics.KillerRabbitSword;
+import specialPlaces.DiamondFields;
+import specialPlaces.MineOfTheLostDwarf;
 
 public class BottomBarController {
 
@@ -73,16 +77,45 @@ public class BottomBarController {
 	private Label declineRaceTextField;
 
 	@FXML
-	private ImageView relicOne;
+	private ImageView relicOnePicture;
 
 	@FXML
-	private ImageView relicTwo;
+	private ImageView relicTwoPicture;
 
 	@FXML
-	private ImageView specialPlaceOne;
+	private ImageView specialPlaceOnePicture;
 
 	@FXML
-	private ImageView specialPlaceTwo;
+	private ImageView specialPlaceTwoPicture;
+
+
+
+
+	@FXML
+	private HBox relicOneHBox;
+
+	@FXML
+	private Label relicOne;
+
+	@FXML
+	private HBox relicTwoHBox;
+
+	@FXML
+	private Label relicTwo;
+
+	@FXML
+	private Label specialPlaceOne;
+
+	@FXML
+	private HBox specialPlaceOneHBox;
+
+	@FXML
+	private Label specialPlaceTwo;
+
+	@FXML
+	private HBox specialPlaceTwoHBox;
+
+
 
 
 	public void setPlayerRef(Player selfPlayer) {
@@ -188,6 +221,62 @@ public class BottomBarController {
 		else
 		{
 			declineAbilityTextFieldHBox.setVisible(false);
+		}
+	}
+
+	public void showRelicOneTraitText()
+	{
+		if(relicOneHBox.isVisible() == false)
+		{
+			relicOne.setText(new FlyingDoormat().getTraitText());
+			relicOneHBox.setVisible(true);
+		}
+
+		else
+		{
+			relicOneHBox.setVisible(false);
+		}
+	}
+
+	public void showRelicTwoTraitText()
+	{
+		if(relicTwoHBox.isVisible() == false)
+		{
+			relicTwo.setText(new KillerRabbitSword().getTraitText());
+			relicTwoHBox.setVisible(true);
+		}
+
+		else
+		{
+			relicTwoHBox.setVisible(false);
+		}
+	}
+
+	public void showSpecialPlaceOneTraitText()
+	{
+		if(specialPlaceOneHBox.isVisible() == false)
+		{
+			specialPlaceOne.setText(new DiamondFields().getTraitText());
+			specialPlaceOneHBox.setVisible(true);
+		}
+
+		else
+		{
+			specialPlaceOneHBox.setVisible(false);
+		}
+	}
+
+	public void showSpecialPlaceTwoTraitText()
+	{
+		if(specialPlaceTwoHBox.isVisible() == false)
+		{
+			specialPlaceTwo.setText(new MineOfTheLostDwarf().getTraitText());
+			specialPlaceTwoHBox.setVisible(true);
+		}
+
+		else
+		{
+			specialPlaceTwoHBox.setVisible(false);
 		}
 	}
 

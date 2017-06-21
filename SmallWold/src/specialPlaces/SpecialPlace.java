@@ -33,6 +33,16 @@ public abstract class SpecialPlace
 		return active;
 	}
 
+	public void setTraitText(String traitText)
+	{
+		this.traitText = traitText;
+	}
+
+	public String getTraitText()
+	{
+		return traitText;
+	}
+
 	public abstract void processSpecialPlace(Ammy ammy);
 }
 
