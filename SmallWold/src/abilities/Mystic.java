@@ -18,6 +18,7 @@ public class Mystic extends Ability  implements CalculatableIncome
 		amountOfTokens = 4;
 		name = "Mystic";
 		traitText = "+1 coin for each mystic region";
+		declineTraitText = traitText;
 	}
 
 	@Override

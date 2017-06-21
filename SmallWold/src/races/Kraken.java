@@ -16,6 +16,7 @@ public class Kraken extends Race
 		maxTokens = 10;
 		name = "Kraken";
 		traitText = "Do not empty river regions at end of turn, even in decline.";
+		declineTraitText = traitText;
 	}
 
 	@Override

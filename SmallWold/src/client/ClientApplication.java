@@ -61,6 +61,7 @@ public class ClientApplication extends Application{
 		Scene scene = new Scene(View);
 		primaryStage.setScene(scene);
 		primaryStage.show();
+
 		//StartGameScreen(2, null);
 
 
