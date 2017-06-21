@@ -20,7 +20,7 @@ public class FieldViewController {
 	private SideBarController sideBarControl;
 	private StackPane declarePanePrevious = new StackPane();
 	private int declaredTokenAmount;
-	private int throughTheList;
+	private int throughTheList = -1;
 
 	@FXML
 	private TextField token_amount;
@@ -49,6 +49,19 @@ public class FieldViewController {
 		else if(ke.getCode().equals(KeyCode.LEFT)){
 			arrowKeyPressedLeft(ke);
 		}
+		else if(ke.getCode().equals(KeyCode.ADD) || (ke.getCode().equals(KeyCode.EQUALS))){
+			declaredTokenAmount = declaredTokenAmount + 1;
+			String tokenAmount = String.valueOf(declaredTokenAmount);
+			token_amount.setText(tokenAmount);
+		}
+		else if(ke.getCode().equals(KeyCode.MINUS) || (ke.getCode().equals(KeyCode.SUBTRACT))){
+			if (declaredTokenAmount > 0) {
+				declaredTokenAmount = declaredTokenAmount - 1;
+				String tokenAmount = String.valueOf(declaredTokenAmount);
+				token_amount.setText(tokenAmount);
+			}
+
+		}
 	}
 
 	@FXML
@@ -69,6 +82,8 @@ public class FieldViewController {
 			declarePane.setVisible(true);
 			this.declarePanePrevious.setVisible(false);
 			this.declarePanePrevious = declarePane;
+			throughTheList = 1;
+
 
 		} catch (ClassCastException e) {
 			System.out.println("Je hebt hier al op geklikt. ");
@@ -96,6 +111,8 @@ public class FieldViewController {
 		getDeclaredTokenAmount();
 		System.out.println(declaredTokenAmount);
 		this.declarePanePrevious.setVisible(false);
+		throughTheList = -1;
+		mainPane.requestFocus();
 	}
 
 	public int getDeclaredTokenAmount() {
