@@ -18,12 +18,12 @@ public class KillerRabbitSword extends Relic
 	private MapTester mapTester;
 	private DeclareCombat declareCombat;
 	private TerrainController terrainController;
-	
+
 
 	public KillerRabbitSword()
 	{
 		name = "Sword of the Killer Rabbit";
-		traitText = "Use to take control of an area with two tokens less than usual (minimum of 1)";
+		traitText = "Take control of an area with two tokens less than usual (minimum of 1)";
 	}
 
 	@Override
@@ -49,9 +49,9 @@ public class KillerRabbitSword extends Relic
 			System.out.println(map.getTerrain(terrainNumber).getTerrainName());
 			active = false;
 		}
-		
+
 	}
-	
+
 	public void changeTerrain(int terrainNumber) {
 		map.getTerrain(this.terrainNumber).setRelic(new Empty());
 		map.getTerrain(terrainNumber).setRelic(this);
