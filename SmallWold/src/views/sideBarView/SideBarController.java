@@ -1,9 +1,11 @@
 package views.sideBarView;
 
+import controllers.TurnController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import player.Player;
 import views.manualView.ManualController;
 import views.tabView.TabViewController;
 
@@ -12,6 +14,8 @@ public class SideBarController {
 
     private TabViewController tabViewControl;
     private ManualController manualController;
+    private Player selfPlayer;
+    private TurnController turnControl;
 
     @FXML
     private ImageView tabImage;
@@ -54,8 +58,14 @@ public class SideBarController {
     {
     	manualController.openManual();
     }
-    
+
 	public void UpdateText(String message) {
 		turn_label.setText(message);
+	}
+
+
+	public void setPlayer(Player selfPlayer) {
+		this.selfPlayer = selfPlayer;
+
 	}
 }

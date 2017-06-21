@@ -9,6 +9,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
 import controllers.CombatController;
+import controllers.TurnController;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -108,13 +109,6 @@ public class RemoteClient {
 
 		try {
 
-			//start setup for Turn service
-			System.out.println("Client: looking up turnServiceServer in RMI Registry...");
-			TurnServiceSkeleton serverTurnService = (TurnServiceSkeleton) Naming.lookup("//" + host + "/ServerTurnService");
-			TurnService turnClient = new TurnService(selfPlayer, sideBarController);
-			serverTurnService.addTurnClient(turnClient);
-
-
 			//start setup for set service
 			System.out.println("Client: looking up ServerSetService in RMI Registry...");
 			SetServiceSkeleton serverSetService = (SetServiceSkeleton) Naming.lookup("//" + host + "/ServerSetService");
@@ -134,6 +128,15 @@ public class RemoteClient {
 			CombatService combatClient = new CombatService(combatController);
 			serverSetService.addSetClient(setClient);
 
+
+			//start setup for Turn service
+			System.out.println("Client: looking up turnServiceServer in RMI Registry...");
+			TurnServiceSkeleton serverTurnService = (TurnServiceSkeleton) Naming.lookup("//" + host + "/ServerTurnService");
+
+			TurnController turnController = new TurnController(combatController.getMap(), sideBarController);
+
+			TurnService turnClient = new TurnService(selfPlayer, sideBarController);
+			serverTurnService.addTurnClient(turnClient);
 
 
 

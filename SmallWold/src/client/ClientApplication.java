@@ -105,6 +105,7 @@ public class ClientApplication extends Application{
         tabPane.getChildren().add(manualView);
 
        // tabController.setPlayers(players);
+        sidebarController.setPlayer(selfPlayer);
 
         //give controllers objects of controllers
         this.fieldController.setControllers(this.tabController, sidebarController);

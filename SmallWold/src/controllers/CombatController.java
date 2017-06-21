@@ -39,6 +39,12 @@ public class CombatController {
 		this.declaredTokenAmount = declaredTokenAmount;
 	}
 
+<<<<<<< HEAD
+	public Map getMap() {
+		return this.map;
+	}
+
+=======
 	public void calculateCombat(String terrainId) {
 		this.terrain = this.map.getTerrainById(terrainId);		
 		if(terrain.getAmountOfTokens() + terrain.getDefense() + 2 <= declaredTokenAmount + miscModifier) {	//If the player wins
@@ -83,6 +89,7 @@ public class CombatController {
 	public void serverUpdateTerrain(Race winningRace, int declaredTokenAmount, Race losingRace, int losingTokens) {
 		
 	}
+>>>>>>> branch 'master' of https://github.com/smallWorld22/SmallWorldUnderground.git
 	//TODO make functions !!
 
 
