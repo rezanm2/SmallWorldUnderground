@@ -49,17 +49,20 @@ public class CombatController {
 			Die die = map.getDie();
 			die.throwDie();
 			int result = die.getResult();
-			
+			System.out.println("Die: " + die.getResult());
 			if(terrain.getAmountOfTokens() + terrain.getDefense() + 2 <= declaredTokenAmount + result + miscModifier) {
 				doAttack(terrain, map.getSelfPlayer());
 			}
 		}
+		System.out.println("Did shit");
 	}
 
 	private void doAttack(Terrain terrain, Player selfPlayer) {
+		System.out.println("Doing attack");
 		if(terrain.getRace() == null) { 							//if terrain is empty
 			terrain.setRace(selfPlayer.getActiveSet().getRace());	//@@@@@@@@ WIM DO SHIT moet naar server gestuurd worden eigenlijk 						
 			terrain.setAmountOfTokens(declaredTokenAmount);			//@@@@@@@@ WIM PLZ
+			System.out.println("Attacking null");
 		}
 		else {
 			losingTokens = terrain.getRace().getAmountOfTokens();
@@ -67,6 +70,7 @@ public class CombatController {
 			losingRace = terrain.getRace();
 			terrain.setRace(selfPlayer.getActiveSet().getRace());	//@@@@@@@@ WIM DO SHIT moet naar server gestuurd worden eigenlijk 						
 			terrain.setAmountOfTokens(declaredTokenAmount);			//@@@@@@@@ WIM PLZ
+			System.out.println("Attacking " + terrain.getRace().getName());
 		}
 		
 		selfPlayer.getHand().setCurrentTokens(selfPlayer.getHand().getCurrentTokens() - declaredTokenAmount);
