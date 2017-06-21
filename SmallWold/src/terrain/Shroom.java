@@ -2,9 +2,9 @@ package terrain;
 
 public class Shroom extends Terrain
 {
-	public Shroom(int[] arrayId)
+	public Shroom(String[] terrainEight)
 	{
-		super(arrayId);
+		super(terrainEight);
 		terrainName = "Shrooms";
 	}
 

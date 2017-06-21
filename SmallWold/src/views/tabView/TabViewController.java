@@ -120,24 +120,6 @@ public class TabViewController {
 
 	public void setStack(ObservableList<Set> sets) {
 
-		//    	tabImage.setImage(new Image("/images/icons/tab-bar-stripes-pressed.png"));
-		//player5.textProperty().bind(playerList.get(4).getPlayerNameProperty());
-		System.out.println(sets.size());
-
-		System.out.println(sets.get(0).getRace());
-		System.out.println(sets.get(1).getRace());
-		System.out.println(sets.get(2).getRace());
-		System.out.println(sets.get(3).getRace());
-		System.out.println(sets.get(4).getRace());
-		System.out.println(sets.get(5).getRace());
-
-		System.out.println(sets.get(0).getAbility());
-		System.out.println(sets.get(1).getAbility());
-		System.out.println(sets.get(2).getAbility());
-		System.out.println(sets.get(3).getAbility());
-		System.out.println(sets.get(4).getAbility());
-		System.out.println(sets.get(5).getAbility());
-
 		pick_race_1.setImage(new Image("/images/races/active/"+sets.get(0).getRace().getName()+".png"));
 		pick_race_2.setImage(new Image("/images/races/active/"+sets.get(1).getRace().getName()+".png"));
 		pick_race_3.setImage(new Image("/images/races/active/"+sets.get(2).getRace().getName()+".png"));
@@ -152,8 +134,6 @@ public class TabViewController {
 		pick_ability_5.setImage(new Image("/images/abilitys/active/"+sets.get(4).getAbility().getName()+".png"));
 		pick_ability_6.setImage(new Image("/images/abilitys/active/"+sets.get(5).getAbility().getName()+".png"));
 
-		//ac_ab_1.setImage(new Image("/images/abilitys/active/"+stackset.getAb()+".png"));
-		//ac_rc_1.setImage(new Image("/images/races/active/"+stackset.getRc()+".png"));
 
 
 	}

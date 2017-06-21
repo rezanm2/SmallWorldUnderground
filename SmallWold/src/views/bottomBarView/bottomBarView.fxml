@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.bottomBarView.BottomBarController">
+<StackPane xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.bottomBarView.BottomBarController">
    <ImageView fitHeight="165.0" fitWidth="1920.0" pickOnBounds="true">
       <image>
          <Image url="@../../images/icons/wood-rexture.jpg" />
@@ -29,7 +29,7 @@
             </ImageView>
             <HBox onMouseClicked="#setActiveSet" prefHeight="147.0" prefWidth="460.0">
                <children>
-                  <ImageView fx:id="activeAbility" fitHeight="140.0" fitWidth="140.0" onMouseEntered="#showAbilityTraitText" onMouseExited="#hideAbilityTraitText" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="activeAbility" fitHeight="140.0" fitWidth="140.0" onMouseClicked="#showAbilityTraitText" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/abilitys/active/Fisher.png" />
                      </image>
@@ -37,7 +37,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </ImageView>
-                  <ImageView fx:id="activeRace" accessibleRole="BUTTON" fitHeight="140.0" onMouseClicked="#setActiveSet" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="activeRace" accessibleRole="BUTTON" fitHeight="140.0" onMouseClicked="#showRaceTraitText" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/races/shroome.png" />
                      </image>
@@ -58,7 +58,7 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </StackPane.margin>
             </HBox>
-               <HBox fx:id="abilityTextField" prefHeight="100.0" prefWidth="200.0" visible="false">
+               <HBox fx:id="abilityTextFieldHBox" mouseTransparent="true" prefHeight="222.0" prefWidth="592.0" spacing="5.0" visible="false">
                   <children>
                      <ImageView fitHeight="103.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                         <image>
@@ -68,8 +68,25 @@
                            <Insets left="100.0" top="20.0" />
                         </HBox.margin>
                      </ImageView>
+                     <Label fx:id="abilityTextField" prefHeight="75.0" prefWidth="116.0" text="AbilityTrait" translateX="-125.0" translateY="20.0" wrapText="true">
+                        <font>
+                           <Font name="System Bold" size="14.0" />
+                        </font></Label>
                   </children>
                </HBox>
+               <HBox fx:id="raceTextFieldHBox" mouseTransparent="true" prefHeight="100.0" prefWidth="200.0" visible="false">
+                  <children>
+                     <ImageView fitHeight="103.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" translateX="300.0" translateY="20.0">
+                        <image>
+                           <Image url="@../../images/icons/areaClicked2.png" />
+                        </image>
+                     </ImageView>
+                     <Label fx:id="raceTextField" prefHeight="75.0" prefWidth="116.0" text="Racetrait" translateX="180.0" translateY="20.0" wrapText="true">
+                        <font>
+                           <Font name="System Bold" size="14.0" />
+                        </font>
+                     </Label>
+                  </children></HBox>
          </children>
          <HBox.margin>
             <Insets />
@@ -87,12 +104,12 @@
             </ImageView>
             <HBox prefHeight="177.0" prefWidth="315.0">
                <children>
-                  <ImageView fitHeight="140.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="140.0" onMouseClicked="#showDeclineRaceTraitText" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/races/mud%20-%20decline.png" />
                      </image>
                   </ImageView>
-                  <ImageView accessibleRole="BUTTON" fitHeight="140.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView accessibleRole="BUTTON" fitHeight="140.0" onMouseClicked="#showDeclineAbilityTraitText" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/abilitys/decline.png" />
                      </image>
@@ -110,6 +127,40 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </StackPane.margin>
             </HBox>
+               <HBox fx:id="declineAbilityTextFieldHBox" mouseTransparent="true" prefHeight="222.0" prefWidth="592.0" spacing="5.0" visible="false">
+                  <children>
+                     <ImageView fitHeight="103.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" translateX="230.0">
+                        <image>
+                           <Image url="@../../images/icons/areaClicked2.png" />
+                        </image>
+                        <HBox.margin>
+                           <Insets left="100.0" top="20.0" />
+                        </HBox.margin>
+                     </ImageView>
+                     <Label fx:id="declineAbilityTextField" prefHeight="74.0" prefWidth="116.0" text="declineAbility" translateX="105.0" translateY="20.0" wrapText="true">
+                        <font>
+                           <Font name="System Bold" size="14.0" />
+                        </font>
+                     </Label>
+                  </children>
+               </HBox>
+               <HBox fx:id="declineRaceTextFieldHBox" mouseTransparent="true" prefHeight="222.0" prefWidth="592.0" spacing="5.0" visible="false">
+                  <children>
+                     <ImageView fitHeight="103.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" translateX="25.0">
+                        <image>
+                           <Image url="@../../images/icons/areaClicked2.png" />
+                        </image>
+                        <HBox.margin>
+                           <Insets left="100.0" top="20.0" />
+                        </HBox.margin>
+                     </ImageView>
+                     <Label fx:id="declineRaceTextField" prefHeight="75.0" prefWidth="116.0" text="declineRace" translateX="-100.0" translateY="20.0" wrapText="true">
+                        <font>
+                           <Font name="System Bold" size="14.0" />
+                        </font>
+                     </Label>
+                  </children>
+               </HBox>
          </children>
          <HBox.margin>
             <Insets />
@@ -132,6 +183,28 @@
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
+                  <children>
+                     <ImageView fx:id="relicOne" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8" scaleZ="0.8" translateX="50.0" translateY="10.0">
+                        <image>
+                           <Image url="@../../images/relics/FlyingDoormat.png" />
+                        </image>
+                     </ImageView>
+                     <ImageView fx:id="relicTwo" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8" scaleZ="0.8" translateX="15.0" translateY="10.0">
+                        <image>
+                           <Image url="@../../images/relics/SwordOfTheRabbitKiller.png" />
+                        </image>
+                     </ImageView>
+                     <ImageView fx:id="specialPlaceOne" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8" scaleZ="0.8" translateX="-20.0" translateY="10.0">
+                        <image>
+                           <Image url="@../../images/specialPlaces/DiamondFields.png" />
+                        </image>
+                     </ImageView>
+                     <ImageView fx:id="specialPlaceTwo" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8" scaleZ="0.8" translateX="-55.0" translateY="10.0">
+                        <image>
+                           <Image url="@../../images/specialPlaces/MineOfLostDwarf.png" />
+                        </image>
+                     </ImageView>
+                  </children>
             </HBox>
          </children>
          <HBox.margin>

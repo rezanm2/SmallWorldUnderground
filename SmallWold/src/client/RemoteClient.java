@@ -40,6 +40,7 @@ public class RemoteClient {
 
 
 
+
 	protected RemoteClient(ClientApplication app) throws RemoteException {
 		this.app = app;
 		this.clientImpl = new ClientImpl(this);
@@ -64,6 +65,7 @@ public class RemoteClient {
 	}
 
 	public void setImplName(String username) {
+		app.getPlayer().setName(username);
 		clientImpl.setUsername(username);
 		System.out.println(username);
 	}
@@ -122,7 +124,7 @@ public class RemoteClient {
 			SetService setClient = new SetService(stack);
 			serverSetService.addSetClient(setClient);
 
-			/*
+
 			//start setup for CombatService
 			System.out.println("Client: looking up combatServiceServer in RMI Registry...");
 			CombatServiceSkeleton serverCombatService = (CombatServiceSkeleton) Naming.lookup("//" + host + "/ServerCombatService");
@@ -131,7 +133,7 @@ public class RemoteClient {
 
 			CombatService combatClient = new CombatService(combatController);
 			serverSetService.addSetClient(setClient);
-*/
+
 
 
 

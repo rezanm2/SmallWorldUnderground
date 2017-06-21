@@ -8,7 +8,7 @@ import specialTokens.SpecialToken;
 
 public abstract class Terrain
 {
-	protected int[] idArray;
+	protected String[] idArray;
 	protected String tokenType;
 	protected int amountOfTokens;
 	protected int defense;
@@ -25,8 +25,9 @@ public abstract class Terrain
 	protected SpecialPlace specialPlace;
 	protected SpecialToken specialToken = new specialTokens.Empty();
 
-	public Terrain(int[] idArray)
+	public Terrain(String[] idArray)
 	{
+
 		this.idArray = idArray;
 	}
 
@@ -35,17 +36,17 @@ public abstract class Terrain
 		this.idArray[arrayOrder] = idArray[arrayOrder];
 	}
 
-	public int getElement(int arrayOrder)
+	public String getElement(int arrayOrder)
 	{
 		return idArray[arrayOrder];
 	}
 
-	public void setIdArray(int[] idArray)
+	public void setIdArray(String[] idArray)
 	{
 		this.idArray = idArray;
 	}
 
-	public int[] getIdArray()
+	public String[] getIdArray()
 	{
 		return idArray;
 	}

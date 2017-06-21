@@ -49,6 +49,11 @@ public class TurnService extends UnicastRemoteObject implements TurnServiceClien
 		System.out.println("its my turn");
 	}
 
+	@Override
+	public String getName() throws RemoteException {
+		return this.selfPlayer.getName();
+	}
+
 
 
 

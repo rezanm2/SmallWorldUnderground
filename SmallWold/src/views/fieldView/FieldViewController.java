@@ -2,6 +2,8 @@ package views.fieldView;
 
 import java.beans.EventHandler;
 
+import abilities.Frightened;
+import controllers.CombatController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -11,6 +13,10 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import main.Set;
+import player.Player;
+import races.Drow;
+import races.Flames;
 import views.sideBarView.SideBarController;
 import views.tabView.TabViewController;
 
@@ -21,12 +27,18 @@ public class FieldViewController {
 	private StackPane declarePanePrevious = new StackPane();
 	private int declaredTokenAmount;
 	private int throughTheList = -1;
+	private Set testset = new Set(new Frightened(), new Flames());
+	private Player test = new Player(testset);
+
+	private CombatController combatController = new CombatController(test, 2, this, null); ////@@@@@@@@@@@@@@@@@@@@@@@@@@@@ remove later
+
 
 	@FXML
 	private TextField token_amount;
 
 	@FXML
 	private AnchorPane mainPane;
+
 
 	public FieldViewController() {
 
@@ -111,8 +123,12 @@ public class FieldViewController {
 		getDeclaredTokenAmount();
 		System.out.println(declaredTokenAmount);
 		this.declarePanePrevious.setVisible(false);
+
 		throughTheList = -1;
 		mainPane.requestFocus();
+
+		System.out.println(declarePanePrevious.getParent().getId());
+		this.combatController.testTerrain(declarePanePrevious.getParent().getId());
 	}
 
 	public int getDeclaredTokenAmount() {
@@ -150,5 +166,10 @@ public class FieldViewController {
 			this.declarePanePrevious.setVisible(false);
 			this.declarePanePrevious = declarePane;
 		}
+	}
+
+	public void setCombatController(CombatController combatController) {
+		this.combatController = combatController;
+
 	}
 }

@@ -30,45 +30,46 @@ public class Map {
 	private List<Terrain> createMap(int playerAmount) {
 		switch (playerAmount) {
 		case 2:
-			return create2PlayerMap();
+			System.out.println("client: creating map for 2 players");
+			return createBPlayerMap();
 		default:
 			return null;
 		}
 	}
 
 
-	public List<Terrain> create2PlayerMap(){
+	private List<Terrain> createBPlayerMap(){
 
-			int[] terrainOne = new int[] {11, 12, 21, 22};				//Make the terrain have its own value and the other values
-			int[] terrainTwo = new int[] {12, 11, 13, 22, 23};
-			int[] terrainThree = new int[] {13, 12, 14, 23, 24, 32, 33, 44};
-			int[] terrainFour = new int[] {14, 13, 15, 24, 25};
-			int[] terrainFive = new int[] {15, 14, 16, 25};
-			int[] terrainSix = new int[] {16, 15, 25, 35, 36};
-			int[] terrainSeven = new int[] {21, 11, 22, 31, 41, 51};
-			int[] terrainEight = new int[] {22, 11, 12, 21, 23, 31};
-			int[] terrainNine = new int[] {23, 12, 13, 22, 31, 32};
-			int[] terrainTen = new int[] {24, 13, 14, 25, 33, 34};
-			int[] terrainEleven = new int[] {25, 14, 15, 16, 24, 34, 35, 36};
-			int[] terrainTwelve = new int[] {31, 21, 22, 23, 32, 41, 42};
-			int[] terrainThirteen = new int[] {32, 13, 23, 31, 33, 42, 44, 52};
-			int[] terrainFourteen = new int[] {33, 13, 24, 34, 44, 45};
-			int[] terrainFifteen = new int[] {34, 24, 25, 33, 35, 45};
-			int[] terrainSixteen = new int[] {35, 16, 25, 34, 36, 23, 24};
-			int[] terrainSeventeen = new int[] {36, 16, 35, 46};
-			int[] terrainEighteen = new int[] {51, 21, 41, 42, 52};
-			int[] terrainNineteen = new int[] {41, 21, 31, 42, 51};
-			int[] terrainTwenty = new int[] {42, 31, 32, 41, 43, 51, 52};
-			int[] terrainTwentyOne = new int[] {43, 32, 42, 44, 52};
-			int[] terrainTwentyTwo = new int[] {44, 13, 32, 33, 43, 45, 52, 53};
-			int[] terrainTwentyThree = new int[] {45, 33, 34, 35, 44, 46, 53, 54};
-			int[] terrainTwentyFour = new int[] {46, 35, 36, 45, 54, 55};
-			int[] terrainTwentyFive = new int[] {52, 42, 43, 44, 51, 53};
-			int[] terrainTwentySix = new int[] {53, 44, 45, 52, 54};
-			int[] terrainTwentySeven = new int[] {54, 45, 46, 53, 55};
-			int[] terrainTwentyEight = new int[] {55, 46, 54};
+			String[] AA = new String[] {"AA", "AB", "BA", "BB"};				//Make the terrain have its own value and the other values
+			String[] terrainTwo = new String[] {"AB", "AA", "AC", "BB", "BC"};
+			String[] terrainThree = new String[] {"AC", "AB", "AD", "BC", "BD", "CB", "CC", "DD"};
+			String[] terrainFour = new String[] {"AD", "AC", "AE", "BD", "BE"};
+			String[] terrainFive = new String[] {"AE", "AD", "AF", "BE"};
+			String[] terrainSix = new String[] {"AF", "AE", "BE", "CE", "CF"};
+			String[] terrainSeven = new String[] {"BA", "AA", "BB", "CA", "DA", "EA"};
+			String[] terrainEight = new String[] {"BB", "AA", "AB", "BA", "BC", "CA"};
+			String[] terrainNine = new String[] {"BC", "AB", "AC", "BB", "CA", "CB"};
+			String[] terrainTen = new String[] {"BD", "AC", "AD", "BE", "CC", "CD"};
+			String[] terrainEleven = new String[] {"BE", "AD", "AE", "AF", "BD", "CD", "CE", "CF"};
+			String[] terrainTwelve = new String[] {"CA", "BA", "BB", "BC", "CB", "DA", "DB"};
+			String[] terrainThirteen = new String[] {"CB", "AC", "BC", "CA", "CC", "DB", "DD", "EB"};
+			String[] terrainFourteen = new String[] {"CC", "AC", "BD", "CD", "DD", "DE"};
+			String[] terrainFifteen = new String[] {"CD", "BD", "BE", "CC", "CE", "DE"};
+			String[] terrainSixteen = new String[] {"CE", "AF", "BE", "CD", "CF", "BC", "BD"};
+			String[] terrainSeventeen = new String[] {"CF", "AF", "CE", "DF"};
+			String[] terrainEighteen = new String[] {"EA", "BA", "DA", "DB", "EB"};
+			String[] terrainNineteen = new String[] {"DA", "BA", "CA", "DB", "EA"};
+			String[] terrainTwenty = new String[] {"DB", "CA", "CB", "DA", "DC", "EA", "EB"};
+			String[] terrainTwentyOne = new String[] {"DC", "CB", "DB", "DD", "EB"};
+			String[] terrainTwentyTwo = new String[] {"DD", "AC", "CB", "CC", "DC", "DE", "EB", "EC"};
+			String[] terrainTwentyThree = new String[] {"DE", "CC", "CD", "CE", "DD", "DF", "EC", "ED"};
+			String[] terrainTwentyFour = new String[] {"DF", "CE", "CF", "DE", "ED", "EE"};
+			String[] terrainTwentyFive = new String[] {"EB", "DB", "DC", "DD", "EA", "EC"};
+			String[] terrainTwentySix = new String[] {"EC", "DD", "DE", "EB", "ED"};
+			String[] terrainTwentySeven = new String[] {"ED", "DE", "DF", "EC", "EE"};
+			String[] terrainTwentyEight = new String[] {"EE", "DF", "ED"};
 
-			terrains.add(new Chasm(terrainOne));
+			terrains.add(new Chasm(AA));
 			terrains.add(new Mud(terrainTwo));
 			terrains.add(new River(terrainThree));
 			terrains.add(new Mystic(terrainFour));
@@ -101,6 +102,21 @@ public class Map {
 		return terrains;
 
 	}
+	public List<Terrain> getTerrains(){
+			return this.terrains;
+	}
+
+	public Terrain getTerrainById(String id) {
+		for (Terrain terrain : terrains) {
+			if(terrain.getElement(0).equals(id) ){
+				System.out.println("test:  " + id + "   -    " +  terrain.getElement(0));
+				return terrain;
+			}
+		}
+		return null;
+
+	}
+
 
 
 

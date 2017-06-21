@@ -64,7 +64,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-         <Label fx:id="turn_label" alignment="TOP_LEFT" contentDisplay="CENTER" focusTraversable="false" graphicTextGap="0.0" prefHeight="159.0" prefWidth="153.0" text="its player_1 turn" textAlignment="JUSTIFY" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+         <Label fx:id="turn_label" alignment="TOP_LEFT" contentDisplay="CENTER" focusTraversable="false" graphicTextGap="0.0" prefHeight="159.0" prefWidth="153.0" text="placeHolder" textAlignment="JUSTIFY" textFill="WHITE" textOverrun="CLIP" wrapText="true">
             <font>
                <Font size="30.0" />
             </font>

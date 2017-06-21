@@ -10,6 +10,7 @@ public class Reborn extends Ability
 		amountOfTokens = 5;
 		name = "Reborn";
 		traitText = "When in decline, can replace 1 or 2 regions with a single new active race token";
+		declineTraitText = traitText;
 	}
 
 	@Override

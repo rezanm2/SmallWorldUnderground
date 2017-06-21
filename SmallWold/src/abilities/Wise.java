@@ -10,6 +10,7 @@ public class Wise extends Ability implements CalculatableIncome
 		amountOfTokens = 4;
 		name = "Wise";
 		traitText = "+2 coins if any wise tokens are still in play.";
+		declineTraitText = traitText;
 	}
 
 	@Override

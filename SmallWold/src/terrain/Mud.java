@@ -2,7 +2,7 @@ package terrain;
 
 public class Mud extends Terrain
 {
-	public Mud(int[] arrayId)
+	public Mud(String[] arrayId)
 	{
 		super(arrayId);
 		terrainName = "Mud";
