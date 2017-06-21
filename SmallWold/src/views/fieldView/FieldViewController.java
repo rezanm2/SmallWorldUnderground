@@ -4,6 +4,7 @@ import java.beans.EventHandler;
 
 import abilities.Frightened;
 import controllers.CombatController;
+import controllers.RedeploymentController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -29,15 +30,16 @@ public class FieldViewController {
 	private int throughTheList = -1;
 	private Set testset = new Set(new Frightened(), new Flames());
 	private Player test = new Player(testset);
-
+	
 	private CombatController combatController = new CombatController(test, 2, this, null); ////@@@@@@@@@@@@@@@@@@@@@@@@@@@@ remove later
-
+	private RedeploymentController redploymentController = new RedeploymentController(test, 2, this, null);
 
 	@FXML
 	private TextField token_amount;
 
 	@FXML
 	private AnchorPane mainPane;
+	
 
 
 	public FieldViewController() {
@@ -120,8 +122,9 @@ public class FieldViewController {
 
 	@FXML
 	public void buttonBevestig(ActionEvent pressButtonBevestig) {
-		getDeclaredTokenAmount();
-		combatController.declareTokenAmount(declaredTokenAmount);
+		//getDeclaredTokenAmount();
+		//combatController.declareTokenAmount(declaredTokenAmount);
+		redploymentController.declareTokenAmount(getDeclaredTokenAmount());
 		System.out.println(declaredTokenAmount);
 		this.declarePanePrevious.setVisible(false);
 
@@ -129,9 +132,10 @@ public class FieldViewController {
 		mainPane.requestFocus();
 
 		System.out.println(declarePanePrevious.getParent().getId());
-		this.combatController.testTerrain(declarePanePrevious.getParent().getId());
+		this.redploymentController.doRedeployment(declarePanePrevious.getParent().getId());
+		//this.combatController.testTerrain(declarePanePrevious.getParent().getId());
 		
-		this.combatController.calculateCombat(declarePanePrevious.getParent().getId());
+		//this.combatController.calculateCombat(declarePanePrevious.getParent().getId());
 	}
 
 	public int getDeclaredTokenAmount() {
@@ -174,5 +178,9 @@ public class FieldViewController {
 	public void setCombatController(CombatController combatController) {
 		this.combatController = combatController;
 
+	}
+
+	public void setRedeploymentController(RedeploymentController redeploymentController) {
+		this.redploymentController = redeploymentController;
 	}
 }
