@@ -121,6 +121,7 @@ public class FieldViewController {
 	@FXML
 	public void buttonBevestig(ActionEvent pressButtonBevestig) {
 		getDeclaredTokenAmount();
+		combatController.declareTokenAmount(declaredTokenAmount);
 		System.out.println(declaredTokenAmount);
 		this.declarePanePrevious.setVisible(false);
 
@@ -129,6 +130,8 @@ public class FieldViewController {
 
 		System.out.println(declarePanePrevious.getParent().getId());
 		this.combatController.testTerrain(declarePanePrevious.getParent().getId());
+		
+		this.combatController.calculateCombat(declarePanePrevious.getParent().getId());
 	}
 
 	public int getDeclaredTokenAmount() {

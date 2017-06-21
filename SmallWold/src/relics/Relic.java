@@ -16,9 +16,9 @@ public abstract class Relic
 	public Relic()
 	{
 	};
-	
+
 	public abstract void processRelic(Ammy ammy);
-	
+
 	public abstract void changeTerrain(int terrainNumber);
 
 	public void setName(String name)
@@ -38,5 +38,15 @@ public abstract class Relic
 	public boolean getActive()
 	{
 		return active;
+	}
+
+	public void setTraitText(String traitText)
+	{
+		this.traitText = traitText;
+	}
+
+	public String getTraitText()
+	{
+		return traitText;
 	}
 }

@@ -9,7 +9,7 @@ import player.Player;
 import setup.DeclareCombat;
 
 public class FlyingDoormat extends Relic {
-	
+
 	//TerrainController tc;
 	Map map;
 	boolean active = true;
@@ -18,13 +18,13 @@ public class FlyingDoormat extends Relic {
 	private TerrainController terrainController;
 	private DeclareCombat declareCombat;
 	private MapTester mapTester;
-	
+
 	public FlyingDoormat(){
 		name = "Flying Doormat";
-		traitText = "Once per turn, use it to conquer any Region, not just an adjacent one.";
+		traitText = "Any region is considered adjacent";
 	}
 
-	
+
 	public void processRelic(Ammy ammy) {
 		this.map = ammy.getMap();
 		this.activePlayer = ammy.getActivePlayer();
@@ -38,7 +38,7 @@ public class FlyingDoormat extends Relic {
 				break;
 			}
 		}
-		
+
 		if(active == true && activePlayer.getActiveSet().getRace().getName() == map.getTerrain(terrainNumber).getRace().getName()) {
 			for(int i = 0; i < map.getAllTerrains().size(); i++) {
 				if(!map.getTerrain(i).getTerrainName().equals("Chasm") && !map.getTerrain(i).getRace().getName().equals(activePlayer.getActiveSet().getRace().getName())) {
@@ -54,7 +54,7 @@ public class FlyingDoormat extends Relic {
 			active = false;
 		}
 	}
-	
+
 	public void changeTerrain(int terrainNumber) {
 		map.getTerrain(this.terrainNumber).setRelic(new Empty());
 		map.getTerrain(terrainNumber).setRelic(this);

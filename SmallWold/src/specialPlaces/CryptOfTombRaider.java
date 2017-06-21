@@ -16,7 +16,7 @@ public class CryptOfTombRaider extends SpecialPlace
 	public CryptOfTombRaider()
 	{
 		name = "Crypt of the Tomb Raider";
-		traitText = "At the end of turn, put the ghost in a region. That region is immune.";
+		traitText = "At end of turn, place ghost in a region. That region is immune.";
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class CryptOfTombRaider extends SpecialPlace
 			terrainController.checkIfAttackable();
 			changeTerrain(terrainController.getAreaPicked());
 			System.out.println(map.getTerrain(terrainOfGhost).getIsImmune());
-			
+
 			terrainController.setNotAdjacent();
 			terrainController.setNotAttackable();
 			terrainController.setNotRedeployable();
@@ -49,9 +49,9 @@ public class CryptOfTombRaider extends SpecialPlace
 			terrainController.setAllAdjacentAreas(activePlayer);
 			terrainController.setAllRedeployableAreas(activePlayer);
 		}
-		
+
 	}
-	
+
 	public void changeTerrain(int terrainOfGhost) {
 		map.getTerrain(this.terrainOfGhost).setIsImmune(false);
 		map.getTerrain(terrainOfGhost).setIsImmune(true);

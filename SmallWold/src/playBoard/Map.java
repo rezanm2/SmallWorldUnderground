@@ -21,8 +21,8 @@ public class Map {
 	private int playerAmount;
 
 	public Map(Player selfPlayer, int playerAmount){
-		this.die = new Die();
-		this.selfPlayer = selfPlayer;
+		this.setDie(new Die());
+		this.setSelfPlayer(selfPlayer);
 		this.playerAmount = playerAmount;
 		this.terrains = createMap(playerAmount);
 	}
@@ -115,6 +115,22 @@ public class Map {
 		}
 		return null;
 
+	}
+
+	public Player getSelfPlayer() {
+		return selfPlayer;
+	}
+
+	public void setSelfPlayer(Player selfPlayer) {
+		this.selfPlayer = selfPlayer;
+	}
+
+	public Die getDie() {
+		return die;
+	}
+
+	public void setDie(Die die) {
+		this.die = die;
 	}
 
 
