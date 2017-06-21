@@ -2,6 +2,7 @@ package views.fieldView;
 
 import java.beans.EventHandler;
 
+import controllers.CombatController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -21,12 +22,14 @@ public class FieldViewController {
 	private StackPane declarePanePrevious = new StackPane();
 	private int declaredTokenAmount;
 	private int throughTheList;
+	private CombatController combatController // = new CombatController(null, 2, this); ////@@@@@@@@@@@@@@@@@@@@@@@@@@@@ remove later
 
 	@FXML
 	private TextField token_amount;
 
 	@FXML
 	private AnchorPane mainPane;
+
 
 	public FieldViewController() {
 
@@ -96,6 +99,11 @@ public class FieldViewController {
 		getDeclaredTokenAmount();
 		System.out.println(declaredTokenAmount);
 		this.declarePanePrevious.setVisible(false);
+
+		System.out.println(declarePanePrevious.getParent().getId());
+		this.combatController.testTerrain(declarePanePrevious.getParent().getId());
+
+
 	}
 
 	public int getDeclaredTokenAmount() {
@@ -133,5 +141,10 @@ public class FieldViewController {
 			this.declarePanePrevious.setVisible(false);
 			this.declarePanePrevious = declarePane;
 		}
+	}
+
+	public void setCombatController(CombatController combatController) {
+		this.combatController = combatController;
+
 	}
 }

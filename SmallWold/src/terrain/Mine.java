@@ -2,7 +2,7 @@ package terrain;
 
 public class Mine extends Terrain
 {
-	public Mine(int[] arrayId)
+	public Mine(String[] arrayId)
 	{
 		super(arrayId);
 		terrainName = "Mine";

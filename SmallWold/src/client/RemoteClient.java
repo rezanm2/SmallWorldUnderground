@@ -124,7 +124,7 @@ public class RemoteClient {
 			SetService setClient = new SetService(stack);
 			serverSetService.addSetClient(setClient);
 
-			/*
+
 			//start setup for CombatService
 			System.out.println("Client: looking up combatServiceServer in RMI Registry...");
 			CombatServiceSkeleton serverCombatService = (CombatServiceSkeleton) Naming.lookup("//" + host + "/ServerCombatService");
@@ -133,7 +133,7 @@ public class RemoteClient {
 
 			CombatService combatClient = new CombatService(combatController);
 			serverSetService.addSetClient(setClient);
-*/
+
 
 
 

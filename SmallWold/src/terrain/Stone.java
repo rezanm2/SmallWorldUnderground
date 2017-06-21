@@ -2,7 +2,7 @@ package terrain;
 
 public class Stone extends Terrain
 {
-	public Stone(int[] arrayId)
+	public Stone(String[] arrayId)
 	{
 		super(arrayId);
 		defense = 1;
