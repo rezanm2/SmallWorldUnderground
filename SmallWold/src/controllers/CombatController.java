@@ -29,6 +29,10 @@ public class CombatController {
 	//	this.serverCombatService //wim do shit
 	}
 
+	public Map getMap() {
+		return this.map;
+	}
+
 	//TODO make functions !!
 
 
