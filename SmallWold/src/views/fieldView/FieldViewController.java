@@ -33,6 +33,7 @@ public class FieldViewController {
 	private int throughTheList = -1;
 	private Set testset = new Set(new Frightened(), new Flames());
 	private Player test = new Player(testset);
+	private String tokenAmount;
 
 	private CombatController combatController = new CombatController(test, 2, this, null); ////@@@@@@@@@@@@@@@@@@@@@@@@@@@@ remove later
 	private RedeploymentController redploymentController = new RedeploymentController(test, 2, this, null);
@@ -95,6 +96,16 @@ public class FieldViewController {
 	@FXML
 	public void declareTokenClick(MouseEvent event) {
 		try {
+
+			declaredTokenAmount = 0;
+
+			StackPane thePane = (StackPane) event.getTarget();
+			StackPane thePane2 = (StackPane) thePane.getChildren().get(0);
+			FlowPane flowPane = (FlowPane) thePane2.getChildren().get(1);
+			HBox hbox = (HBox) flowPane.getChildren().get(1);
+			TextField textField = (TextField) hbox.getChildren().get(1);
+			textField.setText("0");
+
 			StackPane field = (StackPane) event.getTarget();
 			StackPane declarePane = (StackPane) field.getChildren().get(0);
 			declarePane.setVisible(true);
@@ -108,28 +119,32 @@ public class FieldViewController {
 		}
 	}
 
-	@FXML
-	public void buttonMin(ActionEvent pressButtonMin) {
-		if (declaredTokenAmount > 0) {
-			declaredTokenAmount = declaredTokenAmount - 1;
-			String tokenAmount = String.valueOf(declaredTokenAmount);
 
-		Button buttonMinTarget = (Button) pressButtonMin.getTarget();
+	private void updateTokenAmountTextField(ActionEvent pressButton)
+	{
+		Button buttonMinTarget = (Button) pressButton.getTarget();
 		HBox theBox = (HBox) buttonMinTarget.getParent();
 		TextField field = (TextField) theBox.getChildren().get(1);
 		field.setText(tokenAmount);
+	}
+
+	@FXML
+	public void buttonMin(ActionEvent pressButtonMin) {
+		if (declaredTokenAmount > 0)
+		{
+			declaredTokenAmount = declaredTokenAmount - 1;
+			tokenAmount = String.valueOf(declaredTokenAmount);
+
+			updateTokenAmountTextField(pressButtonMin);
 		}
 	}
 
 	@FXML
 	public void buttonPlus(ActionEvent pressButtonPlus) {
 		declaredTokenAmount = declaredTokenAmount + 1;
-		String tokenAmount = String.valueOf(declaredTokenAmount);
+		tokenAmount = String.valueOf(declaredTokenAmount);
 
-		Button buttonPlusTarget = (Button) pressButtonPlus.getTarget();
-		HBox theBox = (HBox) buttonPlusTarget.getParent();
-		TextField field = (TextField) theBox.getChildren().get(1);
-		field.setText(tokenAmount);
+		updateTokenAmountTextField(pressButtonPlus);
 	}
 
 	@FXML
