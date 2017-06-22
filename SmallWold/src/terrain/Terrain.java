@@ -35,6 +35,9 @@ public abstract class Terrain
 
 		this.idArray = idArray;
 	}
+	public String getTerrainId(){
+		return this.idArray[0];
+	}
 
 	public void setElement(int arrayOrder)
 	{

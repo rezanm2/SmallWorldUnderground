@@ -6,6 +6,7 @@ import java.util.ArrayList;
  */
 import java.util.List;
 
+import models.StackSet;
 import player.Player;
 import terrain.Chasm;
 import terrain.Mine;
@@ -26,6 +27,7 @@ public class Map {
 	private Die die;
 	private Player selfPlayer;
 	private int playerAmount;
+	private StackSet stack;
 
 	/**
 	 * Ophalen van de speler en het aantal spelers.
@@ -35,11 +37,14 @@ public class Map {
 	 *
 	 * @author Marinus van den Oever;
 	 */
-	public Map(Player selfPlayer, int playerAmount){
+
+	public Map(Player selfPlayer, int playerAmount, StackSet stack){
+
 		this.setDie(new Die());
 		this.setSelfPlayer(selfPlayer);
 		this.playerAmount = playerAmount;
 		this.terrains = createMap(playerAmount);
+		this.setStack(stack);
 	}
 	/**
 	 * Het speelbord wordt gemaakt door het aantal spelers mee te geven.
@@ -54,11 +59,12 @@ public class Map {
 		switch (playerAmount) {
 		case 2:
 			System.out.println("client: creating map for 2 players");
-			return createBPlayerMap();
+			return create2PlayerMap();
 		default:
 			return null;
 		}
 	}
+
 
 	/**
 	 * De specifieke tereinen worden in de list geplaatst met eigen ID en ID van de omringende terreinen.
@@ -68,7 +74,8 @@ public class Map {
 	 * @return terrains.
 	 * @author Marinus van den Oever
 	 */
-	private List<Terrain> createBPlayerMap(){
+
+	private List<Terrain> create2PlayerMap(){
 
 			String[] AA = new String[] {"AA", "AB", "BA", "BB"};				//Make the terrain have its own value and the other values
 			String[] terrainTwo = new String[] {"AB", "AA", "AC", "BB", "BC"};
@@ -147,7 +154,7 @@ public class Map {
 	public Terrain getTerrainById(String id) {
 		for (Terrain terrain : terrains) {
 			if(terrain.getElement(0).equals(id) ){
-				System.out.println("test:  " + id + "   -    " +  terrain.getElement(0));
+				System.out.println("client: found terrain:  " + id + "   -    " +  terrain.getElement(0));
 				return terrain;
 			}
 		}
@@ -169,6 +176,14 @@ public class Map {
 
 	public void setDie(Die die) {
 		this.die = die;
+	}
+
+	public StackSet getStack() {
+		return stack;
+	}
+
+	public void setStack(StackSet stack) {
+		this.stack = stack;
 	}
 
 

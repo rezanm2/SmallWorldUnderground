@@ -8,6 +8,8 @@ public class Player {
 	private String activeAbility;
 	private String declineRace;
 	private String declineAbility;
+	private int handTokens;
+	private int declineTokens;
 	private int balance;
 
 
