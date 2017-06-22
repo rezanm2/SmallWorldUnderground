@@ -7,6 +7,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import player.Player;
 import views.manualView.ManualController;
+import views.settingView.SettingController;
 import views.tabView.TabViewController;
 
 
@@ -16,6 +17,7 @@ public class SideBarController {
     private ManualController manualController;
     private Player selfPlayer;
     private TurnController turnControl;
+    private SettingController settingController;
 
     @FXML
     private ImageView tabImage;
@@ -37,6 +39,9 @@ public class SideBarController {
     }
     public void setControllers(ManualController controller){
     	manualController = controller;
+    }
+    public void setControllers(SettingController controller){
+    	settingController = controller;
     }
 
     public void changeImagePressed(){
@@ -60,6 +65,10 @@ public class SideBarController {
     public void openManual()
     {
     	manualController.openManual();
+    }
+    public void openSetting()
+    {
+    	settingController.openSetting();
     }
 
 	public void UpdateText(String message) {
