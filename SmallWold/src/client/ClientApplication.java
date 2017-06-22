@@ -18,6 +18,7 @@ import views.bottomBarView.BottomBarController;
 import views.fieldView.FieldViewController;
 import views.lobbyView.lobbyController;
 import views.manualView.ManualController;
+import views.settingView.SettingController;
 import views.sideBarView.SideBarController;
 import views.tabView.TabViewController;
 
@@ -99,10 +100,18 @@ public class ClientApplication extends Application{
       FXMLLoader manualViewLoader = new FXMLLoader(getClass().getResource("../views/manualView/manualView.fxml"));			//get xml file
       StackPane manualView = manualViewLoader.load();																//load xml file to object
       ManualController manualController = manualViewLoader.getController();
+      
+      
+      //add settingView thats hidden to rootLayout
+      FXMLLoader settingViewLoader = new FXMLLoader(getClass().getResource("../views/settingView/settingView.fxml"));			//get xml file
+      StackPane settingView = settingViewLoader.load();																//load xml file to object
+      SettingController settingController = settingViewLoader.getController();
 
         StackPane tabPane = (StackPane)rootLayoutLoader.getNamespace().get("stackPane"); 						//get stackPane from fieldView
         tabPane.getChildren().add(tabView);																	//add tabview to stackpane from Fieldview
         tabPane.getChildren().add(manualView);
+        tabPane.getChildren().add(settingView);
+
 
        // tabController.setPlayers(players);
         sidebarController.setPlayer(selfPlayer);
@@ -114,6 +123,7 @@ public class ClientApplication extends Application{
         this.tabController.setBottomController(bottomBarControl);
 
         sidebarController.setControllers(manualController);
+        sidebarController.setControllers(settingController);
 
 
 
