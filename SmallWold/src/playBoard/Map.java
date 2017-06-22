@@ -16,13 +16,13 @@ import terrain.River;
 import terrain.Shroom;
 import terrain.Stone;
 import terrain.Terrain;
-
-public class Map {
-
 	/**
 	 * Klasse die het speelbord initieert en in een list zet.
 	 */
 
+public class Map {
+
+	
 	private List<Terrain> terrains = new ArrayList<Terrain>();
 	private Die die;
 	private Player selfPlayer;

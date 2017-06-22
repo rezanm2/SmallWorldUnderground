@@ -3,6 +3,13 @@ package abilities;
 import main.Ammy;
 import player.Player;
 
+/**
+ * Klasse die de ability bijhoudt met bijbehorende effecten.
+ * 
+ * @author bas_d
+ *
+ */
+
 public abstract class Ability
 {
 	protected int amountOfTokens;
@@ -14,6 +21,9 @@ public abstract class Ability
 	protected String image;
 	protected String declineTraitText = "This ability has no trait in decline.";
 
+	/**
+	 * Maakt een ability aan.
+	 */
 	public Ability()
 	{
 		image = "../../images/abilitys/placeHolder.png";
