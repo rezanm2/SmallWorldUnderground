@@ -3,8 +3,8 @@ package models;
 import abilities.Ability;
 import races.Race;
 /**
- * Deze class is een set die bestaat uit een ability en race. 
- * 
+ * Deze class is een set die bestaat uit een ability en race.
+ *
  * @author Groep13
  *
  */
@@ -18,7 +18,7 @@ public class Set
 
 	/**
 	 * Maakt een nieuwe set aan.
-	 * 
+	 *
 	 * @param race, een race
 	 * @param ability, een ability
 	 */
@@ -26,7 +26,7 @@ public class Set
 	{
 		this.ability = ability;
 		this.race = race;
-		//this.initialTokens = ability.getAmountOfTokens() + race.getAmountOfTokens();
+		this.initialTokens = ability.getAmountOfTokens() + race.getAmountOfTokens();
 	}
 
 	public int getInitialTokens() {

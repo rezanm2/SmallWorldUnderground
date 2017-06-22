@@ -43,7 +43,7 @@ public class CombatController {
 	 * @param fieldController
 	 * @param serverCombatService
 	 *
-	 * 
+	 *
 	 */
 	public CombatController(StackSet stack, Player selfPlayer, int playerAmount, FieldViewController fieldController,
 			CombatServiceSkeleton serverCombatService) {
@@ -58,7 +58,7 @@ public class CombatController {
 	 *
 	 * @param terrainId, bijvoorbeeld AA, AB, BB.
 	 *
-	 * 
+	 *
 	 */
 	public void testTerrain(String terrainId) {
 
@@ -67,6 +67,7 @@ public class CombatController {
 	}
 
 	public void declareTokenAmount(int declaredTokenAmount) {
+		System.out.println(declaredTokenAmount);
 		this.declaredTokenAmount = declaredTokenAmount;
 	}
 
@@ -79,7 +80,7 @@ public class CombatController {
 	 * Bijzonderheid: Als de speler niet genoeg fiches heeft zal de dobbelsteen gegooid worden.
 	 *
 	 * @param terrainId, voor het meegeven welk terrein moet worden aangevallen.
-	 * @author Marinus van den Oever, Bas Dorrestein
+	 * @author Marinus van den Oever, Bas Dorrestein, Wim van der Putten
 	 */
 
 	public void calculateCombat(String terrainId) throws RemoteException {
@@ -89,7 +90,7 @@ public class CombatController {
 																											// player
 																											// wins
 			doAttack(terrain, map.getSelfPlayer());
-		} else {
+		} else if (declaredTokenAmount != 0) {
 			// @@@@@@ OPEN SIMPLE DOBBELSTEENSCHERM HIER OFZO OMG MOCHT JE DAT
 			// WILLEN MAAR HOEFT NIET
 			Die die = map.getDie();
@@ -103,7 +104,7 @@ public class CombatController {
 			// @@@@@@@@@@@@@@@@@@@@@@@@@@@@ END PHASE
 		}
 
-		System.out.println("Did shit");
+		System.out.println("client: proccesed attacking");
 	}
 	/**
 	 * Methode is verantwoordelijk voor het uitvoeren van de aanval.
@@ -118,27 +119,25 @@ public class CombatController {
 	private void doAttack(Terrain terrain, Player selfPlayer) throws RemoteException {
 		System.out.println("Doing attack");
 		if (terrain.getRace() == null) { // if terrain is empty
-			terrain.setRace(selfPlayer.getActiveSet().getRace()); // @@@@@@@@
-			terrain.setAmountOfTokens(declaredTokenAmount); // @@@@@@@@ WIM PLZ
+			terrain.setRace(selfPlayer.getActiveSet().getRace());
+			terrain.setAmountOfTokens(declaredTokenAmount);
 
-			System.out.println("Attacking null");
+
+			System.out.println("Attacking empty field");
 			serverCombatService.updateTerrain(terrain.getTerrainId(), selfPlayer.getActiveSet().getRace().getName(),declaredTokenAmount); // sends information to the server
 		} else {
-			losingTokens = terrain.getRace().getAmountOfTokens();
+			losingTokens = terrain.getAmountOfTokens();
+			System.out.println("here --- :" + losingTokens);
 			losingTokens--;
 			losingRace = terrain.getRace();
+			System.out.println(losingTokens);
 
-			terrain.setRace(selfPlayer.getActiveSet().getRace()); // @@@@@@@@
-																	// WIM DO
-																	// SHIT moet
-																	// naar
-																	// server
-																	// gestuurd
-																	// worden
-																	// eigenlijk
-			terrain.setAmountOfTokens(declaredTokenAmount); // @@@@@@@@ WIM PLZ
+			terrain.setRace(selfPlayer.getActiveSet().getRace());
+			terrain.setAmountOfTokens(declaredTokenAmount);
 			// send loses to server
-			// send to server terrain claimed
+			serverCombatService.updateTerrain(terrain.getTerrainId(), selfPlayer.getActiveSet().getRace().getName(),declaredTokenAmount); // sends information to the server
+
+			serverCombatService.updateLosePlayer(losingRace.getName(),losingTokens );
 			System.out.println("Attacking " + terrain.getRace().getName());
 		}
 
@@ -155,12 +154,21 @@ public class CombatController {
 		System.out.println("setting race");
 		editTerrain.setRace(this.map.getStack().getRaceByName(serverTerrain.getRace()));
 		System.out.println("updating view");
-		updateFieldView(serverTerrain.getId(), serverTerrain.getRace());
+		updateFieldView(serverTerrain.getId(), serverTerrain.getRace(), serverTerrain.getTokens());
 	}
 
-	public void updateFieldView(String id, String raceName){
+	public void updateFieldView(String id, String raceName, int tokens){
 		Platform.runLater(() -> {
-				fieldController.updateFieldById(id,raceName);
+				fieldController.updateFieldById(id,raceName, tokens);
 		});
+	}
+
+	public void syncLoses(String name, int losingTokens) {
+		if(this.map.getSelfPlayer().getActiveSet().getRace().getName().equals(name)){
+			System.out.println("losing tokens: " + losingTokens);
+			this.map.getSelfPlayer().getHand().setCurrentTokens(this.map.getSelfPlayer().getHand().getCurrentTokens() + losingTokens);
+
+		}
+
 	}
 }

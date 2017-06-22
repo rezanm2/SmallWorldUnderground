@@ -139,6 +139,7 @@ public class RemoteServer {
 			Naming.rebind("ServerCombatService", combatService);
 			System.out.println("Server: SetService registered as \'ServerCombatService\' in RMI registry.");
 
+			Thread.sleep(20);
 			notifyClientOfStart();
 
 

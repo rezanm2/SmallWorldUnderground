@@ -4,30 +4,12 @@ package views.bottomBarView;
 
 
 
-import abilities.Fisher;
-import abilities.Flocking;
-import abilities.Magic;
-import abilities.Mining;
-import abilities.Muddy;
-import abilities.Reborn;
-import abilities.Stone;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
-import models.Set;
 import player.Player;
-import races.Drow;
-import races.Kraken;
-import races.Liches;
-import races.Mudmen;
-import races.Shrooms;
-import relics.FlyingDoormat;
-import relics.KillerRabbitSword;
-import specialPlaces.DiamondFields;
-import specialPlaces.MineOfTheLostDwarf;
 
 public class BottomBarController {
 
@@ -42,7 +24,7 @@ public class BottomBarController {
 
 	@FXML
 	private ImageView declineAbility;
-	
+
 	@FXML
 	private ImageView declineRace;
 
@@ -81,19 +63,6 @@ public class BottomBarController {
 
 	@FXML
 	private Label declineRaceTextField;
-
-	@FXML
-	private ImageView relicOnePicture;
-
-	@FXML
-	private ImageView relicTwoPicture;
-
-	@FXML
-	private ImageView specialPlaceOnePicture;
-
-	@FXML
-	private ImageView specialPlaceTwoPicture;
-
 
 
 
@@ -150,9 +119,7 @@ public class BottomBarController {
 	@FXML
 	public void updateCurrentTokens()
 	{
-
-		selfPlayer.getHand().setCurrentTokens((selfPlayer.getHand().getCurrentTokens() + 1)); 	//Remove the +1 when there's actual value
-		currentTokens.setText(String.valueOf(selfPlayer.getHand().getCurrentTokens()) + "/14");	//Add player's race maxTokens
+		currentTokens.setText(String.valueOf(selfPlayer.getHand().getCurrentTokens()));
 
 	}
 
@@ -165,21 +132,13 @@ public class BottomBarController {
 		declineTokens.setText(String.valueOf(selfPlayer.getHand().getDeclineTokens()));
 	}
 
-	public void updatePlayerCoins()
-	{
 
-		selfPlayer.setCoins(selfPlayer.getCoins() + 1 // + tokenController.getDeclineTokens
-				);
-		ownCoins.setText(String.valueOf(selfPlayer.getCoins()));
-
-	}
 
 	@FXML
 	public void showAbilityTraitText()
 	{
-		if(abilityTextFieldHBox.isVisible() == false)
+		if(abilityTextFieldHBox.isVisible() == false && selfPlayer.getActiveSet() != null)
 		{
-			selfPlayer.setActiveSet(new Set(new Shrooms(), new Fisher()));
 
 
 			abilityTextField.setText(selfPlayer.getActiveSet().getAbility().getTraitText());
@@ -195,10 +154,8 @@ public class BottomBarController {
 	@FXML
 	public void showRaceTraitText()
 	{
-		if(raceTextFieldHBox.isVisible() == false)
+		if(raceTextFieldHBox.isVisible() == false && selfPlayer.getActiveSet() != null)
 		{
-			selfPlayer.setActiveSet(new Set(new Shrooms(), new Fisher()));
-
 			raceTextField.setText(selfPlayer.getActiveSet().getRace().getTraitText());
 			raceTextFieldHBox.setVisible(true);
 		}
@@ -212,9 +169,8 @@ public class BottomBarController {
 	@FXML
 	public void showDeclineRaceTraitText()
 	{
-		if(declineRaceTextFieldHBox.isVisible() == false)
+		if(declineRaceTextFieldHBox.isVisible() == false && selfPlayer.getDeclineSet() != null)
 		{
-			selfPlayer.setDeclineSet(new Set(new Mudmen(), new Flocking()));
 
 			declineRaceTextField.setText(selfPlayer.getDeclineSet().getRace().getDeclineTraitText());
 			declineRaceTextFieldHBox.setVisible(true);
@@ -231,7 +187,6 @@ public class BottomBarController {
 	{
 		if(declineAbilityTextFieldHBox.isVisible() == false)
 		{
-			selfPlayer.setDeclineSet(new Set(new Mudmen(), new Flocking()));
 
 			declineAbilityTextField.setText(selfPlayer.getDeclineSet().getAbility().getDeclineTraitText());
 			declineAbilityTextFieldHBox.setVisible(true);
@@ -242,7 +197,7 @@ public class BottomBarController {
 			declineAbilityTextFieldHBox.setVisible(false);
 		}
 	}
-
+/*
 	public void showRelicOneTraitText()
 	{
 		if(relicOneHBox.isVisible() == false)
@@ -298,6 +253,14 @@ public class BottomBarController {
 			specialPlaceTwoHBox.setVisible(false);
 		}
 	}
+	*/
+
+	public void bindPlayer() {
+		ownCoins.textProperty().bind(selfPlayer.getCoinLabel());
+		currentTokens.textProperty().bind(selfPlayer.getHand().getCurrentTokensLabel());
+
+	}
+
 
 
 }

@@ -1,10 +1,13 @@
 package views.sideBarView;
 
+import java.rmi.RemoteException;
+
 import controllers.TurnController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 import player.Player;
 import views.manualView.ManualController;
 import views.settingView.SettingController;
@@ -24,14 +27,24 @@ public class SideBarController {
 
     @FXML
     private Label turn_label;
+    @FXML
+    private Label endButtonLabel;
+    @FXML
+   private StackPane buttonPane;
 
     @FXML
     private ImageView endTurnButton;
 
+    @FXML
+    private StackPane declinePane;
 
-    public SideBarController() {
-		// TODO Auto-generated constructor stub
-	}
+
+
+    @FXML
+    public void initialize() {
+       //greyout button.
+    	endButtonLabel.setText("");
+    }
 
 
     public void setControllers(TabViewController controller){
@@ -62,6 +75,10 @@ public class SideBarController {
     	}
 
     }
+    public void hideDeclineButton(){
+    		this.declinePane.setVisible(false);
+    }
+
     public void openManual()
     {
     	manualController.openManual();
@@ -84,8 +101,26 @@ public class SideBarController {
 		this.turnControl = turnController;
 	}
 
-	public void endTurn(){
-		turnControl.calculateNewBalance();
+	public void endTurn() throws RemoteException{
+		System.out.println("pressed");
+		turnControl.endPhase();
+		//turnControl.calculateNewBalance();
+	}
+	public void startTurn(){
+	//	turnControl
+	}
+
+	public void updateVisibleButton(){
+		if(buttonPane.isVisible()){
+			buttonPane.setVisible(false);
+		}else{
+			buttonPane.setVisible(true);
+		}
+	}
+
+	public void updateButtonText(String string) {
+		this.endButtonLabel.setText(string);
+
 	}
 
 }

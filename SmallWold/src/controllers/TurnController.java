@@ -9,7 +9,7 @@ import views.sideBarView.SideBarController;
 
 /**
  * Deze controllerClass bepaalt hoeveel coins de speler krijgt aan het eind van zijn/haar beurt.
- * 
+ *
  * @author Groep13
  *
  */
@@ -22,13 +22,13 @@ public class TurnController {
 	private int terrainIncome;
 	private int newBalance;
 	private TurnServiceSkeleton turnServer;
-	private int phase; //needs to be an enum but i am  (0 = start )(1 = redeployment )
+	private int phase; //needs to be an enum but i am  (0 = start )(1 = redeployment ) (2 = WAITING)
 
 	/**
 	 * De constructor van de turnController.
 	 * Hierbij wordt eerst de map geset en daarna de sideBarConroller.
 	 * Vervolgens de turnController zelf aan de sideBarController meegegeven.
-	 * 
+	 *
 	 * @param map, de map van het spel.
 	 * @param sideBarController, de controller van de sideBarView.
 	 */
@@ -59,7 +59,9 @@ public class TurnController {
 			}
 		}
 	}
-
+	public void start(){
+		this.phase = 0;
+	}
 	public int getTerrainIncome() {
 		return terrainIncome;
 	}
@@ -77,7 +79,7 @@ public class TurnController {
 			System.out.println("client: going to redeployment phase");
 			this.phase = 1;
 			sideBarController.hideDeclineButton();
-			sideBarController.updateButtonText("End redeployment");
+			sideBarController.updateButtonText("End TURN");
 
 			//do things for redeployment
 			} else{
@@ -87,6 +89,9 @@ public class TurnController {
 		case 1:
 			System.out.println("client: ending turn");
 			sideBarController.updateButtonText("");
+			this.phase = 0;
+			this.map.getSelfPlayer().setMyTurn(false);
+			this.calculateNewBalance();
 			this.turnServer.endTurn();
 
 			break;

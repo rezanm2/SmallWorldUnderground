@@ -12,4 +12,7 @@ public interface CombatServiceSkeleton extends Remote{
 
 	void addCombatClient(CombatServiceClientSkeleton combatClient) throws RemoteException;
 
+
+	void updateLosePlayer(String name, int losingTokens) throws RemoteException;
+
 }

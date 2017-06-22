@@ -11,6 +11,10 @@ import server.SetServiceClientSkeleton;
 
 public class CombatService extends UnicastRemoteObject implements CombatServiceClientSkeleton  {
 
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
 	private CombatController combatController;
 
 	public CombatService(CombatController combatController) throws RemoteException {
@@ -24,6 +28,13 @@ public class CombatService extends UnicastRemoteObject implements CombatServiceC
 		ServerTerrain serverTerrain = (ServerTerrain)terrain;
 
 		combatController.syncTerrain(serverTerrain);
+
+	}
+
+	@Override
+	public void syncLoses(String name, int losingTokens) {
+
+		combatController.syncLoses(name, losingTokens);
 
 	}
 
