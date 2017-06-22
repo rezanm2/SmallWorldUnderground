@@ -20,7 +20,7 @@ import views.fieldView.FieldViewController;
  * Klasse die verantwoordelijk is voor het overnemen en aanvallen van terreinen op het spelbord.
  * Bijzonderheid: deze klasse kan terreinen overnemen waar tegenstanders op staan en ook lege terreinen.
  *
- * @author Marinus
+ * @author Groep13
  *
  */
 
@@ -43,7 +43,7 @@ public class CombatController {
 	 * @param fieldController
 	 * @param serverCombatService
 	 *
-	 * @author Marinus van den Oever;
+	 * 
 	 */
 	public CombatController(StackSet stack, Player selfPlayer, int playerAmount, FieldViewController fieldController,
 			CombatServiceSkeleton serverCombatService) {
@@ -58,7 +58,7 @@ public class CombatController {
 	 *
 	 * @param terrainId, bijvoorbeeld AA, AB, BB.
 	 *
-	 * @author Marinus van den Oever, Wim van der Putten
+	 * 
 	 */
 	public void testTerrain(String terrainId) {
 

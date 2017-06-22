@@ -25,7 +25,7 @@ import views.tabView.TabViewController;
 /**
  * Deze class is de clientApplicatie die een javafx applicatie extends.
  * 
- * @author bas_d
+ * @author Groep13
  *
  */
 
