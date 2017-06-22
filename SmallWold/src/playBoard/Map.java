@@ -1,6 +1,9 @@
 package playBoard;
 
 import java.util.ArrayList;
+/**
+ * Klasse die het speelbord initieert en in een list zet.
+ */
 import java.util.List;
 
 import player.Player;
@@ -15,18 +18,38 @@ import terrain.Terrain;
 
 public class Map {
 
+	/**
+	 * Klasse die het speelbord initieert en in een list zet.
+	 */
+
 	private List<Terrain> terrains = new ArrayList<Terrain>();
 	private Die die;
 	private Player selfPlayer;
 	private int playerAmount;
 
+	/**
+	 * Ophalen van de speler en het aantal spelers.
+	 *
+	 * @param selfPlayer, de actieve speler.
+	 * @param playerAmount, totaal aantal spelers.
+	 *
+	 * @author Marinus van den Oever;
+	 */
 	public Map(Player selfPlayer, int playerAmount){
 		this.setDie(new Die());
 		this.setSelfPlayer(selfPlayer);
 		this.playerAmount = playerAmount;
 		this.terrains = createMap(playerAmount);
 	}
-
+	/**
+	 * Het speelbord wordt gemaakt door het aantal spelers mee te geven.
+	 * Bijzonderheid: Als er geen playerAmount wordt meegegeven wordt er geen speelbord aangemaakt.
+	 *
+	 * @param playerAmount, totaal aantal spelers voor het bordspel.
+	 *
+	 * @return null
+	 * @author Marinus van den Oever;
+	 */
 	private List<Terrain> createMap(int playerAmount) {
 		switch (playerAmount) {
 		case 2:
@@ -37,7 +60,14 @@ public class Map {
 		}
 	}
 
-
+	/**
+	 * De specifieke tereinen worden in de list geplaatst met eigen ID en ID van de omringende terreinen.
+	 * Bijzonderheid: Elk terrein krijgt naast een ID ook het type van het terrein mee.
+	 *
+	 *
+	 * @return terrains.
+	 * @author Marinus van den Oever
+	 */
 	private List<Terrain> createBPlayerMap(){
 
 			String[] AA = new String[] {"AA", "AB", "BA", "BB"};				//Make the terrain have its own value and the other values
@@ -102,9 +132,17 @@ public class Map {
 		return terrains;
 
 	}
+
 	public List<Terrain> getTerrains(){
 			return this.terrains;
 	}
+
+	/**
+	 * Als het terrein ID wordt meegegeven zal de methode teruggeven wat het type is.
+	 *
+	 * @param id, bijvoorbeeld AA, AB, BB.
+	 * @return terrain type
+	 */
 
 	public Terrain getTerrainById(String id) {
 		for (Terrain terrain : terrains) {
