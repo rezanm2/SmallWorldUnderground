@@ -12,6 +12,8 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import main.Set;
 import player.Player;
@@ -35,6 +37,7 @@ public class FieldViewController {
 
 	@FXML
 	private TextField token_amount;
+
 
 	@FXML
 	private AnchorPane mainPane;
@@ -130,7 +133,7 @@ public class FieldViewController {
 
 		System.out.println(declarePanePrevious.getParent().getId());
 		this.combatController.testTerrain(declarePanePrevious.getParent().getId());
-		
+
 		this.combatController.calculateCombat(declarePanePrevious.getParent().getId());
 	}
 

@@ -27,26 +27,233 @@
                      <children>
                         <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
                            <children>
-                              <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="imageView12" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../images/icons/areaClicked2.png" />
                                  </image>
                               </ImageView>
-                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="199.0">
+                              <FlowPane prefHeight="200.0" prefWidth="200.0">
                                  <children>
-                                    <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="41.0" text="+" />
-                                    <TextField prefHeight="31.0" prefWidth="54.0" />
-                                    <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="40.0" text="-" />
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonBevestig" prefHeight="31.0" prefWidth="147.0" text="Bevestig" textAlignment="CENTER">
+                                       <FlowPane.margin>
+                                          <Insets left="60.0" top="5.0" />
+                                       </FlowPane.margin>
+                                    </Button>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="199.0">
+                                       <children>
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonMin" prefHeight="31.0" prefWidth="40.0" text="-" />
+                                          <TextField fx:id="token_amount12" alignment="CENTER" editable="false" prefHeight="31.0" prefWidth="46.0" text="0" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonPlus" prefHeight="31.0" prefWidth="41.0" text="+" />
+                                          <ImageView fitHeight="47.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../images/icons/die.png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets right="-60.0" />
+                                             </HBox.margin>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
                                  </children>
-                              </HBox>
+                              </FlowPane>
                            </children>
                         </StackPane>
                      </children></StackPane>
-                  <StackPane fx:id="AC" layoutX="749.0" layoutY="14.0" prefHeight="363.0" prefWidth="200.0" />
-                  <StackPane layoutX="1073.0" layoutY="14.0" prefHeight="150.0" prefWidth="200.0" />
-                  <StackPane fx:id="AE" layoutX="1340.0" layoutY="14.0" prefHeight="135.0" prefWidth="200.0" />
-                  <StackPane fx:id="AF" layoutX="1490.0" layoutY="152.0" prefHeight="119.0" prefWidth="250.0" />
-                  <StackPane fx:id="BA" layoutX="14.0" layoutY="383.0" prefHeight="150.0" prefWidth="275.0" />
+                  <StackPane fx:id="AC" layoutX="749.0" layoutY="14.0" onMouseClicked="#declareTokenClick" prefHeight="363.0" prefWidth="200.0">
+                     <children>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
+                           <children>
+                              <ImageView fx:id="imageView13" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/icons/areaClicked2.png" />
+                                 </image>
+                                 <StackPane.margin>
+                                    <Insets bottom="150.0" />
+                                 </StackPane.margin>
+                              </ImageView>
+                              <FlowPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonBevestig" prefHeight="31.0" prefWidth="147.0" text="Bevestig" textAlignment="CENTER">
+                                       <FlowPane.margin>
+                                          <Insets bottom="20.0" left="30.0" top="40.0" />
+                                       </FlowPane.margin>
+                                    </Button>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="199.0">
+                                       <children>
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonMin" prefHeight="31.0" prefWidth="40.0" text="-" />
+                                          <TextField fx:id="token_amount13" alignment="CENTER" editable="false" prefHeight="31.0" prefWidth="46.0" text="0" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonPlus" prefHeight="31.0" prefWidth="41.0" text="+" />
+                                          <ImageView fitHeight="47.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../images/icons/die.png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets right="-75.0" />
+                                             </HBox.margin>
+                                          </ImageView>
+                                       </children>
+                                       <FlowPane.margin>
+                                          <Insets left="-35.0" top="-25.0" />
+                                       </FlowPane.margin>
+                                    </HBox>
+                                 </children>
+                              </FlowPane>
+                           </children>
+                        </StackPane>
+                     </children></StackPane>
+                  <StackPane layoutX="1073.0" layoutY="14.0" onMouseClicked="#declareTokenClick" prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
+                           <children>
+                              <ImageView fx:id="imageView14" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/icons/areaClicked2.png" />
+                                 </image>
+                              </ImageView>
+                              <FlowPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonBevestig" prefHeight="31.0" prefWidth="147.0" text="Bevestig" textAlignment="CENTER">
+                                       <FlowPane.margin>
+                                          <Insets left="30.0" top="5.0" />
+                                       </FlowPane.margin>
+                                    </Button>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="199.0">
+                                       <children>
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonMin" prefHeight="31.0" prefWidth="40.0" text="-" />
+                                          <TextField fx:id="token_amount14" alignment="CENTER" editable="false" prefHeight="31.0" prefWidth="46.0" text="0" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonPlus" prefHeight="31.0" prefWidth="41.0" text="+" />
+                                          <ImageView fitHeight="47.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../images/icons/die.png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets right="-75.0" />
+                                             </HBox.margin>
+                                          </ImageView>
+                                       </children>
+                                       <FlowPane.margin>
+                                          <Insets left="-35.0" />
+                                       </FlowPane.margin>
+                                    </HBox>
+                                 </children>
+                              </FlowPane>
+                           </children>
+                        </StackPane>
+                     </children></StackPane>
+                  <StackPane fx:id="AE" layoutX="1340.0" layoutY="14.0" onMouseClicked="#declareTokenClick" prefHeight="135.0" prefWidth="200.0">
+                     <children>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
+                           <children>
+                              <ImageView fx:id="imageView15" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/icons/areaClicked2.png" />
+                                 </image>
+                              </ImageView>
+                              <FlowPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonBevestig" prefHeight="31.0" prefWidth="147.0" text="Bevestig" textAlignment="CENTER">
+                                       <FlowPane.margin>
+                                          <Insets left="30.0" top="5.0" />
+                                       </FlowPane.margin>
+                                    </Button>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="199.0">
+                                       <children>
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonMin" prefHeight="31.0" prefWidth="40.0" text="-" />
+                                          <TextField fx:id="token_amount15" alignment="CENTER" editable="false" prefHeight="31.0" prefWidth="46.0" text="0" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonPlus" prefHeight="31.0" prefWidth="41.0" text="+" />
+                                          <ImageView fitHeight="47.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../images/icons/die.png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets right="-75.0" />
+                                             </HBox.margin>
+                                          </ImageView>
+                                       </children>
+                                       <FlowPane.margin>
+                                          <Insets left="-35.0" />
+                                       </FlowPane.margin>
+                                    </HBox>
+                                 </children>
+                              </FlowPane>
+                           </children>
+                        </StackPane>
+                     </children></StackPane>
+                  <StackPane fx:id="AF" layoutX="1490.0" layoutY="152.0" onMouseClicked="#declareTokenClick" prefHeight="119.0" prefWidth="250.0">
+                     <children>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
+                           <children>
+                              <ImageView fx:id="imageView11" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/icons/areaClicked2.png" />
+                                 </image>
+                              </ImageView>
+                              <FlowPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonBevestig" prefHeight="31.0" prefWidth="147.0" text="Bevestig" textAlignment="CENTER">
+                                       <FlowPane.margin>
+                                          <Insets left="55.0" top="5.0" />
+                                       </FlowPane.margin>
+                                    </Button>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="199.0">
+                                       <children>
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonMin" prefHeight="31.0" prefWidth="40.0" text="-" />
+                                          <TextField fx:id="token_amount11" alignment="CENTER" editable="false" prefHeight="31.0" prefWidth="46.0" text="0" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonPlus" prefHeight="31.0" prefWidth="41.0" text="+" />
+                                          <ImageView fitHeight="47.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../images/icons/die.png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets right="-55.0" />
+                                             </HBox.margin>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </FlowPane>
+                           </children>
+                           <StackPane.margin>
+                              <Insets top="-25.0" />
+                           </StackPane.margin>
+                        </StackPane>
+                     </children></StackPane>
+                  <StackPane fx:id="BA" layoutX="14.0" layoutY="383.0" onMouseClicked="#declareTokenClick" prefHeight="150.0" prefWidth="275.0">
+                     <children>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
+                           <children>
+                              <ImageView fx:id="imageView1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/icons/areaClicked2.png" />
+                                 </image>
+                              </ImageView>
+                              <FlowPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonBevestig" prefHeight="31.0" prefWidth="147.0" text="Bevestig" textAlignment="CENTER">
+                                       <FlowPane.margin>
+                                          <Insets left="65.0" top="5.0" />
+                                       </FlowPane.margin>
+                                    </Button>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="199.0">
+                                       <children>
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonMin" prefHeight="31.0" prefWidth="40.0" text="-" />
+                                          <TextField fx:id="token_amount1" alignment="CENTER" editable="false" prefHeight="31.0" prefWidth="46.0" text="0" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonPlus" prefHeight="31.0" prefWidth="41.0" text="+" />
+                                          <ImageView fitHeight="47.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../images/icons/die.png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets right="-75.0" />
+                                             </HBox.margin>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </FlowPane>
+                           </children>
+                        </StackPane>
+                     </children></StackPane>
                   <StackPane fx:id="BB" layoutX="289.0" layoutY="183.0" onMouseClicked="#declareTokenClick" prefHeight="150.0" prefWidth="200.0">
                      <children>
                         <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
@@ -84,40 +291,600 @@
                      <children>
                         <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
                            <children>
-                              <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="imageView2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../images/icons/areaClicked2.png" />
                                  </image>
                               </ImageView>
-                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="199.0">
+                              <FlowPane prefHeight="200.0" prefWidth="200.0">
                                  <children>
-                                    <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="41.0" text="+" />
-                                    <TextField prefHeight="31.0" prefWidth="54.0" />
-                                    <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="40.0" text="-" />
-                                 </children></HBox>
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonBevestig" prefHeight="31.0" prefWidth="147.0" text="Bevestig" textAlignment="CENTER">
+                                       <FlowPane.margin>
+                                          <Insets left="35.0" top="5.0" />
+                                       </FlowPane.margin>
+                                    </Button>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="199.0">
+                                       <children>
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonMin" prefHeight="31.0" prefWidth="40.0" text="-" />
+                                          <TextField fx:id="token_amount2" alignment="CENTER" editable="false" prefHeight="31.0" prefWidth="46.0" text="0" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonPlus" prefHeight="31.0" prefWidth="41.0" text="+" />
+                                          <ImageView fitHeight="47.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../images/icons/die.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                       <FlowPane.margin>
+                                          <Insets left="10.0" />
+                                       </FlowPane.margin>
+                                    </HBox>
+                                 </children>
+                              </FlowPane>
                            </children>
                         </StackPane>
                      </children></StackPane>
-                  <StackPane fx:id="BD" layoutX="961.0" layoutY="171.0" prefHeight="150.0" prefWidth="200.0" />
-                  <StackPane fx:id="BE" layoutX="1232.0" layoutY="183.0" prefHeight="168.0" prefWidth="200.0" />
-                  <StackPane fx:id="CA" layoutX="331.0" layoutY="362.0" prefHeight="150.0" prefWidth="200.0" />
-                  <StackPane fx:id="CB" layoutX="557.0" layoutY="437.0" prefHeight="150.0" prefWidth="200.0" />
-                  <StackPane fx:id="CC" layoutX="937.0" layoutY="371.0" prefHeight="209.0" prefWidth="200.0" />
+                  <StackPane fx:id="BD" layoutX="961.0" layoutY="171.0" onMouseClicked="#declareTokenClick" prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
+                           <children>
+                              <ImageView fx:id="imageView21" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/icons/areaClicked2.png" />
+                                 </image>
+                              </ImageView>
+                              <FlowPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonBevestig" prefHeight="31.0" prefWidth="147.0" text="Bevestig" textAlignment="CENTER">
+                                       <FlowPane.margin>
+                                          <Insets left="25.0" top="5.0" />
+                                       </FlowPane.margin>
+                                    </Button>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="199.0">
+                                       <children>
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonMin" prefHeight="31.0" prefWidth="40.0" text="-" />
+                                          <TextField fx:id="token_amount21" alignment="CENTER" editable="false" prefHeight="31.0" prefWidth="46.0" text="0" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonPlus" prefHeight="31.0" prefWidth="41.0" text="+" />
+                                          <ImageView fitHeight="47.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../images/icons/die.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </FlowPane>
+                           </children>
+                        </StackPane>
+                     </children></StackPane>
+                  <StackPane fx:id="BE" layoutX="1232.0" layoutY="183.0" onMouseClicked="#declareTokenClick" prefHeight="168.0" prefWidth="200.0">
+                     <children>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
+                           <children>
+                              <ImageView fx:id="imageView22" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/icons/areaClicked2.png" />
+                                 </image>
+                              </ImageView>
+                              <FlowPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonBevestig" prefHeight="31.0" prefWidth="147.0" text="Bevestig" textAlignment="CENTER">
+                                       <FlowPane.margin>
+                                          <Insets left="25.0" top="15.0" />
+                                       </FlowPane.margin>
+                                    </Button>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="199.0">
+                                       <children>
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonMin" prefHeight="31.0" prefWidth="40.0" text="-" />
+                                          <TextField fx:id="token_amount22" alignment="CENTER" editable="false" prefHeight="31.0" prefWidth="46.0" text="0" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonPlus" prefHeight="31.0" prefWidth="41.0" text="+" />
+                                          <ImageView fitHeight="47.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../images/icons/die.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </FlowPane>
+                           </children>
+                        </StackPane>
+                     </children></StackPane>
+                  <StackPane fx:id="CA" layoutX="331.0" layoutY="362.0" onMouseClicked="#declareTokenClick" prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
+                           <children>
+                              <ImageView fx:id="imageView221" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/icons/areaClicked2.png" />
+                                 </image>
+                              </ImageView>
+                              <FlowPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonBevestig" prefHeight="31.0" prefWidth="147.0" text="Bevestig" textAlignment="CENTER">
+                                       <FlowPane.margin>
+                                          <Insets left="28.0" top="5.0" />
+                                       </FlowPane.margin>
+                                    </Button>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="199.0">
+                                       <children>
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonMin" prefHeight="31.0" prefWidth="40.0" text="-" />
+                                          <TextField fx:id="token_amount221" alignment="CENTER" editable="false" prefHeight="31.0" prefWidth="46.0" text="0" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonPlus" prefHeight="31.0" prefWidth="41.0" text="+" />
+                                          <ImageView fitHeight="47.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../images/icons/die.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </FlowPane>
+                           </children>
+                        </StackPane>
+                     </children></StackPane>
+                  <StackPane fx:id="CB" layoutX="557.0" layoutY="437.0" onMouseClicked="#declareTokenClick" prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
+                           <children>
+                              <ImageView fx:id="imageView2211" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/icons/areaClicked2.png" />
+                                 </image>
+                              </ImageView>
+                              <FlowPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonBevestig" prefHeight="31.0" prefWidth="147.0" text="Bevestig" textAlignment="CENTER">
+                                       <FlowPane.margin>
+                                          <Insets left="28.0" top="25.0" />
+                                       </FlowPane.margin>
+                                    </Button>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="199.0">
+                                       <children>
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonMin" prefHeight="31.0" prefWidth="40.0" text="-" />
+                                          <TextField fx:id="token_amount" alignment="CENTER" editable="false" prefHeight="31.0" prefWidth="46.0" text="0" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonPlus" prefHeight="31.0" prefWidth="41.0" text="+" />
+                                          <ImageView fitHeight="47.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../images/icons/die.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </FlowPane>
+                           </children>
+                           <StackPane.margin>
+                              <Insets top="-40.0" />
+                           </StackPane.margin>
+                        </StackPane>
+                     </children></StackPane>
+                  <StackPane fx:id="CC" layoutX="937.0" layoutY="371.0" onMouseClicked="#declareTokenClick" prefHeight="209.0" prefWidth="200.0">
+                     <children>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
+                           <children>
+                              <ImageView fx:id="imageView22111" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/icons/areaClicked2.png" />
+                                 </image>
+                              </ImageView>
+                              <FlowPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonBevestig" prefHeight="31.0" prefWidth="147.0" text="Bevestig" textAlignment="CENTER">
+                                       <FlowPane.margin>
+                                          <Insets left="28.0" top="40.0" />
+                                       </FlowPane.margin>
+                                    </Button>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="199.0">
+                                       <children>
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonMin" prefHeight="31.0" prefWidth="40.0" text="-" />
+                                          <TextField fx:id="token_amount3" alignment="CENTER" editable="false" prefHeight="31.0" prefWidth="46.0" text="0" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonPlus" prefHeight="31.0" prefWidth="41.0" text="+" />
+                                          <ImageView fitHeight="47.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../images/icons/die.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                       <FlowPane.margin>
+                                          <Insets left="2.5" top="-15.0" />
+                                       </FlowPane.margin>
+                                    </HBox>
+                                 </children>
+                              </FlowPane>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </StackPane>
                   <StackPane fx:id="CD" layoutX="1161.0" layoutY="383.0" prefHeight="150.0" prefWidth="200.0" />
-                  <StackPane fx:id="CE" layoutX="1402.0" layoutY="371.0" prefHeight="150.0" prefWidth="200.0" />
+                  <StackPane fx:id="CE" layoutX="1402.0" layoutY="371.0" onMouseClicked="#declareTokenClick" prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
+                           <children>
+                              <ImageView fx:id="imageView221112" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/icons/areaClicked2.png" />
+                                 </image>
+                              </ImageView>
+                              <FlowPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonBevestig" prefHeight="31.0" prefWidth="147.0" text="Bevestig" textAlignment="CENTER">
+                                       <FlowPane.margin>
+                                          <Insets left="28.0" top="7.5" />
+                                       </FlowPane.margin>
+                                    </Button>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="199.0">
+                                       <children>
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonMin" prefHeight="31.0" prefWidth="40.0" text="-" />
+                                          <TextField fx:id="token_amount32" alignment="CENTER" editable="false" prefHeight="31.0" prefWidth="46.0" text="0" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonPlus" prefHeight="31.0" prefWidth="41.0" text="+" />
+                                          <ImageView fitHeight="47.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../images/icons/die.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                       <FlowPane.margin>
+                                          <Insets left="2.5" top="-15.0" />
+                                       </FlowPane.margin>
+                                    </HBox>
+                                 </children>
+                              </FlowPane>
+                           </children>
+                        </StackPane>
+                     </children></StackPane>
                   <StackPane fx:id="CF" layoutX="1657.0" layoutY="312.0" prefHeight="254.0" prefWidth="83.0" />
-                  <StackPane fx:id="DA" layoutX="247.0" layoutY="548.0" prefHeight="91.0" prefWidth="203.0" />
-                  <StackPane fx:id="DB" layoutX="413.0" layoutY="656.0" prefHeight="171.0" prefWidth="223.0" />
-                  <StackPane fx:id="DC" layoutX="657.0" layoutY="639.0" prefHeight="150.0" prefWidth="200.0" />
-                  <StackPane fx:id="DD" layoutX="857.0" layoutY="599.0" prefHeight="114.0" prefWidth="126.0" />
-                  <StackPane fx:id="DE" layoutX="1112.0" layoutY="580.0" prefHeight="118.0" prefWidth="341.0" />
-                  <StackPane fx:id="DF" layoutX="1490.0" layoutY="599.0" prefHeight="150.0" prefWidth="200.0" />
+                  <StackPane fx:id="DA" layoutX="247.0" layoutY="548.0" onMouseClicked="#declareTokenClick" prefHeight="91.0" prefWidth="203.0">
+                     <children>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
+                           <children>
+                              <ImageView fx:id="imageView221111" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/icons/areaClicked2.png" />
+                                 </image>
+                              </ImageView>
+                              <FlowPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonBevestig" prefHeight="31.0" prefWidth="147.0" text="Bevestig" textAlignment="CENTER">
+                                       <FlowPane.margin>
+                                          <Insets left="28.0" top="15.5" />
+                                       </FlowPane.margin>
+                                    </Button>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="199.0">
+                                       <children>
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonMin" prefHeight="31.0" prefWidth="40.0" text="-" />
+                                          <TextField fx:id="token_amount31" alignment="CENTER" editable="false" prefHeight="31.0" prefWidth="46.0" text="0" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonPlus" prefHeight="31.0" prefWidth="41.0" text="+" />
+                                          <ImageView fitHeight="47.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../images/icons/die.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                       <FlowPane.margin>
+                                          <Insets left="2.5" top="-15.0" />
+                                       </FlowPane.margin>
+                                    </HBox>
+                                 </children>
+                                 <StackPane.margin>
+                                    <Insets top="-10.0" />
+                                 </StackPane.margin>
+                              </FlowPane>
+                           </children>
+                           <StackPane.margin>
+                              <Insets top="-50.0" />
+                           </StackPane.margin>
+                        </StackPane>
+                     </children></StackPane>
+                  <StackPane fx:id="DB" layoutX="413.0" layoutY="656.0" onMouseClicked="#declareTokenClick" prefHeight="171.0" prefWidth="223.0">
+                     <children>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
+                           <children>
+                              <ImageView fx:id="imageView221113" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/icons/areaClicked2.png" />
+                                 </image>
+                              </ImageView>
+                              <FlowPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonBevestig" prefHeight="31.0" prefWidth="147.0" text="Bevestig" textAlignment="CENTER">
+                                       <FlowPane.margin>
+                                          <Insets left="40.0" top="20.0" />
+                                       </FlowPane.margin>
+                                    </Button>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="199.0">
+                                       <children>
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonMin" prefHeight="31.0" prefWidth="40.0" text="-" />
+                                          <TextField fx:id="token_amount33" alignment="CENTER" editable="false" prefHeight="31.0" prefWidth="46.0" text="0" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonPlus" prefHeight="31.0" prefWidth="41.0" text="+" />
+                                          <ImageView fitHeight="47.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../images/icons/die.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                       <FlowPane.margin>
+                                          <Insets left="15.0" top="-15.0" />
+                                       </FlowPane.margin>
+                                    </HBox>
+                                 </children>
+                              </FlowPane>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </StackPane>
+                  <StackPane fx:id="DC" layoutX="657.0" layoutY="639.0" onMouseClicked="#declareTokenClick" prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
+                           <children>
+                              <ImageView fx:id="imageView221114" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/icons/areaClicked2.png" />
+                                 </image>
+                              </ImageView>
+                              <FlowPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonBevestig" prefHeight="31.0" prefWidth="147.0" text="Bevestig" textAlignment="CENTER">
+                                       <FlowPane.margin>
+                                          <Insets left="28.0" top="20.0" />
+                                       </FlowPane.margin>
+                                    </Button>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="199.0">
+                                       <children>
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonMin" prefHeight="31.0" prefWidth="40.0" text="-" />
+                                          <TextField fx:id="token_amount34" alignment="CENTER" editable="false" prefHeight="31.0" prefWidth="46.0" text="0" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonPlus" prefHeight="31.0" prefWidth="41.0" text="+" />
+                                          <ImageView fitHeight="47.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../images/icons/die.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                       <FlowPane.margin>
+                                          <Insets left="2.5" top="-5.0" />
+                                       </FlowPane.margin>
+                                    </HBox>
+                                 </children>
+                              </FlowPane>
+                           </children>
+                           <StackPane.margin>
+                              <Insets left="30.0" top="-20.0" />
+                           </StackPane.margin>
+                        </StackPane>
+                     </children></StackPane>
+                  <StackPane fx:id="DD" layoutX="857.0" layoutY="599.0" onMouseClicked="#declareTokenClick" prefHeight="114.0" prefWidth="126.0">
+                     <children>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
+                           <children>
+                              <ImageView fx:id="imageView221115" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/icons/areaClicked2.png" />
+                                 </image>
+                              </ImageView>
+                              <FlowPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonBevestig" prefHeight="31.0" prefWidth="147.0" text="Bevestig" textAlignment="CENTER">
+                                       <FlowPane.margin>
+                                          <Insets left="28.0" top="5.0" />
+                                       </FlowPane.margin>
+                                    </Button>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="199.0">
+                                       <children>
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonMin" prefHeight="31.0" prefWidth="40.0" text="-" />
+                                          <TextField fx:id="token_amount35" alignment="CENTER" editable="false" prefHeight="31.0" prefWidth="46.0" text="0" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonPlus" prefHeight="31.0" prefWidth="41.0" text="+" />
+                                          <ImageView fitHeight="47.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../images/icons/die.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                       <FlowPane.margin>
+                                          <Insets left="2.5" />
+                                       </FlowPane.margin>
+                                    </HBox>
+                                 </children>
+                              </FlowPane>
+                           </children>
+                           <StackPane.margin>
+                              <Insets left="70.0" />
+                           </StackPane.margin>
+                        </StackPane>
+                     </children></StackPane>
+                  <StackPane fx:id="DE" layoutX="1112.0" layoutY="580.0" onMouseClicked="#declareTokenClick" prefHeight="118.0" prefWidth="341.0">
+                     <children>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
+                           <children>
+                              <ImageView fx:id="imageView221116" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/icons/areaClicked2.png" />
+                                 </image>
+                              </ImageView>
+                              <FlowPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonBevestig" prefHeight="31.0" prefWidth="147.0" text="Bevestig" textAlignment="CENTER">
+                                       <FlowPane.margin>
+                                          <Insets left="28.0" top="10.0" />
+                                       </FlowPane.margin>
+                                    </Button>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="199.0">
+                                       <children>
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonMin" prefHeight="31.0" prefWidth="40.0" text="-" />
+                                          <TextField fx:id="token_amount36" alignment="CENTER" editable="false" prefHeight="31.0" prefWidth="46.0" text="0" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonPlus" prefHeight="31.0" prefWidth="41.0" text="+" />
+                                          <ImageView fitHeight="47.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../images/icons/die.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                       <FlowPane.margin>
+                                          <Insets left="2.5" top="-5.0" />
+                                       </FlowPane.margin>
+                                    </HBox>
+                                 </children>
+                              </FlowPane>
+                           </children>
+                           <StackPane.margin>
+                              <Insets left="150.0" top="-30.0" />
+                           </StackPane.margin>
+                        </StackPane>
+                     </children></StackPane>
+                  <StackPane fx:id="DF" layoutX="1490.0" layoutY="599.0" onMouseClicked="#declareTokenClick" prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
+                           <children>
+                              <ImageView fx:id="imageView221117" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/icons/areaClicked2.png" />
+                                 </image>
+                              </ImageView>
+                              <FlowPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonBevestig" prefHeight="31.0" prefWidth="147.0" text="Bevestig" textAlignment="CENTER">
+                                       <FlowPane.margin>
+                                          <Insets left="28.0" top="10.0" />
+                                       </FlowPane.margin>
+                                    </Button>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="199.0">
+                                       <children>
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonMin" prefHeight="31.0" prefWidth="40.0" text="-" />
+                                          <TextField fx:id="token_amount37" alignment="CENTER" editable="false" prefHeight="31.0" prefWidth="46.0" text="0" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonPlus" prefHeight="31.0" prefWidth="41.0" text="+" />
+                                          <ImageView fitHeight="47.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../images/icons/die.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                       <FlowPane.margin>
+                                          <Insets left="2.5" top="-5.0" />
+                                       </FlowPane.margin>
+                                    </HBox>
+                                 </children>
+                              </FlowPane>
+                           </children>
+                        </StackPane>
+                     </children></StackPane>
                   <StackPane fx:id="EA" layoutX="14.0" layoutY="669.0" prefHeight="245.0" prefWidth="270.0" />
-                  <StackPane fx:id="EB" layoutX="678.0" layoutY="819.0" prefHeight="96.0" prefWidth="281.0" />
-                  <StackPane fx:id="EC" layoutX="1096.0" layoutY="735.0" prefHeight="150.0" prefWidth="200.0" />
-                  <StackPane fx:id="ED" layoutX="1315.0" layoutY="765.0" prefHeight="150.0" prefWidth="200.0" />
+                  <StackPane fx:id="EB" layoutX="678.0" layoutY="819.0" onMouseClicked="#declareTokenClick" prefHeight="96.0" prefWidth="281.0">
+                     <children>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
+                           <children>
+                              <ImageView fx:id="imageView221118" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/icons/areaClicked2.png" />
+                                 </image>
+                              </ImageView>
+                              <FlowPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonBevestig" prefHeight="31.0" prefWidth="147.0" text="Bevestig" textAlignment="CENTER">
+                                       <FlowPane.margin>
+                                          <Insets left="28.0" top="40.0" />
+                                       </FlowPane.margin>
+                                    </Button>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="199.0">
+                                       <children>
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonMin" prefHeight="31.0" prefWidth="40.0" text="-" />
+                                          <TextField fx:id="token_amount38" alignment="CENTER" editable="false" prefHeight="31.0" prefWidth="46.0" text="0" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonPlus" prefHeight="31.0" prefWidth="41.0" text="+" />
+                                          <ImageView fitHeight="47.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../images/icons/die.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                       <FlowPane.margin>
+                                          <Insets left="2.5" top="-15.0" />
+                                       </FlowPane.margin>
+                                    </HBox>
+                                 </children>
+                              </FlowPane>
+                           </children>
+                           <StackPane.margin>
+                              <Insets left="90.0" top="-90.0" />
+                           </StackPane.margin>
+                        </StackPane>
+                     </children></StackPane>
+                  <StackPane fx:id="EC" layoutX="1096.0" layoutY="735.0" onMouseClicked="#declareTokenClick" prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
+                           <children>
+                              <ImageView fx:id="imageView221119" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/icons/areaClicked2.png" />
+                                 </image>
+                              </ImageView>
+                              <FlowPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonBevestig" prefHeight="31.0" prefWidth="147.0" text="Bevestig" textAlignment="CENTER">
+                                       <FlowPane.margin>
+                                          <Insets left="28.0" top="7.5" />
+                                       </FlowPane.margin>
+                                    </Button>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="199.0">
+                                       <children>
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonMin" prefHeight="31.0" prefWidth="40.0" text="-" />
+                                          <TextField fx:id="token_amount39" alignment="CENTER" editable="false" prefHeight="31.0" prefWidth="46.0" text="0" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonPlus" prefHeight="31.0" prefWidth="41.0" text="+" />
+                                          <ImageView fitHeight="47.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../images/icons/die.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                       <FlowPane.margin>
+                                          <Insets left="2.5" top="-7.5" />
+                                       </FlowPane.margin>
+                                    </HBox>
+                                 </children>
+                              </FlowPane>
+                           </children>
+                        </StackPane>
+                     </children></StackPane>
+                  <StackPane fx:id="ED" layoutX="1315.0" layoutY="765.0" onMouseClicked="#declareTokenClick" prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
+                           <children>
+                              <ImageView fx:id="imageView2211110" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/icons/areaClicked2.png" />
+                                 </image>
+                              </ImageView>
+                              <FlowPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonBevestig" prefHeight="31.0" prefWidth="147.0" text="Bevestig" textAlignment="CENTER">
+                                       <FlowPane.margin>
+                                          <Insets left="28.0" top="25.0" />
+                                       </FlowPane.margin>
+                                    </Button>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="199.0">
+                                       <children>
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonMin" prefHeight="31.0" prefWidth="40.0" text="-" />
+                                          <TextField fx:id="token_amount310" alignment="CENTER" editable="false" prefHeight="31.0" prefWidth="46.0" text="0" />
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#buttonPlus" prefHeight="31.0" prefWidth="41.0" text="+" />
+                                          <ImageView fitHeight="47.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../images/icons/die.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                       <FlowPane.margin>
+                                          <Insets left="2.5" top="-5.0" />
+                                       </FlowPane.margin>
+                                    </HBox>
+                                 </children>
+                              </FlowPane>
+                           </children>
+                           <StackPane.margin>
+                              <Insets left="30.0" top="-30.0" />
+                           </StackPane.margin>
+                        </StackPane>
+                     </children></StackPane>
                   <StackPane fx:id="EF" layoutX="1570.0" layoutY="787.0" prefHeight="128.0" prefWidth="185.0" />
                </children>
+               <StackPane.margin>
+                  <Insets />
+               </StackPane.margin>
             </AnchorPane>
          </children>
       </StackPane>
