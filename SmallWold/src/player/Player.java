@@ -71,7 +71,10 @@ public class Player implements Serializable{
 	 * @param activeSet, de nieuwe actieve set voor de speler.
 	 */
 	public void setActiveSet(Set activeSet) {
-		hand.setCurrentTokens(activeSet.getInitialTokens());
+		if(activeSet != null)
+		{
+			hand.setCurrentTokens(activeSet.getInitialTokens());
+		}
 		this.activeSet = activeSet;
 	}
 
