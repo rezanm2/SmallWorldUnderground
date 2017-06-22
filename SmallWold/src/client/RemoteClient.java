@@ -30,7 +30,12 @@ import server.TurnServiceSkeleton;
 import views.fieldView.FieldViewController;
 import views.sideBarView.SideBarController;
 import views.tabView.TabViewController;
-
+/**
+ * Deze class is wat de client online zet voor de server maar vooral ook wat deze van de server krijgt.
+ * 
+ * @author bas_d
+ *
+ */
 public class RemoteClient {
 
 	private ServerSkeleton server = null;
@@ -39,8 +44,13 @@ public class RemoteClient {
 	private ObservableList<JoinedPlayers> players = FXCollections.observableArrayList();
 	private ClientApplication app;
 
-
-
+	/**
+	 * Deze constructor neemt eerst de clientApplication over die hij daarvan heeft meegekregen en maakt vervolgens een clientImplementatie.
+	 * Daarna worden de labels in de clientlobby op "-" gezet.
+	 * 
+	 * @param app, de clientApplication die de remoteClient aanmaakt
+	 * @throws RemoteException
+	 */
 
 	protected RemoteClient(ClientApplication app) throws RemoteException {
 		this.app = app;
@@ -48,6 +58,12 @@ public class RemoteClient {
 		players.addAll(new JoinedPlayers("-"), new JoinedPlayers("-"), new JoinedPlayers("-"), new JoinedPlayers("-"),new JoinedPlayers("-")); // make list of joinable places
 
 	}
+	
+	/**
+	 * Client zoekt met deze methode de serverhost op en probeert vervolgens een object hiervan binnen te laden.
+	 * 
+	 * @throws RemoteException
+	 */
 
 	public void loadServer() throws RemoteException {
 		System.out.println("Client: server listener  starting up...");
@@ -65,12 +81,22 @@ public class RemoteClient {
 		this.host = host;
 	}
 
+	/**
+	 * Zet de username van de speler en zorgt dat deze ook te zien is.
+	 * 
+	 * @param username
+	 */
 	public void setImplName(String username) {
 		app.getPlayer().setName(username);
 		clientImpl.setUsername(username);
 		System.out.println(username);
 	}
 
+	/**
+	 * Met deze functie registreert de client zich bij de server.
+	 * 
+	 * @throws RemoteException
+	 */
 	public void register() throws RemoteException {
 
 		System.out.println("joining..");
@@ -80,7 +106,11 @@ public class RemoteClient {
 	public ObservableList<JoinedPlayers> getPlayers() {
 		return players;
 	}
-
+	/**
+	 * Deze functie update de playerlist zodat er gezien kan worden in de lobby wie er gejoind zijn. 
+	 * 
+	 * @param playerList
+	 */
 	public void updatePlayerList(ArrayList<String> playerList) {
 
 		Platform.runLater(() -> {
@@ -91,6 +121,13 @@ public class RemoteClient {
 			}
 		});
 	}
+	/**
+	 * Deze methode start het spel en zet de RMIservice's aan.
+	 * 
+	 * @param playerAmount, het aantal spelers wat meedoet aan het spel.
+	 * @throws IOException
+	 */
+	
 	public void startGame(int playerAmount) throws IOException{
 		Platform.runLater(() -> {
 			try {
@@ -103,6 +140,17 @@ public class RemoteClient {
 			}
 		});
 	}
+	
+	/**
+	 * Deze methode zorgt ervoor dat de client de services kan krijgen van de server. 
+	 * De client ontvangt en maakt een setService, een combatService en een turnService aan.
+	 * 
+	 * @param tabController, de controller van de tabView in het spel.
+	 * @param sideBarController, de controller van de sideBarView in het spel.
+	 * @param fieldViewController, de controller van de fieldView in het spel.
+	 * @param selfPlayer, de speler zelf.
+	 * @param playerAmount, het aantal spelers wat meedoet aan het spel.
+	 */
 
 	public void setRMIService(TabViewController tabController, SideBarController sideBarController, FieldViewController fieldViewController, Player selfPlayer, int playerAmount) {
 

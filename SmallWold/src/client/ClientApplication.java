@@ -86,7 +86,7 @@ public class ClientApplication extends Application{
 
 	}
 	/**
-	 * Deze methode start uiteindelijk het gehele spel. De server roept deze methode aan. 
+	 * Deze methode start uiteindelijk het gehele spel. 
 	 * Allereerst wordt de layout geset van de view. 
 	 * Vervolgens worden de componenten bottomBar, sideBar, tabView, manualView en settingView daarop geplaast. 
 	 * Daarna krijgen controllers toegang tot de controllers en/of andere objecten die zij nodig hebben. 
