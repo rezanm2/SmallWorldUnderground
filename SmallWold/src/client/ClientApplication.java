@@ -43,7 +43,7 @@ public class ClientApplication extends Application{
 
 	/**
 	 * Maakt een clientApplication en maakt hierbij een remoteClient aan en een player.
-	 * 
+	 *
 	 * @throws RemoteException
 	 */
 	public ClientApplication() throws RemoteException {
@@ -54,7 +54,7 @@ public class ClientApplication extends Application{
 
 	/**
 	 * Start de start methode van de clientApplication en toont daarmee dus de javaFx omgeving.
-	 * 
+	 *
 	 * @param args
 	 * @throws RemoteException
 	 */
@@ -91,7 +91,7 @@ public class ClientApplication extends Application{
 	 * Vervolgens worden de componenten bottomBar, sideBar, tabView, manualView en settingView daarop geplaast. 
 	 * Daarna krijgen controllers toegang tot de controllers en/of andere objecten die zij nodig hebben. 
 	 * Als laatste wordt de view gestart.
-	 * 
+	 *
 	 * @param playerAmount, het aantal spelers wat meespeelt bij het spel.
 	 * @param players, de lijst van spelers die meedoen.
 	 * @throws IOException
@@ -128,8 +128,8 @@ public class ClientApplication extends Application{
       FXMLLoader manualViewLoader = new FXMLLoader(getClass().getResource("../views/manualView/manualView.fxml"));			//get xml file
       StackPane manualView = manualViewLoader.load();																//load xml file to object
       ManualController manualController = manualViewLoader.getController();
-      
-      
+
+
       //add settingView thats hidden to rootLayout
       FXMLLoader settingViewLoader = new FXMLLoader(getClass().getResource("../views/settingView/settingView.fxml"));			//get xml file
       StackPane settingView = settingViewLoader.load();																//load xml file to object
@@ -141,8 +141,7 @@ public class ClientApplication extends Application{
         tabPane.getChildren().add(settingView);
 
 
-       // tabController.setPlayers(players);
-        sidebarController.setPlayer(selfPlayer);
+
 
         //give controllers objects of controllers
         this.fieldController.setControllers(this.tabController, sidebarController);
@@ -159,6 +158,8 @@ public class ClientApplication extends Application{
         //give controller acces to player
         this.tabController.setPlayerRef(selfPlayer);
         bottomBarControl.setPlayerRef(selfPlayer);
+        sidebarController.setPlayer(selfPlayer);
+        fieldController.setPlayer(selfPlayer);
 
         //show the scene with the root layout
         Scene Scene = new Scene(rootLayout);

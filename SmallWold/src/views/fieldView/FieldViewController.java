@@ -21,6 +21,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import player.Player;
 import views.sideBarView.SideBarController;
 import views.tabView.TabViewController;
 
@@ -44,6 +45,7 @@ public class FieldViewController {
 
 	@FXML
 	private AnchorPane mainPane;
+	private Player selfPlayer;
 
 
 
@@ -96,6 +98,7 @@ public class FieldViewController {
 	@FXML
 	public void declareTokenClick(MouseEvent event) {
 		try {
+			if(this.selfPlayer.isMyTurn()){
 
 			declaredTokenAmount = 0;
 
@@ -115,7 +118,7 @@ public class FieldViewController {
 			this.declarePanePrevious.setVisible(false);
 			this.declarePanePrevious = declarePane;
 			throughTheList = 1;
-
+			}
 
 		} catch (ClassCastException e) {
 			System.out.println("Je hebt hier al op geklikt. ");
@@ -166,6 +169,7 @@ public class FieldViewController {
 		this.combatController.testTerrain(declarePanePrevious.getParent().getId());
 
 		this.combatController.calculateCombat(declarePanePrevious.getParent().getId());
+		this.sideBarControl.hideDeclineButton();
 	}
 
 	public int getDeclaredTokenAmount() {
@@ -237,5 +241,10 @@ public class FieldViewController {
 
 	public void setRedeploymentController(RedeploymentController redeploymentController) {
 		this.redploymentController = redeploymentController;
+	}
+
+	public void setPlayer(Player selfPlayer) {
+		this.selfPlayer = selfPlayer;
+
 	}
 }
