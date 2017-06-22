@@ -1,8 +1,12 @@
 package playBoard;
 
 import java.util.ArrayList;
+/**
+ * Klasse die het speelbord initieert en in een list zet.
+ */
 import java.util.List;
 
+import models.StackSet;
 import player.Player;
 import terrain.Chasm;
 import terrain.Mine;
@@ -12,33 +16,66 @@ import terrain.River;
 import terrain.Shroom;
 import terrain.Stone;
 import terrain.Terrain;
+	/**
+	 * Klasse die het speelbord initieert en in een list zet.
+	 */
 
 public class Map {
 
+	
 	private List<Terrain> terrains = new ArrayList<Terrain>();
 	private Die die;
 	private Player selfPlayer;
 	private int playerAmount;
+	private StackSet stack;
 
-	public Map(Player selfPlayer, int playerAmount){
+	/**
+	 * Ophalen van de speler en het aantal spelers.
+	 *
+	 * @param selfPlayer, de actieve speler.
+	 * @param playerAmount, totaal aantal spelers.
+	 *
+	 * @author Marinus van den Oever;
+	 */
+
+	public Map(Player selfPlayer, int playerAmount, StackSet stack){
+
 		this.setDie(new Die());
 		this.setSelfPlayer(selfPlayer);
 		this.playerAmount = playerAmount;
 		this.terrains = createMap(playerAmount);
+		this.setStack(stack);
 	}
-
+	/**
+	 * Het speelbord wordt gemaakt door het aantal spelers mee te geven.
+	 * Bijzonderheid: Als er geen playerAmount wordt meegegeven wordt er geen speelbord aangemaakt.
+	 *
+	 * @param playerAmount, totaal aantal spelers voor het bordspel.
+	 *
+	 * @return null
+	 * @author Marinus van den Oever;
+	 */
 	private List<Terrain> createMap(int playerAmount) {
 		switch (playerAmount) {
 		case 2:
 			System.out.println("client: creating map for 2 players");
-			return createBPlayerMap();
+			return create2PlayerMap();
 		default:
 			return null;
 		}
 	}
 
 
-	private List<Terrain> createBPlayerMap(){
+	/**
+	 * De specifieke tereinen worden in de list geplaatst met eigen ID en ID van de omringende terreinen.
+	 * Bijzonderheid: Elk terrein krijgt naast een ID ook het type van het terrein mee.
+	 *
+	 *
+	 * @return terrains.
+	 * @author Marinus van den Oever
+	 */
+
+	private List<Terrain> create2PlayerMap(){
 
 			String[] AA = new String[] {"AA", "AB", "BA", "BB"};				//Make the terrain have its own value and the other values
 			String[] terrainTwo = new String[] {"AB", "AA", "AC", "BB", "BC"};
@@ -102,14 +139,22 @@ public class Map {
 		return terrains;
 
 	}
+
 	public List<Terrain> getTerrains(){
 			return this.terrains;
 	}
 
+	/**
+	 * Als het terrein ID wordt meegegeven zal de methode teruggeven wat het type is.
+	 *
+	 * @param id, bijvoorbeeld AA, AB, BB.
+	 * @return terrain type
+	 */
+
 	public Terrain getTerrainById(String id) {
 		for (Terrain terrain : terrains) {
 			if(terrain.getElement(0).equals(id) ){
-				System.out.println("test:  " + id + "   -    " +  terrain.getElement(0));
+				System.out.println("client: found terrain:  " + id + "   -    " +  terrain.getElement(0));
 				return terrain;
 			}
 		}
@@ -131,6 +176,14 @@ public class Map {
 
 	public void setDie(Die die) {
 		this.die = die;
+	}
+
+	public StackSet getStack() {
+		return stack;
+	}
+
+	public void setStack(StackSet stack) {
+		this.stack = stack;
 	}
 
 

@@ -25,7 +25,7 @@ public class Map_old
 	SleepController sleep = new SleepController();
 
 
-	public Map(Ammy ammy)
+	public void Map(Ammy ammy)
 	{
 		this.terrains = ammy.getMapCreator().getTerrainList();
 		this.relicList = ammy.getRelicList();

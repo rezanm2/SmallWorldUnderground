@@ -22,6 +22,13 @@ import views.settingView.SettingController;
 import views.sideBarView.SideBarController;
 import views.tabView.TabViewController;
 
+/**
+ * Deze class is de clientApplicatie die een javafx applicatie extends.
+ * 
+ * @author bas_d
+ *
+ */
+
 public class ClientApplication extends Application{
 
 	private static RemoteClient client;
@@ -34,19 +41,31 @@ public class ClientApplication extends Application{
 
 
 
-
+	/**
+	 * Maakt een clientApplication en maakt hierbij een remoteClient aan en een player.
+	 * 
+	 * @throws RemoteException
+	 */
 	public ClientApplication() throws RemoteException {
 
 		client = new RemoteClient(this);
 		selfPlayer = new Player();
 	}
 
-
+	/**
+	 * Start de start methode van de clientApplication en toont daarmee dus de javaFx omgeving.
+	 * 
+	 * @param args
+	 * @throws RemoteException
+	 */
 	public static void main(String[] args) throws RemoteException {
 
 		launch(args);
 	}
 
+	/**
+	 * Start de applicatie op. Eerst wordt de view geladen met daarbij de controller vervolgens wordt de view geshowd.
+	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
@@ -65,9 +84,18 @@ public class ClientApplication extends Application{
 
 		//StartGameScreen(2, null);
 
-
-
 	}
+	/**
+	 * Deze methode start uiteindelijk het gehele spel. 
+	 * Allereerst wordt de layout geset van de view. 
+	 * Vervolgens worden de componenten bottomBar, sideBar, tabView, manualView en settingView daarop geplaast. 
+	 * Daarna krijgen controllers toegang tot de controllers en/of andere objecten die zij nodig hebben. 
+	 * Als laatste wordt de view gestart.
+	 * 
+	 * @param playerAmount, het aantal spelers wat meespeelt bij het spel.
+	 * @param players, de lijst van spelers die meedoen.
+	 * @throws IOException
+	 */
 
 	public void StartGameScreen(int playerAmount , ObservableList<JoinedPlayers> players ) throws IOException{
         primaryStage.setTitle("SmallWorld - Underground");

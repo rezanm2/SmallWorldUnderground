@@ -7,6 +7,13 @@ import player.Player;
 
 public abstract class Ability implements Serializable
 {
+/**
+ * Klasse die de ability bijhoudt met bijbehorende effecten.
+ * 
+ * @author bas_d
+ *
+ */
+
 	protected int amountOfTokens;
 	protected int abilityIncome;
 	protected String name;
@@ -16,6 +23,9 @@ public abstract class Ability implements Serializable
 	protected String image;
 	protected String declineTraitText = "This ability has no trait in decline.";
 
+	/**
+	 * Maakt een ability aan.
+	 */
 	public Ability()
 	{
 		image = "../../images/abilitys/placeHolder.png";

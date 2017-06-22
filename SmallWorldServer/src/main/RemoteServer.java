@@ -8,6 +8,7 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.server.ExportException;
 import java.util.ArrayList;
 
+import data.Map;
 import data.Player;
 import rmi.CombatService;
 import rmi.ServerImpl;
@@ -132,7 +133,9 @@ public class RemoteServer {
 			Naming.rebind("ServerSetService", setService);
 			System.out.println("Server: SetService registered as \'ServerSetService\' in RMI registry.");
 
-			CombatService combatService = new CombatService(playerList);
+			Map map = new Map(amountPlayers);
+
+			CombatService combatService = new CombatService(playerList, map);
 			Naming.rebind("ServerCombatService", combatService);
 			System.out.println("Server: SetService registered as \'ServerCombatService\' in RMI registry.");
 

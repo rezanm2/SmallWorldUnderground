@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Abilities {
-	
-	private ArrayList<String> abilitylist;
-	
+
+	private ArrayList<String> abilitylist = new ArrayList<String>();
+	private ArrayList<String> abilityGravelist = new ArrayList<String>();
+
 	public Abilities() {
-		abilitylist = new ArrayList<String>();
-		
+
 		abilitylist.add("Adventurous");
 		abilitylist.add("Fisher");
 		abilitylist.add("Flocking");
@@ -33,7 +33,7 @@ public class Abilities {
 		abilitylist.add("Wise");
 
 	}
-	
+
 	public void shuffleMain(){
 		Collections.shuffle(abilitylist);
 	}
@@ -41,7 +41,20 @@ public class Abilities {
 	public ArrayList<String> getAbilityList(){
 		return this.abilitylist;
 	}
-	
-	
+
+	public void removeAbility(String abilityName) {
+		int i = 0;
+		for (String ability : abilitylist) {
+			if (ability.equals(abilityName)){
+				abilitylist.remove(i);
+				abilityGravelist.add(ability);
+				break;
+			}
+			i++;
+
+		}
+	}
+
+
 
 }

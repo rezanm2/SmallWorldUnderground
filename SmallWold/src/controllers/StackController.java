@@ -1,5 +1,7 @@
 package controllers;
 
+import java.rmi.RemoteException;
+
 import javafx.collections.ObservableList;
 import models.Set;
 import models.StackSet;
@@ -16,7 +18,8 @@ public class StackController {
 		this.stack = stack;
 		this.serverSetService = serverSetService;
 	}
-	public void chooseSet(int nr)
+
+	public void chooseSet(int nr) throws RemoteException
 	{
 		Player player  = this.stack.getPlayer();
 		ObservableList<Set> sets = this.stack.getSets();
@@ -27,15 +30,16 @@ public class StackController {
 			player.setActiveSet(new models.Set(sets.get(nr).getRace(), sets.get(nr).getAbility()));
 			this.stack.getRaceListGrave().add(sets.get(nr).getRace());
 			this.stack.getAbilityListGrave().add(sets.get(nr).getAbility());
-			sets.remove(nr);
-			controller.setStack(sets);
+			//sets.remove(nr);
+			//controller.setStack(sets);
 			System.out.println("client: player race: " + player.getActiveSet().getRace().getName());
 			System.out.println("client: player race: " + player.getActiveSet().getAbility().getName());
 			controller.updateActiveSet();
+			serverSetService.updateSetList(player.getActiveSet().getRace().getName(), player.getActiveSet().getAbility().getName() );
 		}
 		else {
 			System.out.println("Nope al een actieve set ");
 		}
-		
+
 	}
 }

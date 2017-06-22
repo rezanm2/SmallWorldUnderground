@@ -5,7 +5,12 @@ import relics.Relic;
 //import specialPlaces.Empty;
 import specialPlaces.SpecialPlace;
 import specialTokens.SpecialToken;
-
+/**
+ * Klasse terrain is verantwoordelijk voor het bijhouden van de inhoud van een specifiek terrein.
+ *
+ * @author Marinus van den Oever;
+ *
+ */
 public abstract class Terrain
 {
 	protected String[] idArray;
@@ -29,6 +34,9 @@ public abstract class Terrain
 	{
 
 		this.idArray = idArray;
+	}
+	public String getTerrainId(){
+		return this.idArray[0];
 	}
 
 	public void setElement(int arrayOrder)

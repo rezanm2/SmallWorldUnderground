@@ -60,4 +60,22 @@ public class SetService extends UnicastRemoteObject implements SetServiceSkeleto
 		}
 	}
 
+	@Override
+	public void updateSetList(String race, String ability) {
+		System.out.println(race);
+		this.races.removeRace(race);
+		System.out.println(races.getRaceList());
+		this.abilities.removeAbility(ability);
+		new Thread(() -> {
+			try {
+
+				updateClientRaceList();
+
+			} catch (RemoteException e) {
+				e.printStackTrace();
+			}
+		}).start();
+
+	}
+
 }

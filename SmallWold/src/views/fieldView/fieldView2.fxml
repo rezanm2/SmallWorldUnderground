@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 
-<BorderPane onKeyPressed="#keyPressed" onKeyReleased="#keyReleased" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.fieldView.FieldViewController">
+<BorderPane onKeyPressed="#keyPressed" onKeyReleased="#keyReleased" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.fieldView.FieldViewController">
    <center>
       <StackPane fx:id="stackPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="915.0" prefWidth="1755.0" BorderPane.alignment="CENTER">
          <children>
@@ -25,6 +25,7 @@
                   <StackPane fx:id="AA" layoutX="14.0" layoutY="14.0" prefHeight="204.0" prefWidth="308.0" />
                   <StackPane fx:id="AB" layoutX="413.0" layoutY="14.0" onMouseClicked="#declareTokenClick" prefHeight="150.0" prefWidth="261.0">
                      <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
                         <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
                            <children>
                               <ImageView fx:id="imageView12" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -256,6 +257,7 @@
                      </children></StackPane>
                   <StackPane fx:id="BB" layoutX="289.0" layoutY="183.0" onMouseClicked="#declareTokenClick" prefHeight="150.0" prefWidth="200.0">
                      <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
                         <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
                            <children>
                               <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -289,6 +291,7 @@
                      </children></StackPane>
                   <StackPane fx:id="BC" layoutX="521.0" layoutY="212.0" onMouseClicked="#declareTokenClick" prefHeight="150.0" prefWidth="219.0">
                      <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
                         <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
                            <children>
                               <ImageView fx:id="imageView2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">

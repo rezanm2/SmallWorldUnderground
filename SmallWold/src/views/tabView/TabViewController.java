@@ -1,6 +1,8 @@
 package views.tabView;
 
 
+import java.rmi.RemoteException;
+
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -84,7 +86,7 @@ public class TabViewController {
 
 	}
 
-	public void pickSet(MouseEvent ev)
+	public void pickSet(MouseEvent ev) throws RemoteException
 	{
 			if(this.selfPlayer.isMyTurn()){
 			ImageView test = (ImageView) ev.getTarget();
