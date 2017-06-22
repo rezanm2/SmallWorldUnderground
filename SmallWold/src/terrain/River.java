@@ -6,5 +6,6 @@ public class River extends Terrain
 	{
 		super(arrayId);
 		terrainName = "River";
+		defense = -1;
 	}
 }

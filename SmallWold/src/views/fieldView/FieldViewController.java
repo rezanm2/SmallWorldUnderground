@@ -97,6 +97,16 @@ public class FieldViewController {
 	@FXML
 	public void declareTokenClick(MouseEvent event) {
 		try {
+
+			declaredTokenAmount = 0;
+
+			StackPane thePane = (StackPane) event.getTarget();
+			StackPane thePane2 = (StackPane) thePane.getChildren().get(0);
+			FlowPane flowPane = (FlowPane) thePane2.getChildren().get(1);
+			HBox hbox = (HBox) flowPane.getChildren().get(1);
+			TextField textField = (TextField) hbox.getChildren().get(1);
+			textField.setText("0");
+
 			StackPane field = (StackPane) event.getTarget();
 			StackPane declarePane = (StackPane) field.getChildren().get(0);
 			declarePane.setVisible(true);
@@ -110,26 +120,39 @@ public class FieldViewController {
 		}
 	}
 
+
+	private void updateTokenAmountTextField(ActionEvent pressButton)
+	{
+		Button buttonMinTarget = (Button) pressButton.getTarget();
+		HBox theBox = (HBox) buttonMinTarget.getParent();
+		TextField field = (TextField) theBox.getChildren().get(1);
+		field.setText(tokenAmount);
+	}
+
 	@FXML
 	public void buttonMin(ActionEvent pressButtonMin) {
-		if (declaredTokenAmount > 0) {
+		if (declaredTokenAmount > 0)
+		{
 			declaredTokenAmount = declaredTokenAmount - 1;
-			String tokenAmount = String.valueOf(declaredTokenAmount);
-			token_amount.setText(tokenAmount);
+			tokenAmount = String.valueOf(declaredTokenAmount);
+
+			updateTokenAmountTextField(pressButtonMin);
 		}
 	}
 
 	@FXML
 	public void buttonPlus(ActionEvent pressButtonPlus) {
 		declaredTokenAmount = declaredTokenAmount + 1;
-		String tokenAmount = String.valueOf(declaredTokenAmount);
-		token_amount.setText(tokenAmount);
+		tokenAmount = String.valueOf(declaredTokenAmount);
+
+		updateTokenAmountTextField(pressButtonPlus);
 	}
 
 	@FXML
 	public void buttonBevestig(ActionEvent pressButtonBevestig) throws RemoteException {
-		getDeclaredTokenAmount();
-		combatController.declareTokenAmount(declaredTokenAmount);
+		//getDeclaredTokenAmount();
+		//combatController.declareTokenAmount(declaredTokenAmount);
+		redploymentController.declareTokenAmount(getDeclaredTokenAmount());
 		System.out.println(declaredTokenAmount);
 		this.declarePanePrevious.setVisible(false);
 
@@ -137,6 +160,7 @@ public class FieldViewController {
 		mainPane.requestFocus();
 
 		System.out.println(declarePanePrevious.getParent().getId());
+
 		this.combatController.testTerrain(declarePanePrevious.getParent().getId());
 
 		this.combatController.calculateCombat(declarePanePrevious.getParent().getId());
@@ -202,5 +226,9 @@ public class FieldViewController {
 				}
 			}
 
+	}
+
+	public void setRedeploymentController(RedeploymentController redeploymentController) {
+		this.redploymentController = redeploymentController;
 	}
 }
