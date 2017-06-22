@@ -1,7 +1,12 @@
 package player;
 
 import java.io.Serializable;
-
+/**
+ * Dit is de class hand, deze houdt bij hoeveel tokens de speler op het moment heeft en hoeveel silverHammers hij heeft.
+ * 
+ * @author Groep13
+ *
+ */
 public class Hand implements Serializable
 {
 	private int currentTokens;
@@ -9,6 +14,9 @@ public class Hand implements Serializable
 	private int declineTokens;
 
 
+	/**
+	 * Maakt een lege hand aan.
+	 */
 	public Hand(){};
 
 	public void setCurrentTokens(int currentTokens)
