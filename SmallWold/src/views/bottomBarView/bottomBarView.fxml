@@ -117,7 +117,7 @@
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
                   </ImageView>
-                  <Label fx:id="declineTokens" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#updateDeclineTokens" prefHeight="147.0" prefWidth="121.0" text="0">
+                  <Label fx:id="declineTokens" alignment="CENTER" contentDisplay="CENTER" prefHeight="147.0" prefWidth="121.0" text="0">
                      <font>
                         <Font size="54.0" />
                      </font>

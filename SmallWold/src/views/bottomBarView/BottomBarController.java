@@ -134,6 +134,11 @@ public class BottomBarController {
 			activeRace.setImage(new Image("/images/races/active/"+selfPlayer.getActiveSet().getRace().getName()+".png"));
 			activeAbility.setImage(new Image("/images/abilitys/active/"+selfPlayer.getActiveSet().getAbility().getName()+".png"));
 		}
+		else
+		{
+			activeRace.setImage(new Image("/images/races/placeHolder.png"));
+			activeAbility.setImage(new Image("/images/abilitys/placeHolder.png"));
+		}
 
 	}
 	public void setDeclineSet() {
