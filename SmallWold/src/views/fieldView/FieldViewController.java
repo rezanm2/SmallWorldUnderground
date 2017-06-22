@@ -6,12 +6,14 @@ import abilities.Frightened;
 import controllers.CombatController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import main.Set;
 import player.Player;
@@ -107,7 +109,11 @@ public class FieldViewController {
 		if (declaredTokenAmount > 0) {
 			declaredTokenAmount = declaredTokenAmount - 1;
 			String tokenAmount = String.valueOf(declaredTokenAmount);
-			token_amount.setText(tokenAmount);
+
+		Button buttonMinTarget = (Button) pressButtonMin.getTarget();
+		HBox theBox = (HBox) buttonMinTarget.getParent();
+		TextField field = (TextField) theBox.getChildren().get(1);
+		field.setText(tokenAmount);
 		}
 	}
 
@@ -115,7 +121,11 @@ public class FieldViewController {
 	public void buttonPlus(ActionEvent pressButtonPlus) {
 		declaredTokenAmount = declaredTokenAmount + 1;
 		String tokenAmount = String.valueOf(declaredTokenAmount);
-		token_amount.setText(tokenAmount);
+
+		Button buttonPlusTarget = (Button) pressButtonPlus.getTarget();
+		HBox theBox = (HBox) buttonPlusTarget.getParent();
+		TextField field = (TextField) theBox.getChildren().get(1);
+		field.setText(tokenAmount);
 	}
 
 	@FXML
@@ -130,7 +140,7 @@ public class FieldViewController {
 
 		System.out.println(declarePanePrevious.getParent().getId());
 		this.combatController.testTerrain(declarePanePrevious.getParent().getId());
-		
+
 		this.combatController.calculateCombat(declarePanePrevious.getParent().getId());
 	}
 

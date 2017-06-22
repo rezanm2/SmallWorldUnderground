@@ -23,6 +23,9 @@ public class SideBarController {
     @FXML
     private Label turn_label;
 
+    @FXML
+    private ImageView endTurnButton;
+
 
     public SideBarController() {
 		// TODO Auto-generated constructor stub
@@ -68,4 +71,12 @@ public class SideBarController {
 		this.selfPlayer = selfPlayer;
 
 	}
+	public void setTurnController(TurnController turnController){
+		this.turnControl = turnController;
+	}
+
+	public void endTurn(){
+		turnControl.calculateNewBalance();
+	}
+
 }
