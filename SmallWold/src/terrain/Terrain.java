@@ -8,7 +8,7 @@ import specialTokens.SpecialToken;
 /**
  * Klasse terrain is verantwoordelijk voor het bijhouden van de inhoud van een specifiek terrein.
  *
- * @author Marinus van den Oever;
+ * @author Groep13.
  *
  */
 public abstract class Terrain

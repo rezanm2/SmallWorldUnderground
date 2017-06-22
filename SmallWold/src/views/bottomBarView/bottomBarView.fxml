@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.bottomBarView.BottomBarController">
+<StackPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.bottomBarView.BottomBarController">
    <ImageView fitHeight="165.0" fitWidth="1920.0" pickOnBounds="true">
       <image>
          <Image url="@../../images/icons/wood-rexture.jpg" />
@@ -104,12 +104,12 @@
             </ImageView>
             <HBox prefHeight="177.0" prefWidth="315.0">
                <children>
-                  <ImageView fitHeight="140.0" onMouseClicked="#showDeclineRaceTraitText" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="declineRace" fitHeight="140.0" onMouseClicked="#showDeclineRaceTraitText" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/races/mud%20-%20decline.png" />
                      </image>
                   </ImageView>
-                  <ImageView accessibleRole="BUTTON" fitHeight="140.0" onMouseClicked="#showDeclineAbilityTraitText" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="declineAbility" accessibleRole="BUTTON" fitHeight="140.0" onMouseClicked="#showDeclineAbilityTraitText" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/abilitys/decline.png" />
                      </image>
@@ -117,7 +117,7 @@
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
                   </ImageView>
-                  <Label fx:id="declineTokens" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#updateDeclineTokens" prefHeight="147.0" prefWidth="121.0" text="0">
+                  <Label fx:id="declineTokens" alignment="CENTER" contentDisplay="CENTER" prefHeight="147.0" prefWidth="121.0" text="0">
                      <font>
                         <Font size="54.0" />
                      </font>

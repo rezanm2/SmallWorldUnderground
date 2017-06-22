@@ -7,7 +7,12 @@ import java.util.ArrayList;
 
 import client.RemoteClient;
 import server.ClientSkeleton;
-
+/**
+ * Dit is de implementatie van de client.
+ * 
+ * @author Groep13
+ *
+ */
 public class ClientImpl extends UnicastRemoteObject implements ClientSkeleton{
 
 
@@ -16,6 +21,12 @@ public class ClientImpl extends UnicastRemoteObject implements ClientSkeleton{
 	private String username;
 	private RemoteClient remoteClient;
 
+	/**
+	 * Maakt een clientImplementatie aan en gebruikt hiervoor een remoteClient, vervolgens wordt deze remoteClient in de class vastgezet.
+	 * 
+	 * @param remoteClient, de remoteClient van de client zelf.
+	 * @throws RemoteException
+	 */
 	public ClientImpl(RemoteClient remoteClient) throws RemoteException{
 		this.remoteClient = remoteClient;
 	}

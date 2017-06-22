@@ -1,17 +1,19 @@
 package abilities;
 
+import java.io.Serializable;
+
 import main.Ammy;
 import player.Player;
 
+public abstract class Ability implements Serializable
+{
 /**
  * Klasse die de ability bijhoudt met bijbehorende effecten.
  * 
- * @author bas_d
+ * @author Groep13
  *
  */
 
-public abstract class Ability
-{
 	protected int amountOfTokens;
 	protected int abilityIncome;
 	protected String name;

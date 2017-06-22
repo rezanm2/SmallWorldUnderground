@@ -48,6 +48,13 @@ import races.WillOWisp;
 import server.SetServiceSkeleton;
 import views.tabView.TabViewController;
 
+/**
+ * In deze class wordt een stackset aangemaakt waar de speler zijn set uit kan kiezen. 
+ * 
+ * @author Groep13
+ *
+ */
+
 public class StackSet {
 	private ArrayList<Race> raceList = new ArrayList<Race>();
 	// private ArrayList<Set> sets = new ArrayList<Set>();
@@ -60,6 +67,14 @@ public class StackSet {
 	private ArrayList<Ability> abilityListGrave = new ArrayList<Ability>();
 	private StackController stackController;
 
+	/**
+	 * Deze Constructor 
+	 * 
+	 * @param tabController, de controller van de tabview.
+	 * @param selfPlayer, de player zelf.
+	 * @param serverSetService, setservice van de server.
+	 */
+	
 	public StackSet(TabViewController tabController, Player selfPlayer, SetServiceSkeleton serverSetService) {
 		stackController = new StackController(this, serverSetService);
 		this.selfPlayer = selfPlayer;

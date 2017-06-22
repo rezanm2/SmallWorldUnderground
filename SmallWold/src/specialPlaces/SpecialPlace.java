@@ -2,7 +2,14 @@ package specialPlaces;
 
 import main.Ammy;
 import player.Player;
-
+/**
+ * 
+ * Dit is de hoofdclass voor specialPlaces. 
+ * Deze class bevat een name, traittext en of deze active is.
+ * 
+ * @author bas_d
+ *
+ */
 public abstract class SpecialPlace
 {
 	protected String name;

@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-
 <StackPane fx:id="mainPane" visible="false" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.settingView.SettingController">
    <children>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="481.0" prefWidth="776.0">
@@ -25,6 +24,26 @@
                      </cursor>
                   </ImageView>
                   <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="1.0" prefHeight="69.0" prefWidth="183.0" text="SAVE">
+                     <font>
+                        <Font name="System Bold" size="28.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </Label>
+               </children>
+            </StackPane>
+            <StackPane layoutX="342.0" layoutY="124.0" onMouseClicked="#setDecline" prefHeight="128.0" prefWidth="183.0">
+               <children>
+                  <ImageView fitHeight="106.0" fitWidth="156.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/icons/white-glossy-rectangle-button-hi.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </ImageView>
+                  <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="1.0" prefHeight="69.0" prefWidth="183.0" text="SetDecline">
                      <font>
                         <Font name="System Bold" size="28.0" />
                      </font>

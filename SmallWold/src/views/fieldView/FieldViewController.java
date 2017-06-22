@@ -3,6 +3,7 @@ package views.fieldView;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import abilities.Frightened;
 import controllers.CombatController;
 import controllers.RedeploymentController;
 import javafx.collections.FXCollections;
@@ -20,8 +21,16 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
+<<<<<<< HEAD
 import javafx.scene.layout.StackPane;
 import player.Player;
+=======
+import javafx.scene.layout.StackPane;
+import models.Set;
+import player.Player;
+import races.Drow;
+import races.Flames;
+>>>>>>> branch 'master' of https://github.com/smallWorld22/SmallWorldUnderground.git
 import views.sideBarView.SideBarController;
 import views.tabView.TabViewController;
 
@@ -32,6 +41,8 @@ public class FieldViewController {
 	private StackPane declarePanePrevious = new StackPane();
 	private int declaredTokenAmount;
 	private int throughTheList = -1;
+	private Set testset = new Set(new Flames(), new Frightened());
+	private Player test = new Player(testset);
 	//private Set testset = new Set(new Frightened(), new Flames());
 //	private Player test = new Player(testset);
 	private String tokenAmount;

@@ -1,10 +1,17 @@
 package races;
 
+import java.io.Serializable;
+
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
-
-public abstract class Race
+/**
+ * Deze class is de hoofdclass voor alle races die er zijn.
+ * Het bevat het aantal tokens en maxtokens, de naam, traittext, raceinkomens. 
+ * 
+ * @author Groep13
+ */
+public abstract class Race implements Serializable
 {
 	protected int amountOfTokens;
 	protected int maxTokens;

@@ -25,7 +25,7 @@ import views.tabView.TabViewController;
 /**
  * Deze class is de clientApplicatie die een javafx applicatie extends.
  * 
- * @author bas_d
+ * @author Groep13
  *
  */
 
@@ -148,15 +148,17 @@ public class ClientApplication extends Application{
         sidebarController.setControllers(tabController);
 
         this.tabController.setBottomController(bottomBarControl);
+        this.tabController.setSettingBarController(settingController);
 
         sidebarController.setControllers(manualController);
         sidebarController.setControllers(settingController);
-
+        settingController.setControllers(bottomBarControl);
 
 
 
         //give controller acces to player
         this.tabController.setPlayerRef(selfPlayer);
+        settingController.setPlayerRef(selfPlayer);
         bottomBarControl.setPlayerRef(selfPlayer);
         sidebarController.setPlayer(selfPlayer);
         fieldController.setPlayer(selfPlayer);

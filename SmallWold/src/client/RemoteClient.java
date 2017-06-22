@@ -33,7 +33,7 @@ import views.tabView.TabViewController;
 /**
  * Deze class is wat de client online zet voor de server maar vooral ook wat deze van de server krijgt.
  *
- * @author bas_d
+ * @author Groep13
  *
  */
 public class RemoteClient {

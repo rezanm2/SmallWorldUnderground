@@ -7,6 +7,13 @@ import player.Player;
 import server.TurnServiceSkeleton;
 import views.sideBarView.SideBarController;
 
+/**
+ * Deze controllerClass bepaalt hoeveel coins de speler krijgt aan het eind van zijn/haar beurt.
+ * 
+ * @author Groep13
+ *
+ */
+
 public class TurnController {
 
 	private Map map;
@@ -17,6 +24,14 @@ public class TurnController {
 	private TurnServiceSkeleton turnServer;
 	private int phase; //needs to be an enum but i am  (0 = start )(1 = redeployment )
 
+	/**
+	 * De constructor van de turnController.
+	 * Hierbij wordt eerst de map geset en daarna de sideBarConroller.
+	 * Vervolgens de turnController zelf aan de sideBarController meegegeven.
+	 * 
+	 * @param map, de map van het spel.
+	 * @param sideBarController, de controller van de sideBarView.
+	 */
 	public TurnController(Map map, SideBarController sideBarController, TurnServiceSkeleton turnServer) {
 		this.map = map;
 		this.sideBarController = sideBarController;
@@ -25,6 +40,9 @@ public class TurnController {
 		this.turnServer = turnServer;
 	}
 
+	/**
+	 * Berekent de nieuwe balans van de speler en update deze vervolgens bij de view.
+	 */
 	public void calculateNewBalance(){
 		CalculateTerrainIncome();
 		newBalance = map.getSelfPlayer().getCoins() + getTerrainIncome();

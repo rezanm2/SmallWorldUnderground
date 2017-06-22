@@ -16,6 +16,7 @@ import models.StackSet;
 import player.Player;
 
 import views.bottomBarView.BottomBarController;
+import views.settingView.SettingController;
 
 public class TabViewController {
 
@@ -77,6 +78,7 @@ public class TabViewController {
 	@FXML
     private ImageView ac_rc_1;
 	private BottomBarController bottomBarController;
+	private SettingController settingBarController;
 
 
 
@@ -144,10 +146,19 @@ public class TabViewController {
 
 		this.bottomBarController = bottomBarController;
 	}
+	public void setSettingBarController(SettingController settingController) {
+		this.settingBarController = settingController;
+	}
 	public void updateActiveSet()
 	{
 		bottomBarController.setActiveSet();
 	}
+	public void updateDeclineSet()
+	{
+		settingBarController.setDecline();
+	}
+
+
 
 
 
