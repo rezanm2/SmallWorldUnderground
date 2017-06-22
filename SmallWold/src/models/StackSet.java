@@ -131,6 +131,7 @@ public class StackSet {
 		Race tempRace = null;
 		Ability tempAbility = null;
 		int i = 0;
+		sets.clear();
 		for (String raceString : raceServerList) { // do for each entry of the
 													// string list
 

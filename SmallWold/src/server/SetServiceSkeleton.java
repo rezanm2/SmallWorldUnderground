@@ -8,5 +8,7 @@ public interface SetServiceSkeleton  extends Remote{
 
 	void addSetClient(SetServiceClientSkeleton setClient) throws RemoteException;
 
+	void updateSetList(String race, String ability) throws RemoteException;
+
 
 }
