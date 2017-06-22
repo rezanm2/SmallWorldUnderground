@@ -37,6 +37,6 @@ public class StackController {
 		else {
 			System.out.println("Nope al een actieve set ");
 		}
-		
+
 	}
 }

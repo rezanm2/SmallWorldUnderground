@@ -123,10 +123,10 @@ public class RemoteClient {
 			System.out.println("Client: looking up combatServiceServer in RMI Registry...");
 			CombatServiceSkeleton serverCombatService = (CombatServiceSkeleton) Naming.lookup("//" + host + "/ServerCombatService");
 
-			CombatController combatController = new CombatController(selfPlayer, playerAmount, fieldViewController, serverCombatService);
+			CombatController combatController = new CombatController(stack, selfPlayer, playerAmount, fieldViewController, serverCombatService);
 
 			CombatService combatClient = new CombatService(combatController);
-			serverSetService.addSetClient(setClient);
+			serverCombatService.addCombatClient(combatClient);
 
 
 			//start setup for Turn service

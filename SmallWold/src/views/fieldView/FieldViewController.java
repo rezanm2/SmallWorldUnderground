@@ -1,15 +1,19 @@
 package views.fieldView;
 
-import java.beans.EventHandler;
+import java.rmi.RemoteException;
+import java.util.ArrayList;
 
-import abilities.Frightened;
 import controllers.CombatController;
 import controllers.RedeploymentController;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -17,10 +21,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
-import main.Set;
-import player.Player;
-import races.Drow;
-import races.Flames;
 import views.sideBarView.SideBarController;
 import views.tabView.TabViewController;
 
@@ -31,12 +31,12 @@ public class FieldViewController {
 	private StackPane declarePanePrevious = new StackPane();
 	private int declaredTokenAmount;
 	private int throughTheList = -1;
-	private Set testset = new Set(new Frightened(), new Flames());
-	private Player test = new Player(testset);
+	//private Set testset = new Set(new Frightened(), new Flames());
+//	private Player test = new Player(testset);
 	private String tokenAmount;
 
-	private CombatController combatController = new CombatController(test, 2, this, null); ////@@@@@@@@@@@@@@@@@@@@@@@@@@@@ remove later
-	private RedeploymentController redploymentController = new RedeploymentController(test, 2, this, null);
+	private CombatController combatController;// = new CombatController(test, 2, this, null); ////@@@@@@@@@@@@@@@@@@@@@@@@@@@@ remove later
+	private RedeploymentController redploymentController;// = new RedeploymentController(test, 2, this, null);
 
 	@FXML
 	private TextField token_amount;
@@ -99,15 +99,18 @@ public class FieldViewController {
 
 			declaredTokenAmount = 0;
 
-			StackPane thePane = (StackPane) event.getTarget();
-			StackPane thePane2 = (StackPane) thePane.getChildren().get(0);
-			FlowPane flowPane = (FlowPane) thePane2.getChildren().get(1);
+			HBox tokenBox = (HBox) event.getTarget();
+			StackPane fieldPane = (StackPane) tokenBox.getParent();
+			StackPane declarePane =(StackPane) fieldPane.getChildren().get(1); // (0) = hbox
+
+
+			FlowPane flowPane = (FlowPane) declarePane.getChildren().get(1);
+
+
 			HBox hbox = (HBox) flowPane.getChildren().get(1);
 			TextField textField = (TextField) hbox.getChildren().get(1);
 			textField.setText("0");
 
-			StackPane field = (StackPane) event.getTarget();
-			StackPane declarePane = (StackPane) field.getChildren().get(0);
 			declarePane.setVisible(true);
 			this.declarePanePrevious.setVisible(false);
 			this.declarePanePrevious = declarePane;
@@ -148,10 +151,10 @@ public class FieldViewController {
 	}
 
 	@FXML
-	public void buttonBevestig(ActionEvent pressButtonBevestig) {
+	public void buttonBevestig(ActionEvent pressButtonBevestig) throws RemoteException {
 		//getDeclaredTokenAmount();
-		//combatController.declareTokenAmount(declaredTokenAmount);
-		redploymentController.declareTokenAmount(getDeclaredTokenAmount());
+		combatController.declareTokenAmount(declaredTokenAmount);
+		//redploymentController.declareTokenAmount(getDeclaredTokenAmount());
 		System.out.println(declaredTokenAmount);
 		this.declarePanePrevious.setVisible(false);
 
@@ -206,6 +209,31 @@ public class FieldViewController {
 		this.combatController = combatController;
 
 	}
+	public void updateFieldById(String id, String raceName) {
+
+		ObservableList<Node> childList = this.mainPane.getChildren();
+
+		for (Node node : childList) {
+			System.out.println(node.getId());
+			if(node.getId() != null){
+			if( node.getId().equals(id)){
+
+				StackPane field = (StackPane) node;
+				System.out.println(field);
+				System.out.println(field.getChildren());
+				HBox tokenBox = (HBox) field.getChildren().get(0);
+				tokenBox.getChildren().clear(); //remove everything from the Hbox
+
+				ImageView tokenImage = new ImageView();
+				System.out.println("/images/tokens/active/"+raceName+".png");
+				tokenImage.setImage(new Image("/images/tokens/active/"+raceName+".png"));
+				System.out.println("adding pic");
+				tokenBox.getChildren().add(tokenImage);
+			}
+			}
+		}
+
+}
 
 	public void setRedeploymentController(RedeploymentController redeploymentController) {
 		this.redploymentController = redeploymentController;

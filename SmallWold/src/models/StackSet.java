@@ -170,9 +170,7 @@ public class StackSet {
 	}
 
 	public void linkStack() {
-		System.out.println("test: reached");
 		tabController.setStack(this.sets);
-		System.out.println("test: reached2");
 	}
 
 	public void test() {
@@ -184,6 +182,18 @@ public class StackSet {
 
 	public Player getPlayer() {
 		return this.selfPlayer;
+	}
+	public Race getRaceByName(String raceName){
+		for (Race race : raceList) {
+			if (race.getName().equals(raceName)){
+				System.out.println("found race");
+				return race;
+			}
+			System.out.println(" looking for race from server: " + raceName.toString()+ " found: " + race.getName() );
+		}
+		System.out.println("CLIENT SOMETHING WENT WRONG COULD NOT FIND RACE FROM SERVER");
+		return null;
+
 	}
 
 	public ArrayList<Ability> getAbilityListGrave() {

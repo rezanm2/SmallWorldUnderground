@@ -62,7 +62,7 @@ public class ClientApplication extends Application{
 		primaryStage.setScene(scene);
 		primaryStage.show();
 
-		StartGameScreen(2, null);
+		//StartGameScreen(2, null);
 
 
 
