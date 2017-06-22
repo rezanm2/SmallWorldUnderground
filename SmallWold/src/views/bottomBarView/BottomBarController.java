@@ -17,7 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
-import main.Set;
+import models.Set;
 import player.Player;
 import races.Drow;
 import races.Kraken;
@@ -39,6 +39,12 @@ public class BottomBarController {
 
 	@FXML
 	private ImageView activeRace;
+
+	@FXML
+	private ImageView declineAbility;
+	
+	@FXML
+	private ImageView declineRace;
 
 	@FXML
 	private ImageView activeAbility;
@@ -123,8 +129,16 @@ public class BottomBarController {
 	}
 
 	public void setActiveSet() {
-		activeRace.setImage(new Image("/images/races/active/"+selfPlayer.getActiveSet().getRace().getName()+".png"));
-		activeAbility.setImage(new Image("/images/abilitys/active/"+selfPlayer.getActiveSet().getAbility().getName()+".png"));
+		if(selfPlayer.getActiveSet() != null)
+		{
+			activeRace.setImage(new Image("/images/races/active/"+selfPlayer.getActiveSet().getRace().getName()+".png"));
+			activeAbility.setImage(new Image("/images/abilitys/active/"+selfPlayer.getActiveSet().getAbility().getName()+".png"));
+		}
+
+	}
+	public void setDeclineSet() {
+		declineRace.setImage(new Image("/images/races/decline/"+selfPlayer.getDeclineSet().getRace().getName()+".png"));
+		declineAbility.setImage(new Image("/images/abilitys/decline/"+selfPlayer.getDeclineSet().getAbility().getName()+".png"));
 
 	}
 
@@ -160,7 +174,7 @@ public class BottomBarController {
 	{
 		if(abilityTextFieldHBox.isVisible() == false)
 		{
-			selfPlayer.setActiveSet(new Set(new Fisher(), new Shrooms()));
+			selfPlayer.setActiveSet(new Set(new Shrooms(), new Fisher()));
 
 
 			abilityTextField.setText(selfPlayer.getActiveSet().getAbility().getTraitText());
@@ -178,7 +192,7 @@ public class BottomBarController {
 	{
 		if(raceTextFieldHBox.isVisible() == false)
 		{
-			selfPlayer.setActiveSet(new Set(new Fisher(), new Shrooms()));
+			selfPlayer.setActiveSet(new Set(new Shrooms(), new Fisher()));
 
 			raceTextField.setText(selfPlayer.getActiveSet().getRace().getTraitText());
 			raceTextFieldHBox.setVisible(true);
@@ -195,7 +209,7 @@ public class BottomBarController {
 	{
 		if(declineRaceTextFieldHBox.isVisible() == false)
 		{
-			selfPlayer.setDeclineSet(new Set(new Flocking(), new Mudmen()));
+			selfPlayer.setDeclineSet(new Set(new Mudmen(), new Flocking()));
 
 			declineRaceTextField.setText(selfPlayer.getDeclineSet().getRace().getDeclineTraitText());
 			declineRaceTextFieldHBox.setVisible(true);
@@ -212,7 +226,7 @@ public class BottomBarController {
 	{
 		if(declineAbilityTextFieldHBox.isVisible() == false)
 		{
-			selfPlayer.setDeclineSet(new Set(new Flocking(), new Mudmen()));
+			selfPlayer.setDeclineSet(new Set(new Mudmen(), new Flocking()));
 
 			declineAbilityTextField.setText(selfPlayer.getDeclineSet().getAbility().getDeclineTraitText());
 			declineAbilityTextFieldHBox.setVisible(true);

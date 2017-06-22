@@ -1,27 +1,21 @@
 package views.settingView;
 
-import java.util.ArrayList;
-
-import client.ClientApplication;
-import client.RemoteClient;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
-import models.JoinedPlayers;
 import player.Player;
+import races.Empty;
 import save.Save;
+import views.bottomBarView.BottomBarController;
 
 public class SettingController {
 	private Save save = new Save();
 	@FXML
 	private StackPane mainPane;
 	private Player player;
-	
-
+	private BottomBarController bottomBarController;
+	public void setControllers(BottomBarController bottomBarControl) {
+		bottomBarController = bottomBarControl;
+	}
 	public void openSetting()
 	{
 		if(mainPane.isVisible())
@@ -34,6 +28,15 @@ public class SettingController {
 		}
 		//this.manualPage.setImage(new Image("/images/manual/manual1.jpg"));
 	}
+	public void setDecline()
+	{
+		//setControllers(bottomBarController);
+		player.setDeclineSet(player.getActiveSet());
+		System.out.println("Set is now declined");
+		System.out.println(player.getDeclineSet().getRace().getName());
+		bottomBarController.setDeclineSet();
+		bottomBarController.setActiveSet();
+	}
 
 	public void SaveGame()
 	{
@@ -43,5 +46,6 @@ public class SettingController {
 	public void setPlayerRef(Player selfPlayer) {
 		this.player = selfPlayer;		
 	}
+
 
 }

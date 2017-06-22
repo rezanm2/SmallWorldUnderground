@@ -121,15 +121,17 @@ public class ClientApplication extends Application{
         sidebarController.setControllers(tabController);
 
         this.tabController.setBottomController(bottomBarControl);
+        this.tabController.setSettingBarController(settingController);
 
         sidebarController.setControllers(manualController);
         sidebarController.setControllers(settingController);
-
+        settingController.setControllers(bottomBarControl);
 
 
 
         //give controller acces to player
         this.tabController.setPlayerRef(selfPlayer);
+        settingController.setPlayerRef(selfPlayer);
         bottomBarControl.setPlayerRef(selfPlayer);
 
         //show the scene with the root layout

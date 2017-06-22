@@ -1,10 +1,12 @@
 package player;
 
+import java.io.Serializable;
+
 import abilities.Ability;
-import main.Set;
+import models.Set;
 import races.Race;
 
-public class Player {
+public class Player implements Serializable{
 	private boolean hasVengeful;
 	private int coins = 0;
 	private Set activeSet;

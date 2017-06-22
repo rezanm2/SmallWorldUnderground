@@ -1,10 +1,12 @@
 package races;
 
+import java.io.Serializable;
+
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
 
-public abstract class Race
+public abstract class Race implements Serializable
 {
 	protected int amountOfTokens;
 	protected int maxTokens;

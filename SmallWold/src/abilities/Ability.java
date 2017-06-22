@@ -1,9 +1,11 @@
 package abilities;
 
+import java.io.Serializable;
+
 import main.Ammy;
 import player.Player;
 
-public abstract class Ability
+public abstract class Ability implements Serializable
 {
 	protected int amountOfTokens;
 	protected int abilityIncome;

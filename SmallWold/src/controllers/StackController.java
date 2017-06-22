@@ -16,7 +16,6 @@ public class StackController {
 		this.stack = stack;
 		this.serverSetService = serverSetService;
 	}
-
 	public void chooseSet(int nr)
 	{
 		Player player  = this.stack.getPlayer();
@@ -25,7 +24,7 @@ public class StackController {
 
 		if(player.getActiveSet() == null)
 		{
-			player.setActiveSet(new main.Set(sets.get(nr).getAbility(), sets.get(nr).getRace()));
+			player.setActiveSet(new models.Set(sets.get(nr).getRace(), sets.get(nr).getAbility()));
 			this.stack.getRaceListGrave().add(sets.get(nr).getRace());
 			this.stack.getAbilityListGrave().add(sets.get(nr).getAbility());
 			sets.remove(nr);

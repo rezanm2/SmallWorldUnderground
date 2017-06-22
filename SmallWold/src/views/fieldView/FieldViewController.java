@@ -17,7 +17,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
-import main.Set;
+import models.Set;
 import player.Player;
 import races.Drow;
 import races.Flames;
@@ -31,7 +31,7 @@ public class FieldViewController {
 	private StackPane declarePanePrevious = new StackPane();
 	private int declaredTokenAmount;
 	private int throughTheList = -1;
-	private Set testset = new Set(new Frightened(), new Flames());
+	private Set testset = new Set(new Flames(), new Frightened());
 	private Player test = new Player(testset);
 	private String tokenAmount;
 

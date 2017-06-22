@@ -1,6 +1,8 @@
 package player;
 
-public class Hand
+import java.io.Serializable;
+
+public class Hand implements Serializable
 {
 	private int currentTokens;
 	private int silverHammers;
