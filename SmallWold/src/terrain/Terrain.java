@@ -32,10 +32,10 @@ public abstract class Terrain
 
 	public Terrain(String[] idArray)
 	{
-
 		this.idArray = idArray;
 	}
-	public String getTerrainId(){
+	public String getTerrainId()
+	{
 		return this.idArray[0];
 	}
 

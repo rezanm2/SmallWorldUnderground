@@ -13,7 +13,10 @@ import player.Player;
 import setup.DeclareCombat;
 import setup.PickRegions;
 import setup.RedeployAreas;
-
+/**
+ * Deze klasse is verantwoordelijk voor het bijhouden van gegevens en de ability van het ras.
+ * @author
+ */
 public class Spiderines extends Race
 {
 	TerrainController tc;
@@ -34,8 +37,11 @@ public class Spiderines extends Race
 		traitText = "Can attack through Chasms";
 	}
 
+	/**
+	 * Zorgt ervoor dat het ras kan aanvallen via Chasms.
+	 */
 	@Override
-	public void processAbility(Ammy ammy) 
+	public void processAbility(Ammy ammy)
 	{
 		this.activePlayer = ammy.getActivePlayer();
 		this.tc = ammy.getTc();
@@ -45,12 +51,12 @@ public class Spiderines extends Race
 		this.pickRegions = ammy.getPickRegions();
 		tc.checkAdjacentToTerrainType("Chasm");
 		//test.whichAreAdjacent();
-		
-		for(int x=0;x<map.getAllTerrains().size();x++)
+
+		for(int x=0;x<map.getTerrains().size();x++)
 		{
-			if(map.getTerrain(x).getIsAdjacent() == true)
+			if(map.getTerrains().get(x).getIsAdjacent() == true)
 			{
-				map.getTerrain(x).setIsAttackable(true);//This changes all area adjacent to chasm to attackable
+				map.getTerrains().get(x).setIsAttackable(true);//This changes all area adjacent to chasm to attackable
 			}
 		}
 		//ammy.setPickRegions(pickRegions);

@@ -31,7 +31,10 @@ import player.Player;
 
 import views.sideBarView.SideBarController;
 import views.tabView.TabViewController;
-
+/**
+ * Deze klasse verzorgt de updates en input van de fieldview.
+ * @author
+ */
 public class FieldViewController {
 
 	private TabViewController tabViewControl;
@@ -64,6 +67,10 @@ public class FieldViewController {
 		sideBarControl = sideControl;
 	}
 
+	/**
+	 * Handelt de verschillende knoppen die worden ingedrukt af.
+	 * @param ke, de knop die wordt ingedrukt.
+	 */
 	@FXML
 	public void keyPressed(KeyEvent ke) {
 		if (ke.getCode().equals(KeyCode.TAB)) {
@@ -91,6 +98,10 @@ public class FieldViewController {
 		}
 	}
 
+	/**
+	 * Verbergt de tabview wanneer de tabknop wordt losgelaten.
+	 * @param ke, de knop die wordt ingedrukt.
+	 */
 	@FXML
 	public void keyReleased(KeyEvent ke) {
 		if (ke.getCode().equals(KeyCode.TAB)) {
@@ -101,6 +112,11 @@ public class FieldViewController {
 
 
 
+	/**
+	 * Maakt de declare token popup zichtbaar.
+	 *
+	 * @param event, de muisklik die aangeeft welk terrein de speler heeft gekozen.
+	 */
 	@FXML
 	public void declareTokenClick(MouseEvent event) {
 		try {
@@ -132,16 +148,24 @@ public class FieldViewController {
 	}
 
 
+	/**
+	 * Update het textveld welke laat zien hoeveel tokens er op dit moment gedeclareerd zijn.
+	 * @param pressButton, de knop waarop geklikt is.
+	 */
 	private void updateTokenAmountTextField(ActionEvent pressButton)
 	{
-		Button buttonMinTarget = (Button) pressButton.getTarget();
-		HBox theBox = (HBox) buttonMinTarget.getParent();
+		Button buttonTarget = (Button) pressButton.getTarget();
+		HBox theBox = (HBox) buttonTarget.getParent();
 		TextField field = (TextField) theBox.getChildren().get(1);
 
 		field.setText(tokenAmount);
 
 	}
 
+	/**
+	 * Verminderd het aantal tokens die op dit moment gedeclareerd zijn met 1.
+	 * @param pressButtonMin, de muisklik op de knop buttonMin.
+	 */
 	@FXML
 	public void buttonMin(ActionEvent pressButtonMin) {
 		if (declaredTokenAmount > 0 )
@@ -152,7 +176,10 @@ public class FieldViewController {
 			updateTokenAmountTextField(pressButtonMin);
 		}
 	}
-
+	/**
+	 * Hoogt het aantal tokens die op dit moment gedeclareerd zijn op met 1.
+	 * @param pressButtonPlus, de muisklik op de knop buttonPlus.
+	 */
 	@FXML
 	public void buttonPlus(ActionEvent pressButtonPlus) {
 		if(declaredTokenAmount < selfPlayer.getHand().getCurrentTokens()){
@@ -162,6 +189,12 @@ public class FieldViewController {
 		updateTokenAmountTextField(pressButtonPlus);
 		}
 	}
+
+	/**
+	 * Handelt de bevestigknop en de overname van het terrein af.
+	 * @param pressButtonBevestig, de klik op de knop.
+	 * @throws RemoteException, de exception die optreedt als er iets in de communicatie verkeerd gaat.
+	 */
 
 	@FXML
 	public void buttonBevestig(ActionEvent pressButtonBevestig) throws RemoteException {
@@ -176,8 +209,6 @@ public class FieldViewController {
 
 		System.out.println(declarePanePrevious.getParent().getId());
 
-
-
 		this.combatController.calculateCombat(declarePanePrevious.getParent().getId());
 		this.sideBarControl.hideDeclineButton();
 	}
@@ -190,6 +221,10 @@ public class FieldViewController {
 		this.declaredTokenAmount = declaredTokenAmount;
 	}
 
+	/**
+	 * Selecteerd het vorige terrein.
+	 * @param key, de toets die is ingedrukt.
+	 */
 	@FXML
 	public void arrowKeyPressedLeft(KeyEvent key) {
 		if (key.getCode() == KeyCode.LEFT) {
@@ -205,6 +240,10 @@ public class FieldViewController {
 			}
 		}
 	}
+	/**
+	 * Selecteerd het volgende terrein.
+	 * @param key, de toets die is ingedrukt.
+	 */
 	@FXML
 	public void arrowKeyPressedRight(KeyEvent key){
 		if (key.getCode() == KeyCode.RIGHT) {
@@ -221,8 +260,14 @@ public class FieldViewController {
 
 	public void setCombatController(CombatController combatController) {
 		this.combatController = combatController;
-
 	}
+
+	/**
+	 * Update de visuele aspecten van het terrein.
+	 * @param id, het terrein dat wordt geupdate.
+	 * @param raceName, het ras welke op het terrein gezet wordt.
+	 * @param tokens, het aantal tokens welke op het terrein gezet wordt.
+	 */
 	public void updateFieldById(String id, String raceName, int tokens) {
 
 		ObservableList<Node> childList = this.mainPane.getChildren();

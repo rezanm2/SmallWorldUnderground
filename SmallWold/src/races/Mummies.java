@@ -7,7 +7,10 @@ import player.Hand;
 import player.Player;
 import setup.DeclareCombat;
 import setup.RedeployAreas;
-
+/**
+ * Deze klasse is verantwoordelijk voor het bijhouden van gegevens en de ability van het ras.
+ * @author
+ */
 public class Mummies extends Race
 {
 	CombatController_old cc;
@@ -23,12 +26,15 @@ public class Mummies extends Race
 		traitText = "It takes 1 extra mummy to conquer a region.";
 	}
 
+	/**
+	 * Zorgt ervoor dat elk terrein 1 meer kost om  over te nemen.
+	 */
 	@Override
 	public void processAbility(Ammy ammy) {
 		this.map = ammy.getMap();
 		this.cc = ammy.getCc();
 		this.activePlayer = ammy.getActivePlayer();
-		
+
 		//This will be repeated in DeclareCombat class
 		if(activePlayer.getActiveSet().getRace().getName().equals(this.name))
 		{

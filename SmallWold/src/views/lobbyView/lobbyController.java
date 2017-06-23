@@ -10,6 +10,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import models.JoinedPlayers;
 
+/**
+ * Deze klasse verzorgt de updates en input van de lobbyview.
+ * @author
+ */
 public class lobbyController {
 
 	@FXML private Button joinButton;
@@ -24,6 +28,10 @@ public class lobbyController {
 	private RemoteClient client;
 
 
+	/**
+	 * Zorgt ervoor dat de client een verbinding kan maken met de server.
+	 * @throws RemoteException, de exception die optreedt als er iets misgaat met de communicatie.
+	 */
 	public void joinServer() throws RemoteException {
 
 		if(username.getText().isEmpty()){
@@ -54,6 +62,10 @@ public class lobbyController {
     private void initialize() {
 
     }
+
+    /**
+     * Laat de namen zien van de spelers die verbinding hebben met de server.
+     */
 	public void initLabel() {
 		ObservableList<JoinedPlayers> playerList = client.getPlayers();
 

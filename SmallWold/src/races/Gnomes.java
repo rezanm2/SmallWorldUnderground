@@ -3,6 +3,11 @@ package races;
 import main.Ammy;
 import player.Player;
 
+/**
+ * Deze klasse is verantwoordelijk voor het bijhouden van gegevens en de ability van het ras.
+ * @author
+ */
+
 public class Gnomes extends Race
 {
 	public Gnomes()
@@ -16,7 +21,7 @@ public class Gnomes extends Race
 	@Override
 	public void processAbility(Ammy ammy) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

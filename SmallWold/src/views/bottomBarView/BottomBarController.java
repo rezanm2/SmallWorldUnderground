@@ -1,15 +1,16 @@
 package views.bottomBarView;
-
-
-
-
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import player.Player;
+
+
+/**
+ * Deze klasse verzorgt de input en updates van de bottombarview.
+ * @author
+ */
 
 public class BottomBarController {
 
@@ -97,6 +98,10 @@ public class BottomBarController {
 		this.selfPlayer = selfPlayer;
 	}
 
+	/**
+	 * Update de actieve set van de speler in de bottombarview.
+	 */
+
 	public void setActiveSet() {
 		if(selfPlayer.getActiveSet() != null)
 		{
@@ -110,18 +115,29 @@ public class BottomBarController {
 		}
 
 	}
+
+	/**
+	 * Update de declien set van de speler in de bottombarview.
+	 */
 	public void setDeclineSet() {
 		declineRace.setImage(new Image("/images/races/decline/"+selfPlayer.getDeclineSet().getRace().getName()+".png"));
 		declineAbility.setImage(new Image("/images/abilitys/decline/"+selfPlayer.getDeclineSet().getAbility().getName()+".png"));
 
 	}
 
+
+	/**
+	 * Update het textveld welke laat zien hoeveel actieve tokens de speler op dit moment heeft.
+	 */
 	@FXML
 	public void updateCurrentTokens()
 	{
 		currentTokens.setText(String.valueOf(selfPlayer.getHand().getCurrentTokens()));
 
 	}
+	/**
+	 * Update het textveld welke laat zien hoeveel decline tokens de speler op dit moment heeft.
+	 */
 
 	public void updateDeclineTokens()
 	{
@@ -132,7 +148,9 @@ public class BottomBarController {
 		declineTokens.setText(String.valueOf(selfPlayer.getHand().getDeclineTokens()));
 	}
 
-
+	/**
+	 * Update het textveld welke laat zien hoe de actieve ability van de speler gebruikt kan worden.
+	 */
 
 	@FXML
 	public void showAbilityTraitText()
@@ -151,6 +169,9 @@ public class BottomBarController {
 		}
 	}
 
+	/**
+	 * Update het textveld welke laat zien hoe het actieve ras van de speler gebruikt kan worden.
+	 */
 	@FXML
 	public void showRaceTraitText()
 	{
@@ -166,6 +187,10 @@ public class BottomBarController {
 		}
 	}
 
+
+	/**
+	 * Update het textveld welke laat zien hoe de decline ability van de speler gebruikt kan worden.
+	 */
 	@FXML
 	public void showDeclineRaceTraitText()
 	{
@@ -182,6 +207,10 @@ public class BottomBarController {
 		}
 	}
 
+	/**
+	 * Update het textveld welke laat zien hoe de decline ability van de speler gebruikt kan worden.
+	 */
+
 	@FXML
 	public void showDeclineAbilityTraitText()
 	{
@@ -197,6 +226,7 @@ public class BottomBarController {
 			declineAbilityTextFieldHBox.setVisible(false);
 		}
 	}
+
 /*
 	public void showRelicOneTraitText()
 	{
@@ -255,6 +285,11 @@ public class BottomBarController {
 	}
 	*/
 
+
+	/**
+	 * Deze methode bind het textveld welke de speler zijn totaal munten en het aantal tokens die
+	 * de speler op dit moment heeft laat zien aan de variabelen van het Playerobject.
+	 */
 	public void bindPlayer() {
 		ownCoins.textProperty().bind(selfPlayer.getCoinLabel());
 		currentTokens.textProperty().bind(selfPlayer.getHand().getCurrentTokensLabel());

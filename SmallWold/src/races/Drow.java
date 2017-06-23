@@ -5,7 +5,10 @@ import controllers.TerrainController;
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
-
+/**
+ * Deze klasse is verantwoordelijk voor het bijhouden van gegevens en de ability van het ras.
+ * @author Reza Naser
+ */
 public class Drow extends Race implements CalculatableIncome
 {
 	TerrainController tc;
@@ -20,6 +23,9 @@ public class Drow extends Race implements CalculatableIncome
 		traitText = "+1 Coin for each terrain that isn't sharing borders with non-drow.";
 	}
 
+	/**
+	 * Checked of het ras aangrenzend aan een ander ras ligt.
+	 */
 	@Override
 	public void processAbility(Ammy	ammy) {
 		this.activePlayer = ammy.getActivePlayer();
@@ -32,13 +38,13 @@ public class Drow extends Race implements CalculatableIncome
 		test.whichAreAdjacent();
 
 
-		for(int x=0;x<map.getAllTerrains().size();x++)
+		for(int x=0;x<map.getTerrains().size();x++)
 		{
-			if(map.getTerrain(x).getIsAdjacent() == true)
+			if(map.getTerrains().get(x).getIsAdjacent() == true)
 			{
 				countTerrains++;
-				if(map.getTerrain(x).getRace().getName().equals(this.name) ||
-						map.getTerrain(x).getRace().getName().equals("Empty "))
+				if(map.getTerrains().get(x).getRace().getName().equals(this.name) ||
+						map.getTerrains().get(x).getRace().getName().equals("Empty "))
 				{
 					countRaces++;
 				}
@@ -54,7 +60,7 @@ public class Drow extends Race implements CalculatableIncome
 		}
 		countTerrains = 0;
 		countRaces = 0;
-		
+
 	}
 
 	@Override

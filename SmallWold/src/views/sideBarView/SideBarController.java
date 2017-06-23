@@ -13,6 +13,10 @@ import views.manualView.ManualController;
 import views.settingView.SettingController;
 import views.tabView.TabViewController;
 
+/**
+ * Deze klasse regelt de updates van de sidebarview en krijgt de input van die view.
+ * @author
+ */
 
 public class SideBarController {
 
@@ -40,6 +44,9 @@ public class SideBarController {
 
 
 
+    /**
+     * Zet de text van de endturnbutton op leeg.
+     */
     @FXML
     public void initialize() {
        //greyout button.
@@ -64,6 +71,9 @@ public class SideBarController {
     	tabImage.setImage(new Image("/images/icons/tab-bar-stripes.png"));
     }
 
+    /**
+     * Verbergt of laat de tabview zien.
+     */
     @FXML
     private void tabButtonPress() {
     	if(!tabViewControl.isVisible()){
@@ -75,19 +85,34 @@ public class SideBarController {
     	}
 
     }
+
+    /**
+     * Verbergt de declineknop.
+     */
     public void hideDeclineButton(){
     		this.declinePane.setVisible(false);
     }
 
+    /**
+     * Laat het manualscherm zien.
+     */
     public void openManual()
     {
     	manualController.openManual();
     }
+    /**
+     * Laat het settingscreen zien.
+     */
     public void openSetting()
     {
     	settingController.openSetting();
     }
 
+
+    /**
+     * Update het turn_label.
+     * @param message, een string die laat zien wie zijn beurt het is.
+     */
 	public void UpdateText(String message) {
 		turn_label.setText(message);
 	}
@@ -101,6 +126,10 @@ public class SideBarController {
 		this.turnControl = turnController;
 	}
 
+	/**
+	 * Beeindigt de beurt voor de speler.
+	 * @throws RemoteException, de error die optreedt als er iets verkeerd is gegaan met de communicatie.
+	 */
 	public void endTurn() throws RemoteException{
 		System.out.println("pressed");
 		turnControl.endPhase();
@@ -110,6 +139,9 @@ public class SideBarController {
 	//	turnControl
 	}
 
+	/**
+	 * Update of de buttonPane zichtbaar is of niet.
+	 */
 	public void updateVisibleButton(){
 		if(buttonPane.isVisible()){
 			buttonPane.setVisible(false);
@@ -118,6 +150,10 @@ public class SideBarController {
 		}
 	}
 
+	/**
+	 * Update de text die op de endturn button staat.
+	 * @param string, het bericht die op de button moet staan.
+	 */
 	public void updateButtonText(String string) {
 		this.endButtonLabel.setText(string);
 

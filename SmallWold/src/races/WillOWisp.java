@@ -2,7 +2,10 @@ package races;
 
 import main.Ammy;
 import player.Player;
-
+/**
+ * Deze klasse is verantwoordelijk voor het bijhouden van gegevens en de ability van het ras.
+ * @author
+ */
 public class WillOWisp extends Race
 {
 	public WillOWisp()
