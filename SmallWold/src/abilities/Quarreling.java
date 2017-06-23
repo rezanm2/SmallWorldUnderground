@@ -1,6 +1,6 @@
 package abilities;
 
-import controllers.MapTester;
+
 import controllers.TerrainController;
 import main.Ammy;
 import playBoard.Map;
@@ -12,7 +12,6 @@ import player.Player;
 public class Quarreling extends Ability implements CalculatableIncome
 {
 	TerrainController tc;
-	MapTester test;
 	Map map;
 	Player activePlayer;
 	public Quarreling()
@@ -30,11 +29,9 @@ public class Quarreling extends Ability implements CalculatableIncome
 	{
 		this.activePlayer = ammy.getActivePlayer();
 		this.tc = ammy.getTc();
-		this.test = ammy.getTest();
 		this.map = ammy.getMap();
 
 		tc.setAllAdjacentAreas(activePlayer);
-		test.whichAreAdjacent();
 
 
 		for(int terrainCounter=0;terrainCounter<map.getTerrains().size();terrainCounter++)		//As long as there are terrains

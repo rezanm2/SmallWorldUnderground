@@ -1,6 +1,5 @@
 package abilities;
 
-import controllers.MapTester;
 import controllers.TerrainController;
 import main.Ammy;
 import playBoard.Map;
@@ -14,7 +13,6 @@ public class Royal extends Ability
 	private int terrainNumber;
 	private Map map;
 	private TerrainController terrainController;
-	private MapTester mapTester;
 
 	public Royal()
 	{
@@ -32,7 +30,6 @@ public class Royal extends Ability
 		this.map = ammy.getMap();
 		this.activePlayer = ammy.getActivePlayer();
 		this.terrainController = ammy.getTc();
-		this.mapTester = ammy.getTest();
 		for(int i = 0; i < map.getTerrains().size(); i++) {
 			if(map.getTerrains().get(i).getRelic().getName() == name)
 			{
@@ -42,8 +39,6 @@ public class Royal extends Ability
 		}
 		if(activePlayer.getActiveSet().getRace().getName() == map.getTerrains().get(terrainNumber).getRace().getName()) {
 			terrainController.setAllRedeployableAreas(activePlayer);
-			mapTester.whichAreRedeployable(activePlayer);
-			terrainController.checkIfRedeployable();
 			changeTerrain(terrainController.getAreaPicked());
 			System.out.println(map.getTerrains().get(terrainNumber).getIsImmune());
 		}

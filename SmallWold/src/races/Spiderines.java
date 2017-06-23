@@ -3,11 +3,9 @@ package races;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 import main.Ammy;
 import playBoard.Map;
 import controllers.CombatController_old;
-import controllers.MapTester;
 import controllers.TerrainController;
 import player.Player;
 import setup.DeclareCombat;
@@ -20,7 +18,6 @@ import setup.RedeployAreas;
 public class Spiderines extends Race
 {
 	TerrainController tc;
-	MapTester test;
 	PickRegions pickRegions;
 	Scanner scanner = new Scanner(System.in);
 	private int nr;
@@ -45,7 +42,6 @@ public class Spiderines extends Race
 	{
 		this.activePlayer = ammy.getActivePlayer();
 		this.tc = ammy.getTc();
-		this.test = ammy.getTest();
 		this.map = ammy.getMap();
 		this.cc = ammy.getCc();
 		this.pickRegions = ammy.getPickRegions();

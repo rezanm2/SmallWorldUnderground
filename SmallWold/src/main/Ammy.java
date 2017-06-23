@@ -4,18 +4,14 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
-
 import controllers.CombatController_old;
 import controllers.EndTurnController;
-import controllers.MapTester;
-import controllers.SleepController;
 import controllers.TerrainController;
 import controllers.TokenController;
 import listCreators.AbilityListCreator;
 import listCreators.RaceListCreator;
 import listCreators.RelicListCreator;
 import listCreators.SpecialPlaceListCreator;
-import mapInitializers.Initializer;
 import playBoard.Die;
 import playBoard.Map;
 import setup.DeclareCombat;
@@ -32,7 +28,6 @@ public class Ammy
 	//This entire list is just for references, for the setters and getters of Ammy.
 	MapCreator mapCreator;
 	CombatController_old cc;
-	MapTester test;
 	PickRegions pickRegions;
 	DeclareCombat dc;
 	Map map;
@@ -40,9 +35,7 @@ public class Ammy
 	Player activePlayer;
 	List<Player> playerList;
 	RedeployAreas ra;
-	Initializer mapType;
 	TerrainController tc;
-	SleepController sleep = new SleepController();
 	Die die = new Die();
 	Decline decline;
 	PlayerCreator playerCreator;
@@ -77,7 +70,6 @@ public class Ammy
 		System.out.println("Ammy: I'm creating the according map for " + playerCreator.getAmountOfPlayers() + " players. \n");
 		mapCreator = new MapCreator();
 		mapCreator.setupMap(this);
-		this.map = new Map(this);
 		System.out.println("Created map.");
 		mapCreator.setupMap(this);
 		System.out.println("Ammy: I'm done creating the according map.");
@@ -89,7 +81,6 @@ public class Ammy
 	{
 		System.out.println("Ammy: I'm creating all the creators. \n" );
 		tc = new TerrainController(this);
-		test = new MapTester(this);
 
 		toc = new TokenController(this);
 		cc = new CombatController_old(this);
@@ -230,13 +221,6 @@ public class Ammy
 		this.cc = cc;
 	}
 
-	public MapTester getTest() {
-		return test;
-	}
-
-	public void setTest(MapTester test) {
-		this.test = test;
-	}
 
 	public PickRegions getPickRegions() {
 		return pickRegions;
@@ -282,13 +266,6 @@ public class Ammy
 		this.activePlayer = activePlayer;
 	}
 
-	public SleepController getSleep() {
-		return sleep;
-	}
-
-	public void setSleep(SleepController sleep) {
-		this.sleep = sleep;
-	}
 
 	public AbilityListCreator getAbilityList() {
 		return abilityList;
@@ -316,14 +293,6 @@ public class Ammy
 
 	public void setEtc(EndTurnController etc) {
 		this.etc = etc;
-	}
-
-	public Initializer getMapType() {
-		return mapType;
-	}
-
-	public void setMapType(Initializer init) {
-		this.mapType = init;
 	}
 
 	public Die getDie() {

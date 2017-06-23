@@ -2,7 +2,9 @@ package controllers;
 
 import main.Ammy;
 import playBoard.Map;
-
+/**
+ * Deze klasse is verantwoordelijk voor het goed aanroepen van alle relics en specialPlaces.
+ */
 public class SpecialController
 {
 	Map map;
@@ -10,13 +12,6 @@ public class SpecialController
 	public SpecialController(Ammy ammy)
 	{
 		this.map = ammy.getMap();
-	}
-	public void checkCaseHank()
-	{
-		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
-		{
-
-		}
 	}
 
 }

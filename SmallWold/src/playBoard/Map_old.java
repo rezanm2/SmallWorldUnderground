@@ -2,13 +2,10 @@ package playBoard;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import controllers.SleepController;
 import listCreators.RaceListCreator;
 import listCreators.RelicListCreator;
 import listCreators.SpecialPlaceListCreator;
 import main.Ammy;
-import mapInitializers.FourPlayer;
 import races.Empty;
 import races.Race;
 import terrain.Terrain;
@@ -22,7 +19,6 @@ public class Map_old
 	SpecialPlaceListCreator specialPlaceList;
 	Die die = new Die();
 	private int terrainCounter;
-	SleepController sleep = new SleepController();
 
 
 	public void Map(Ammy ammy)

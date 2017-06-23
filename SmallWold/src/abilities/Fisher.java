@@ -1,6 +1,6 @@
 package abilities;
 
-import controllers.MapTester;
+
 import controllers.TerrainController;
 import main.Ammy;
 import playBoard.Map;
@@ -15,7 +15,6 @@ public class Fisher extends Ability implements CalculatableIncome
 	private int terrainCounter;
 	private double tempAbilityIncome;
 	Map map;
-	MapTester test;
 
 	public Fisher()
 	{
@@ -33,12 +32,10 @@ public class Fisher extends Ability implements CalculatableIncome
 		this.tc = ammy.getTc();
 		this.activePlayer = ammy.getActivePlayer();
 		this.map = ammy.getMap();
-		this.test = ammy.getTest();
 
 		tc.setNotAdjacent();
 		tc.checkAdjacentToTerrainType("River");
 
-		test.whichAreAdjacent();
 
 		for(terrainCounter = 0; terrainCounter<map.getTerrains().size(); terrainCounter++)
 		{

@@ -1,8 +1,6 @@
 package abilities;
 
 import java.util.ArrayList;
-
-import controllers.MapTester;
 import controllers.TerrainController;
 import controllers.TokenController;
 import listCreators.RaceListCreator;
@@ -16,7 +14,6 @@ import player.Player;
 public class Thieving extends Ability implements CalculatableIncome
 {
 	TerrainController tc;
-	MapTester test;
 	Map map;
 	RaceListCreator raceList;
 	TokenController tokenController;
@@ -39,13 +36,11 @@ public class Thieving extends Ability implements CalculatableIncome
 
 		this.activePlayer = ammy.getActivePlayer();
 		this.tc = ammy.getTc();
-		this.test = ammy.getTest();
 		this.map = ammy.getMap();
 		this.raceList = ammy.getRaceList();
 		this.tokenController = ammy.getToc();
 
 		tc.setAllAdjacentAreas(activePlayer);
-		test.whichAreAdjacent();
 
 		for(int terrainCounter=0;terrainCounter<map.getTerrains().size();terrainCounter++)		//As long as there are terrains
 		{

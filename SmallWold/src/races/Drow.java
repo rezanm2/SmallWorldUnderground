@@ -1,6 +1,5 @@
 package races;
 
-import controllers.MapTester;
 import controllers.TerrainController;
 import main.Ammy;
 import playBoard.Map;
@@ -12,7 +11,6 @@ import player.Player;
 public class Drow extends Race implements CalculatableIncome
 {
 	TerrainController tc;
-	MapTester test;
 	Map map;
 	Player activePlayer;
 	public Drow()
@@ -30,12 +28,10 @@ public class Drow extends Race implements CalculatableIncome
 	public void processAbility(Ammy	ammy) {
 		this.activePlayer = ammy.getActivePlayer();
 		this.tc = ammy.getTc();
-		this.test = ammy.getTest();
 		this.map = ammy.getMap();
 		int countTerrains = 0;
 		int countRaces = 0;
 		tc.setAllAdjacentAreas(activePlayer);
-		test.whichAreAdjacent();
 
 
 		for(int x=0;x<map.getTerrains().size();x++)

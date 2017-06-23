@@ -1,6 +1,5 @@
 package abilities;
 
-import controllers.MapTester;
 import controllers.TerrainController;
 import listCreators.RaceListCreator;
 import main.Ammy;
@@ -13,7 +12,6 @@ import player.Player;
 public class Vanishing extends Ability implements CalculatableIncome
 {
 	TerrainController tc;
-	MapTester test;
 	Map map;
 	private int abilityIncome;
 	private int terrainCounter;
@@ -34,7 +32,6 @@ public class Vanishing extends Ability implements CalculatableIncome
 	public void processAbility(Ammy ammy) {
 		this.activePlayer = ammy.getActivePlayer();
 		this.tc = ammy.getTc();
-		this.test = ammy.getTest();
 		this.map = ammy.getMap();
 
 		for(int terrainCounter=0;terrainCounter<map.getTerrains().size();terrainCounter++)		//As long as there are terrains

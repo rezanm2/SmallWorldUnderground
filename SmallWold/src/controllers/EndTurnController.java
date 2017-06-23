@@ -9,7 +9,10 @@ import player.Hand;
 import player.Player;
 import setup.MapCreator;
 import races.Race;
-
+/**
+ * Deze klasse is verantwoordelijk voor het beeindigen van de speler zijn beurt.
+ * @author Marinus van den Oever
+ */
 public class EndTurnController
 {
 	private int terrainIncome;
@@ -35,6 +38,10 @@ public class EndTurnController
 		this.playerList = ammy.getPlayerList();
 	}
 
+	/**
+	 * Berekent de totale inkomsten.
+	 * @param activePlayer, de actieve speler.
+	 */
 	public void start(Player activePlayer)
 	{
 
@@ -49,13 +56,16 @@ public class EndTurnController
 		calculateNewBalance();
 	}
 
+	/**
+	 * Berekend de inkomsten van alle terreinen die de speler heeft.
+	 */
 	public void calculateTerrainIncome()
 	{
 		terrainIncome = 0;
 
-		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
+		for(int terrainCounter=0;terrainCounter<map.getTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
-			if (activePlayer.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace()))
+			if (activePlayer.getActiveSet().getRace().equals(map.getTerrains().get(terrainCounter).getRace()))
 			{
 				terrainIncome++;
 			}
@@ -63,20 +73,32 @@ public class EndTurnController
 		System.out.println("A: " +  " gets " + terrainIncome + " amount of coins from their terrains.");
 	}
 
+	/**
+	 * Berekend de inkomsten van alle relics die de speler heeft.
+	 */
 	public void calculateRelicIncome(){
 
 		System.out.println("A: gets " + relicIncome + " amount of coins from their relics.");
 	}
 
+	/**
+	 * Berekend de inkomsten van alle specialPlaces die de speler heeft.
+	 */
 	public void calculateSpecialPlaceIncome(){
 
 		System.out.println("A: " + " gets " + specialPlaceIncome + " amount of coins from their Special Places.");
 	}
 
+	/**
+	 * Berekend de inkomsten van alle ras-abilities die de speler heeft.
+	 */
 	public void calculateRaceIncome()
 	{
 		System.out.println("A: " +  " gets " + raceIncome + " amount of coins from their race ability.");
 	}
+	/**
+	 * Berekend de inkomsten van alle abilities die de speler heeft.
+	 */
 	public void calculateAbilityIncome()
 	{
 		System.out.println("A: Player one got the " + activePlayer.getActiveSet().getAbility().getName() + " ability now.");
@@ -89,6 +111,9 @@ public class EndTurnController
 
 	}
 
+	/**
+	 * Voegt alle inkomsten samen.
+	 */
 	public void addSum()
 	{
 
@@ -96,6 +121,9 @@ public class EndTurnController
 		System.out.println("A: Making for " + totalSum + " total income.");
 	}
 
+	/**
+	 * Berekend de nieuwe balans van munten van de speler.
+	 */
 	public void calculateNewBalance()
 	{
 		newBalance = activePlayer.getCoins() + getTotalSum();
