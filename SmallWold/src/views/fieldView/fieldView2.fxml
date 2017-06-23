@@ -62,6 +62,7 @@
                      </children></StackPane>
                   <StackPane fx:id="AC" layoutX="749.0" layoutY="14.0" onMouseClicked="#declareTokenClick" prefHeight="363.0" prefWidth="200.0">
                      <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
                         <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
                            <children>
                               <ImageView fx:id="imageView13" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -104,6 +105,7 @@
                      </children></StackPane>
                   <StackPane layoutX="1073.0" layoutY="14.0" onMouseClicked="#declareTokenClick" prefHeight="150.0" prefWidth="200.0">
                      <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
                         <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
                            <children>
                               <ImageView fx:id="imageView14" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -143,6 +145,7 @@
                      </children></StackPane>
                   <StackPane fx:id="AE" layoutX="1340.0" layoutY="14.0" onMouseClicked="#declareTokenClick" prefHeight="135.0" prefWidth="200.0">
                      <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
                         <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
                            <children>
                               <ImageView fx:id="imageView15" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -182,6 +185,7 @@
                      </children></StackPane>
                   <StackPane fx:id="AF" layoutX="1490.0" layoutY="152.0" onMouseClicked="#declareTokenClick" prefHeight="119.0" prefWidth="250.0">
                      <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
                         <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
                            <children>
                               <ImageView fx:id="imageView11" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -221,6 +225,7 @@
                      </children></StackPane>
                   <StackPane fx:id="BA" layoutX="14.0" layoutY="383.0" onMouseClicked="#declareTokenClick" prefHeight="150.0" prefWidth="275.0">
                      <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
                         <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
                            <children>
                               <ImageView fx:id="imageView1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -328,6 +333,7 @@
                      </children></StackPane>
                   <StackPane fx:id="BD" layoutX="961.0" layoutY="171.0" onMouseClicked="#declareTokenClick" prefHeight="150.0" prefWidth="200.0">
                      <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
                         <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
                            <children>
                               <ImageView fx:id="imageView21" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -361,6 +367,7 @@
                      </children></StackPane>
                   <StackPane fx:id="BE" layoutX="1232.0" layoutY="183.0" onMouseClicked="#declareTokenClick" prefHeight="168.0" prefWidth="200.0">
                      <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
                         <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
                            <children>
                               <ImageView fx:id="imageView22" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -394,6 +401,7 @@
                      </children></StackPane>
                   <StackPane fx:id="CA" layoutX="331.0" layoutY="362.0" onMouseClicked="#declareTokenClick" prefHeight="150.0" prefWidth="200.0">
                      <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
                         <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
                            <children>
                               <ImageView fx:id="imageView221" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -427,6 +435,7 @@
                      </children></StackPane>
                   <StackPane fx:id="CB" layoutX="557.0" layoutY="437.0" onMouseClicked="#declareTokenClick" prefHeight="150.0" prefWidth="200.0">
                      <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
                         <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
                            <children>
                               <ImageView fx:id="imageView2211" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -463,6 +472,7 @@
                      </children></StackPane>
                   <StackPane fx:id="CC" layoutX="937.0" layoutY="371.0" onMouseClicked="#declareTokenClick" prefHeight="209.0" prefWidth="200.0">
                      <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
                         <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
                            <children>
                               <ImageView fx:id="imageView22111" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -501,6 +511,7 @@
                   <StackPane fx:id="CD" layoutX="1161.0" layoutY="383.0" prefHeight="150.0" prefWidth="200.0" />
                   <StackPane fx:id="CE" layoutX="1402.0" layoutY="371.0" onMouseClicked="#declareTokenClick" prefHeight="150.0" prefWidth="200.0">
                      <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
                         <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
                            <children>
                               <ImageView fx:id="imageView221112" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -538,6 +549,7 @@
                   <StackPane fx:id="CF" layoutX="1657.0" layoutY="312.0" prefHeight="254.0" prefWidth="83.0" />
                   <StackPane fx:id="DA" layoutX="247.0" layoutY="548.0" onMouseClicked="#declareTokenClick" prefHeight="91.0" prefWidth="203.0">
                      <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
                         <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
                            <children>
                               <ImageView fx:id="imageView221111" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -580,6 +592,7 @@
                      </children></StackPane>
                   <StackPane fx:id="DB" layoutX="413.0" layoutY="656.0" onMouseClicked="#declareTokenClick" prefHeight="171.0" prefWidth="223.0">
                      <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
                         <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
                            <children>
                               <ImageView fx:id="imageView221113" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -617,6 +630,7 @@
                   </StackPane>
                   <StackPane fx:id="DC" layoutX="657.0" layoutY="639.0" onMouseClicked="#declareTokenClick" prefHeight="150.0" prefWidth="200.0">
                      <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
                         <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
                            <children>
                               <ImageView fx:id="imageView221114" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -656,6 +670,7 @@
                      </children></StackPane>
                   <StackPane fx:id="DD" layoutX="857.0" layoutY="599.0" onMouseClicked="#declareTokenClick" prefHeight="114.0" prefWidth="126.0">
                      <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
                         <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
                            <children>
                               <ImageView fx:id="imageView221115" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -695,6 +710,7 @@
                      </children></StackPane>
                   <StackPane fx:id="DE" layoutX="1112.0" layoutY="580.0" onMouseClicked="#declareTokenClick" prefHeight="118.0" prefWidth="341.0">
                      <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
                         <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
                            <children>
                               <ImageView fx:id="imageView221116" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -734,6 +750,7 @@
                      </children></StackPane>
                   <StackPane fx:id="DF" layoutX="1490.0" layoutY="599.0" onMouseClicked="#declareTokenClick" prefHeight="150.0" prefWidth="200.0">
                      <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
                         <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
                            <children>
                               <ImageView fx:id="imageView221117" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -771,6 +788,7 @@
                   <StackPane fx:id="EA" layoutX="14.0" layoutY="669.0" prefHeight="245.0" prefWidth="270.0" />
                   <StackPane fx:id="EB" layoutX="678.0" layoutY="819.0" onMouseClicked="#declareTokenClick" prefHeight="96.0" prefWidth="281.0">
                      <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
                         <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
                            <children>
                               <ImageView fx:id="imageView221118" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -810,6 +828,7 @@
                      </children></StackPane>
                   <StackPane fx:id="EC" layoutX="1096.0" layoutY="735.0" onMouseClicked="#declareTokenClick" prefHeight="150.0" prefWidth="200.0">
                      <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
                         <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
                            <children>
                               <ImageView fx:id="imageView221119" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -846,6 +865,7 @@
                      </children></StackPane>
                   <StackPane fx:id="ED" layoutX="1315.0" layoutY="765.0" onMouseClicked="#declareTokenClick" prefHeight="150.0" prefWidth="200.0">
                      <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
                         <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">
                            <children>
                               <ImageView fx:id="imageView2211110" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
