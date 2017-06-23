@@ -5,14 +5,12 @@ import java.util.Scanner;
 import listCreators.AbilityListCreator;
 import main.Ammy;
 import player.Player;
-import setup.Decline;
 /**
  * Deze klasse is verantwoordelijk voor het bijhouden van gegevens en de ability van het ras.
  * @author
  */
 public class ShadowMimes extends Race
 {
-	Decline decline;
 	private Scanner scanner;
 	String yesOrNo = "";
 	AbilityListCreator abilityList;
@@ -37,7 +35,5 @@ public class ShadowMimes extends Race
 	{
 		this.activePlayer = ammy.getActivePlayer();
 		this.map = ammy.getMap();
-		this.decline = ammy.getDecline();
-		decline.changeAbility();
 	}
 }

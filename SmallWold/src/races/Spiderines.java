@@ -8,9 +8,6 @@ import playBoard.Map;
 import controllers.CombatController_old;
 import controllers.TerrainController;
 import player.Player;
-import setup.DeclareCombat;
-import setup.PickRegions;
-import setup.RedeployAreas;
 /**
  * Deze klasse is verantwoordelijk voor het bijhouden van gegevens en de ability van het ras.
  * @author
@@ -18,14 +15,11 @@ import setup.RedeployAreas;
 public class Spiderines extends Race
 {
 	TerrainController tc;
-	PickRegions pickRegions;
 	Scanner scanner = new Scanner(System.in);
 	private int nr;
 	private String yesOrNo = "";
 	CombatController_old cc;
 	Map map;
-	DeclareCombat dc;
-	RedeployAreas ra;
 	public Spiderines()
 	{
 		amountOfTokens = 7;
@@ -44,7 +38,6 @@ public class Spiderines extends Race
 		this.tc = ammy.getTc();
 		this.map = ammy.getMap();
 		this.cc = ammy.getCc();
-		this.pickRegions = ammy.getPickRegions();
 		tc.checkAdjacentToTerrainType("Chasm");
 		//test.whichAreAdjacent();
 

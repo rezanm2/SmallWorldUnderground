@@ -5,8 +5,6 @@ import controllers.TerrainController;
 import main.Ammy;
 import player.Hand;
 import player.Player;
-import setup.DeclareCombat;
-import setup.RedeployAreas;
 /**
  * Deze klasse is verantwoordelijk voor het bijhouden van gegevens en de ability van het ras.
  * @author
@@ -15,8 +13,6 @@ public class Mummies extends Race
 {
 	CombatController_old cc;
 	TerrainController tc;
-	RedeployAreas ra;
-	DeclareCombat dc;
 	int hand;
 	public Mummies()
 	{

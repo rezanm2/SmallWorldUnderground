@@ -7,7 +7,6 @@ import main.Ammy;
 import playBoard.Map;
 import player.Hand;
 import player.Player;
-import setup.MapCreator;
 import races.Race;
 /**
  * Deze klasse is verantwoordelijk voor het beeindigen van de speler zijn beurt.

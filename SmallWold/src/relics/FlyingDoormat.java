@@ -5,7 +5,6 @@ import controllers.TerrainController;
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
-import setup.DeclareCombat;
 /**
  * Deze klasse houdt de functionaliteit van de relic in zich.
  * @author
@@ -18,7 +17,6 @@ public class FlyingDoormat extends Relic {
 	int terrainNumber;
 	private Player activePlayer;
 	private TerrainController terrainController;
-	private DeclareCombat declareCombat;
 
 	public FlyingDoormat(){
 		name = "Flying Doormat";
@@ -33,7 +31,6 @@ public class FlyingDoormat extends Relic {
 		this.map = ammy.getMap();
 		this.activePlayer = ammy.getActivePlayer();
 		this.terrainController = ammy.getTc();
-		this.declareCombat = ammy.getDc();
 		for(int i = 0; i < map.getTerrains().size(); i++) {
 			if(map.getTerrains().get(i).getRelic().getName() == name)
 			{
@@ -49,7 +46,7 @@ public class FlyingDoormat extends Relic {
 				}
 			}
 			System.out.println("Set everything attackable");
-			declareCombat.processAttack(activePlayer);
+			//declareCombat.processAttack(activePlayer);
 			System.out.println(map.getTerrains().get(terrainNumber).getTerrainName());
 			changeTerrain(terrainController.getAreaPicked());
 			System.out.println(map.getTerrains().get(terrainNumber).getTerrainName());

@@ -24,7 +24,6 @@ public class TokenController
 
 	public TokenController(Ammy ammy)
 	{
-		this.playerList = ammy.getPlayerCreator().getPlayerList();
 		this.map = ammy.getMap();
 	}
 

@@ -23,7 +23,6 @@ public class Map_old
 
 	public void Map(Ammy ammy)
 	{
-		this.terrains = ammy.getMapCreator().getTerrainList();
 		this.relicList = ammy.getRelicList();
 		this.specialPlaceList = ammy.getSpecialPlaceList();
 		this.raceList = ammy.getRaceList();

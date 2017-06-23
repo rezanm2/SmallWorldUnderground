@@ -5,7 +5,6 @@ import controllers.TerrainController;
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
-import setup.DeclareCombat;
 /**
  * Deze klasse houdt de functionaliteit van de relic in zich.
  * @author
@@ -17,7 +16,6 @@ public class ShinyOrb extends Relic {
 	private CombatController_old CombatController;
 	private int terrainNumber;
 	private boolean active = true;
-	private DeclareCombat declareCombat;
 	private TerrainController terrainController;
 
 	public ShinyOrb(){
@@ -32,7 +30,6 @@ public class ShinyOrb extends Relic {
 		this.map = ammy.getMap();
 		this.activePlayer = ammy.getActivePlayer();
 		this.CombatController = ammy.getCc();
-		this.declareCombat = ammy.getDc();
 		this.terrainController = ammy.getTc();
 		for(int i = 0; i < map.getTerrains().size(); i++) {
 			if(map.getTerrains().get(i).getRelic().getName() == name)
@@ -42,7 +39,7 @@ public class ShinyOrb extends Relic {
 		}
 		if(active == true && activePlayer.getActiveSet().getRace().getName() == map.getTerrains().get(terrainNumber).getRace().getName()) {
 			CombatController.setMiscModifier(1);
-			declareCombat.processAttack(activePlayer);
+			//declareCombat.processAttack(activePlayer);
 			System.out.println(map.getTerrains().get(terrainNumber).getTerrainName());
 			changeTerrain(terrainController.getAreaPicked());
 			System.out.println(map.getTerrains().get(terrainNumber).getTerrainName());

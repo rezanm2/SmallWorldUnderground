@@ -5,7 +5,6 @@ import controllers.TerrainController;
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
-import setup.DeclareCombat;
 import terrain.Terrain;
 /**
  * Deze klasse houdt de functionaliteit van de relic in zich.
@@ -18,7 +17,6 @@ public class StinkyTrollSocks extends Relic {
 	int terrainNumber;
 	private Player activePlayer;
 	private CombatController_old CombatController;
-	private DeclareCombat declareCombat;
 	private TerrainController terrainController;
 
 	public StinkyTrollSocks(){
@@ -35,7 +33,6 @@ public class StinkyTrollSocks extends Relic {
 		this.map = ammy.getMap();
 		this.activePlayer = ammy.getActivePlayer();
 		this.CombatController = ammy.getCc();
-		this.declareCombat = ammy.getDc();
 		this.terrainController = ammy.getTc();
 		for(int i = 0; i < map.getTerrains().size(); i++) {
 			if(map.getTerrains().get(i).getRelic().getName() == name)
@@ -45,7 +42,6 @@ public class StinkyTrollSocks extends Relic {
 		}
 		if(active == true && activePlayer.getActiveSet().getRace().getName() == map.getTerrains().get(terrainNumber).getRace().getName()) {
 			CombatController.setMiscModifier(22);
-			declareCombat.processAttack(activePlayer);
 			System.out.println(map.getTerrains().get(terrainNumber).getTerrainName());
 			changeTerrain(terrainController.getAreaPicked());
 			System.out.println(map.getTerrains().get(terrainNumber).getTerrainName());
