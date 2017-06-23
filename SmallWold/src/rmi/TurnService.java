@@ -46,6 +46,7 @@ public class TurnService extends UnicastRemoteObject implements TurnServiceClien
 		});
 
 		selfPlayer.setMyTurn(true);
+		//SideBarController.
 		System.out.println("its my turn");
 	}
 

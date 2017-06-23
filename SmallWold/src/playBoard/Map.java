@@ -18,6 +18,8 @@ import terrain.Stone;
 import terrain.Terrain;
 	/**
 	 * Klasse die het speelbord initieert en in een list zet.
+	 * 
+	 * @author Groep13
 	 */
 
 public class Map {

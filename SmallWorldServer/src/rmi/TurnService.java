@@ -62,7 +62,8 @@ public class TurnService extends UnicastRemoteObject implements TurnServiceSkele
 
 		int i = 0;
 		for (TurnServiceClientSkeleton TurnClient : turnClientList) {
-			if (i != playerTurn){
+
+			if (i != playerTurn ){
 				System.out.println("player turn: " +playerTurn+ i);
 				System.out.println(TurnClient);
 				System.out.println(turnClientList.get(playerTurn));
@@ -73,6 +74,7 @@ public class TurnService extends UnicastRemoteObject implements TurnServiceSkele
 				TurnClient.StartTurn();								//start player's turn
 
 			}
+
 			System.out.println(TurnClient.getName());
 			i++;
 		}
@@ -85,6 +87,7 @@ public class TurnService extends UnicastRemoteObject implements TurnServiceSkele
 		if (playerTurn == amountPlayers){
 			if(round < endRound){							// last players turn, so increase the round
 				round++;
+				playerTurn = 0;
 			}else{
 			//	endgame();									end the game !!@@@@@@@@ needs implementation!!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 			}

@@ -60,5 +60,19 @@ public class CombatService  extends UnicastRemoteObject implements CombatService
 
 	}
 
+	@Override
+	public void updateLosePlayer(String name, int losingTokens) throws RemoteException {
+		new Thread(() -> {	try {
+			for (CombatServiceClientSkeleton combatClient : combatClientList) {
+						combatClient.syncLoses(name, losingTokens);
+					}
+			}
+		catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		}).start();
+
+	}
+
 
 }

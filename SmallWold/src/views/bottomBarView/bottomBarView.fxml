@@ -27,20 +27,14 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </ImageView>
-            <HBox onMouseClicked="#setActiveSet" prefHeight="147.0" prefWidth="460.0">
+            <HBox prefHeight="147.0" prefWidth="460.0">
                <children>
                   <ImageView fx:id="activeAbility" fitHeight="140.0" fitWidth="140.0" onMouseClicked="#showAbilityTraitText" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../images/abilitys/active/Fisher.png" />
-                     </image>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </ImageView>
                   <ImageView fx:id="activeRace" accessibleRole="BUTTON" fitHeight="140.0" onMouseClicked="#showRaceTraitText" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../images/races/shroome.png" />
-                     </image>
                      <cursor>
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
@@ -48,7 +42,7 @@
                         <Insets />
                      </HBox.margin>
                   </ImageView>
-                  <Label fx:id="currentTokens" alignment="CENTER" onMouseClicked="#updateCurrentTokens" prefHeight="147.0" prefWidth="121.0" text="0/0">
+                  <Label fx:id="currentTokens" alignment="CENTER" onMouseClicked="#updateCurrentTokens" prefHeight="147.0" prefWidth="121.0">
                      <font>
                         <Font size="54.0" />
                      </font>
@@ -104,20 +98,13 @@
             </ImageView>
             <HBox prefHeight="177.0" prefWidth="315.0">
                <children>
-                  <ImageView fx:id="declineRace" fitHeight="140.0" onMouseClicked="#showDeclineRaceTraitText" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../images/races/mud%20-%20decline.png" />
-                     </image>
-                  </ImageView>
+                  <ImageView fx:id="declineRace" fitHeight="140.0" onMouseClicked="#showDeclineRaceTraitText" pickOnBounds="true" preserveRatio="true" />
                   <ImageView fx:id="declineAbility" accessibleRole="BUTTON" fitHeight="140.0" onMouseClicked="#showDeclineAbilityTraitText" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../images/abilitys/decline.png" />
-                     </image>
                      <cursor>
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
                   </ImageView>
-                  <Label fx:id="declineTokens" alignment="CENTER" contentDisplay="CENTER" prefHeight="147.0" prefWidth="121.0" text="0">
+                  <Label fx:id="declineTokens" alignment="CENTER" contentDisplay="CENTER" prefHeight="147.0" prefWidth="121.0">
                      <font>
                         <Font size="54.0" />
                      </font>
@@ -183,115 +170,7 @@
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
-                  <children>
-                     <ImageView fx:id="relicOnePicture" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#showRelicOneTraitText" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8" scaleZ="0.8" translateX="50.0" translateY="10.0">
-                        <image>
-                           <Image url="@../../images/relics/FlyingDoormat.png" />
-                        </image>
-                     </ImageView>
-                     <ImageView fx:id="relicTwoPicture" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#showRelicTwoTraitText" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8" scaleZ="0.8" translateX="15.0" translateY="10.0">
-                        <image>
-                           <Image url="@../../images/relics/SwordOfTheRabbitKiller.png" />
-                        </image>
-                     </ImageView>
-                     <ImageView fx:id="specialPlaceOnePicture" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#showSpecialPlaceOneTraitText" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8" scaleZ="0.8" translateX="-20.0" translateY="10.0">
-                        <image>
-                           <Image url="@../../images/specialPlaces/DiamondFields.png" />
-                        </image>
-                     </ImageView>
-                     <ImageView fx:id="specialPlaceTwoPicture" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#showSpecialPlaceTwoTraitText" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8" scaleZ="0.8" translateX="-55.0" translateY="10.0">
-                        <image>
-                           <Image url="@../../images/specialPlaces/MineOfLostDwarf.png" />
-                        </image>
-                     </ImageView>
-                  </children>
             </HBox>
-               <HBox fx:id="relicOneHBox" mouseTransparent="true" prefHeight="222.0" prefWidth="592.0" spacing="5.0" visible="false">
-                  <children>
-                     <ImageView fitHeight="103.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8" scaleZ="0.8" translateX="230.0">
-                        <image>
-                           <Image url="@../../images/icons/areaClicked2.png" />
-                        </image>
-                        <HBox.margin>
-                           <Insets left="-120.0" top="20.0" />
-                        </HBox.margin>
-                     </ImageView>
-                     <Label fx:id="relicOne" onMouseClicked="#showRelicOneTraitText" prefHeight="74.0" prefWidth="117.0" scaleX="0.8" scaleY="0.8" scaleZ="0.8" text="relicOne" translateX="105.0" translateY="20.0" wrapText="true">
-                        <font>
-                           <Font name="System Bold" size="14.0" />
-                        </font>
-                        <HBox.margin>
-                           <Insets />
-                        </HBox.margin>
-                     </Label>
-                  </children>
-               </HBox>
-               <HBox fx:id="relicTwoHBox" mouseTransparent="true" prefHeight="222.0" prefWidth="592.0" spacing="5.0" visible="false">
-                  <children>
-                     <ImageView fitHeight="103.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8" scaleZ="0.8" translateX="230.0">
-                        <image>
-                           <Image url="@../../images/icons/areaClicked2.png" />
-                        </image>
-                        <HBox.margin>
-                           <Insets left="20.0" top="20.0" />
-                        </HBox.margin>
-                     </ImageView>
-                     <Label fx:id="relicTwo" onMouseClicked="#showRelicOneTraitText" prefHeight="74.0" prefWidth="117.0" scaleX="0.8" scaleY="0.8" scaleZ="0.8" text="relicTwo" translateX="105.0" translateY="20.0" wrapText="true">
-                        <font>
-                           <Font name="System Bold" size="14.0" />
-                        </font>
-                        <HBox.margin>
-                           <Insets />
-                        </HBox.margin>
-                     </Label>
-                  </children>
-               </HBox>
-               <HBox fx:id="specialPlaceOneHBox" mouseTransparent="true" prefHeight="222.0" prefWidth="592.0" spacing="5.0" visible="false">
-                  <children>
-                     <ImageView fitHeight="103.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8" scaleZ="0.8" translateX="230.0">
-                        <image>
-                           <Image url="@../../images/icons/areaClicked2.png" />
-                        </image>
-                        <HBox.margin>
-                           <Insets left="20.0" top="20.0" />
-                        </HBox.margin>
-                     </ImageView>
-                     <Label fx:id="specialPlaceOne" onMouseClicked="#showRelicOneTraitText" prefHeight="74.0" prefWidth="117.0" scaleX="0.8" scaleY="0.8" scaleZ="0.8" text="specialPlaceOne" translateX="105.0" translateY="20.0" wrapText="true">
-                        <font>
-                           <Font name="System Bold" size="14.0" />
-                        </font>
-                        <HBox.margin>
-                           <Insets />
-                        </HBox.margin>
-                     </Label>
-                  </children>
-                  <StackPane.margin>
-                     <Insets left="120.0" />
-                  </StackPane.margin>
-               </HBox>
-               <HBox fx:id="specialPlaceTwoHBox" mouseTransparent="true" prefHeight="222.0" prefWidth="592.0" spacing="5.0" visible="false">
-                  <children>
-                     <ImageView fitHeight="103.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8" scaleZ="0.8" translateX="230.0">
-                        <image>
-                           <Image url="@../../images/icons/areaClicked2.png" />
-                        </image>
-                        <HBox.margin>
-                           <Insets left="20.0" top="20.0" />
-                        </HBox.margin>
-                     </ImageView>
-                     <Label fx:id="specialPlaceTwo" onMouseClicked="#showRelicOneTraitText" prefHeight="74.0" prefWidth="117.0" scaleX="0.8" scaleY="0.8" scaleZ="0.8" text="specialPlaceTwo" translateX="105.0" translateY="20.0" wrapText="true">
-                        <font>
-                           <Font name="System Bold" size="14.0" />
-                        </font>
-                        <HBox.margin>
-                           <Insets />
-                        </HBox.margin>
-                     </Label>
-                  </children>
-                  <StackPane.margin>
-                     <Insets left="240.0" />
-                  </StackPane.margin>
-               </HBox>
          </children>
          <HBox.margin>
             <Insets />
@@ -307,7 +186,7 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </ImageView>
-            <Label fx:id="ownCoins" alignment="CENTER" contentDisplay="TOP" onMouseClicked="#updatePlayerCoins" text="0" textAlignment="CENTER" wrapText="true">
+            <Label fx:id="ownCoins" alignment="CENTER" contentDisplay="TOP" text="0" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="96.0" />
                </font>

@@ -3,6 +3,7 @@ package views.fieldView;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+
 import abilities.Frightened;
 import controllers.CombatController;
 import controllers.RedeploymentController;
@@ -12,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -21,11 +23,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
+
 import javafx.scene.layout.StackPane;
-import models.Set;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import player.Player;
-import races.Drow;
-import races.Flames;
+
 import views.sideBarView.SideBarController;
 import views.tabView.TabViewController;
 
@@ -36,10 +39,7 @@ public class FieldViewController {
 	private StackPane declarePanePrevious = new StackPane();
 	private int declaredTokenAmount;
 	private int throughTheList = -1;
-	private Set testset = new Set(new Flames(), new Frightened());
-	private Player test = new Player(testset);
-	//private Set testset = new Set(new Frightened(), new Flames());
-//	private Player test = new Player(testset);
+
 	private String tokenAmount;
 
 	private CombatController combatController;// = new CombatController(test, 2, this, null); ////@@@@@@@@@@@@@@@@@@@@@@@@@@@@ remove later
@@ -51,6 +51,7 @@ public class FieldViewController {
 
 	@FXML
 	private AnchorPane mainPane;
+	private Player selfPlayer;
 
 
 
@@ -103,6 +104,7 @@ public class FieldViewController {
 	@FXML
 	public void declareTokenClick(MouseEvent event) {
 		try {
+			if(this.selfPlayer.isMyTurn()){
 
 			declaredTokenAmount = 0;
 
@@ -122,7 +124,7 @@ public class FieldViewController {
 			this.declarePanePrevious.setVisible(false);
 			this.declarePanePrevious = declarePane;
 			throughTheList = 1;
-
+			}
 
 		} catch (ClassCastException e) {
 			System.out.println("Je hebt hier al op geklikt. ");
@@ -135,12 +137,14 @@ public class FieldViewController {
 		Button buttonMinTarget = (Button) pressButton.getTarget();
 		HBox theBox = (HBox) buttonMinTarget.getParent();
 		TextField field = (TextField) theBox.getChildren().get(1);
+
 		field.setText(tokenAmount);
+
 	}
 
 	@FXML
 	public void buttonMin(ActionEvent pressButtonMin) {
-		if (declaredTokenAmount > 0)
+		if (declaredTokenAmount > 0 )
 		{
 			declaredTokenAmount = declaredTokenAmount - 1;
 			tokenAmount = String.valueOf(declaredTokenAmount);
@@ -151,10 +155,12 @@ public class FieldViewController {
 
 	@FXML
 	public void buttonPlus(ActionEvent pressButtonPlus) {
+		if(declaredTokenAmount < selfPlayer.getHand().getCurrentTokens()){
 		declaredTokenAmount = declaredTokenAmount + 1;
 		tokenAmount = String.valueOf(declaredTokenAmount);
 
 		updateTokenAmountTextField(pressButtonPlus);
+		}
 	}
 
 	@FXML
@@ -170,9 +176,10 @@ public class FieldViewController {
 
 		System.out.println(declarePanePrevious.getParent().getId());
 
-		this.combatController.testTerrain(declarePanePrevious.getParent().getId());
+
 
 		this.combatController.calculateCombat(declarePanePrevious.getParent().getId());
+		this.sideBarControl.hideDeclineButton();
 	}
 
 	public int getDeclaredTokenAmount() {
@@ -216,12 +223,12 @@ public class FieldViewController {
 		this.combatController = combatController;
 
 	}
-	public void updateFieldById(String id, String raceName) {
+	public void updateFieldById(String id, String raceName, int tokens) {
 
 		ObservableList<Node> childList = this.mainPane.getChildren();
 
 		for (Node node : childList) {
-			System.out.println(node.getId());
+
 			if(node.getId() != null){
 			if( node.getId().equals(id)){
 
@@ -231,11 +238,27 @@ public class FieldViewController {
 				HBox tokenBox = (HBox) field.getChildren().get(0);
 				tokenBox.getChildren().clear(); //remove everything from the Hbox
 
+
+				StackPane tokenPane = new StackPane();
+				tokenBox.getChildren().add(tokenPane);
+
 				ImageView tokenImage = new ImageView();
 				System.out.println("/images/tokens/active/"+raceName+".png");
 				tokenImage.setImage(new Image("/images/tokens/active/"+raceName+".png"));
 				System.out.println("adding pic");
-				tokenBox.getChildren().add(tokenImage);
+
+				Label tokenAmount = new Label();
+				tokenAmount.setTextFill(Color.WHITE);
+				tokenAmount.setFont(new Font(34));
+				tokenAmount.setText(Integer.toString(tokens));
+
+				System.out.println(tokenAmount);
+
+				tokenPane.getChildren().addAll(tokenImage, tokenAmount);
+
+
+			//	tokenBox.getChildren().add(tokenImage);
+				break;
 			}
 			}
 		}
@@ -244,5 +267,10 @@ public class FieldViewController {
 
 	public void setRedeploymentController(RedeploymentController redeploymentController) {
 		this.redploymentController = redeploymentController;
+	}
+
+	public void setPlayer(Player selfPlayer) {
+		this.selfPlayer = selfPlayer;
+
 	}
 }

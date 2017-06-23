@@ -4,7 +4,13 @@ import main.Ammy;
 import playBoard.Map;
 import player.Player;
 import terrain.Terrain;
-
+/**
+ * Dit is de hoofdclass voor alle Relics.
+ * Een relic bevat een naam, traitext, of deze active is en een terreinNummer.
+ * 
+ * @author Groep13
+ *
+ */
 public abstract class Relic
 {
 	protected String name;

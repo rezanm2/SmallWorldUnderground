@@ -17,6 +17,7 @@ import player.Player;
 
 import views.bottomBarView.BottomBarController;
 import views.settingView.SettingController;
+import views.sideBarView.SideBarController;
 
 public class TabViewController {
 
@@ -79,6 +80,7 @@ public class TabViewController {
     private ImageView ac_rc_1;
 	private BottomBarController bottomBarController;
 	private SettingController settingBarController;
+	private SideBarController sidebarController;
 
 
 
@@ -92,14 +94,15 @@ public class TabViewController {
 			ImageView test = (ImageView) ev.getTarget();
 			System.out.println(test.getId());
 			char [] iets = test.getId().toCharArray();
-			//Character.isDigit(iets[iets.length-1]);
+
 			int choice = Character.getNumericValue(iets[iets.length-1]);
 			System.out.println(choice);
 			stackset.getStackController().chooseSet(choice-1);
-			}
-	}
 
-	public void onclick(){
+			sidebarController.updateVisibleButton();
+			sidebarController.updateButtonText("End Conquer");
+			bottomBarController.updateCurrentTokens();
+			}
 	}
 
 
@@ -156,6 +159,11 @@ public class TabViewController {
 	public void updateDeclineSet()
 	{
 		settingBarController.setDecline();
+	}
+
+	public void setSideBarController(SideBarController sidebarController) {
+		this.sidebarController = sidebarController;
+
 	}
 
 
