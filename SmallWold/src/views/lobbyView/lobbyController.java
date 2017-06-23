@@ -12,7 +12,7 @@ import models.JoinedPlayers;
 
 /**
  * Deze klasse verzorgt de updates en input van de lobbyview.
- * @author
+ * @author Wim van der Putten
  */
 public class lobbyController {
 

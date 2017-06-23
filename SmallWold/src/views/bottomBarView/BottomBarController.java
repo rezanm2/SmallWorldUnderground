@@ -9,7 +9,7 @@ import player.Player;
 
 /**
  * Deze klasse verzorgt de input en updates van de bottombarview.
- * @author
+ * @author Reza Naser, Bas Dorresteijn, Jeroen Zandvliet
  */
 
 public class BottomBarController {

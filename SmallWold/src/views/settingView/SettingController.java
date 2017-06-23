@@ -3,8 +3,6 @@ package views.settingView;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
-import listCreators.AbilityListCreator;
-import listCreators.RaceListCreator;
 import player.Player;
 import races.Empty;
 import save.Save;
@@ -12,7 +10,7 @@ import views.bottomBarView.BottomBarController;
 
 /**
  * Verzorgt het updaten en de input van de settingView.
- * @author
+ * @author Reza Naser
  */
 public class SettingController {
 	private Save save = new Save();
@@ -22,8 +20,6 @@ public class SettingController {
 	private Label lable;
 	private Player player;
 	private BottomBarController bottomBarController;
-	private RaceListCreator arrRaces = new RaceListCreator();
-	private AbilityListCreator arrbilities = new AbilityListCreator();
 	public void setControllers(BottomBarController bottomBarControl) {
 		bottomBarController = bottomBarControl;
 	}

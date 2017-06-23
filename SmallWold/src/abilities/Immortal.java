@@ -1,18 +1,16 @@
 package abilities;
 
-import listCreators.RaceListCreator;
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
 /**
  * Klasse die de ability bijhoudt met bijbehorende effecten.
- * @author
+ * @author Marinus van den Oever
  */
 public class Immortal extends Ability implements CalculatableIncome
 {
 	Map map;
 	private int returnTokens;
-	RaceListCreator raceList;
 
 	public Immortal()
 	{
@@ -35,7 +33,6 @@ public class Immortal extends Ability implements CalculatableIncome
 				{
 					returnTokens = returnTokens + map.getTerrains().get(terrainCounter).getAmountOfTokens();
 					activePlayer.getHand().setCurrentTokens(activePlayer.getHand().getCurrentTokens() + returnTokens);
-					map.getTerrains().get(terrainCounter).setRace(raceList.getListElement(0));
 				}
 			}
 	}

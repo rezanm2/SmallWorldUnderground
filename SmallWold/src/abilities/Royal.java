@@ -6,7 +6,7 @@ import playBoard.Map;
 import player.Player;
 /**
  * Klasse die de ability bijhoudt met bijbehorende effecten.
- * @author
+ * @author Marinus van den Oever, Bas Dorresteijn
  */
 public class Royal extends Ability
 {

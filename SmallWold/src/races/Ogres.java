@@ -1,15 +1,13 @@
 package races;
 
-import controllers.CombatController_old;
 import main.Ammy;
 import player.Player;
 /**
  * Deze klasse is verantwoordelijk voor het bijhouden van gegevens en de ability van het ras.
- * @author
+ * @author Reza Naser
  */
 public class Ogres extends Race
 {
-	CombatController_old cc;
 	public Ogres()
 	{
 		amountOfTokens = 5;
@@ -25,9 +23,7 @@ public class Ogres extends Race
 	public void processAbility(Ammy ammy) {
 
 		this.map = ammy.getMap();
-		this.cc = ammy.getCc();
 		this.activePlayer = ammy.getActivePlayer();
-		cc.setMiscModifier(1);
 	}
 
 }

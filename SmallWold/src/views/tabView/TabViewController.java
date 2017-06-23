@@ -20,7 +20,7 @@ import views.settingView.SettingController;
 import views.sideBarView.SideBarController;
 /**
  * Deze klasse regelt de updates van de tabview en krijgt de input van die view.
- * @author
+ * @author Wim van der Putten
  */
 public class TabViewController {
 

@@ -7,7 +7,7 @@ import playBoard.Map;
  * Dit is de hoofdclass voor special Tokens.
  * Deze class bevat een name, traittext en een terrainNumber.
  *
- * @author Marinus van den Oever
+ * @author Marinus van den Oever, Reza Naser
  *
  */
 public abstract class SpecialToken {

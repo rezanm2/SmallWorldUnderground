@@ -1,13 +1,12 @@
 package abilities;
 
 import controllers.TerrainController;
-import listCreators.RaceListCreator;
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
 /**
  * Klasse die de ability bijhoudt met bijbehorende effecten.
- * @author
+ * @author Marinus van den Oever
  */
 public class Vanishing extends Ability implements CalculatableIncome
 {
@@ -15,7 +14,6 @@ public class Vanishing extends Ability implements CalculatableIncome
 	Map map;
 	private int abilityIncome;
 	private int terrainCounter;
-	RaceListCreator raceList;
 
 	public Vanishing()
 	{
@@ -37,7 +35,6 @@ public class Vanishing extends Ability implements CalculatableIncome
 		for(int terrainCounter=0;terrainCounter<map.getTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
 			abilityIncome += 2;
-			map.getTerrains().get(terrainCounter).setRace(raceList.getListElement(0));
 		}
 	}
 

@@ -5,12 +5,11 @@ import java.util.List;
 import java.util.Scanner;
 import main.Ammy;
 import playBoard.Map;
-import controllers.CombatController_old;
 import controllers.TerrainController;
 import player.Player;
 /**
  * Deze klasse is verantwoordelijk voor het bijhouden van gegevens en de ability van het ras.
- * @author
+ * @author Reza Naser
  */
 public class Spiderines extends Race
 {
@@ -18,7 +17,6 @@ public class Spiderines extends Race
 	Scanner scanner = new Scanner(System.in);
 	private int nr;
 	private String yesOrNo = "";
-	CombatController_old cc;
 	Map map;
 	public Spiderines()
 	{
@@ -37,7 +35,6 @@ public class Spiderines extends Race
 		this.activePlayer = ammy.getActivePlayer();
 		this.tc = ammy.getTc();
 		this.map = ammy.getMap();
-		this.cc = ammy.getCc();
 		tc.checkAdjacentToTerrainType("Chasm");
 		//test.whichAreAdjacent();
 

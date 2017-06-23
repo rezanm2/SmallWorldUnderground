@@ -33,7 +33,7 @@ import views.sideBarView.SideBarController;
 import views.tabView.TabViewController;
 /**
  * Deze klasse verzorgt de updates en input van de fieldview.
- * @author
+ * @author Wim van der Putten, Reza Naser, Marinus van den Oever, Bas Dorresteijn, Jeroen Zandvliet
  */
 public class FieldViewController {
 

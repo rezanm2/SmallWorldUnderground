@@ -3,21 +3,18 @@ package abilities;
 import java.util.List;
 
 import controllers.TerrainController;
-import listCreators.AbilityListCreator;
-import listCreators.SpecialPlaceListCreator;
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
 /**
  * Klasse die de ability bijhoudt met bijbehorende effecten.
- * @author
+ * @author Marinus van den Oever
  */
 public class Adventurous extends Ability implements CalculatableIncome
 {
 	TerrainController tc;
 	private int abilityIncome;
 	Map map;
-	SpecialPlaceListCreator specialPlaceList;
 
 	public Adventurous()
 	{
@@ -35,7 +32,6 @@ public class Adventurous extends Ability implements CalculatableIncome
 		this.activePlayer = ammy.getActivePlayer();
 		this.tc = ammy.getTc();
 		this.map = ammy.getMap();
-		this.specialPlaceList = ammy.getSpecialPlaceList();
 		abilityIncome = 0;
 
 //		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains

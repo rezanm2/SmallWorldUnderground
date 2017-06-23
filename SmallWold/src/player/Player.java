@@ -13,7 +13,7 @@ import races.Race;
  * Dit is de class Player, het is de speler.
  * Deze class houdt bij hoeveel coins een speler heeft, zijn/haar naam, sets, of de speler vengeful heeft en of het de speler zijn beurt is.
  *
- * @author Groep13
+ * @author Jeroen Zandvliet
  *
  */
 public class Player implements Serializable{

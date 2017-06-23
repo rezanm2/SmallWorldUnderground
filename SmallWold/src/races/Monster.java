@@ -4,7 +4,7 @@ import main.Ammy;
 import player.Player;
 /**
  * Deze klasse is verantwoordelijk voor het bijhouden van gegevens en de ability van het ras.
- * @author
+ * @author Jeroen Zandvliet
  */
 public class Monster extends Race
 {

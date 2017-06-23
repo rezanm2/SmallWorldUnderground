@@ -2,17 +2,15 @@ package abilities;
 
 import java.util.Scanner;
 
-import controllers.CombatController_old;
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
 /**
  * Klasse die de ability bijhoudt met bijbehorende effecten.
- * @author
+ * @author Marinus van den Oever
  */
 public class Vampire extends Ability
 {
-	CombatController_old cc;
 	Map map;
 	private int terrainNumber;
 	Scanner scanner = new Scanner(System.in);
@@ -32,7 +30,6 @@ public class Vampire extends Ability
 
 		this.map = ammy.getMap();
 		this.activePlayer = ammy.getActivePlayer();
-		this.cc = ammy.getCc();
 
 			System.out.println("Welk terrein wil je replacen met 1 token? ");
 			this.terrainNumber = scanner.nextInt()-1;

@@ -1,14 +1,12 @@
 package abilities;
 
-import java.util.List;
 
-import controllers.CombatController_old;
 import controllers.TerrainController;
 import main.Ammy;
 import player.Player;
 /**
  * Klasse die de ability bijhoudt met bijbehorende effecten.
- * @author
+ * @author Marinus van den Oever
  */
 public class Mystic extends Ability  implements CalculatableIncome
 {

@@ -10,7 +10,7 @@ public abstract class Ability implements Serializable
 /**
  * Klasse die de ability bijhoudt met bijbehorende effecten.
  *
- * @author
+ * @author Jeroen Zandvliet, Marinus van den Oever
  *
  */
 

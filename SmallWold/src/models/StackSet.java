@@ -49,9 +49,9 @@ import server.SetServiceSkeleton;
 import views.tabView.TabViewController;
 
 /**
- * In deze class wordt een stackset aangemaakt waar de speler zijn set uit kan kiezen. 
- * 
- * @author Groep13
+ * In deze class wordt een stackset aangemaakt waar de speler zijn set uit kan kiezen.
+ *
+ * @author Wim van der Putten, Reza Naser
  *
  */
 
@@ -68,13 +68,13 @@ public class StackSet {
 	private StackController stackController;
 
 	/**
-	 * Deze Constructor 
-	 * 
+	 * Deze Constructor
+	 *
 	 * @param tabController, de controller van de tabview.
 	 * @param selfPlayer, de player zelf.
 	 * @param serverSetService, setservice van de server.
 	 */
-	
+
 	public StackSet(TabViewController tabController, Player selfPlayer, SetServiceSkeleton serverSetService) {
 		stackController = new StackController(this, serverSetService);
 		this.selfPlayer = selfPlayer;

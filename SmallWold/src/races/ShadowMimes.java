@@ -1,19 +1,16 @@
 package races;
 
 import java.util.Scanner;
-
-import listCreators.AbilityListCreator;
 import main.Ammy;
 import player.Player;
 /**
  * Deze klasse is verantwoordelijk voor het bijhouden van gegevens en de ability van het ras.
- * @author
+ * @author Reza Naser
  */
 public class ShadowMimes extends Race
 {
 	private Scanner scanner;
 	String yesOrNo = "";
-	AbilityListCreator abilityList;
 	private int abilityNr;
 	public ShadowMimes()
 	{

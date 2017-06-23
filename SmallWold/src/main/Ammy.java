@@ -6,14 +6,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
-import controllers.CombatController_old;
-import controllers.EndTurnController;
 import controllers.TerrainController;
 import controllers.TokenController;
-import listCreators.AbilityListCreator;
-import listCreators.RaceListCreator;
-import listCreators.RelicListCreator;
-import listCreators.SpecialPlaceListCreator;
 import playBoard.Die;
 import playBoard.Map;
 import player.Player;
@@ -22,17 +16,11 @@ import terrain.Terrain;
 public class Ammy
 {
 	//This entire list is just for references, for the setters and getters of Ammy.
-	CombatController_old cc;
 	Map map;
-	EndTurnController etc;
 	Player activePlayer;
 	List<Player> playerList;
 	TerrainController tc;
 	Die die = new Die();
-	AbilityListCreator abilityList;
-	RaceListCreator raceList;
-	RelicListCreator relicList;
-	SpecialPlaceListCreator specialPlaceList;
 	Scanner input = new Scanner(System.in);
 	private int largest;
 	private int choice;
@@ -62,18 +50,12 @@ public class Ammy
 		tc = new TerrainController(this);
 
 		toc = new TokenController(this);
-		cc = new CombatController_old(this);
-		etc = new EndTurnController(this);
 		System.out.println("Ammy: Done creating creators... \n");
 		System.out.println("A: I'm starting your game... \n");
 	}
 
 	public void createLists()
 	{
-		abilityList = new AbilityListCreator();
-		raceList = new RaceListCreator();
-		relicList = new RelicListCreator();
-		specialPlaceList = new SpecialPlaceListCreator();
 
 	}
 
@@ -146,13 +128,7 @@ public class Ammy
 	//Getters and Setters below this line ---------------------------------------------------
 
 
-	public SpecialPlaceListCreator getSpecialPlaceList() {
-		return specialPlaceList;
-	}
 
-	public void setSpecialPlaceList(SpecialPlaceListCreator specialPlaceList) {
-		this.specialPlaceList = specialPlaceList;
-	}
 
 	public int getMaxTotalTurns() {
 		return maxTotalTurns;
@@ -163,13 +139,6 @@ public class Ammy
 	}
 
 
-	public CombatController_old getCc() {
-		return cc;
-	}
-
-	public void setCc(CombatController_old cc) {
-		this.cc = cc;
-	}
 
 
 
@@ -190,9 +159,6 @@ public class Ammy
 		this.playerList = playerList;
 	}
 
-	public EndTurnController getEtc() {
-		return etc;
-	}
 
 	public Player getActivePlayer() {
 		return activePlayer;
@@ -203,33 +169,7 @@ public class Ammy
 	}
 
 
-	public AbilityListCreator getAbilityList() {
-		return abilityList;
-	}
 
-	public void setAbilityList(AbilityListCreator abilityList) {
-		this.abilityList = abilityList;
-	}
-
-	public RaceListCreator getRaceList() {
-		return raceList;
-	}
-
-	public void setRaceList(RaceListCreator raceList) {
-		this.raceList = raceList;
-	}
-
-	public RelicListCreator getRelicList() {
-		return relicList;
-	}
-
-	public void setRelicList(RelicListCreator relicList) {
-		this.relicList = relicList;
-	}
-
-	public void setEtc(EndTurnController etc) {
-		this.etc = etc;
-	}
 
 	public Die getDie() {
 		return die;

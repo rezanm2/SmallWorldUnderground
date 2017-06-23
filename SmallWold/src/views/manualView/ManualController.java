@@ -7,7 +7,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 /**
  * Deze klasse verzorgt de updates en input van de manualview.
- * @author Reza Naser
+ * @author Reza Naser, Bas Dorresteijn
  */
 public class ManualController {
 	@FXML

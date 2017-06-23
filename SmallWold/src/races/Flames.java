@@ -10,7 +10,7 @@ import races.Race;
 import terrain.Volcano;
 /**
  * Deze klasse is verantwoordelijk voor het bijhouden van gegevens en de ability van het ras.
- * @author
+ * @author Reza Naser, Marinus van den Oever, Bas Dorresteijn
  */
 public class Flames extends Race
 {

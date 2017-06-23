@@ -20,7 +20,7 @@ import views.fieldView.FieldViewController;
  * Klasse die verantwoordelijk is voor het overnemen en aanvallen van terreinen op het spelbord.
  * Bijzonderheid: deze klasse kan terreinen overnemen waar tegenstanders op staan en lege terreinen.
  *
- * @author Groep13
+ * @author Bas Dorresteijn, Marinus van den Oever, Reza Naser, Wim van der Putten, Jeroen Zandvliet
  *
  */
 

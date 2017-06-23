@@ -7,7 +7,7 @@ import playBoard.Map;
 import player.Player;
 /**
  * Klasse die de ability bijhoudt met bijbehorende effecten.
- * @author
+ * @author Jeroen Zandvliet
  */
 public class Quarreling extends Ability implements CalculatableIncome
 {

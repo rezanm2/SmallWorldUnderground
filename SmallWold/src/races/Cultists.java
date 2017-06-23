@@ -1,8 +1,6 @@
 package races;
 
 import java.util.Scanner;
-
-import controllers.CombatController_old;
 import controllers.TerrainController;
 import main.Ammy;
 import player.Player;
@@ -17,7 +15,6 @@ public class Cultists extends Race
 {
 	Ancient an = new Ancient();
 	TerrainController terrainController;
-	CombatController_old cc;
 
 	public Cultists()
 	{
@@ -35,7 +32,6 @@ public class Cultists extends Race
 		this.map = ammy.getMap();
 		this.activePlayer = ammy.getActivePlayer();
 		this.terrainController = ammy.getTc();
-		this.cc = ammy.getCc();
 		String yesOrNo = "";
 		Scanner scanner = new Scanner(System.in);
 		int terrainNumber;

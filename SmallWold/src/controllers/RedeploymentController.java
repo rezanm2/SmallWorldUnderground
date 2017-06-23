@@ -9,7 +9,7 @@ import views.fieldView.FieldViewController;
 /**
  * Dit de controller voor het redeployen van fiches op de kaart.
  *
- * @author Groep13
+ * @author Bas Dorresteijn
  *
  */
 public class RedeploymentController {

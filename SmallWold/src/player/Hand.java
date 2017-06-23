@@ -7,7 +7,7 @@ import javafx.beans.property.SimpleStringProperty;
 /**
  * Dit is de class hand, deze houdt bij hoeveel tokens de speler op het moment heeft en hoeveel silverHammers hij heeft.
  *
- * @author Groep13
+ * @author Jeroen Zandvliet
  *
  */
 public class Hand implements Serializable

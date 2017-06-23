@@ -2,9 +2,9 @@ package playBoard;
 
 import java.util.Random;
 /**
- * Deze class bevat een dobbelsteen die bij het spelbord gegooid kan worden. 
- * 
- * @author Groep13
+ * Deze class bevat een dobbelsteen die bij het spelbord gegooid kan worden.
+ *
+ * @author Bas Dorresteijn, Jeroen Zandvliet
  *
  */
 
@@ -20,7 +20,7 @@ public class Die
 	}
 	/**
 	 * Maakt een dobbelsteen aan en past de numberOfSides aan.
-	 * 
+	 *
 	 * @param numberOfSides, het aantal zijdes van de dobbelsteen.
 	 */
 	public Die(int numberOfSides) {
@@ -42,12 +42,12 @@ public class Die
 
 	/**
 	 * Deze methode gooit de dobbelsteen.
-	 * Wanneer het resultaat 1,2 of 3 is wordt result op 0 gezet. 
+	 * Wanneer het resultaat 1,2 of 3 is wordt result op 0 gezet.
 	 * Wanneer 4 gegooid wordt, wordt result 1.
 	 * Wanneer 5 gegooid wordt, wordt result 2.
 	 * Wanneer 6 gegooid wordt, wordt result 3.
-	 * 
-	 * 
+	 *
+	 *
 	 */
 	public void throwDie()
 	{

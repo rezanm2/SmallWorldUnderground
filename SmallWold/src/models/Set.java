@@ -5,7 +5,7 @@ import races.Race;
 /**
  * Deze class is een set die bestaat uit een ability en race.
  *
- * @author Groep13
+ * @author Wim van der Putten
  *
  */
 public class Set

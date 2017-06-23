@@ -12,7 +12,8 @@ import server.SetServiceClientSkeleton;
 public class CombatService extends UnicastRemoteObject implements CombatServiceClientSkeleton  {
 
 	/**
-	 *
+	 * Deze klasse is verantwoordelijk voor het regelen van combat.
+	 *@author Wim van der Putten
 	 */
 	private static final long serialVersionUID = 1L;
 	private CombatController combatController;

@@ -15,7 +15,7 @@ import views.tabView.TabViewController;
 
 /**
  * Deze klasse regelt de updates van de sidebarview en krijgt de input van die view.
- * @author
+ * @author Wim van der Putten, Reza Naser
  */
 
 public class SideBarController {

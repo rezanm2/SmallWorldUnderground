@@ -5,7 +5,7 @@ import player.Hand;
 import player.Player;
 /**
  * Deze klasse is verantwoordelijk voor het bijhouden van gegevens en de ability van het ras.
- * @author
+ * @author Reza Naser
  */
 public class Dwarves extends Race
 {

@@ -1,12 +1,11 @@
 package abilities;
 
-import controllers.CombatController_old;
 import controllers.TerrainController;
 import main.Ammy;
 import player.Player;
 /**
  * Klasse die de ability bijhoudt met bijbehorende effecten.
- * @author
+ * @author Marinus van den Oever
  */
 public class Stone extends Ability implements CalculatableIncome
 {

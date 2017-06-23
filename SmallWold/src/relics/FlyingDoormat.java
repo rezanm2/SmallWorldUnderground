@@ -1,13 +1,12 @@
 package relics;
 
-import controllers.CombatController_old;
 import controllers.TerrainController;
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
 /**
  * Deze klasse houdt de functionaliteit van de relic in zich.
- * @author
+ * @author Bas Dorresteijn
  */
 public class FlyingDoormat extends Relic {
 

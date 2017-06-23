@@ -15,7 +15,8 @@ import views.tabView.TabViewController;
 public class SetService  extends UnicastRemoteObject implements SetServiceClientSkeleton {
 
 	/**
-	 *
+	 * Deze klasse is verantwoordelijk voor het regelen van de sets.
+	 *@author Wim van der Putten
 	 */
 	private static final long serialVersionUID = 1L;
 	private StackSet stack;

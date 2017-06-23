@@ -9,7 +9,7 @@ import player.Player;
 import terrain.Terrain;
 /**
  * Deze klasse is verantwoordelijk voor het regelen van de terreinstatussen.
- * @author Renkitty
+ * @author Jeroen Zandvliet
  */
 public class TerrainController
 {

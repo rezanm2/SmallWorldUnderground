@@ -9,7 +9,7 @@ import player.Player;
 import races.Race;
 /**
  * Deze klasse houdt de functionaliteit van de relic in zich.
- * @author
+ * @author Bas Dorresteijn
  */
 public class FroggysRing extends Relic implements CalculatableIncome{
 

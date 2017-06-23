@@ -1,7 +1,10 @@
 package server;
 
 import java.io.Serializable;
-
+/**
+ * Deze klasse wordt naar de server toegestuurd.
+ * @author Wim van der Putten
+ */
 
 public class ServerTerrain  implements Serializable{
 

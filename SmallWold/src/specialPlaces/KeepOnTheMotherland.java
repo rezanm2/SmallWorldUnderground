@@ -4,7 +4,7 @@ import main.Ammy;
 import playBoard.Map;
 /**
  * Deze klasse is verantwoordelijk voor het opslaan van de functionaliteit van de specialPlace
- * @author
+ * @author Bas Dorresteijn
  */
 public class KeepOnTheMotherland extends SpecialPlace implements CalculatableIncome
 {

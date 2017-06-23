@@ -4,7 +4,7 @@ import main.Ammy;
 import playBoard.Map;
 /**
  * Deze klasse bestaat zodat de specialToken op "leeg" gezet kan worden.
- * @author
+ * @author Marinus van den Oever, Reza Naser
  */
 public class Empty extends SpecialToken {
 

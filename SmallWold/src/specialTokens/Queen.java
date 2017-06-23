@@ -1,20 +1,17 @@
 package specialTokens;
 
 import java.util.Scanner;
-
-import controllers.CombatController_old;
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
 /**
  * Deze klasse houdt de status van deze special Token bij en zijn functionaliteit.
- * @author
+ * @author Marinus van den Oever, Reza Naser
  */
 public class Queen extends SpecialToken {
 
 	Map map;
 	Player activePlayer;
-	CombatController_old cc;
 	private int terrainNumber;
 	Scanner scanner;
 
@@ -23,7 +20,6 @@ public class Queen extends SpecialToken {
 
 		this.map = ammy.getMap();
 		this.activePlayer = ammy.getActivePlayer();
-		this.cc = ammy.getCc();
 
 		System.out.println("Welk terrein wil je de queen plaatsen token? ");
 		this.terrainNumber = scanner.nextInt()-1;

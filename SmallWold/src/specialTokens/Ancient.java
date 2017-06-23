@@ -1,7 +1,5 @@
 package specialTokens;
 import java.util.Scanner;
-
-import controllers.CombatController_old;
 import controllers.TerrainController;
 import main.Ammy;
 import playBoard.Map;
@@ -9,11 +7,10 @@ import player.Player;
 
 /**
  * Deze klasse houdt de status van deze special Token bij en zijn functionaliteit.
- * @author
+ * @author Marinus van den Oever, Reza Naser
  */
 public class Ancient extends SpecialToken {
 	Map map;
-	CombatController_old cc;
 	int terrainNumber;
 	private Player activePlayer;
 	private TerrainController terrainController;
@@ -28,7 +25,6 @@ public class Ancient extends SpecialToken {
 		this.map = ammy.getMap();
 		this.activePlayer = ammy.getActivePlayer();
 		this.terrainController = ammy.getTc();
-		this.cc = ammy.getCc();
 
 			System.out.println("Do you want replace your Ancient? ");
 			yesOrNo = scanner.nextLine();
@@ -45,7 +41,6 @@ public class Ancient extends SpecialToken {
 							map.getTerrains().get(terrainNumber).getSpecialToken().equals(this))
 					{
 						changeTerrain(terrainNumber);
-						cc.setMiscModifier(1);
 					}
 					for(int x=0;x<map.getTerrains().size();x++)
 					{

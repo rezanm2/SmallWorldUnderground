@@ -11,7 +11,7 @@ import views.tabView.TabViewController;
 /**
  * Deze class controlleert de stack.
  *
- * @author Groep13
+ * @author Wim van der Putten, Reza Naser, Bas Dorresteijn
  *
  */
 public class StackController {

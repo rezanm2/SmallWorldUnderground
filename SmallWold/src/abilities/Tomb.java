@@ -4,7 +4,7 @@ import main.Ammy;
 import player.Player;
 /**
  * Klasse die de ability bijhoudt met bijbehorende effecten.
- * @author
+ * @author Jeroen Zandvliet
  */
 public class Tomb extends Ability
 {

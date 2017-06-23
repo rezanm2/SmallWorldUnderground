@@ -1,19 +1,17 @@
 package relics;
 
-import controllers.CombatController_old;
 import controllers.TerrainController;
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
 /**
  * Deze klasse houdt de functionaliteit van de relic in zich.
- * @author
+ * @author Bas Dorresteijn
  */
 public class ShinyOrb extends Relic {
 
 	private Map map;
 	private Player activePlayer;
-	private CombatController_old CombatController;
 	private int terrainNumber;
 	private boolean active = true;
 	private TerrainController terrainController;
@@ -29,7 +27,6 @@ public class ShinyOrb extends Relic {
 	public void processRelic(Ammy ammy) {
 		this.map = ammy.getMap();
 		this.activePlayer = ammy.getActivePlayer();
-		this.CombatController = ammy.getCc();
 		this.terrainController = ammy.getTc();
 		for(int i = 0; i < map.getTerrains().size(); i++) {
 			if(map.getTerrains().get(i).getRelic().getName() == name)
@@ -38,7 +35,7 @@ public class ShinyOrb extends Relic {
 			}
 		}
 		if(active == true && activePlayer.getActiveSet().getRace().getName() == map.getTerrains().get(terrainNumber).getRace().getName()) {
-			CombatController.setMiscModifier(1);
+
 			//declareCombat.processAttack(activePlayer);
 			System.out.println(map.getTerrains().get(terrainNumber).getTerrainName());
 			changeTerrain(terrainController.getAreaPicked());

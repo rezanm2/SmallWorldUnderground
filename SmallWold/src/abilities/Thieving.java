@@ -3,19 +3,17 @@ package abilities;
 import java.util.ArrayList;
 import controllers.TerrainController;
 import controllers.TokenController;
-import listCreators.RaceListCreator;
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
 /**
  * Klasse die de ability bijhoudt met bijbehorende effecten.
- * @author
+ * @author Marinus van den Oever
  */
 public class Thieving extends Ability implements CalculatableIncome
 {
 	TerrainController tc;
 	Map map;
-	RaceListCreator raceList;
 	TokenController tokenController;
 	private int abilityIncome;
 	private ArrayList<String> stolenRaces = new ArrayList<String>();
@@ -37,7 +35,6 @@ public class Thieving extends Ability implements CalculatableIncome
 		this.activePlayer = ammy.getActivePlayer();
 		this.tc = ammy.getTc();
 		this.map = ammy.getMap();
-		this.raceList = ammy.getRaceList();
 		this.tokenController = ammy.getToc();
 
 		tc.setAllAdjacentAreas(activePlayer);
@@ -45,8 +42,7 @@ public class Thieving extends Ability implements CalculatableIncome
 		for(int terrainCounter=0;terrainCounter<map.getTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
 			if(map.getTerrains().get(terrainCounter).getIsAdjacent() == true &&
-			   map.getTerrains().get(terrainCounter).getRace().equals(activePlayer.getActiveSet().getRace()) &&
-			   map.getTerrains().get(terrainCounter).getRace().equals(raceList.getListElement(0)))
+			   map.getTerrains().get(terrainCounter).getRace().equals(activePlayer.getActiveSet().getRace()))
 				{
 
 				for(int i = 0; i < stolenRaces.size(); i++)

@@ -9,7 +9,7 @@ import races.Empty;
 import races.Race;
 /**
  * Deze klasse is verantwoordelijk voor het opslaan van de functionaliteit van de specialPlace
- * @author
+ * @author Bas Dorresteijn
  */
 public class WickedestPentacle extends SpecialPlace
 {
