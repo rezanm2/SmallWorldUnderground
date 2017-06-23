@@ -5,7 +5,10 @@ import controllers.TerrainController;
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
-
+/**
+ * Klasse die de ability bijhoudt met bijbehorende effecten.
+ * @author Jeroen Zandvliet
+ */
 public class Fisher extends Ability implements CalculatableIncome
 {
 	TerrainController tc;
@@ -21,6 +24,9 @@ public class Fisher extends Ability implements CalculatableIncome
 		traitText = "+1 coin for every pair of coastal regions";
 	}
 
+	/**
+	 * Checked welke gebieden de speler controleert die aangrezend zijn aan de rivier, en verhoogd de extra inkomsten.
+	 */
 	@Override
 	public void processAbility(Ammy ammy) {
 		abilityIncome = 0;
@@ -34,10 +40,10 @@ public class Fisher extends Ability implements CalculatableIncome
 
 		test.whichAreAdjacent();
 
-		for(terrainCounter = 0; terrainCounter<map.getAllTerrains().size(); terrainCounter++)
+		for(terrainCounter = 0; terrainCounter<map.getTerrains().size(); terrainCounter++)
 		{
-			if(map.getTerrain(terrainCounter).getIsAdjacent() == true
-					&& map.getTerrain(terrainCounter).getRace().equals(activePlayer.getActiveSet().getRace()))
+			if(map.getTerrains().get(terrainCounter).getIsAdjacent() == true
+					&& map.getTerrains().get(terrainCounter).getRace().equals(activePlayer.getActiveSet().getRace()))
 			{
 				tempAbilityIncome += 0.5;
 			}

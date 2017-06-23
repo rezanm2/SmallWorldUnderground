@@ -6,7 +6,10 @@ import controllers.CombatController_old;
 import controllers.TerrainController;
 import main.Ammy;
 import player.Player;
-
+/**
+ * Klasse die de ability bijhoudt met bijbehorende effecten.
+ * @author
+ */
 public class Mystic extends Ability  implements CalculatableIncome
 {
 	private int abilityIncome;
@@ -21,6 +24,9 @@ public class Mystic extends Ability  implements CalculatableIncome
 		declineTraitText = traitText;
 	}
 
+	/**
+	 * Checked op hoeveel mystic-terreinen het ras staat en verhoogd de extra inkomsten.
+	 */
 	@Override
 	public void processAbility(Ammy ammy) {
 		this.activePlayer = ammy.getActivePlayer();

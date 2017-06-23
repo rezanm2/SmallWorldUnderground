@@ -8,7 +8,10 @@ import listCreators.SpecialPlaceListCreator;
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
-
+/**
+ * Klasse die de ability bijhoudt met bijbehorende effecten.
+ * @author
+ */
 public class Adventurous extends Ability implements CalculatableIncome
 {
 	TerrainController tc;
@@ -23,6 +26,9 @@ public class Adventurous extends Ability implements CalculatableIncome
 		traitText = "+1 coin for each popular place";
 	}
 
+	/**
+	 * Zorgt ervoor dat als de speler special places controleert, de extra inkomsten verhoogd worden.
+	 */
 	@Override
 	public void processAbility(Ammy ammy)
 	{

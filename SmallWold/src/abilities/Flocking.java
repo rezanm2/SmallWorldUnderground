@@ -5,7 +5,10 @@ import controllers.TerrainController;
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
-
+/**
+ * Klasse die de ability bijhoudt met bijbehorende effecten.
+ * @author Jeroen Zandvliet
+ */
 public class Flocking extends Ability implements CalculatableIncome
 {
 	TerrainController tc;
@@ -20,6 +23,9 @@ public class Flocking extends Ability implements CalculatableIncome
 		traitText = "+2 coins if all your regions are adjacent.";
 	}
 
+	/**
+	 * Checked of alle terreinen die de speler heeft aangrenzen zijn en verhoogd de extra inkomsten.
+	 */
 	@Override
 	public void processAbility(Ammy ammy)
 	{
@@ -33,10 +39,10 @@ public class Flocking extends Ability implements CalculatableIncome
 		test.whichAreAdjacent();
 
 
-		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
+		for(int terrainCounter=0;terrainCounter<map.getTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
-			if(map.getTerrain(terrainCounter).getIsAdjacent() == false &&
-					map.getTerrain(terrainCounter).getRace().equals(activePlayer.getActiveSet().getRace()))
+			if(map.getTerrains().get(terrainCounter).getIsAdjacent() == false &&
+					map.getTerrains().get(terrainCounter).getRace().equals(activePlayer.getActiveSet().getRace()))
 			{
 				System.out.println("A: One of your areas is not adjacent.");
 				abilityIncome = 0;

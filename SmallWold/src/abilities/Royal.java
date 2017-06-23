@@ -5,7 +5,10 @@ import controllers.TerrainController;
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
-
+/**
+ * Klasse die de ability bijhoudt met bijbehorende effecten.
+ * @author
+ */
 public class Royal extends Ability
 {
 	private int terrainNumber;
@@ -21,31 +24,34 @@ public class Royal extends Ability
 		declineTraitText = "Queen still immune, but no longer movable.";
 	}
 
+	/**
+	 * Plaatst de queen in een gebied, die wordt immune.
+	 */
 	@Override
 	public void processAbility(Ammy ammy) {
 		this.map = ammy.getMap();
 		this.activePlayer = ammy.getActivePlayer();
 		this.terrainController = ammy.getTc();
 		this.mapTester = ammy.getTest();
-		for(int i = 0; i < map.getAllTerrains().size(); i++) {
-			if(map.getTerrain(i).getRelic().getName() == name)
+		for(int i = 0; i < map.getTerrains().size(); i++) {
+			if(map.getTerrains().get(i).getRelic().getName() == name)
 			{
 				terrainNumber = i;
 				break;
 			}
 		}
-		if(activePlayer.getActiveSet().getRace().getName() == map.getTerrain(terrainNumber).getRace().getName()) {
+		if(activePlayer.getActiveSet().getRace().getName() == map.getTerrains().get(terrainNumber).getRace().getName()) {
 			terrainController.setAllRedeployableAreas(activePlayer);
 			mapTester.whichAreRedeployable(activePlayer);
 			terrainController.checkIfRedeployable();
 			changeTerrain(terrainController.getAreaPicked());
-			System.out.println(map.getTerrain(terrainNumber).getIsImmune());
+			System.out.println(map.getTerrains().get(terrainNumber).getIsImmune());
 		}
 	}
 
 	public void changeTerrain(int terrainNumber) {
-		map.getTerrain(this.terrainNumber).setIsImmune(false);
-		map.getTerrain(terrainNumber).setIsImmune(true);
+		map.getTerrains().get(this.terrainNumber).setIsImmune(false);
+		map.getTerrains().get(terrainNumber).setIsImmune(true);
 		this.terrainNumber = terrainNumber;
 	}
 

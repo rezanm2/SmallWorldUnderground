@@ -9,7 +9,10 @@ import listCreators.RaceListCreator;
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
-
+/**
+ * Klasse die de ability bijhoudt met bijbehorende effecten.
+ * @author
+ */
 public class Thieving extends Ability implements CalculatableIncome
 {
 	TerrainController tc;
@@ -27,6 +30,9 @@ public class Thieving extends Ability implements CalculatableIncome
 		name = "Thieving";
 		traitText = "Steal 1 coin from each adjacent active race";
 	}
+	/**
+	 * Checked welke actieve rassen naast het ras zitten, en steel 1 coin per actief ras.
+	 */
 
 	@Override
 	public void processAbility(Ammy ammy) {
@@ -41,26 +47,26 @@ public class Thieving extends Ability implements CalculatableIncome
 		tc.setAllAdjacentAreas(activePlayer);
 		test.whichAreAdjacent();
 
-		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
+		for(int terrainCounter=0;terrainCounter<map.getTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
-			if(map.getTerrain(terrainCounter).getIsAdjacent() == true &&
-			   map.getTerrain(terrainCounter).getRace().equals(activePlayer.getActiveSet().getRace()) &&
-			   map.getTerrain(terrainCounter).getRace().equals(raceList.getListElement(0)))
+			if(map.getTerrains().get(terrainCounter).getIsAdjacent() == true &&
+			   map.getTerrains().get(terrainCounter).getRace().equals(activePlayer.getActiveSet().getRace()) &&
+			   map.getTerrains().get(terrainCounter).getRace().equals(raceList.getListElement(0)))
 				{
-				
+
 				for(int i = 0; i < stolenRaces.size(); i++)
 				{
-					if(stolenRaces.get(i).equals(map.getTerrain(terrainCounter).getRace().getName()))
+					if(stolenRaces.get(i).equals(map.getTerrains().get(terrainCounter).getRace().getName()))
 					{
 						doThief = false;
 					}
 				}
-				
+
 				if(doThief = true)
 					{
-					stolenRaces.add(map.getTerrain(terrainCounter).getRace().getName());
-					System.out.println("Stole 1 coin from " + map.getTerrain(terrainCounter).getRace().getName());
-					tokenController.linkRaceToPlayer(map.getTerrain(terrainCounter).getRace());
+					stolenRaces.add(map.getTerrains().get(terrainCounter).getRace().getName());
+					System.out.println("Stole 1 coin from " + map.getTerrains().get(terrainCounter).getRace().getName());
+					tokenController.linkRaceToPlayer(map.getTerrains().get(terrainCounter).getRace());
 					tokenController.getRacesPlayer().setCoins(tokenController.getRacesPlayer().getCoins() - 1);
 					abilityIncome++;
 				}
