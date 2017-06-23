@@ -1,6 +1,5 @@
  package specialPlaces;
 
-import controllers.MapTester;
 import controllers.TerrainController;
 import controllers.TokenController;
 import main.Ammy;
@@ -8,12 +7,14 @@ import playBoard.Map;
 import player.Player;
 import races.Empty;
 import races.Race;
-
+/**
+ * Deze klasse is verantwoordelijk voor het opslaan van de functionaliteit van de specialPlace
+ * @author
+ */
 public class WickedestPentacle extends SpecialPlace
 {
 	private Map map;
 	private TerrainController terrainController;
-	private MapTester mapTester;
 	private int terrainNumber;
 	private int terrainOfBalrog;
 	private Race losingRace;
@@ -26,39 +27,39 @@ public class WickedestPentacle extends SpecialPlace
 		traitText = "Move the Balrog. It noms all the shit he occupies.";
 	}
 
+	/**
+	 * Beweegt de balrog en verwerkt combat.
+	 */
 	@Override
 	public void processSpecialPlace(Ammy ammy) {
 		this.map = ammy.getMap();
 		this.activePlayer = ammy.getActivePlayer();
 		this.terrainController = ammy.getTc();
-		this.mapTester = ammy.getTest();
 		this.tokenController = ammy.getToc();
-		for(int i = 0; i < map.getAllTerrains().size(); i++) {
-			if(map.getTerrain(i).getSpecialPlace().getName() == name)
+		for(int i = 0; i < map.getTerrains().size(); i++) {
+			if(map.getTerrains().get(i).getSpecialPlace().getName() == name)
 			{
 				terrainNumber = i;
 				break;
 			}
 		}
-		if(activePlayer.getActiveSet().getRace().getName() == map.getTerrain(terrainNumber).getRace().getName()) {
-			for(int i = 0; i < map.getAllTerrains().size(); i++) {
-				if(!map.getTerrain(i).getTerrainName().equals("Chasm"))
-				map.getTerrain(i).setIsAttackable(true);
+		if(activePlayer.getActiveSet().getRace().getName() == map.getTerrains().get(terrainNumber).getRace().getName()) {
+			for(int i = 0; i < map.getTerrains().size(); i++) {
+				if(!map.getTerrains().get(i).getTerrainName().equals("Chasm"))
+				map.getTerrains().get(i).setIsAttackable(true);
 			}
-			mapTester.whichAreAttackable();
-			terrainController.checkIfAttackable();
 			changeTerrain(terrainController.getAreaPicked());
 
-			losingRace = map.getTerrain(terrainController.getAreaPicked()).getRace();
+			losingRace = map.getTerrains().get(terrainController.getAreaPicked()).getRace();
 			tokenController.linkRaceToPlayer(losingRace);
 			losingPlayer = tokenController.getRacesPlayer();
 
-			losingPlayer.getHand().setCurrentTokens(losingPlayer.getHand().getCurrentTokens() + (map.getTerrain(terrainController.getAreaPicked()).getAmountOfTokens() - 2)); //Calculate loss
+			losingPlayer.getHand().setCurrentTokens(losingPlayer.getHand().getCurrentTokens() + (map.getTerrains().get(terrainController.getAreaPicked()).getAmountOfTokens() - 2)); //Calculate loss
 
 
 			System.out.println("A: Balrog strikes again");
-			map.getTerrain(terrainController.getAreaPicked()).setRace(new Empty());	 							//Make the terrain be the player's Race
-			map.getTerrain(terrainController.getAreaPicked()).setAmountOfTokens(0);							  		//The declared amount is set on the terrain
+			map.getTerrains().get(terrainController.getAreaPicked()).setRace(new Empty());	 							//Make the terrain be the player's Race
+			map.getTerrains().get(terrainController.getAreaPicked()).setAmountOfTokens(0);							  		//The declared amount is set on the terrain
 			System.out.println("A: Attack succesful!");
 
 			terrainController.setNotAdjacent();
@@ -71,8 +72,8 @@ public class WickedestPentacle extends SpecialPlace
 
 	}
 	public void changeTerrain (int terrainOfBalrog) {
-		map.getTerrain(this.terrainOfBalrog).setIsImmune(false);
-		map.getTerrain(terrainOfBalrog).setIsImmune(true);
+		map.getTerrains().get(this.terrainOfBalrog).setIsImmune(false);
+		map.getTerrains().get(terrainOfBalrog).setIsImmune(true);
 		this.terrainOfBalrog = terrainNumber;
 	}
 }

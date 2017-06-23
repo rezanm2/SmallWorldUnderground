@@ -1,17 +1,18 @@
 package specialPlaces;
 
-import controllers.MapTester;
 import controllers.TerrainController;
 import main.Ammy;
 import playBoard.Map;
-
+/**
+ * Deze klasse is verantwoordelijk voor het opslaan van de functionaliteit van de specialPlace
+ * @author
+ */
 public class CryptOfTombRaider extends SpecialPlace
 {
 	private int terrainNumber;
 	private int terrainOfGhost;
 	private TerrainController terrainController;
 	private Map map;
-	private MapTester mapTester;
 
 	public CryptOfTombRaider()
 	{
@@ -19,28 +20,28 @@ public class CryptOfTombRaider extends SpecialPlace
 		traitText = "At end of turn, place ghost in a region. That region is immune.";
 	}
 
+	/**
+	 * Plaatst de geest op een terrein en maakt dat terrein immuun.
+	 */
 	@Override
 	public void processSpecialPlace(Ammy ammy) {
 		this.map = ammy.getMap();
 		this.activePlayer = ammy.getActivePlayer();
 		this.terrainController = ammy.getTc();
-		this.mapTester = ammy.getTest();
-		for(int i = 0; i < map.getAllTerrains().size(); i++) {
-			if(map.getTerrain(i).getSpecialPlace().getName() == name)
+		for(int i = 0; i < map.getTerrains().size(); i++) {
+			if(map.getTerrains().get(i).getSpecialPlace().getName() == name)
 			{
 				terrainNumber = i;
 				break;
 			}
 		}
-		if(activePlayer.getActiveSet().getRace().getName() == map.getTerrain(terrainNumber).getRace().getName()) {
-			for(int i = 0; i < map.getAllTerrains().size(); i++) {
-				if(!map.getTerrain(i).getTerrainName().equals("Chasm") && !(i == terrainNumber))
-				map.getTerrain(i).setIsAttackable(true);
+		if(activePlayer.getActiveSet().getRace().getName() == map.getTerrains().get(terrainNumber).getRace().getName()) {
+			for(int i = 0; i < map.getTerrains().size(); i++) {
+				if(!map.getTerrains().get(i).getTerrainName().equals("Chasm") && !(i == terrainNumber))
+				map.getTerrains().get(i).setIsAttackable(true);
 			}
-			mapTester.whichAreAttackable();
-			terrainController.checkIfAttackable();
 			changeTerrain(terrainController.getAreaPicked());
-			System.out.println(map.getTerrain(terrainOfGhost).getIsImmune());
+			System.out.println(map.getTerrains().get(terrainOfGhost).getIsImmune());
 
 			terrainController.setNotAdjacent();
 			terrainController.setNotAttackable();
@@ -53,8 +54,8 @@ public class CryptOfTombRaider extends SpecialPlace
 	}
 
 	public void changeTerrain(int terrainOfGhost) {
-		map.getTerrain(this.terrainOfGhost).setIsImmune(false);
-		map.getTerrain(terrainOfGhost).setIsImmune(true);
+		map.getTerrains().get(this.terrainOfGhost).setIsImmune(false);
+		map.getTerrains().get(terrainOfGhost).setIsImmune(true);
 		this.terrainOfGhost = terrainNumber;
 	}
 }
