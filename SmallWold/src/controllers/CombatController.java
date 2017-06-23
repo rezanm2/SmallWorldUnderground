@@ -52,7 +52,6 @@ public class CombatController {
 		fieldController.setCombatController(this);
 		this.serverCombatService = serverCombatService;
 	}
-
 	/**
 	 * Methode die het terrein type print in de console.
 	 *
