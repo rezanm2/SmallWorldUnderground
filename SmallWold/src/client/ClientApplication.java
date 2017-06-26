@@ -71,7 +71,7 @@ public class ClientApplication extends Application{
 
 		this.primaryStage = primaryStage; //make primarystage global
 
-		FXMLLoader lobbyLoader = new FXMLLoader(getClass().getResource("../views/lobbyView/lobbyView.fxml"));	//get xml file
+		FXMLLoader lobbyLoader = new FXMLLoader(getClass().getResource("/views/lobbyView/lobbyView.fxml"));	//get xml file
 		Parent View  = lobbyLoader.load();																		//load the xml in view
 		lobbyController lobbyControl = lobbyLoader.getController();												//get ref to controller
 		lobbyControl.setRemoteClient(client);																	//give the controller a ref to the client object
@@ -102,35 +102,35 @@ public class ClientApplication extends Application{
 
 
         //set the layout of the view. fielView
-        FXMLLoader rootLayoutLoader = new FXMLLoader(getClass().getResource("../views/fieldView/fieldView"+playerAmount+".fxml"));	//get xml file
+        FXMLLoader rootLayoutLoader = new FXMLLoader(getClass().getResource("/views/fieldView/fieldView"+playerAmount+".fxml"));	//get xml file
         BorderPane rootLayout = (BorderPane) rootLayoutLoader.load();										//load xml file to object
         this.fieldController = rootLayoutLoader.getController();								//set controller
 
         //add bottomBar to the rootLayout
-        FXMLLoader bottomBarLoader = new FXMLLoader(getClass().getResource("../views/bottomBarView/bottomBarView.fxml"));	//get xml file
+        FXMLLoader bottomBarLoader = new FXMLLoader(getClass().getResource("/views/bottomBarView/bottomBarView.fxml"));	//get xml file
         StackPane bottomBar =  bottomBarLoader.load();														//load xml file to object																								//set controller
         BottomBarController bottomBarControl = bottomBarLoader.getController();
         rootLayout.setBottom(bottomBar);																	//bind pane to layout
 
         //add SideBar to the rootLayout
-		FXMLLoader sideBarLoader = new FXMLLoader(getClass().getResource("../views/sideBarView/sideBarView.fxml"));			//get xml file
+		FXMLLoader sideBarLoader = new FXMLLoader(getClass().getResource("/views/sideBarView/sideBarView.fxml"));			//get xml file
 		StackPane sideBar = sideBarLoader.load(); 															//load xml file to object
 		this.sidebarController = sideBarLoader.getController();
        rootLayout.setRight(sideBar);
 
         //add tabview thats hidden to rootLayout
-       FXMLLoader tabViewLoader = new FXMLLoader(getClass().getResource("../views/tabView/tabView.fxml"));			//get xml file
+       FXMLLoader tabViewLoader = new FXMLLoader(getClass().getResource("/views/tabView/tabView.fxml"));			//get xml file
        StackPane tabView = tabViewLoader.load();																//load xml file to object
        this.tabController = tabViewLoader.getController();										//set controller tabView
 
 
        //add manualView thats hidden to rootLayout
-      FXMLLoader manualViewLoader = new FXMLLoader(getClass().getResource("../views/manualView/manualView.fxml"));			//get xml file
+      FXMLLoader manualViewLoader = new FXMLLoader(getClass().getResource("/views/manualView/manualView.fxml"));			//get xml file
       StackPane manualView = manualViewLoader.load();																//load xml file to object
       ManualController manualController = manualViewLoader.getController();
 
       //add settingView thats hidden to rootLayout
-      FXMLLoader settingViewLoader = new FXMLLoader(getClass().getResource("../views/settingView/settingView.fxml"));			//get xml file
+      FXMLLoader settingViewLoader = new FXMLLoader(getClass().getResource("/views/settingView/settingView.fxml"));			//get xml file
       StackPane settingView = settingViewLoader.load();																//load xml file to object
       SettingController settingController = settingViewLoader.getController();
 
