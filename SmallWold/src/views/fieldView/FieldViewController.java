@@ -28,7 +28,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import player.Player;
-
+import terrain.Terrain;
 import views.sideBarView.SideBarController;
 import views.tabView.TabViewController;
 /**
@@ -152,6 +152,7 @@ public class FieldViewController {
 					HBox hbox = (HBox) flowPane.getChildren().get(1);
 					TextField textField = (TextField) hbox.getChildren().get(1);
 					textField.setText("0");
+
 					declarePane.setVisible(true);
 					this.declarePanePrevious.setVisible(false);
 					this.declarePanePrevious = declarePane;
@@ -174,6 +175,31 @@ public class FieldViewController {
 		Button buttonTarget = (Button) pressButton.getTarget();
 		HBox theBox = (HBox) buttonTarget.getParent();
 		TextField field = (TextField) theBox.getChildren().get(1);
+
+		int getal = Integer.parseInt(field.getText());
+
+		FlowPane thePane = (FlowPane) theBox.getParent();
+		StackPane stackPane = (StackPane) thePane.getParent();
+		StackPane theStackPane = (StackPane) stackPane.getParent();
+
+		String terreinID = theStackPane.getId();
+		Terrain terrain = combatController.getMap().getTerrainById(terreinID);
+		terrain.getAmountOfTokens();
+
+		System.out.println("getal " + getal);
+		System.out.print("terrain " + terrain.getAmountOfTokens());
+		if(getal >= terrain.getAmountOfTokens() + terrain.getDefense() + 1){
+			field.setStyle("-fx-text-inner-color: green");// green
+		}
+
+		if (getal - (terrain.getAmountOfTokens() + terrain.getDefense() + 2) <= -3){
+			field.setStyle("-fx-text-inner-color: red");// red
+		}
+
+		else{
+//		if(getal == terrain.getAmountOfTokens() + terrain.getDefense() - 1){
+			field.setStyle("-fx-text-inner-color: orange");// orange
+		}
 
 		field.setText(tokenAmount);
 
