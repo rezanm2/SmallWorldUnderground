@@ -48,15 +48,15 @@ public class TerrainController
 				{
 					for(int secondTerrainCounter = 0; secondTerrainCounter<map.getTerrains().size(); secondTerrainCounter++) //Search through all terrains
 					{
-						System.out.println("secondTerrainCounter: "+ secondTerrainCounter);
+
 						for(int elementCounter = 0; elementCounter<map.getTerrains().get(secondTerrainCounter).getIdArray().length; elementCounter++) //For the player's terrain's code
 						{
 
-							System.out.println("elementCounter: "+ elementCounter);
+
 							if(map.getTerrains().get(secondTerrainCounter).getElement(elementCounter).equals(map.getTerrains().get(terrainCounter).getElement(0)))
 							{
 								map.getTerrains().get(secondTerrainCounter).setIsAdjacent(true);	//And if found, set the area to adjacent.
-								System.out.println((secondTerrainCounter+1) + " is adjacent DID DTHIS.");
+
 							}
 						}
 					}
@@ -73,7 +73,7 @@ public class TerrainController
 	public void allAttackableAreas(Race race)
 	{
 
-		System.out.println("Setting attackables");
+
 		for(int terrainCounter = 0; terrainCounter<map.getTerrains().size(); terrainCounter++)
 		{
 			for(int elementCounter = 0; elementCounter<map.getTerrains().get(terrainCounter).getIdArray().length; elementCounter++)
@@ -148,7 +148,7 @@ public class TerrainController
 			{
 //				changeAllAdjacentAreas(map.getTerrains().get(typeTerrainCounter).getElement(0));
 
-				System.out.println("A: Beeping area (ArrayListPosition) " + (typeTerrainCounter+1));
+
 			}
 		}
 		excludeAdjacent(terrainString);

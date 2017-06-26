@@ -35,7 +35,7 @@ public class Quarreling extends Ability implements CalculatableIncome
 			if(map.getTerrains().get(terrainCounter).getIsAdjacent() == false &&
 					map.getTerrains().get(terrainCounter).getRace().equals(activePlayer.getActiveSet().getRace()))
 			{
-				System.out.println("A: One of your areas is not adjacent.");
+
 				abilityIncome += 1;
 				break;
 			}

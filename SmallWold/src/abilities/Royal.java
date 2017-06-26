@@ -39,7 +39,7 @@ public class Royal extends Ability
 		if(selfPlayer.getActiveSet().getRace().getName() == map.getTerrains().get(terrainNumber).getRace().getName()) {
 			terrainController.allRedeployableAreas(selfPlayer.getActiveSet().getRace());
 			changeTerrain(terrainController.getAreaPicked());
-			System.out.println(map.getTerrains().get(terrainNumber).getIsImmune());
+
 		}
 	}
 

@@ -39,7 +39,7 @@ public class Flocking extends Ability implements CalculatableIncome
 			if(map.getTerrains().get(terrainCounter).getIsAdjacent() == false &&
 					map.getTerrains().get(terrainCounter).getRace().equals(selfPlayer.getActiveSet().getRace()))
 			{
-				System.out.println("A: One of your areas is not adjacent.");
+
 				abilityIncome = 0;
 				break;
 			}
