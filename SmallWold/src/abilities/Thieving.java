@@ -37,7 +37,7 @@ public class Thieving extends Ability implements CalculatableIncome
 		this.map = ammy.getMap();
 		this.tokenController = ammy.getToc();
 
-		tc.setAllAdjacentAreas(activePlayer);
+		tc.allAdjacentAreas(activePlayer.getActiveSet().getRace());
 
 		for(int terrainCounter=0;terrainCounter<map.getTerrains().size();terrainCounter++)		//As long as there are terrains
 		{

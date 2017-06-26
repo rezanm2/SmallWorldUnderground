@@ -31,7 +31,7 @@ public class Drow extends Race implements CalculatableIncome
 		this.map = ammy.getMap();
 		int countTerrains = 0;
 		int countRaces = 0;
-		tc.setAllAdjacentAreas(activePlayer);
+		tc.allAdjacentAreas(activePlayer.getActiveSet().getRace());
 
 
 		for(int x=0;x<map.getTerrains().size();x++)

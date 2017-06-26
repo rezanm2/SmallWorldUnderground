@@ -50,7 +50,7 @@ public class FroggysRing extends Relic implements CalculatableIncome{
 		System.out.println("Doing other shit");
 		if(active == true && activePlayer.getActiveSet().getRace().getName() == map.getTerrains().get(terrainNumber).getRace().getName())
 		{
-			terrainController.setAllRedeployableAreas(activePlayer);
+			terrainController.allRedeployableAreas(activePlayer.getActiveSet().getRace());
 			changeTerrain(terrainController.getAreaPicked());
 			active = false;
 			System.out.println(terrainController.getAreaPicked());

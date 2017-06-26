@@ -67,6 +67,11 @@ public class TerrainController
 		}
 	}
 
+
+	/**
+	 * Zet all terreinen op aanvalbaar.
+	 * @param activePlayer, de speler waarvan de terreinen aanvalbaar gezet moeten worden.
+	 */
 	public void allAttackableAreas(Race race)
 	{
 
@@ -86,7 +91,10 @@ public class TerrainController
 		}
 	}
 
-
+	/**
+	 * Zet all terreinen op heraanvulbaar.
+	 * @param activePlayer, de speler wiens terreinen op heraanvulbaar gezet moeten worden.
+	 */
 	public void allRedeployableAreas(Race race)
 	{
 		for(int terrainCounter = 0; terrainCounter<map.getTerrains().size(); terrainCounter++)
@@ -97,87 +105,11 @@ public class TerrainController
 			}
 		}
 	}
-
-
-
 	/**
-	 * Zet all terreinen op aangrenzend.
-	 * @param code, de code van het terrein waarmee vergeleken moet worden.
+	 * Zet alle terreinen op niet aangrenzend
 	 */
-	public void changeAllAdjacentAreas(String code)
-	{
-		for(terrainCounter = 0; terrainCounter<map.getTerrains().size(); terrainCounter++)
-		{
-//			for(elementCounter = 1; elementCounter<map.getTerrain(terrainCounter).getIdArray().length; elementCounter++) //While there's still elements left
-//			{
-//				if(map.getTerrain(terrainCounter).getElement(elementCounter) == code)
-//				{
-//					map.getTerrain(terrainCounter).setIsAdjacent(true);			//If the idCode is found, set isAdjacent to true
-//				}
-//			}
-		}
-	}
-	/**
-	 * Zet all terreinen op aanvalbaar.
-	 * @param activePlayer, de speler waarvan de terreinen aanvalbaar gezet moeten worden.
-	 */
-	public void setAllAttackableAreas(Player activePlayer)
-	{
-		setNotAttackable();
-		System.out.println("A: Setting all attackable terrains for " + "\n");
-		this.activePlayer = activePlayer;
-//		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
-//		{
-//			if(activePlayer.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace()))
-//			{
-//				changeAllAttackableAreas(map.getTerrain(terrainCounter).getElement(0));
-//			}
-//		}
-	}
 
-	/**
-	 * Zet all terreinen op aanvalbaar.
-	 * @param code, de code van het terrein waarmee vergeleken moet worden.
-	 */
-	private void changeAllAttackableAreas(String code)
-	{
-//		for(terrainCounter = 0; terrainCounter<map.getAllTerrains().size(); terrainCounter++)
-//		{
-//			for(elementCounter = 1; elementCounter<map.getTerrain(terrainCounter).getIdArray().length-1; elementCounter++) //While there's still elements left
-//			{
-//				if(map.getTerrain(terrainCounter).getElement(elementCounter) == code
-//						&& !map.getTerrain(terrainCounter).getRace().equals(activePlayer.getActiveSet().getRace()))
-//				{
-//					map.getTerrain(terrainCounter).setIsAttackable(true);			//If the idCode is found, set isAdjacent to true
-//
-//				}
-//			}
-//		}
-	}
-	/**
-	 * Zet all terreinen op heraanvulbaar.
-	 * @param activePlayer, de speler wiens terreinen op heraanvulbaar gezet moeten worden.
-	 */
-	public void setAllRedeployableAreas(Player activePlayer)
-	{
-		setNotRedeployable();
-		System.out.println("A: Setting all reinforcable terrains for " + "\n");
-		this.activePlayer = activePlayer;
-//		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
-//		{
-//			if (activePlayer.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace()))
-//			{
-//				map.getTerrain(terrainCounter).setIsRedeployable(true);
-//			}
-//		}
-
-	}
-
-
-	/**
-	 * Zet alle terreinen op niet aangrenzend.
-	 */
-	public void setNotAdjacent()					//Set all the "isAttackable" booleans to false again
+	public void setNotAdjacent()
 	{
 		for(terrainCounter=0;terrainCounter<map.getTerrains().size();terrainCounter++)				//As long as there are terrains
 		{
@@ -216,7 +148,7 @@ public class TerrainController
 		{
 			if(map.getTerrains().get(typeTerrainCounter).getTerrainName().equals(terrainString))
 			{
-				changeAllAdjacentAreas(map.getTerrains().get(typeTerrainCounter).getElement(0));
+//				changeAllAdjacentAreas(map.getTerrains().get(typeTerrainCounter).getElement(0));
 
 				System.out.println("A: Beeping area (ArrayListPosition) " + (typeTerrainCounter+1));
 			}
@@ -232,7 +164,7 @@ public class TerrainController
 	{
 		for(typeTerrainCounter = 0; typeTerrainCounter<map.getTerrains().size(); typeTerrainCounter++)	//As long as there's terrains
 		{
-			changeAllAdjacentAreas(terrain.getElement(0));
+//			changeAllAdjacentAreas(terrain.getElement(0));
 		}
 	}
 
