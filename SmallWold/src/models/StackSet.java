@@ -25,6 +25,7 @@ import abilities.Vanishing;
 import abilities.Vengeful;
 import abilities.Wise;
 import controllers.StackController;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
@@ -184,6 +185,12 @@ public class StackSet {
 			sets.add(new Set(tempRace, tempAbility)); // add to set
 			i++;
 		}
+		sets.get(0).setCost(0);
+		sets.get(1).setCost(1);
+		sets.get(2).setCost(2);
+		sets.get(3).setCost(3);
+		sets.get(4).setCost(4);
+		sets.get(5).setCost(5);
 
 	}
 
@@ -233,6 +240,12 @@ public class StackSet {
 	public void setMap(Map map) {
 		this.map = map;
 
+	}
+
+	public void updateCost(ArrayList<Integer> gains) {
+		Platform.runLater(() -> {
+			tabController.updateCoinCost(gains);
+		});
 	}
 
 }

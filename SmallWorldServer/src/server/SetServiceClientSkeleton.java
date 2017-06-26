@@ -10,5 +10,7 @@ public interface SetServiceClientSkeleton  extends Remote{
 
 	void updateStackList(ArrayList<String> raceList, ArrayList<String> abilityList) throws RemoteException;
 
+	void costList(ArrayList<Integer> gains) throws RemoteException;
+
 
 }

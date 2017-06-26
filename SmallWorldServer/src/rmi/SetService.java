@@ -78,4 +78,18 @@ public class SetService extends UnicastRemoteObject implements SetServiceSkeleto
 
 	}
 
+	@Override
+	public void updateCoinCost(ArrayList<Integer> gains) throws RemoteException {
+		new Thread(() -> {
+			for (SetServiceClientSkeleton setClient : setClientList) {
+				try {
+					setClient.costList(gains);
+				} catch (RemoteException e) {
+					e.printStackTrace();
+				}
+				
+			}
+		}).start();
+	}
+
 }

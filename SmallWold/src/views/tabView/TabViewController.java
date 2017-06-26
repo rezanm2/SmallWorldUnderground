@@ -2,9 +2,11 @@ package views.tabView;
 
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.chart.StackedAreaChart;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -27,6 +29,31 @@ public class TabViewController {
 	private StackSet stackset;
 	private Player selfPlayer;
 
+	@FXML
+	private Label gain_1;
+	@FXML
+	private Label gain_2;
+	@FXML
+	private Label gain_3;
+	@FXML
+	private Label gain_4;
+	@FXML
+	private Label gain_5;
+	@FXML
+	private Label gain_6;
+	
+	@FXML
+	private Label costs_1;
+	@FXML
+	private Label costs_2;
+	@FXML
+	private Label costs_3;
+	@FXML
+	private Label costs_4;
+	@FXML
+	private Label costs_5;
+	@FXML
+	private Label costs_6;
 
 	@FXML
     private StackPane mainPane;
@@ -185,6 +212,54 @@ public class TabViewController {
 
 	}
 
+	////// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ en dan via deze methode die shit updaten.
+	public void updateCoinCost(ArrayList<Integer> gains) {
+//		if(coinAmount == 0) {
+//			gain_1.setText("0");
+//			gain_1.setText(String.valueOf(stackset.getSets().get(0).getGains()));
+//		}
+//		if(coinAmount == 1) {
+//			gain_1.setText(gain_2.getText());
+//			gain_2.setText("0");
+//			gain_2.setText(String.valueOf(stackset.getSets().get(1).getGains()));
+//		}
+//		if(coinAmount == 2) {
+//			gain_1.setText(gain_2.getText());
+//			gain_2.setText(gain_3.getText());
+//			gain_3.setText("0");
+//		}
+//		if(coinAmount == 3) {
+//			gain_1.setText(gain_2.getText());
+//			gain_2.setText(gain_3.getText());
+//			gain_3.setText(gain_4.getText());
+//			gain_4.setText("0");
+//		}
+//		if(coinAmount == 4) {
+//			gain_1.setText(gain_2.getText());
+//			gain_2.setText(gain_3.getText());
+//			gain_3.setText(gain_4.getText());
+//			gain_4.setText(gain_5.getText());
+//			gain_5.setText("0");
+//		}
+//		if(coinAmount == 5) {
+//			gain_1.setText(gain_2.getText());
+//			gain_2.setText(gain_3.getText());
+//			gain_3.setText(gain_4.getText());
+//			gain_4.setText(gain_5.getText());
+//			gain_5.setText(gain_6.getText());
+//			gain_6.setText("0");
+//		}
+		
+		gain_1.setText(String.valueOf(gains.get(0)));
+		gain_2.setText(String.valueOf(gains.get(1)));
+		gain_3.setText(String.valueOf(gains.get(2)));
+		gain_4.setText(String.valueOf(gains.get(3)));
+		gain_5.setText(String.valueOf(gains.get(4)));
+		gain_6.setText("0");
+		
+		stackset.getStackController().setGains(gains);
+		
+	}
 
 
 

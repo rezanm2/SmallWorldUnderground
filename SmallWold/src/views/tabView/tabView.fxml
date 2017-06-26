@@ -189,7 +189,7 @@
                         <Image url="@../../images/icons/coin.png" />
                      </image>
                   </ImageView>
-                  <Label text="5" textFill="WHITE">
+                  <Label fx:id="costs_1" text="0" textFill="WHITE">
                      <font>
                         <Font size="58.0" />
                      </font>
@@ -217,7 +217,7 @@
                         <Image url="@../../images/icons/coin.png" />
                      </image>
                   </ImageView>
-                  <Label prefHeight="66.0" prefWidth="25.0" text="4" textFill="WHITE">
+                  <Label fx:id="costs_2" prefHeight="66.0" prefWidth="25.0" text="1" textFill="WHITE">
                      <font>
                         <Font size="58.0" />
                      </font>
@@ -231,7 +231,7 @@
                         <Image url="@../../images/icons/coin.png" />
                      </image>
                   </ImageView>
-                  <Label id="gain_2" text="0" textFill="WHITE">
+                  <Label id="gain_2" fx:id="gain_2" text="0" textFill="WHITE">
                      <font>
                         <Font size="58.0" />
                      </font>
@@ -245,7 +245,7 @@
                         <Image url="@../../images/icons/coin.png" />
                      </image>
                   </ImageView>
-                  <Label text="3" textFill="WHITE">
+                  <Label fx:id="costs_3" text="2" textFill="WHITE">
                      <font>
                         <Font size="58.0" />
                      </font>
@@ -259,7 +259,7 @@
                         <Image url="@../../images/icons/coin.png" />
                      </image>
                   </ImageView>
-                  <Label id="gain_3" text="0" textFill="WHITE">
+                  <Label id="gain_3" fx:id="gain_3" text="0" textFill="WHITE">
                      <font>
                         <Font size="58.0" />
                      </font>
@@ -273,7 +273,7 @@
                         <Image url="@../../images/icons/coin.png" />
                      </image>
                   </ImageView>
-                  <Label text="2" textFill="WHITE">
+                  <Label fx:id="costs_4" text="3" textFill="WHITE">
                      <font>
                         <Font size="58.0" />
                      </font>
@@ -287,7 +287,7 @@
                         <Image url="@../../images/icons/coin.png" />
                      </image>
                   </ImageView>
-                  <Label id="gain_4" text="1" textFill="WHITE">
+                  <Label id="gain_4" fx:id="gain_4" text="0" textFill="WHITE">
                      <font>
                         <Font size="58.0" />
                      </font>
@@ -301,7 +301,7 @@
                         <Image url="@../../images/icons/coin.png" />
                      </image>
                   </ImageView>
-                  <Label text="1" textFill="WHITE">
+                  <Label fx:id="costs_5" text="4" textFill="WHITE">
                      <font>
                         <Font size="58.0" />
                      </font>
@@ -315,7 +315,7 @@
                         <Image url="@../../images/icons/coin.png" />
                      </image>
                   </ImageView>
-                  <Label text="2" textFill="WHITE">
+                  <Label fx:id="gain_5" text="0" textFill="WHITE">
                      <font>
                         <Font size="58.0" />
                      </font>
@@ -329,7 +329,7 @@
                         <Image url="@../../images/icons/coin.png" />
                      </image>
                   </ImageView>
-                  <Label text="0" textFill="WHITE">
+                  <Label fx:id="costs_6" text="5" textFill="WHITE">
                      <font>
                         <Font size="58.0" />
                      </font>
@@ -343,7 +343,7 @@
                         <Image url="@../../images/icons/coin.png" />
                      </image>
                   </ImageView>
-                  <Label text="3" textFill="WHITE">
+                  <Label fx:id="gain_6" text="0" textFill="WHITE">
                      <font>
                         <Font size="58.0" />
                      </font>
@@ -433,7 +433,7 @@
                         <Image url="@../../images/icons/coin.png" />
                      </image>
                   </ImageView>
-                  <Label id="gain_1" text="0" textFill="WHITE">
+                  <Label id="gain_1" fx:id="gain_1" text="0" textFill="WHITE">
                      <font>
                         <Font size="58.0" />
                      </font>
