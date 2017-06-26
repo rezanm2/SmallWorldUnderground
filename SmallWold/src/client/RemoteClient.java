@@ -9,19 +9,23 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
 import controllers.CombatController;
+import controllers.RedeploymentController;
 import controllers.TurnController;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import models.JoinedPlayers;
 import models.StackSet;
+import playBoard.Map;
 import player.Player;
 import rmi.ClientImpl;
 import rmi.CombatService;
+import rmi.RedeploymentService;
 import rmi.SetService;
 import rmi.TurnService;
 import server.ClientSkeleton;
 import server.CombatServiceSkeleton;
+import server.RedeployServiceSkeleton;
 import server.ServerSkeleton;
 import server.SetServiceClientSkeleton;
 import server.SetServiceSkeleton;
@@ -171,17 +175,30 @@ public class RemoteClient {
 			System.out.println("Client: looking up combatServiceServer in RMI Registry...");
 			CombatServiceSkeleton serverCombatService = (CombatServiceSkeleton) Naming.lookup("//" + host + "/ServerCombatService");
 
-			CombatController combatController = new CombatController(stack, selfPlayer, playerAmount, fieldViewController, serverCombatService);
+			Map map  = new Map(selfPlayer, playerAmount, stack);
+			CombatController combatController = new CombatController(fieldViewController, serverCombatService, map);
 
 			CombatService combatClient = new CombatService(combatController);
 			serverCombatService.addCombatClient(combatClient);
+
+
+
+			//start setup for RedeploymentService
+			System.out.println("Client: looking up RedeploymentService in RMI Registry...");
+			RedeployServiceSkeleton serverRedeployService = (RedeployServiceSkeleton) Naming.lookup("//" + host + "/ServerRedeploymentService");
+
+			RedeploymentController redeployController = new RedeploymentController(fieldViewController, serverRedeployService, map);
+
+			RedeploymentService redeployClient = new RedeploymentService(redeployController);
+			serverRedeployService.addRedeployClient(redeployClient);
+
 
 
 			//start setup for Turn service
 			System.out.println("Client: looking up turnServiceServer in RMI Registry...");
 			TurnServiceSkeleton serverTurnService = (TurnServiceSkeleton) Naming.lookup("//" + host + "/ServerTurnService");
 
-			TurnController turnController = new TurnController(combatController.getMap(), sideBarController, serverTurnService);
+			TurnController turnController = new TurnController(map, sideBarController, serverTurnService);
 
 			TurnService turnClient = new TurnService(selfPlayer, sideBarController);
 			serverTurnService.addTurnClient(turnClient);

@@ -43,8 +43,9 @@ public class FieldViewController {
 	private int declaredTokenAmount;
 	private int throughTheList = -1;
 	private String tokenAmount;
-	private CombatController combatController;// = new CombatController(test, 2, this, null); ////@@@@@@@@@@@@@@@@@@@@@@@@@@@@ remove later
-	private RedeploymentController redploymentController;// = new RedeploymentController(test, 2, this, null);
+
+	private CombatController combatController;
+	private RedeploymentController redploymentController;
 
 	@FXML
 	private TextField token_amount;
@@ -276,9 +277,7 @@ public class FieldViewController {
 		}
 	}
 
-	public void setCombatController(CombatController combatController) {
-		this.combatController = combatController;
-	}
+
 
 	/**
 	 * Update de visuele aspecten van het terrein.
@@ -330,6 +329,9 @@ public class FieldViewController {
 
 	public void setRedeploymentController(RedeploymentController redeploymentController) {
 		this.redploymentController = redeploymentController;
+	}
+	public void setCombatController(CombatController combatController) {
+		this.combatController = combatController;
 	}
 
 	public void setPlayer(Player selfPlayer) {
