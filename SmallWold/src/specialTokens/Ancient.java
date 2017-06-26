@@ -1,7 +1,6 @@
 package specialTokens;
 import java.util.Scanner;
 import controllers.TerrainController;
-import main.Ammy;
 import playBoard.Map;
 import player.Player;
 
@@ -21,10 +20,9 @@ public class Ancient extends SpecialToken {
 		name = "Ancient";
 	}
 	@Override
-	public void processSpecialToken(Ammy ammy) {
-		this.map = ammy.getMap();
-		this.activePlayer = ammy.getActivePlayer();
-		this.terrainController = ammy.getTc();
+	public void processSpecialToken(Player selfPlayer, Map map) {
+		this.map = map;
+		this.selfPlayer = selfPlayer;
 
 			System.out.println("Do you want replace your Ancient? ");
 			yesOrNo = scanner.nextLine();

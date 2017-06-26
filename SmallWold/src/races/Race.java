@@ -1,8 +1,6 @@
 package races;
 
 import java.io.Serializable;
-
-import main.Ammy;
 import playBoard.Map;
 import player.Player;
 /**
@@ -18,7 +16,7 @@ public abstract class Race implements Serializable
 	protected String name;
 	protected String traitText;
 	protected String declineTraitText = "This race has no trait in decline.";
-	protected Player activePlayer;
+	protected Player selfPlayer;
 	protected Map map;
 	protected int raceIncome;
 	protected String image;
@@ -29,7 +27,7 @@ public abstract class Race implements Serializable
 		this.amountOfTokens = amountOfTokens;
 	}
 
-	public abstract void processAbility(Ammy ammy);
+	public abstract void processAbility(Player selfPlayer, Map map);
 
 	public int getAmountOfTokens()
 	{

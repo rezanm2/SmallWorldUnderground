@@ -1,6 +1,8 @@
 package specialPlaces;
 
-import main.Ammy;
+
+import playBoard.Map;
+import player.Player;
 /**
  * Deze klasse is verantwoordelijk voor het opslaan van de functionaliteit van de specialPlace
  * @author Bas Dorresteijn
@@ -14,7 +16,7 @@ public class Stonehedge extends SpecialPlace
 	}
 
 	@Override
-	public void processSpecialPlace(Ammy ammy) {
+	public void processSpecialPlace(Player selfPlayer, Map map) {
 		// TODO Auto-generated method stub
 
 	}

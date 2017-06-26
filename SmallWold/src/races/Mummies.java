@@ -1,7 +1,7 @@
 package races;
 
 import controllers.TerrainController;
-import main.Ammy;
+import playBoard.Map;
 import player.Hand;
 import player.Player;
 /**
@@ -24,12 +24,12 @@ public class Mummies extends Race
 	 * Zorgt ervoor dat elk terrein 1 meer kost om  over te nemen.
 	 */
 	@Override
-	public void processAbility(Ammy ammy) {
-		this.map = ammy.getMap();
-		this.activePlayer = ammy.getActivePlayer();
+	public void processAbility(Player selfPlayer, Map map) {
+		this.map = map;
+		this.selfPlayer = selfPlayer;
 
 		//This will be repeated in DeclareCombat class
-		if(activePlayer.getActiveSet().getRace().getName().equals(this.name))
+		if(selfPlayer.getActiveSet().getRace().getName().equals(this.name))
 		{
 		}
 	}

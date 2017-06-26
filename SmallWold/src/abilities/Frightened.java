@@ -1,6 +1,5 @@
 package abilities;
 
-import main.Ammy;
 import playBoard.Map;
 import player.Player;
 /**
@@ -21,14 +20,14 @@ public class Frightened extends Ability implements CalculatableIncome {
 	 * Checked of er meer dan 3 tokens liggen op 1 terrein en verhoogd de extra inkomsten.
 	 */
 	@Override
-	public void processAbility(Ammy ammy) {
-		this.activePlayer = ammy.getActivePlayer();
-		this.map = ammy.getMap();
+	public void processAbility(Player selfPlayer, Map map) {
+		this.selfPlayer = selfPlayer;
+		this.map = map;
 		abilityIncome = 0;
 
 		for(int terrainCounter=0;terrainCounter<map.getTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
-			if (activePlayer.getActiveSet().getRace().equals(map.getTerrains().get(terrainCounter).getRace()) &&
+			if (selfPlayer.getActiveSet().getRace().equals(map.getTerrains().get(terrainCounter).getRace()) &&
 					map.getTerrains().get(terrainCounter).getAmountOfTokens() >= 3)
 			{
 				abilityIncome++;

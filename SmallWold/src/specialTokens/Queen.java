@@ -1,7 +1,6 @@
 package specialTokens;
 
 import java.util.Scanner;
-import main.Ammy;
 import playBoard.Map;
 import player.Player;
 /**
@@ -16,10 +15,10 @@ public class Queen extends SpecialToken {
 	Scanner scanner;
 
 	@Override
-	public void processSpecialToken(Ammy ammy) {
+	public void processSpecialToken(Player selfPlayer, Map map) {
 
-		this.map = ammy.getMap();
-		this.activePlayer = ammy.getActivePlayer();
+		this.map = map;
+		this.selfPlayer = selfPlayer;
 
 		System.out.println("Welk terrein wil je de queen plaatsen token? ");
 		this.terrainNumber = scanner.nextInt()-1;

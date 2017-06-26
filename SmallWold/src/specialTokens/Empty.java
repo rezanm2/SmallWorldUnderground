@@ -1,7 +1,8 @@
 package specialTokens;
 
-import main.Ammy;
+
 import playBoard.Map;
+import player.Player;
 /**
  * Deze klasse bestaat zodat de specialToken op "leeg" gezet kan worden.
  * @author Marinus van den Oever, Reza Naser
@@ -10,6 +11,7 @@ public class Empty extends SpecialToken {
 
 	private Map map;
 	private int terrainNumber;
+	protected Player selfPlayer;
 
 	public Empty(){
 		name = "Empty";
@@ -17,7 +19,7 @@ public class Empty extends SpecialToken {
 	}
 
 	@Override
-	public void processSpecialToken(Ammy ammy) {
+	public void processSpecialToken(Player selfPlayer, Map map) {
 		// TODO Auto-generated method stub
 
 	}

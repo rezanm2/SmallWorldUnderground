@@ -1,7 +1,6 @@
 package abilities;
 
 import controllers.TerrainController;
-import main.Ammy;
 import playBoard.Map;
 import player.Player;
 /**
@@ -26,10 +25,10 @@ public class Royal extends Ability
 	 * Plaatst de queen in een gebied, die wordt immune.
 	 */
 	@Override
-	public void processAbility(Ammy ammy) {
-		this.map = ammy.getMap();
-		this.activePlayer = ammy.getActivePlayer();
-		this.terrainController = ammy.getTc();
+	public void processAbility(Player selfPlayer, Map map) {
+		this.selfPlayer = selfPlayer;
+		this.map = map;
+
 		for(int i = 0; i < map.getTerrains().size(); i++) {
 			if(map.getTerrains().get(i).getRelic().getName() == name)
 			{
@@ -37,8 +36,8 @@ public class Royal extends Ability
 				break;
 			}
 		}
-		if(activePlayer.getActiveSet().getRace().getName() == map.getTerrains().get(terrainNumber).getRace().getName()) {
-			terrainController.allRedeployableAreas(activePlayer.getActiveSet().getRace());
+		if(selfPlayer.getActiveSet().getRace().getName() == map.getTerrains().get(terrainNumber).getRace().getName()) {
+			terrainController.allRedeployableAreas(selfPlayer.getActiveSet().getRace());
 			changeTerrain(terrainController.getAreaPicked());
 			System.out.println(map.getTerrains().get(terrainNumber).getIsImmune());
 		}

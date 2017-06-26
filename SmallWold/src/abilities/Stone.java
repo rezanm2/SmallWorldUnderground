@@ -1,7 +1,7 @@
 package abilities;
 
 import controllers.TerrainController;
-import main.Ammy;
+import playBoard.Map;
 import player.Player;
 /**
  * Klasse die de ability bijhoudt met bijbehorende effecten.
@@ -23,10 +23,10 @@ public class Stone extends Ability implements CalculatableIncome
 	 * Checked de hoeveelheid stone-terreinen waar het ras op staat en verhoogd de extra inkomens.
 	 */
 	@Override
-	public void processAbility(Ammy ammy) {
-		this.tc = ammy.getTc();
-		this.activePlayer = ammy.getActivePlayer();
-		tc.checkTerrainType("Stone", activePlayer);
+	public void processAbility(Player selfPlayer, Map map) {
+		this.selfPlayer = selfPlayer;
+		this.map = map;
+		tc.checkTerrainType("Stone", selfPlayer.getActiveSet().getRace());
 		this.setAbilityIncome(tc.getTerrainStringCounter());
 	}
 

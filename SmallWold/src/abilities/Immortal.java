@@ -1,6 +1,5 @@
 package abilities;
 
-import main.Ammy;
 import playBoard.Map;
 import player.Player;
 /**
@@ -23,16 +22,16 @@ public class Immortal extends Ability implements CalculatableIncome
 	 * Zorgt ervoor dat het ras geen verliezen lijdt, maar alle tokens terugkrijgt na een verlies.
 	 */
 	@Override
-	public void processAbility(Ammy ammy) {
-		this.activePlayer = ammy.getActivePlayer();
-		this.map = ammy.getMap();
+	public void processAbility(Player selfPlayer, Map map) {
+		this.selfPlayer = selfPlayer;
+		this.map = map;
 
 			for(int terrainCounter=0;terrainCounter<map.getTerrains().size();terrainCounter++)		//As long as there are terrains
 			{
-				if (activePlayer.getActiveSet().getRace().equals(map.getTerrains().get(terrainCounter).getRace()))
+				if (selfPlayer.getActiveSet().getRace().equals(map.getTerrains().get(terrainCounter).getRace()))
 				{
 					returnTokens = returnTokens + map.getTerrains().get(terrainCounter).getAmountOfTokens();
-					activePlayer.getHand().setCurrentTokens(activePlayer.getHand().getCurrentTokens() + returnTokens);
+					selfPlayer.getHand().setCurrentTokens(selfPlayer.getHand().getCurrentTokens() + returnTokens);
 				}
 			}
 	}

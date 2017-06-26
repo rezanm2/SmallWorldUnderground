@@ -1,7 +1,8 @@
 package specialTokens;
 
-import main.Ammy;
+
 import playBoard.Map;
+import player.Player;
 /**
  *
  * Dit is de hoofdclass voor special Tokens.
@@ -14,13 +15,14 @@ public abstract class SpecialToken {
 
 	protected String name;
 	protected String traitText;
+	protected Player selfPlayer;
 	private int terrainNumber;
 	private Map map;
 
 	public SpecialToken(){
 	}
 
-	public abstract void processSpecialToken(Ammy ammy);
+	public abstract void processSpecialToken(Player selfPlayer, Map map);
 	public abstract void changeTerrain(int terrainNumber);
 
 	public void setName(String name)

@@ -3,7 +3,6 @@ package races;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import main.Ammy;
 import playBoard.Map;
 import controllers.TerrainController;
 import player.Player;
@@ -30,11 +29,10 @@ public class Spiderines extends Race
 	 * Zorgt ervoor dat het ras kan aanvallen via Chasms.
 	 */
 	@Override
-	public void processAbility(Ammy ammy)
+	public void processAbility(Player selfPlayer, Map map)
 	{
-		this.activePlayer = ammy.getActivePlayer();
-		this.tc = ammy.getTc();
-		this.map = ammy.getMap();
+		this.selfPlayer = selfPlayer;
+		this.map = map;
 		tc.checkAdjacentToTerrainType("Chasm");
 		//test.whichAreAdjacent();
 

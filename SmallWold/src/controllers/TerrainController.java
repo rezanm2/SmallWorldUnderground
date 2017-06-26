@@ -2,8 +2,6 @@ package controllers;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import main.Ammy;
 import playBoard.Map;
 import player.Player;
 import races.Race;
@@ -190,28 +188,15 @@ public class TerrainController
 	 * @param terrainString, het type terrein.
 	 * @param activePlayer, de speler.
 	 */
-	public void checkTerrainType(String terrainString, Player activePlayer)
+	public void checkTerrainType(String terrainString, Race race)
 	{
-		terrainCounter = 0;
-		elementCounter = 0;
-		terrain = 0;
-		value = 0;
-		terrainStringCounter = 0;
-		while(terrainCounter<map.getTerrains().size())				//While there's still terrains left
+
+		for(int terrainCounter = 0; terrainCounter<map.getTerrains().size(); terrainCounter++)
 		{
-			while(elementCounter<1)		//While there's still numbers in the terrain's array
+			if(map.getTerrains().get(terrain).getTerrainName().equals(terrainString) && map.getTerrains().get(terrain).getRace().equals(race))
 			{
-				if(map.getTerrains().get(terrain).getTerrainName().equals(terrainString) && map.getTerrains().get(terrain).getRace() == activePlayer.getActiveSet().getRace())
-				{
-					terrainStringCounter++;
-				}
-				value++;											//Look at the next value in the terrain's array, "eye"
-				elementCounter++;									//Keep track of which number in the array we're at
+				terrainStringCounter++;
 			}
-			value = 0;												//"Eye" back at number 0 in the array
-			elementCounter = 0;										//Back at number 0 in a fresh terrain
-			terrainCounter++;										//Keep track of which terrain we're at
-			terrain++;												//Look at the next terrain, "eye"
 		}
 	}
 

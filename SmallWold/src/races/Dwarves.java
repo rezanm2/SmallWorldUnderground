@@ -1,6 +1,6 @@
 package races;
 
-import main.Ammy;
+import playBoard.Map;
 import player.Hand;
 import player.Player;
 /**
@@ -21,15 +21,17 @@ public class Dwarves extends Race
 	 * Checked op hoeveel mines het ras staat en kent de silver hammers toe aan de speler.
 	 */
 	@Override
-	public void processAbility(Ammy ammy) {
-		this.activePlayer = ammy.getActivePlayer();
-		this.map = ammy.getMap();
+	public void processAbility(Player selfPlayer, Map map) {
+		this.selfPlayer = selfPlayer;
+		this.map = map;
+
+
 		for(int x=0;x<map.getTerrains().size();x++)
 		{
 			if(map.getTerrains().get(x).getRace().getName().equals(this.name)
 					&& map.getTerrains().get(x).getTerrainName().equals("Mine"))
 			{
-				activePlayer.getHand().setSilverHammers(activePlayer.getHand().getSilverHammers() + 1);
+				selfPlayer.getHand().setSilverHammers(selfPlayer.getHand().getSilverHammers() + 1);
 			}
 		}
 	}
