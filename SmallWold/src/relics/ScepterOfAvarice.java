@@ -40,7 +40,7 @@ public class ScepterOfAvarice extends Relic implements CalculatableIncome{
 		}
 		if(active == true && activePlayer.getActiveSet().getRace().getName() == map.getTerrains().get(terrainNumber).getRace().getName())
 		{
-			terrainController.setAllRedeployableAreas(activePlayer);
+			terrainController.allRedeployableAreas(activePlayer.getActiveSet().getRace());
 			System.out.println(map.getTerrains().get(terrainController.getAreaPicked()).getRelic().getName());
 			changeTerrain(terrainController.getAreaPicked());
 			System.out.println(map.getTerrains().get(terrainController.getAreaPicked()).getRelic().getName());

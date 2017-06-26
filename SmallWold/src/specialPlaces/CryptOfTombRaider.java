@@ -46,9 +46,9 @@ public class CryptOfTombRaider extends SpecialPlace
 			terrainController.setNotAdjacent();
 			terrainController.setNotAttackable();
 			terrainController.setNotRedeployable();
-			terrainController.setAllAttackableAreas(activePlayer);
-			terrainController.setAllAdjacentAreas(activePlayer);
-			terrainController.setAllRedeployableAreas(activePlayer);
+			terrainController.allAttackableAreas(activePlayer.getActiveSet().getRace());
+			terrainController.allAdjacentAreas(activePlayer.getActiveSet().getRace());
+			terrainController.allRedeployableAreas(activePlayer.getActiveSet().getRace());
 		}
 
 	}

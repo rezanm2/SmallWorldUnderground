@@ -47,8 +47,6 @@ public class Ammy
 	public void createCreators()		//This method creates all the creators, for future reference.
 	{
 		System.out.println("Ammy: I'm creating all the creators. \n" );
-		tc = new TerrainController(this);
-
 		toc = new TokenController(this);
 		System.out.println("Ammy: Done creating creators... \n");
 		System.out.println("A: I'm starting your game... \n");

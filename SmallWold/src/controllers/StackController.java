@@ -57,6 +57,9 @@ public class StackController {
 
 			controller.updateActiveSet();
 			serverSetService.updateSetList(player.getActiveSet().getRace().getName(), player.getActiveSet().getAbility().getName() );
+
+			player.setFirstAttack(true);
+
 		}
 		else {
 			System.out.println("Nope al een actieve set ");

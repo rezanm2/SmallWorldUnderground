@@ -6,6 +6,7 @@ import java.util.Scanner;
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
+import races.Race;
 import terrain.Terrain;
 /**
  * Deze klasse is verantwoordelijk voor het regelen van de terreinstatussen.
@@ -18,121 +19,97 @@ public class TerrainController
 	private Map map;
 	private int elementCounter = 0;
 	private int terrain = 0;
-
 	private int typeTerrainCounter;
 	private int value = 0;
-	private boolean validChoice;
 	private int areaPicked;
 	private int returnedTokens;
 	private int terrainStringCounter;
 	private ArrayList<Integer> Terrainslist = new ArrayList<Integer>();
 	Scanner input = new Scanner(System.in);
 
-	public TerrainController(Ammy ammy)
+	public TerrainController(Map map)
 	{
-		this.activePlayer = ammy.getActivePlayer();
-		this.map = ammy.getMap();
+		this.map = map;
 	}
-
 
 
 	/**
 	 * Zet alle terreinen op aangrenzend.
-	 * @param activePlayer, de speler waarvan de terreinen aangrezend gezet moeten worden.
+	 * @param race, het ras waarmee vergeleken moet worden..
 	 */
-	public void setAllAdjacentAreas(Player activePlayer)
+	public void allAdjacentAreas(Race race)
 	{
-		setNotAdjacent();
-		System.out.println("A: Setting all adjacent terrains for " + "\n");
-		this.activePlayer = activePlayer;
-
-//		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
-//		{
-//			if (activePlayer.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace())) //For every land that's the current player's
-//			{
-//				changeAllAdjacentAreas(map.getTerrain(terrainCounter).getElement(0));
-//			}
-//		}
-	}
-
-	/**
-	 * Zet all terreinen op aangrenzend.
-	 * @param code, de code van het terrein waarmee vergeleken moet worden.
-	 */
-	public void changeAllAdjacentAreas(String code)
-	{
-		for(terrainCounter = 0; terrainCounter<map.getTerrains().size(); terrainCounter++)
+		for(int terrainCounter = 0; terrainCounter<map.getTerrains().size(); terrainCounter++)	//For every terrain
 		{
-//			for(elementCounter = 1; elementCounter<map.getTerrain(terrainCounter).getIdArray().length; elementCounter++) //While there's still elements left
-//			{
-//				if(map.getTerrain(terrainCounter).getElement(elementCounter) == code)
-//				{
-//					map.getTerrain(terrainCounter).setIsAdjacent(true);			//If the idCode is found, set isAdjacent to true
-//				}
-//			}
+			if(map.getTerrains().get(terrainCounter).getRace() == null)
+			{
+			}
+			else
+			{
+				if(map.getTerrains().get(terrainCounter).getRace().equals(race))					//If it's the player's
+				{
+					for(int secondTerrainCounter = 0; secondTerrainCounter<map.getTerrains().size(); secondTerrainCounter++) //Search through all terrains
+					{
+						System.out.println("secondTerrainCounter: "+ secondTerrainCounter);
+						for(int elementCounter = 0; elementCounter<map.getTerrains().get(secondTerrainCounter).getIdArray().length; elementCounter++) //For the player's terrain's code
+						{
+
+							System.out.println("elementCounter: "+ elementCounter);
+							if(map.getTerrains().get(secondTerrainCounter).getElement(elementCounter).equals(map.getTerrains().get(terrainCounter).getElement(0)))
+							{
+								map.getTerrains().get(secondTerrainCounter).setIsAdjacent(true);	//And if found, set the area to adjacent.
+								System.out.println((secondTerrainCounter+1) + " is adjacent DID DTHIS.");
+							}
+						}
+					}
+				}
+			}
 		}
 	}
+
+
 	/**
 	 * Zet all terreinen op aanvalbaar.
 	 * @param activePlayer, de speler waarvan de terreinen aanvalbaar gezet moeten worden.
 	 */
-	public void setAllAttackableAreas(Player activePlayer)
+	public void allAttackableAreas(Race race)
 	{
-		setNotAttackable();
-		System.out.println("A: Setting all attackable terrains for " + "\n");
-		this.activePlayer = activePlayer;
-//		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
-//		{
-//			if(activePlayer.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace()))
-//			{
-//				changeAllAttackableAreas(map.getTerrain(terrainCounter).getElement(0));
-//			}
-//		}
+
+		System.out.println("Setting attackables");
+		for(int terrainCounter = 0; terrainCounter<map.getTerrains().size(); terrainCounter++)
+		{
+			for(int elementCounter = 0; elementCounter<map.getTerrains().get(terrainCounter).getIdArray().length; elementCounter++)
+			{
+				if(map.getTerrains().get(terrainCounter).getRace() == null || !map.getTerrains().get(terrainCounter).getRace().equals(race))
+				{
+					if(map.getTerrains().get(terrainCounter).getIsAdjacent() == true)
+					{
+						map.getTerrains().get(terrainCounter).setIsAttackable(true);
+					}
+				}
+			}
+		}
 	}
 
-	/**
-	 * Zet all terreinen op aanvalbaar.
-	 * @param code, de code van het terrein waarmee vergeleken moet worden.
-	 */
-	private void changeAllAttackableAreas(String code)
-	{
-//		for(terrainCounter = 0; terrainCounter<map.getAllTerrains().size(); terrainCounter++)
-//		{
-//			for(elementCounter = 1; elementCounter<map.getTerrain(terrainCounter).getIdArray().length-1; elementCounter++) //While there's still elements left
-//			{
-//				if(map.getTerrain(terrainCounter).getElement(elementCounter) == code
-//						&& !map.getTerrain(terrainCounter).getRace().equals(activePlayer.getActiveSet().getRace()))
-//				{
-//					map.getTerrain(terrainCounter).setIsAttackable(true);			//If the idCode is found, set isAdjacent to true
-//
-//				}
-//			}
-//		}
-	}
 	/**
 	 * Zet all terreinen op heraanvulbaar.
 	 * @param activePlayer, de speler wiens terreinen op heraanvulbaar gezet moeten worden.
 	 */
-	public void setAllRedeployableAreas(Player activePlayer)
+	public void allRedeployableAreas(Race race)
 	{
-		setNotRedeployable();
-		System.out.println("A: Setting all reinforcable terrains for " + "\n");
-		this.activePlayer = activePlayer;
-//		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
-//		{
-//			if (activePlayer.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace()))
-//			{
-//				map.getTerrain(terrainCounter).setIsRedeployable(true);
-//			}
-//		}
-
+		for(int terrainCounter = 0; terrainCounter<map.getTerrains().size(); terrainCounter++)
+		{
+			if(map.getTerrains().get(terrainCounter).getRace() == null || map.getTerrains().get(terrainCounter).getRace().equals(race))
+			{
+				map.getTerrains().get(terrainCounter).setIsRedeployable(true);
+			}
+		}
 	}
-
-
 	/**
-	 * Zet alle terreinen op niet aangrenzend.
+	 * Zet alle terreinen op niet aangrenzend
 	 */
-	public void setNotAdjacent()					//Set all the "isAttackable" booleans to false again
+
+	public void setNotAdjacent()
 	{
 		for(terrainCounter=0;terrainCounter<map.getTerrains().size();terrainCounter++)				//As long as there are terrains
 		{
@@ -171,7 +148,7 @@ public class TerrainController
 		{
 			if(map.getTerrains().get(typeTerrainCounter).getTerrainName().equals(terrainString))
 			{
-				changeAllAdjacentAreas(map.getTerrains().get(typeTerrainCounter).getElement(0));
+//				changeAllAdjacentAreas(map.getTerrains().get(typeTerrainCounter).getElement(0));
 
 				System.out.println("A: Beeping area (ArrayListPosition) " + (typeTerrainCounter+1));
 			}
@@ -187,7 +164,7 @@ public class TerrainController
 	{
 		for(typeTerrainCounter = 0; typeTerrainCounter<map.getTerrains().size(); typeTerrainCounter++)	//As long as there's terrains
 		{
-			changeAllAdjacentAreas(terrain.getElement(0));
+//			changeAllAdjacentAreas(terrain.getElement(0));
 		}
 	}
 
