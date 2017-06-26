@@ -124,19 +124,16 @@ public class FieldViewController {
 	{
 		try
 		{
-			System.out.println("WOOT CLICKS");
-
 			if(this.selfPlayer.isMyTurn())
 			{
 
-				System.out.println("First attack? " + selfPlayer.isFirstAttack());
+
 				if(selfPlayer.isFirstAttack() == true)
 				{
 					combatController.setBordersToAttackable();
 				}
 				else
 				{
-					System.out.println(selfPlayer.getName());
 					combatController.setAllAreas(selfPlayer);
 				}
 				declaredTokenAmount = 0;
@@ -178,7 +175,7 @@ public class FieldViewController {
 		HBox theBox = (HBox) buttonTarget.getParent();
 		TextField field = (TextField) theBox.getChildren().get(1);
 
-		int getal = Integer.parseInt(field.getText());
+		int getal = Integer.parseInt(tokenAmount);
 
 		FlowPane thePane = (FlowPane) theBox.getParent();
 		StackPane stackPane = (StackPane) thePane.getParent();
@@ -188,14 +185,21 @@ public class FieldViewController {
 		Terrain terrain = combatController.getMap().getTerrainById(terreinID);
 		terrain.getAmountOfTokens();
 
+
+
 		System.out.println("getal " + getal);
-		System.out.print("terrain " + terrain.getAmountOfTokens());
-		if(getal >= terrain.getAmountOfTokens() + terrain.getDefense() + 1){
+		System.out.println("terrain " + terrain.getAmountOfTokens());
+
+		System.out.println("To beat: " + (terrain.getAmountOfTokens() + terrain.getDefense() + 2));
+
+		if(getal >= terrain.getAmountOfTokens() + terrain.getDefense() + 2){
 			field.setStyle("-fx-text-inner-color: green");// green
+			System.out.println("Green.");
 		}
 
-		if (getal - (terrain.getAmountOfTokens() + terrain.getDefense() + 2) <= -3){
+		else if (getal +1 < terrain.getAmountOfTokens() + terrain.getDefense() - 2){
 			field.setStyle("-fx-text-inner-color: red");// red
+			System.out.println("Red.");
 		}
 
 		else{
@@ -204,7 +208,6 @@ public class FieldViewController {
 		}
 
 		field.setText(tokenAmount);
-
 	}
 
 	/**
@@ -215,7 +218,7 @@ public class FieldViewController {
 	public void buttonMin(ActionEvent pressButtonMin) {
 		if (declaredTokenAmount > 0 )
 		{
-			declaredTokenAmount = declaredTokenAmount - 1;
+			this.declaredTokenAmount = declaredTokenAmount - 1;
 			tokenAmount = String.valueOf(declaredTokenAmount);
 
 			updateTokenAmountTextField(pressButtonMin);
@@ -228,7 +231,7 @@ public class FieldViewController {
 	@FXML
 	public void buttonPlus(ActionEvent pressButtonPlus) {
 		if(declaredTokenAmount < selfPlayer.getHand().getCurrentTokens()){
-		declaredTokenAmount = declaredTokenAmount + 1;
+		this.declaredTokenAmount = declaredTokenAmount + 1;
 		tokenAmount = String.valueOf(declaredTokenAmount);
 
 		updateTokenAmountTextField(pressButtonPlus);
@@ -244,9 +247,10 @@ public class FieldViewController {
 	@FXML
 	public void buttonBevestig(ActionEvent pressButtonBevestig) throws RemoteException {
 		//getDeclaredTokenAmount();
-		combatController.declareTokenAmount(declaredTokenAmount);
+		combatController.declareTokenAmount(this.declaredTokenAmount);
+
+		System.out.println("declaredTokenAmount: " + this.declaredTokenAmount);
 		//redploymentController.declareTokenAmount(getDeclaredTokenAmount());
-		System.out.println(declaredTokenAmount);
 		this.declarePanePrevious.setVisible(false);
 
 		throughTheList = -1;

@@ -271,7 +271,7 @@ public class StackSet {
 
 	public void test() {
 		for (Set set : sets) {
-			System.out.println("testing sets: " + set.getAbility().getName() + " - " + set.getRace().getName());
+			//System.out.println("testing sets: " + set.getAbility().getName() + " - " + set.getRace().getName());
 		}
 
 	}
@@ -285,7 +285,7 @@ public class StackSet {
 				System.out.println("found race");
 				return race;
 			}
-			System.out.println(" looking for race from server: " + raceName.toString()+ " found: " + race.getName() );
+		//	System.out.println(" looking for race from server: " + raceName.toString()+ " found: " + race.getName() );
 		}
 		System.out.println("CLIENT SOMETHING WENT WRONG COULD NOT FIND RACE FROM SERVER");
 		return null;
