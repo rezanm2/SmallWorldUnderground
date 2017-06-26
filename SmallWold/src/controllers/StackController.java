@@ -56,14 +56,29 @@ public class StackController {
 			System.out.println("client: player race: " + player.getActiveSet().getAbility().getName());
 
 			controller.updateActiveSet();
-			serverSetService.updateSetList(player.getActiveSet().getRace().getName(), player.getActiveSet().getAbility().getName() );
-
-			player.setFirstAttack(true);
-
+			System.out.println("NAAAAAAAMMM:!!!!!!!!! "+player.getName());
+			serverSetService.updateSetList(player.getName(), player.getActiveSet().getRace().getName(), player.getActiveSet().getAbility().getName());
+			
 		}
 		else {
 			System.out.println("Nope al een actieve set ");
 		}
 
+	}
+	public void setDecline() throws RemoteException
+	{
+		Player player  = this.stack.getPlayer();
+		player.setDeclineSet(player.getActiveSet());
+		System.out.println("Set is now declined");
+		serverSetService.updateDeclineset(player.getName(), player.getDeclineSet().getRace().getName(), player.getDeclineSet().getAbility().getName());
+	}
+	public void setServiceSkeleton(SetServiceSkeleton serverSetService)
+	{
+		this.serverSetService = serverSetService;
+	}
+
+	public void getAllInformationPlayer() throws RemoteException {
+		Player player  = this.stack.getPlayer();
+		serverSetService.giveAllInformationPlayer(player.getName(), player.getHand().getCurrentTokens(), player.getHand().getDeclineTokens(), player.getCoins());
 	}
 }

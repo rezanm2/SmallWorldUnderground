@@ -77,10 +77,29 @@ public class TabViewController {
     private ImageView pick_ability_6;
 
 	@FXML
-    private ImageView ac_ab_1;
+    private ImageView activePlayer1Race;
 
 	@FXML
-    private ImageView ac_rc_1;
+    private ImageView activePlayer1Ability;
+	
+	@FXML
+    private ImageView activePlayer2Race;
+
+	@FXML
+    private ImageView activePlayer2Ability;
+	
+	@FXML
+    private ImageView activePlayer3Race;
+
+	@FXML
+    private ImageView activePlayer3Ability;
+	
+	@FXML
+    private ImageView activePlayer4Race;
+
+	@FXML
+    private ImageView activePlayer4Ability;
+	
 	private BottomBarController bottomBarController;
 	private SettingController settingBarController;
 	private SideBarController sidebarController;
@@ -99,6 +118,7 @@ public class TabViewController {
 	public void pickSet(MouseEvent ev) throws RemoteException
 	{
 			if(this.selfPlayer.isMyTurn()){
+			
 			ImageView test = (ImageView) ev.getTarget();
 			System.out.println(test.getId());
 			char [] iets = test.getId().toCharArray();
@@ -106,10 +126,13 @@ public class TabViewController {
 			int choice = Character.getNumericValue(iets[iets.length-1]);
 			System.out.println(choice);
 			stackset.getStackController().chooseSet(choice-1);
-
+			
 			sidebarController.updateVisibleButton();
 			sidebarController.updateButtonText("End Conquer");
 			bottomBarController.updateCurrentTokens();
+			
+			
+			
 			}
 	}
 
@@ -121,6 +144,33 @@ public class TabViewController {
     public void showView(){
     	mainPane.setVisible(true); //activate on TAB key pressed - called in FieldViewController
     }
+    public void setActive()
+    {
+    	//for(int x=0;x<2;x++)
+    	//{
+    	//for(int x=0;x<stackset.getPlayerName().size();x++)
+    	//{
+    		//System.out.println(stackset.getPlayerName().get(x));
+    		//System.out.println(stackset.getPlayerName().size());
+    	//}
+    		
+	    	System.out.println(stackset.getActiveAbility());
+	    	System.out.println(stackset.getPlayerName());
+	    	System.out.println(stackset.getActiveRace());
+	    	//System.out.println(selfPlayer.getActiveSet().getRace().getName());
+	    	//if(stackset.getActiveRace2() == null && stackset.getActiveAbility2() ==null)
+			//{
+	    		activePlayer1Race.setImage(new Image("/images/races/server/"+stackset.getActiveRace()+".png"));
+				activePlayer1Ability.setImage(new Image("/images/abilitys/server/"+stackset.getActiveAbility()+".png"));
+			//}
+			//if(stackset.getActiveRace2() != null && stackset.getActiveAbility2() !=null)
+			//{
+				activePlayer2Race.setImage(new Image("/images/races/server/"+stackset.getActiveRace2()+".png"));
+				activePlayer2Ability.setImage(new Image("/images/abilitys/server/"+stackset.getActiveAbility2()+".png"));
+			//}
+			//activePlayer1Ability.setImage(new Image("/images/abilitys/active/"+stackset.getActiveAbility()+".png"));
+    	//}
+    }
     /**
 	 * Maakt de mainPane onzichtbaar.
 	 * Bijzonderheden: Wordt opgeroepen in de fieldviewcontroller.
@@ -129,6 +179,11 @@ public class TabViewController {
     	mainPane.setVisible(false); //activate on TAB key release - called in FieldViewController
 
     }
+    public void ShowName(){
+    	   player_1.setText(String.valueOf(stackset.getPlayerName()));
+
+    }
+ 
 	public void setPlayerRef(Player selfPlayer) {
 		this.selfPlayer = selfPlayer;
 	}
@@ -145,7 +200,7 @@ public class TabViewController {
      * @param sets, de totaalcollectie van alle sets bij elkaar.
      */
 	public void setStack(ObservableList<Set> sets) {
-
+		//player_1.setText(String.valueOf(stackset.getPlayerName()));
 		pick_race_1.setImage(new Image("/images/races/active/"+sets.get(0).getRace().getName()+".png"));
 		pick_race_2.setImage(new Image("/images/races/active/"+sets.get(1).getRace().getName()+".png"));
 		pick_race_3.setImage(new Image("/images/races/active/"+sets.get(2).getRace().getName()+".png"));
@@ -159,6 +214,10 @@ public class TabViewController {
 		pick_ability_4.setImage(new Image("/images/abilitys/active/"+sets.get(3).getAbility().getName()+".png"));
 		pick_ability_5.setImage(new Image("/images/abilitys/active/"+sets.get(4).getAbility().getName()+".png"));
 		pick_ability_6.setImage(new Image("/images/abilitys/active/"+sets.get(5).getAbility().getName()+".png"));
+		
+		setActive();
+		//ShowName();
+
 
 
 
@@ -171,11 +230,15 @@ public class TabViewController {
 	public void setSettingBarController(SettingController settingController) {
 		this.settingBarController = settingController;
 	}
+	public SettingController getSettingBarController()
+	{
+		return this.settingBarController;
+	}
 	public void updateActiveSet()
 	{
 		bottomBarController.setActiveSet();
 	}
-	public void updateDeclineSet()
+	public void updateDeclineSet() throws RemoteException
 	{
 		settingBarController.setDecline();
 	}
@@ -183,6 +246,10 @@ public class TabViewController {
 	public void setSideBarController(SideBarController sidebarController) {
 		this.sidebarController = sidebarController;
 
+	}
+	public StackSet getStackSet()
+	{
+		return this.stackset;
 	}
 
 

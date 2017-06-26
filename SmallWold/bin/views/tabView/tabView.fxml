@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="mainPane" onMouseClicked="#onclick" prefHeight="839.0" prefWidth="1557.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.tabView.TabViewController">
+<StackPane fx:id="mainPane" prefHeight="839.0" prefWidth="1557.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.tabView.TabViewController">
    <children>
       <ImageView fitHeight="862.0" fitWidth="1557.0" pickOnBounds="true">
          <image>
@@ -38,12 +38,12 @@
          <children>
             <HBox prefHeight="166.0" prefWidth="472.0" GridPane.rowIndex="1">
                <children>
-                  <ImageView id="ac_ab_2" fitHeight="118.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="ac_ab_2" fx:id="activePlayer1Ability" fitHeight="118.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/abilitys/frightend.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="ac_rc_1" fitHeight="104.0" fitWidth="204.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="ac_rc_1" fx:id="activePlayer1Race" fitHeight="104.0" fitWidth="204.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/races/placeHolder.png" />
                      </image>
@@ -52,12 +52,12 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
                <children>
-                  <ImageView id="ac_ab_4" fitHeight="99.0" fitWidth="117.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="ac_ab_4" fx:id="activePlayer2Ability" fitHeight="99.0" fitWidth="117.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/abilitys/frightend.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="ac_rc_4" fitHeight="161.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="ac_rc_4" fx:id="activePlayer2Race" fitHeight="161.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/races/placeHolder.png" />
                      </image>

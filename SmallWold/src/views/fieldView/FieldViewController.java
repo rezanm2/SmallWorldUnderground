@@ -27,6 +27,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import playBoard.Map;
 import player.Player;
 import terrain.Terrain;
 import views.sideBarView.SideBarController;
@@ -363,5 +364,10 @@ public class FieldViewController {
 	public void setPlayer(Player selfPlayer) {
 		this.selfPlayer = selfPlayer;
 
+	}
+
+	public Map getMap() {
+		// TODO Auto-generated method stub
+		return combatController.getMap();
 	}
 }

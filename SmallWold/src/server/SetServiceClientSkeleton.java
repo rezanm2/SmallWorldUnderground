@@ -13,5 +13,10 @@ public interface SetServiceClientSkeleton  extends Remote{
 
 	void updateStackList(ArrayList<String> raceList, ArrayList<String> abilityList) throws RemoteException;
 
+	void updateSetsPlayer1(String playerNames, String playerRaces, String playerAbilities, int amountPlayer)
+			throws RemoteException;
+
+	void updateSetsPlayer2(String name, String race, String ability, int amountPlayer) throws RemoteException;
+
 
 }
