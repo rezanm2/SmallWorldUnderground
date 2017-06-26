@@ -47,6 +47,7 @@ public class Map {
 		this.playerAmount = playerAmount;
 		this.terrains = createMap(playerAmount);
 		this.setStack(stack);
+		this.stack.setMap(this);
 	}
 	/**
 	 * Het speelbord wordt gemaakt door het aantal spelers mee te geven.

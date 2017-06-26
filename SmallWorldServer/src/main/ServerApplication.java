@@ -56,7 +56,7 @@ public class ServerApplication  extends Application{
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/Server.fxml"));	//get xml file
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/Server.fxml"));	//get xml file
 		System.out.println(loader);
 		Parent View  = loader.load();														//load xml file to object
 		ServerController controller = loader.getController();								//get controller
