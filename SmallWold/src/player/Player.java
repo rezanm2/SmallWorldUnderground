@@ -23,6 +23,7 @@ public class Player implements Serializable{
 	private Set activeSet;
 	private Set declineSet;
 	private boolean myTurn;
+	private boolean firstAttack;
 	private String name;
 
 
@@ -113,4 +114,13 @@ public class Player implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public boolean isFirstAttack() {
+		return firstAttack;
+	}
+
+	public void setFirstAttack(boolean hasFirstAttack) {
+		this.firstAttack = hasFirstAttack;
+	}
+
 }

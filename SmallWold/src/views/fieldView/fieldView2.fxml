@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 
-<BorderPane onKeyPressed="#keyPressed" onKeyReleased="#keyReleased" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.fieldView.FieldViewController">
+<BorderPane onKeyPressed="#keyPressed" onKeyReleased="#keyReleased" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.fieldView.FieldViewController">
    <center>
       <StackPane fx:id="stackPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="915.0" prefWidth="1755.0" BorderPane.alignment="CENTER">
          <children>
@@ -103,7 +103,7 @@
                            </children>
                         </StackPane>
                      </children></StackPane>
-                  <StackPane layoutX="1073.0" layoutY="14.0" onMouseClicked="#declareTokenClick" prefHeight="150.0" prefWidth="200.0">
+                  <StackPane fx:id="AD" layoutX="1073.0" layoutY="14.0" onMouseClicked="#declareTokenClick" prefHeight="150.0" prefWidth="200.0">
                      <children>
                         <HBox prefHeight="100.0" prefWidth="200.0" />
                         <StackPane prefHeight="150.0" prefWidth="200.0" visible="false">

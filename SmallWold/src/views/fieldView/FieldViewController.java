@@ -42,9 +42,7 @@ public class FieldViewController {
 	private StackPane declarePanePrevious = new StackPane();
 	private int declaredTokenAmount;
 	private int throughTheList = -1;
-
 	private String tokenAmount;
-
 	private CombatController combatController;// = new CombatController(test, 2, this, null); ////@@@@@@@@@@@@@@@@@@@@@@@@@@@@ remove later
 	private RedeploymentController redploymentController;// = new RedeploymentController(test, 2, this, null);
 
@@ -117,32 +115,51 @@ public class FieldViewController {
 	 *
 	 * @param event, de muisklik die aangeeft welk terrein de speler heeft gekozen.
 	 */
+
+
 	@FXML
-	public void declareTokenClick(MouseEvent event) {
-		try {
-			if(this.selfPlayer.isMyTurn()){
+	public void declareTokenClick(MouseEvent event)
+	{
+		try
+		{
+			System.out.println("WOOT CLICKS");
 
-			declaredTokenAmount = 0;
+			if(this.selfPlayer.isMyTurn())
+			{
 
-			HBox tokenBox = (HBox) event.getTarget();
-			StackPane fieldPane = (StackPane) tokenBox.getParent();
-			StackPane declarePane =(StackPane) fieldPane.getChildren().get(1); // (0) = hbox
-
-
-			FlowPane flowPane = (FlowPane) declarePane.getChildren().get(1);
-
-
-			HBox hbox = (HBox) flowPane.getChildren().get(1);
-			TextField textField = (TextField) hbox.getChildren().get(1);
-			textField.setText("0");
-
-			declarePane.setVisible(true);
-			this.declarePanePrevious.setVisible(false);
-			this.declarePanePrevious = declarePane;
-			throughTheList = 1;
+				System.out.println("First attack? " + selfPlayer.isFirstAttack());
+				if(selfPlayer.isFirstAttack() == true)
+				{
+					combatController.setBordersToAttackable();
+				}
+				else
+				{
+					System.out.println(selfPlayer.getName());
+					combatController.setAllAreas(selfPlayer);
+				}
+				declaredTokenAmount = 0;
+				HBox tokenBox = (HBox) event.getTarget();
+				StackPane fieldPane = (StackPane) tokenBox.getParent();
+				combatController.isItAValidChoice(fieldPane);
+				if(combatController.isValidChoice() == false)
+				{
+					System.out.println("Naww.");
+				}
+				else
+				{
+					StackPane declarePane =(StackPane) fieldPane.getChildren().get(1); // (0) = hbox
+					FlowPane flowPane = (FlowPane) declarePane.getChildren().get(1);
+					HBox hbox = (HBox) flowPane.getChildren().get(1);
+					TextField textField = (TextField) hbox.getChildren().get(1);
+					textField.setText("0");
+					declarePane.setVisible(true);
+					this.declarePanePrevious.setVisible(false);
+					this.declarePanePrevious = declarePane;
+					throughTheList = 1;
+				}
 			}
-
-		} catch (ClassCastException e) {
+		} catch (ClassCastException e)
+		{
 			System.out.println("Je hebt hier al op geklikt. ");
 		}
 	}
@@ -211,6 +228,7 @@ public class FieldViewController {
 
 		this.combatController.calculateCombat(declarePanePrevious.getParent().getId());
 		this.sideBarControl.hideDeclineButton();
+		selfPlayer.setFirstAttack(false);
 	}
 
 	public int getDeclaredTokenAmount() {
