@@ -1,13 +1,13 @@
 package relics;
 
-import controllers.CombatController_old;
-import controllers.MapTester;
 import controllers.TerrainController;
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
-import setup.DeclareCombat;
-
+/**
+ * Deze klasse houdt de functionaliteit van de relic in zich.
+ * @author Bas Dorresteijn
+ */
 public class FlyingDoormat extends Relic {
 
 	//TerrainController tc;
@@ -16,8 +16,6 @@ public class FlyingDoormat extends Relic {
 	int terrainNumber;
 	private Player activePlayer;
 	private TerrainController terrainController;
-	private DeclareCombat declareCombat;
-	private MapTester mapTester;
 
 	public FlyingDoormat(){
 		name = "Flying Doormat";
@@ -25,39 +23,42 @@ public class FlyingDoormat extends Relic {
 	}
 
 
+	/**
+	 * Zorgt ervoor dat alle terrein aanvalbaar zijn.
+	 */
 	public void processRelic(Ammy ammy) {
 		this.map = ammy.getMap();
 		this.activePlayer = ammy.getActivePlayer();
 		this.terrainController = ammy.getTc();
-		this.declareCombat = ammy.getDc();
-		this.mapTester = ammy.getTest();
-		for(int i = 0; i < map.getAllTerrains().size(); i++) {
-			if(map.getTerrain(i).getRelic().getName() == name)
+		for(int i = 0; i < map.getTerrains().size(); i++) {
+			if(map.getTerrains().get(i).getRelic().getName() == name)
 			{
 				terrainNumber = i;
 				break;
 			}
 		}
 
-		if(active == true && activePlayer.getActiveSet().getRace().getName() == map.getTerrain(terrainNumber).getRace().getName()) {
-			for(int i = 0; i < map.getAllTerrains().size(); i++) {
-				if(!map.getTerrain(i).getTerrainName().equals("Chasm") && !map.getTerrain(i).getRace().getName().equals(activePlayer.getActiveSet().getRace().getName())) {
-					map.getTerrain(i).setIsAttackable(true);
+		if(active == true && activePlayer.getActiveSet().getRace().getName() == map.getTerrains().get(terrainNumber).getRace().getName()) {
+			for(int i = 0; i < map.getTerrains().size(); i++) {
+				if(!map.getTerrains().get(i).getTerrainName().equals("Chasm") && !map.getTerrains().get(i).getRace().getName().equals(activePlayer.getActiveSet().getRace().getName())) {
+					map.getTerrains().get(i).setIsAttackable(true);
 				}
 			}
 			System.out.println("Set everything attackable");
-			mapTester.whichAreAttackable();
-			declareCombat.processAttack(activePlayer);
-			System.out.println(map.getTerrain(terrainNumber).getTerrainName());
+			//declareCombat.processAttack(activePlayer);
+			System.out.println(map.getTerrains().get(terrainNumber).getTerrainName());
 			changeTerrain(terrainController.getAreaPicked());
-			System.out.println(map.getTerrain(terrainNumber).getTerrainName());
+			System.out.println(map.getTerrains().get(terrainNumber).getTerrainName());
 			active = false;
 		}
 	}
 
+	/**
+	 * Zet de relic neer op de plek waar hij voor gebruikt is.
+	 */
 	public void changeTerrain(int terrainNumber) {
-		map.getTerrain(this.terrainNumber).setRelic(new Empty());
-		map.getTerrain(terrainNumber).setRelic(this);
+		map.getTerrains().get(this.terrainNumber).setRelic(new Empty());
+		map.getTerrains().get(terrainNumber).setRelic(this);
 		this.terrainNumber = terrainNumber;
 	}
 }

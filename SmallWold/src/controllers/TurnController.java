@@ -10,7 +10,7 @@ import views.sideBarView.SideBarController;
 /**
  * Deze controllerClass bepaalt hoeveel coins de speler krijgt aan het eind van zijn/haar beurt.
  *
- * @author Groep13
+ * @author Wim van der Putten, Marinus van den Oever
  *
  */
 

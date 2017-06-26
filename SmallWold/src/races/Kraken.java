@@ -3,7 +3,10 @@ package races;
 import controllers.TerrainController;
 import main.Ammy;
 import player.Player;
-
+/**
+ * Deze klasse is verantwoordelijk voor het bijhouden van gegevens en de ability van het ras.
+ * @author Marinus van den Oever
+ */
 public class Kraken extends Race
 {
 	private int abilityIncome;
@@ -19,6 +22,9 @@ public class Kraken extends Race
 		declineTraitText = traitText;
 	}
 
+	/**
+	 * Checked op hoeveel rivierterreinen het ras staat en berekent de extra inkomsten.
+	 */
 	@Override
 	public void processAbility(Ammy ammy) {
 		this.activePlayer = ammy.getActivePlayer();

@@ -1,10 +1,12 @@
 package abilities;
 
-import controllers.CombatController_old;
 import controllers.TerrainController;
 import main.Ammy;
 import player.Player;
-
+/**
+ * Klasse die de ability bijhoudt met bijbehorende effecten.
+ * @author Marinus van den Oever
+ */
 public class Muddy extends Ability implements CalculatableIncome
 {
 	TerrainController tc;
@@ -18,6 +20,9 @@ public class Muddy extends Ability implements CalculatableIncome
 		declineTraitText = traitText;
 	}
 
+	/**
+	 * Checked op hoeveel mud-terreinen het ras staat en verhoogd de extra inkomsten.
+	 */
 	@Override
 	public void processAbility(Ammy ammy) {
 		this.activePlayer = ammy.getActivePlayer();

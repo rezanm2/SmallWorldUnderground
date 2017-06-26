@@ -1,10 +1,12 @@
 package abilities;
 
-import controllers.CombatController_old;
 import controllers.TerrainController;
 import main.Ammy;
 import player.Player;
-
+/**
+ * Klasse die de ability bijhoudt met bijbehorende effecten.
+ * @author Marinus van den Oever
+ */
 public class Mining extends Ability  implements CalculatableIncome
 {
 	TerrainController tc;
@@ -17,6 +19,9 @@ public class Mining extends Ability  implements CalculatableIncome
 		traitText = "+1 coin for each mine region";
 	}
 
+	/**
+	 * Checked op hoeveel Mines het ras staat en verhoogd de inkomsten.
+	 */
 	@Override
 	public void processAbility(Ammy ammy)
 	{

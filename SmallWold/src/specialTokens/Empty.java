@@ -2,7 +2,10 @@ package specialTokens;
 
 import main.Ammy;
 import playBoard.Map;
-
+/**
+ * Deze klasse bestaat zodat de specialToken op "leeg" gezet kan worden.
+ * @author Marinus van den Oever, Reza Naser
+ */
 public class Empty extends SpecialToken {
 
 	private Map map;
@@ -20,8 +23,8 @@ public class Empty extends SpecialToken {
 	}
 
 	public void changeTerrain(int terrainNumber) {
-		map.getTerrain(this.terrainNumber).setSpecialToken(new Empty());
-		map.getTerrain(terrainNumber).setSpecialToken(this);
+		map.getTerrains().get(this.terrainNumber).setSpecialToken(new Empty());
+		map.getTerrains().get(terrainNumber).setSpecialToken(this);
 		this.terrainNumber = terrainNumber;
 	}
 

@@ -1,10 +1,12 @@
 package abilities;
 
-import controllers.CombatController_old;
 import controllers.TerrainController;
 import main.Ammy;
 import player.Player;
-
+/**
+ * Klasse die de ability bijhoudt met bijbehorende effecten.
+ * @author Marinus van den Oever
+ */
 public class Stone extends Ability implements CalculatableIncome
 {
 	TerrainController tc;
@@ -17,6 +19,9 @@ public class Stone extends Ability implements CalculatableIncome
 		traitText = "+1 coin for each Stone region";
 	}
 
+	/**
+	 * Checked de hoeveelheid stone-terreinen waar het ras op staat en verhoogd de extra inkomens.
+	 */
 	@Override
 	public void processAbility(Ammy ammy) {
 		this.tc = ammy.getTc();

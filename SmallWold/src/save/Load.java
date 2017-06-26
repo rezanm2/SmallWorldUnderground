@@ -9,19 +9,26 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 
 import player.Player;
-
+/**
+ * Deze klasse is verantwoordelijk voor het laden van een eerder opgeslagen spel.
+ * @author Reza Naser
+ */
 
 public class Load {
 	Player player2;
-	
+
 	public static void main(String[] arg){
 
-			
+
 //		}
 //		catch(Exception exc){
 //		exc.printStackTrace(); // If there was an error, print the info.
 //		}
 	}
+	/**
+	 * Laad het spel.
+	 * @return player2, de spelers.
+	 */
 	public Player loaden()
 	{
 		try {

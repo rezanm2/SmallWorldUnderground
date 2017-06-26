@@ -1,7 +1,10 @@
 package specialPlaces;
 
 import main.Ammy;
-
+/**
+ * Deze klasse is verantwoordelijk voor het opslaan van de functionaliteit van de specialPlace
+ * @author Jeroen Zandvliet
+ */
 public class AltarOfSouls extends SpecialPlace
 {
 	public AltarOfSouls()

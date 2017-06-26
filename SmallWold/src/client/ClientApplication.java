@@ -25,7 +25,7 @@ import views.tabView.TabViewController;
 /**
  * Deze class is de clientApplicatie die een javafx applicatie extends.
  *
- * @author Groep13
+ * @author Wim van der Putten
  *
  */
 
@@ -94,7 +94,7 @@ public class ClientApplication extends Application{
 	 *
 	 * @param playerAmount, het aantal spelers wat meespeelt bij het spel.
 	 * @param players, de lijst van spelers die meedoen.
-	 * @throws IOException
+	 * @throws IOException, exception given when the wrong input is given.
 	 */
 
 	public void StartGameScreen(int playerAmount , ObservableList<JoinedPlayers> players ) throws IOException{

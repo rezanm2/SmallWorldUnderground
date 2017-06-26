@@ -1,17 +1,16 @@
 package specialTokens;
 import java.util.Scanner;
-
-import controllers.CombatController_old;
-import controllers.MapTester;
 import controllers.TerrainController;
 import main.Ammy;
 import playBoard.Map;
 import player.Player;
 
+/**
+ * Deze klasse houdt de status van deze special Token bij en zijn functionaliteit.
+ * @author Marinus van den Oever, Reza Naser
+ */
 public class Ancient extends SpecialToken {
 	Map map;
-	MapTester mapTester;
-	CombatController_old cc;
 	int terrainNumber;
 	private Player activePlayer;
 	private TerrainController terrainController;
@@ -26,29 +25,26 @@ public class Ancient extends SpecialToken {
 		this.map = ammy.getMap();
 		this.activePlayer = ammy.getActivePlayer();
 		this.terrainController = ammy.getTc();
-		this.mapTester = ammy.getTest();
-		this.cc = ammy.getCc();
-		
+
 			System.out.println("Do you want replace your Ancient? ");
 			yesOrNo = scanner.nextLine();
 			if(yesOrNo.equals("y")  || yesOrNo.equals("Y") )
 			{
-				if(map.getTerrain(terrainNumber).getRace().getName().equals("Cultists"))
+				if(map.getTerrains().get(terrainNumber).getRace().getName().equals("Cultists"))
 				{
 					System.out.println("On which terrain? ");
 					this.terrainNumber = scanner.nextInt()-1;
-					
-					terrainController.checkAdjacentToSingleTerrain(map.getTerrain(terrainNumber));
-					
-					if(map.getTerrain(terrainNumber).getIsAdjacent() && 
-							map.getTerrain(terrainNumber).getSpecialToken().equals(this))
+
+					terrainController.checkAdjacentToSingleTerrain(map.getTerrains().get(terrainNumber));
+
+					if(map.getTerrains().get(terrainNumber).getIsAdjacent() &&
+							map.getTerrains().get(terrainNumber).getSpecialToken().equals(this))
 					{
 						changeTerrain(terrainNumber);
-						cc.setMiscModifier(1);
 					}
-					for(int x=0;x<map.getAllTerrains().size();x++)
+					for(int x=0;x<map.getTerrains().size();x++)
 					{
-						System.out.println("Terrain number: " + (x+1) + " is changed to " + map.getTerrain(x).getSpecialToken());
+						System.out.println("Terrain number: " + (x+1) + " is changed to " + map.getTerrains().get(x).getSpecialToken());
 
 					}
 					String yesOrNo = "";
@@ -63,9 +59,9 @@ public class Ancient extends SpecialToken {
 
 	}
 	public void changeTerrain(int terrainNumber) {
-		map.getTerrain(this.terrainNumber).setIsImmune(false);
-		map.getTerrain(this.terrainNumber).setSpecialToken(new Empty());
-		map.getTerrain(terrainNumber).setSpecialToken(this);
+		map.getTerrains().get(this.terrainNumber).setIsImmune(false);
+		map.getTerrains().get(this.terrainNumber).setSpecialToken(new Empty());
+		map.getTerrains().get(terrainNumber).setSpecialToken(this);
 		this.terrainNumber = terrainNumber;
 	}
 	public String getName()

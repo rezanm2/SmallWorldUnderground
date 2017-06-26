@@ -2,7 +2,10 @@ package races;
 
 import main.Ammy;
 import player.Player;
-
+/**
+ * Deze klasse bestaat zodat het ras op leeg gezet kan worden.
+ * @author Jeroen Zandvliet
+ */
 public class Empty extends Race
 {
 

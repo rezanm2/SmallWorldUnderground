@@ -8,7 +8,7 @@ import specialTokens.SpecialToken;
 /**
  * Klasse terrain is verantwoordelijk voor het bijhouden van de inhoud van een specifiek terrein.
  *
- * @author Groep13.
+ * @author Jeroen Zandvliet
  *
  */
 public abstract class Terrain
@@ -32,10 +32,10 @@ public abstract class Terrain
 
 	public Terrain(String[] idArray)
 	{
-
 		this.idArray = idArray;
 	}
-	public String getTerrainId(){
+	public String getTerrainId()
+	{
 		return this.idArray[0];
 	}
 

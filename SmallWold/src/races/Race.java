@@ -7,9 +7,9 @@ import playBoard.Map;
 import player.Player;
 /**
  * Deze class is de hoofdclass voor alle races die er zijn.
- * Het bevat het aantal tokens en maxtokens, de naam, traittext, raceinkomens. 
- * 
- * @author Groep13
+ * Het bevat het aantal tokens en maxtokens, de naam, traittext, raceinkomens.
+ *
+ * @author  Jeroen Zandvliet, Wim van der Putten
  */
 public abstract class Race implements Serializable
 {

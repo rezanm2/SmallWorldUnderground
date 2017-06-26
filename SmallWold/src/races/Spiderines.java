@@ -3,29 +3,21 @@ package races;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 import main.Ammy;
 import playBoard.Map;
-import controllers.CombatController_old;
-import controllers.MapTester;
 import controllers.TerrainController;
 import player.Player;
-import setup.DeclareCombat;
-import setup.PickRegions;
-import setup.RedeployAreas;
-
+/**
+ * Deze klasse is verantwoordelijk voor het bijhouden van gegevens en de ability van het ras.
+ * @author Reza Naser
+ */
 public class Spiderines extends Race
 {
 	TerrainController tc;
-	MapTester test;
-	PickRegions pickRegions;
 	Scanner scanner = new Scanner(System.in);
 	private int nr;
 	private String yesOrNo = "";
-	CombatController_old cc;
 	Map map;
-	DeclareCombat dc;
-	RedeployAreas ra;
 	public Spiderines()
 	{
 		amountOfTokens = 7;
@@ -34,23 +26,23 @@ public class Spiderines extends Race
 		traitText = "Can attack through Chasms";
 	}
 
+	/**
+	 * Zorgt ervoor dat het ras kan aanvallen via Chasms.
+	 */
 	@Override
-	public void processAbility(Ammy ammy) 
+	public void processAbility(Ammy ammy)
 	{
 		this.activePlayer = ammy.getActivePlayer();
 		this.tc = ammy.getTc();
-		this.test = ammy.getTest();
 		this.map = ammy.getMap();
-		this.cc = ammy.getCc();
-		this.pickRegions = ammy.getPickRegions();
 		tc.checkAdjacentToTerrainType("Chasm");
 		//test.whichAreAdjacent();
-		
-		for(int x=0;x<map.getAllTerrains().size();x++)
+
+		for(int x=0;x<map.getTerrains().size();x++)
 		{
-			if(map.getTerrain(x).getIsAdjacent() == true)
+			if(map.getTerrains().get(x).getIsAdjacent() == true)
 			{
-				map.getTerrain(x).setIsAttackable(true);//This changes all area adjacent to chasm to attackable
+				map.getTerrains().get(x).setIsAttackable(true);//This changes all area adjacent to chasm to attackable
 			}
 		}
 		//ammy.setPickRegions(pickRegions);

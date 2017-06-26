@@ -18,7 +18,10 @@ import player.Player;
 import views.bottomBarView.BottomBarController;
 import views.settingView.SettingController;
 import views.sideBarView.SideBarController;
-
+/**
+ * Deze klasse regelt de updates van de tabview en krijgt de input van die view.
+ * @author Wim van der Putten
+ */
 public class TabViewController {
 
 	private StackSet stackset;
@@ -88,6 +91,11 @@ public class TabViewController {
 
 	}
 
+	/**
+	 * Handelt het kiezen van een nieuwe set af.
+	 * @param ev, de muisklik op een set in de tabview.
+	 * @throws RemoteException
+	 */
 	public void pickSet(MouseEvent ev) throws RemoteException
 	{
 			if(this.selfPlayer.isMyTurn()){
@@ -106,10 +114,17 @@ public class TabViewController {
 	}
 
 
+	/**
+	 * Maakt de mainPane zichtbaar.
+	 * Bijzonderheden: Wordt opgeroepen in de fieldviewcontroller.
+	 */
     public void showView(){
     	mainPane.setVisible(true); //activate on TAB key pressed - called in FieldViewController
     }
-
+    /**
+	 * Maakt de mainPane onzichtbaar.
+	 * Bijzonderheden: Wordt opgeroepen in de fieldviewcontroller.
+	 */
     public void hideView(){
     	mainPane.setVisible(false); //activate on TAB key release - called in FieldViewController
 
@@ -125,6 +140,10 @@ public class TabViewController {
     	this.stackset = stack;
     }
 
+    /**
+     * Laat de kiesbare sets zien op de view.
+     * @param sets, de totaalcollectie van alle sets bij elkaar.
+     */
 	public void setStack(ObservableList<Set> sets) {
 
 		pick_race_1.setImage(new Image("/images/races/active/"+sets.get(0).getRace().getName()+".png"));

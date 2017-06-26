@@ -11,8 +11,16 @@ import javafx.collections.ObservableList;
 import models.JoinedPlayers;
 import player.Player;
 import races.Race;
-
-public class Save implements Serializable{
+/**
+ * Deze klasse is verantwoordelijk voor het opslaan van het spel.
+ * @author Reza Naser
+ */
+public class Save implements Serializable
+{
+	/**
+	 * Slaat het spel op
+	 * @param player, geeft de speler mee.
+	 */
 	public void SaveNames(Player player)
 	{
 		FileOutputStream fos = null;
@@ -22,23 +30,23 @@ public class Save implements Serializable{
 			oos = new ObjectOutputStream(fos);
 			oos.writeObject(player);
 			System.out.println("Game saved.");
-		} 
+		}
 		catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 //		try(FileWriter fw = new FileWriter("playersNames.txt", true);
 //			    BufferedWriter bw = new BufferedWriter(fw);
 //			    PrintWriter out = new PrintWriter(bw))
 //			{
 //				out.println(player.getUserName());
-//			} catch (IOException e) 
+//			} catch (IOException e)
 //			{
 //				System.out.println(e.getMessage());
 //			}
-	
+
 //	public void SaveRaces(Races race)
 //	{
 //		try(FileWriter fw = new FileWriter("playersRaces.txt", true);
@@ -46,7 +54,7 @@ public class Save implements Serializable{
 //			    PrintWriter out = new PrintWriter(bw))
 //			{
 //				out.println(race.);
-//			} catch (IOException e) 
+//			} catch (IOException e)
 //			{
 //				System.out.println(e.getMessage());
 //			}

@@ -8,12 +8,12 @@ import terrain.Terrain;
 import views.fieldView.FieldViewController;
 /**
  * Dit de controller voor het redeployen van fiches op de kaart.
- * 
- * @author Groep13
+ *
+ * @author Bas Dorresteijn
  *
  */
 public class RedeploymentController {
-	
+
 	private int declaredTokenAmount;
 	private Terrain terrain;
 	private Map map;
@@ -21,38 +21,38 @@ public class RedeploymentController {
 	private RedeployServiceSkeleton serverRedeployService;
 
 	/**
-	 * Maakt het object van de redeploymentController. 
-	 * Allereest wordt een map aangemaakt, daarna wordt de fieldController geset. 
+	 * Maakt het object van de redeploymentController.
+	 * Allereest wordt een map aangemaakt, daarna wordt de fieldController geset.
 	 * Dan krijgt de fieldController toegang tot de redeploymentController.
-	 * Vervolgens wordt de serverRedeployService geset. 
-	 * 
+	 * Vervolgens wordt de serverRedeployService geset.
+	 *
 	 * @param selfPlayer, de speler zelf.
 	 * @param playerAmount, het aantal spelers wat het spel speelt.
 	 * @param fieldController, de controller van de fieldview.
 	 * @param serverRedeployService, de redeployService van de server.
 	 */
 	public RedeploymentController(Player selfPlayer, int playerAmount,FieldViewController fieldController, RedeployServiceSkeleton serverRedeployService  ){
-		this.map = new Map(selfPlayer, playerAmount);
+//		this.map = new Map(selfPlayer, playerAmount);
 		this.fieldController =fieldController;
 		fieldController.setRedeploymentController(this);
 		this.serverRedeployService = serverRedeployService;
 	}
-	
+
 	/**
 	 * Het zetten van het aantal gedeclareerde tokens.
-	 * 
+	 *
 	 * @param declaredTokenAmount, het aantal gedeclareerde tokens.
 	 */
 	public void declareTokenAmount(int declaredTokenAmount) {
 		this.declaredTokenAmount = declaredTokenAmount;
 	}
-	
+
 	/**
-	 * Deze methode zorgt ervoor dat een speler kan redeployen op een bepaald terrein. 
+	 * Deze methode zorgt ervoor dat een speler kan redeployen op een bepaald terrein.
 	 * Als er 0 is gedeclared dan zal het terrein achtergelaten worden en er dus geen tokens geplaatst worden.
-	 * Wanneer er een ander aantal gekozen wordt zal eerst gecheckt worden of de speler genoeg tokens in zijn/haar hand heeft, als deze genoeg heeft zal de aanval voortgezet worden. 
+	 * Wanneer er een ander aantal gekozen wordt zal eerst gecheckt worden of de speler genoeg tokens in zijn/haar hand heeft, als deze genoeg heeft zal de aanval voortgezet worden.
 	 * Vervolgens worden de visuals geupdate.
-	 * 
+	 *
 	 * @param terrainId, het ID van het terrein, aan de hand hiervan wordt bepaald welk terrein het is.
 	 */
 	public void doRedeployment(String terrainId) {

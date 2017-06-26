@@ -9,8 +9,8 @@ import client.RemoteClient;
 import server.ClientSkeleton;
 /**
  * Dit is de implementatie van de client.
- * 
- * @author Groep13
+ *
+ * @author Wim van der Putten
  *
  */
 public class ClientImpl extends UnicastRemoteObject implements ClientSkeleton{
@@ -23,7 +23,7 @@ public class ClientImpl extends UnicastRemoteObject implements ClientSkeleton{
 
 	/**
 	 * Maakt een clientImplementatie aan en gebruikt hiervoor een remoteClient, vervolgens wordt deze remoteClient in de class vastgezet.
-	 * 
+	 *
 	 * @param remoteClient, de remoteClient van de client zelf.
 	 * @throws RemoteException
 	 */

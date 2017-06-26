@@ -2,7 +2,10 @@ package abilities;
 
 import main.Ammy;
 import player.Player;
-
+/**
+ * Klasse die de ability bijhoudt met bijbehorende effecten.
+ * @author Jeroen Zandvliet
+ */
 public class Reborn extends Ability
 {
 	public Reborn()

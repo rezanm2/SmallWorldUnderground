@@ -8,7 +8,10 @@ import playBoard.Map;
 import player.Player;
 import races.Race;
 import terrain.Volcano;
-
+/**
+ * Deze klasse is verantwoordelijk voor het bijhouden van gegevens en de ability van het ras.
+ * @author Reza Naser, Marinus van den Oever, Bas Dorresteijn
+ */
 public class Flames extends Race
 {
 	TerrainController terrainController;
@@ -24,30 +27,33 @@ public class Flames extends Race
 		traitText = "Conquer regions adjacent to volcano as if they were empty.";
 	}
 
+	/**
+	 * Zet de vulkaan op een terrein en zorgt ervoor dat de terreinen eromheen als "leeg" aangevallen kunnen worden.
+	 */
 	@Override
 	public void processAbility(Ammy ammy) {
 		this.activePlayer = ammy.getActivePlayer();
 		this.terrainController = ammy.getTc();
 		this.map = ammy.getMap();
-		
-		for(int x=0;x<map.getAllTerrains().size();x++)
+
+		for(int x=0;x<map.getTerrains().size();x++)
 		{
-			System.out.println((x+1) + " " + map.getTerrain(x).getTerrainName());
+			System.out.println((x+1) + " " + map.getTerrains().get(x).getTerrainName());
 		}
 		input = scanner.nextInt();
-		map.setTerrain(new Volcano(map.getTerrain(input-1).getIdArray()), (input-1));	
+		map.getTerrains().set((input-1), new Volcano(map.getTerrains().get(input-1).getIdArray()));
 		terrainController.checkAdjacentToTerrainType("Vulcano");
-		
-		for(int x=0;x<map.getAllTerrains().size();x++)
+
+		for(int x=0;x<map.getTerrains().size();x++)
 		{
-			if(map.getTerrain(x).getIsAdjacent() == true
-					&& map.getTerrain(x).getRace().getName().equals("Empty "))
+			if(map.getTerrains().get(x).getIsAdjacent() == true
+					&& map.getTerrains().get(x).getRace().getName().equals("Empty "))
 			{
-				map.getTerrain(x).setIsAttackable(true);
+				map.getTerrains().get(x).setIsAttackable(true);
 			}
-			System.out.println(map.getTerrain(x).getIsAttackable());
+			System.out.println(map.getTerrains().get(x).getIsAttackable());
 		}
-		
+
 //		for(int i = 0; i < terrainController.getTerrainslist().size(); i++)
 //		{
 //			System.out.println((terrainController.getTerrainslist().get(i)) + 1);

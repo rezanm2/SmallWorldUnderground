@@ -2,7 +2,11 @@ package models;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-
+/**
+ * Deze klasse houdt bij welke spelers in de lobby zijn.
+ * @author Wim van der Putten
+ *
+ */
 public class JoinedPlayers {
 	 private final StringProperty playerName;
 

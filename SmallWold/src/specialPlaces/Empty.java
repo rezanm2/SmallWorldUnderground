@@ -1,7 +1,10 @@
 package specialPlaces;
 
 import main.Ammy;
-
+/**
+ * Deze klasse bestaat zodat de specialplace op "leeg" gezet kan worden.
+ * @author Jeroen Zandvliet
+ */
 public class Empty extends SpecialPlace{
 
 	public Empty(){

@@ -1,7 +1,10 @@
 package specialPlaces;
 
 import main.Ammy;
-
+/**
+ * Deze klasse is verantwoordelijk voor het opslaan van de functionaliteit van de specialPlace
+ * @author Bas Dorresteijn
+ */
 public class Stonehedge extends SpecialPlace
 {
 	public Stonehedge()

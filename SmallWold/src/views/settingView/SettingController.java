@@ -3,13 +3,15 @@ package views.settingView;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
-import listCreators.AbilityListCreator;
-import listCreators.RaceListCreator;
 import player.Player;
 import races.Empty;
 import save.Save;
 import views.bottomBarView.BottomBarController;
 
+/**
+ * Verzorgt het updaten en de input van de settingView.
+ * @author Reza Naser
+ */
 public class SettingController {
 	private Save save = new Save();
 	@FXML
@@ -18,11 +20,12 @@ public class SettingController {
 	private Label lable;
 	private Player player;
 	private BottomBarController bottomBarController;
-	private RaceListCreator arrRaces = new RaceListCreator();
-	private AbilityListCreator arrbilities = new AbilityListCreator();
 	public void setControllers(BottomBarController bottomBarControl) {
 		bottomBarController = bottomBarControl;
 	}
+	/**
+	 * Opent en sluit de settingview.
+	 */
 	public void openSetting()
 	{
 		if(mainPane.isVisible())
@@ -35,6 +38,10 @@ public class SettingController {
 		}
 		//this.manualPage.setImage(new Image("/images/manual/manual1.jpg"));
 	}
+
+	/**
+	 * Zet het actieve ras op decline.
+	 */
 	public void setDecline()
 	{
 		//setControllers(bottomBarController);
@@ -47,13 +54,16 @@ public class SettingController {
 		bottomBarController.setActiveSet();
 	}
 
+	/**
+	 * Slaat het spel op.
+	 */
 	public void SaveGame()
 	{
 		save.SaveNames(player);
 	}
 
 	public void setPlayerRef(Player selfPlayer) {
-		this.player = selfPlayer;		
+		this.player = selfPlayer;
 	}
 
 

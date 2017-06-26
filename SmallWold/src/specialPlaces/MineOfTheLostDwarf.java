@@ -2,7 +2,10 @@ package specialPlaces;
 
 import main.Ammy;
 import playBoard.Map;
-
+/**
+ * Deze klasse is verantwoordelijk voor het opslaan van de functionaliteit van de specialPlace
+ * @author Bas Dorresteijn
+ */
 public class MineOfTheLostDwarf extends SpecialPlace implements CalculatableIncome
 {
 	private int terrainNumber;
@@ -15,18 +18,21 @@ public class MineOfTheLostDwarf extends SpecialPlace implements CalculatableInco
 		traitText = "+2 coins, even in decline";
 	}
 
+	/**
+	 * Verhoogt de inkomsten van het gebied.
+	 */
 	@Override
 	public void processSpecialPlace(Ammy ammy) {
 		setSpecialPlaceIncome(0);
 		this.map = ammy.getMap();
-		for(int i = 0; i < map.getAllTerrains().size(); i++) {
-			if(map.getTerrain(i).getSpecialPlace().getName() == name)
+		for(int i = 0; i < map.getTerrains().size(); i++) {
+			if(map.getTerrains().get(i).getSpecialPlace().getName() == name)
 			{
 				terrainNumber = i;
 				break;
 			}
 		}
-		if(active == true && activePlayer.getActiveSet().getRace().getName() == map.getTerrain(terrainNumber).getRace().getName()) {
+		if(active == true && activePlayer.getActiveSet().getRace().getName() == map.getTerrains().get(terrainNumber).getRace().getName()) {
 			setSpecialPlaceIncome(2);
 		}
 	}

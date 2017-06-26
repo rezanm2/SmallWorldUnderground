@@ -6,7 +6,11 @@ import main.Ammy;
 import playBoard.Map;
 import player.Player;
 import races.Race;
-
+/**
+ * Deze klasse is verantwoordelijk voor het regelen van alle tokens.
+ * @author Jeroen Zandvliet
+ *
+ */
 
 public class TokenController
 {
@@ -20,10 +24,13 @@ public class TokenController
 
 	public TokenController(Ammy ammy)
 	{
-		this.playerList = ammy.getPlayerCreator().getPlayerList();
 		this.map = ammy.getMap();
 	}
 
+	/**
+	 * Checked welke speler bij het meegegeven ras hoort.
+	 * @param race, het ras waarop gechecked wordt.
+	 */
 	public void linkRaceToPlayer(Race race)
 	{
 		for(int playerCounter = 0;playerCounter<playerList.size();playerCounter++)
@@ -45,30 +52,38 @@ public class TokenController
 		}
 	}
 
+	/**
+	 * Berekend hoeveel tokens de speler terugkrijgt.
+	 * @param activePlayer, de actieve speler.
+	 */
 	public void calculateReturnedTokens(Player activePlayer)
 	{
 		returnedTokens = 0;
-		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
+		for(int terrainCounter=0;terrainCounter<map.getTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
-			if(map.getTerrain(terrainCounter).getIsRedeployable() == true)						//If isAttackable is true
+			if(map.getTerrains().get(terrainCounter).getIsRedeployable() == true)						//If isAttackable is true
 			{
-				this.returnedTokens = returnedTokens + map.getTerrain(terrainCounter).getAmountOfTokens() - 1;
-				map.getTerrain(terrainCounter).setToOne();
+				this.returnedTokens = returnedTokens + map.getTerrains().get(terrainCounter).getAmountOfTokens() - 1;
+				map.getTerrains().get(terrainCounter).setToOne();
 			}
 		}
 		activePlayer.getHand().setCurrentTokens(activePlayer.getHand().getCurrentTokens() + returnedTokens);
 
 	}
 
+	/**
+	 * Check hoeveel tokens de speler in decline heeft.
+	 * @param activePlayer
+	 */
 	public void checkAmountOfDeclineTokens(Player activePlayer)
 	{
 		activePlayer.getHand().setDeclineTokens(0);
-		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
+		for(int terrainCounter=0;terrainCounter<map.getTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
-			if(map.getTerrain(terrainCounter).getRace().getName().equals(activePlayer.getDeclineSet().getRace().getName()))
+			if(map.getTerrains().get(terrainCounter).getRace().getName().equals(activePlayer.getDeclineSet().getRace().getName()))
 			{
 				activePlayer.getHand().setDeclineTokens(activePlayer.getHand().getDeclineTokens()
-						+ map.getTerrain(terrainCounter).getAmountOfTokens());
+						+ map.getTerrains().get(terrainCounter).getAmountOfTokens());
 			}
 		}
 	}

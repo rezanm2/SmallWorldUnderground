@@ -15,7 +15,8 @@ import views.sideBarView.SideBarController;
 public class TurnService extends UnicastRemoteObject implements TurnServiceClientSkeleton {
 
 	/**
-	 *
+	 * Deze klasse is verantwoordelijk voor het regelen van de beurten.
+	 *@author Wim van der Putten
 	 */
 	private static final long serialVersionUID = 1L;
 	private SideBarController sideBarController;

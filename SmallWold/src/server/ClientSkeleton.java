@@ -4,7 +4,10 @@ import java.io.IOException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
-
+/**
+ * Deze klasse wordt naar de server toegestuurd.
+ * @author Wim van der Putten
+ */
 public interface ClientSkeleton extends Remote{
 
 	public String getUsername() throws RemoteException;

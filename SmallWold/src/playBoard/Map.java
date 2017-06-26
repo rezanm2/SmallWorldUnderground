@@ -18,13 +18,13 @@ import terrain.Stone;
 import terrain.Terrain;
 	/**
 	 * Klasse die het speelbord initieert en in een list zet.
-	 * 
-	 * @author Groep13
+	 *
+	 * @author Wim van der Putten
 	 */
 
 public class Map {
 
-	
+
 	private List<Terrain> terrains = new ArrayList<Terrain>();
 	private Die die;
 	private Player selfPlayer;
