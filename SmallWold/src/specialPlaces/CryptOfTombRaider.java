@@ -1,8 +1,8 @@
 package specialPlaces;
 
 import controllers.TerrainController;
-import main.Ammy;
 import playBoard.Map;
+import player.Player;
 /**
  * Deze klasse is verantwoordelijk voor het opslaan van de functionaliteit van de specialPlace
  * @author Bas Dorresteijn
@@ -24,10 +24,9 @@ public class CryptOfTombRaider extends SpecialPlace
 	 * Plaatst de geest op een terrein en maakt dat terrein immuun.
 	 */
 	@Override
-	public void processSpecialPlace(Ammy ammy) {
-		this.map = ammy.getMap();
-		this.activePlayer = ammy.getActivePlayer();
-		this.terrainController = ammy.getTc();
+	public void processSpecialPlace(Player selfPlayer, Map map) {
+		this.map = map;
+		this.selfPlayer = selfPlayer;
 		for(int i = 0; i < map.getTerrains().size(); i++) {
 			if(map.getTerrains().get(i).getSpecialPlace().getName() == name)
 			{
@@ -35,7 +34,7 @@ public class CryptOfTombRaider extends SpecialPlace
 				break;
 			}
 		}
-		if(activePlayer.getActiveSet().getRace().getName() == map.getTerrains().get(terrainNumber).getRace().getName()) {
+		if(selfPlayer.getActiveSet().getRace().getName() == map.getTerrains().get(terrainNumber).getRace().getName()) {
 			for(int i = 0; i < map.getTerrains().size(); i++) {
 				if(!map.getTerrains().get(i).getTerrainName().equals("Chasm") && !(i == terrainNumber))
 				map.getTerrains().get(i).setIsAttackable(true);
@@ -46,9 +45,9 @@ public class CryptOfTombRaider extends SpecialPlace
 			terrainController.setNotAdjacent();
 			terrainController.setNotAttackable();
 			terrainController.setNotRedeployable();
-			terrainController.setAllAttackableAreas(activePlayer);
-			terrainController.setAllAdjacentAreas(activePlayer);
-			terrainController.setAllRedeployableAreas(activePlayer);
+			terrainController.allAttackableAreas(selfPlayer.getActiveSet().getRace());
+			terrainController.allAdjacentAreas(selfPlayer.getActiveSet().getRace());
+			terrainController.allRedeployableAreas(selfPlayer.getActiveSet().getRace());
 		}
 
 	}

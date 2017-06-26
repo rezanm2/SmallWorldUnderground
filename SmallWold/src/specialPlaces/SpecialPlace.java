@@ -1,6 +1,6 @@
 package specialPlaces;
 
-import main.Ammy;
+import playBoard.Map;
 import player.Player;
 /**
  *
@@ -15,7 +15,7 @@ public abstract class SpecialPlace
 	protected String name;
 	protected String traitText;
 	protected boolean active;
-	protected Player activePlayer;
+	protected Player selfPlayer;
 
 	public SpecialPlace()
 	{
@@ -50,6 +50,6 @@ public abstract class SpecialPlace
 		return traitText;
 	}
 
-	public abstract void processSpecialPlace(Ammy ammy);
+	public abstract void processSpecialPlace(Player selfPlayer, Map map);
 }
 

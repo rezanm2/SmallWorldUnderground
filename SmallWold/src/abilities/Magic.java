@@ -1,6 +1,6 @@
 package abilities;
 
-import main.Ammy;
+import playBoard.Map;
 import player.Player;
 /**
  * Klasse die de ability bijhoudt met bijbehorende effecten.
@@ -17,7 +17,8 @@ public class Magic extends Ability
 	}
 
 	@Override
-	public void processAbility(Ammy ammy) {
-		this.activePlayer = ammy.getActivePlayer();
+	public void processAbility(Player selfPlayer, Map map) {
+		this.selfPlayer = selfPlayer;
+		this.map = map;
 	}
 }

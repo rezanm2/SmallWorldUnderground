@@ -1,8 +1,6 @@
 package controllers;
 
 import java.util.List;
-
-import main.Ammy;
 import playBoard.Map;
 import player.Player;
 import races.Race;
@@ -22,9 +20,9 @@ public class TokenController
 	private int declineTokens;
 	Map map;
 
-	public TokenController(Ammy ammy)
+	public TokenController()
 	{
-		this.map = ammy.getMap();
+
 	}
 
 	/**

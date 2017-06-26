@@ -1,8 +1,8 @@
 package specialPlaces;
 
 import controllers.TerrainController;
-import main.Ammy;
 import playBoard.Map;
+import player.Player;
 /**
  * Deze klasse is verantwoordelijk voor het opslaan van de functionaliteit van de specialPlace
  * @author Bas Dorresteijn
@@ -23,9 +23,9 @@ public class FountainOfYouth extends SpecialPlace
 	 * Geeft de speler een actieve token van de bank
 	 */
 	@Override
-	public void processSpecialPlace(Ammy ammy) {
-		this.map = ammy.getMap();
-		this.activePlayer = ammy.getActivePlayer();
+	public void processSpecialPlace(Player selfPlayer, Map map) {
+		this.map = map;
+		this.selfPlayer = selfPlayer;
 		for(int i = 0; i < map.getTerrains().size(); i++) {
 			if(map.getTerrains().get(i).getRelic().getName() == name)
 			{
@@ -33,21 +33,21 @@ public class FountainOfYouth extends SpecialPlace
 				break;
 			}
 		}
-		if(activePlayer.getActiveSet().getRace().getName() == map.getTerrains().get(terrainNumber).getRace().getName()) {
+		if(selfPlayer.getActiveSet().getRace().getName() == map.getTerrains().get(terrainNumber).getRace().getName()) {
 			playerTerrainAmount = 0;
-			System.out.println(activePlayer.getActiveSet().getRace().getMaxTokens());
-			System.out.println(activePlayer.getHand().getCurrentTokens());
+			System.out.println(selfPlayer.getActiveSet().getRace().getMaxTokens());
+			System.out.println(selfPlayer.getHand().getCurrentTokens());
 			for(int terrainCounter = 0; terrainCounter < map.getTerrains().size(); terrainCounter++)
 			{
-				if(map.getTerrains().get(terrainCounter).getRace().getName().equals(activePlayer.getActiveSet().getRace().getName())) {
+				if(map.getTerrains().get(terrainCounter).getRace().getName().equals(selfPlayer.getActiveSet().getRace().getName())) {
 					playerTerrainAmount++;
 				}
 			}
 
-			if(activePlayer.getActiveSet().getRace().getMaxTokens() - playerTerrainAmount >= activePlayer.getHand().getCurrentTokens() + 1) {
-				activePlayer.getHand().setCurrentTokens(activePlayer.getHand().getCurrentTokens() + 1);
+			if(selfPlayer.getActiveSet().getRace().getMaxTokens() - playerTerrainAmount >= selfPlayer.getHand().getCurrentTokens() + 1) {
+				selfPlayer.getHand().setCurrentTokens(selfPlayer.getHand().getCurrentTokens() + 1);
 			}
-			System.out.println(activePlayer.getHand().getCurrentTokens());
+			System.out.println(selfPlayer.getHand().getCurrentTokens());
 		}
 	}
 }

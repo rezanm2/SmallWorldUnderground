@@ -2,8 +2,6 @@ package controllers;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import main.Ammy;
 import playBoard.Map;
 import player.Player;
 import races.Race;
@@ -67,6 +65,11 @@ public class TerrainController
 		}
 	}
 
+
+	/**
+	 * Zet all terreinen op aanvalbaar.
+	 * @param activePlayer, de speler waarvan de terreinen aanvalbaar gezet moeten worden.
+	 */
 	public void allAttackableAreas(Race race)
 	{
 
@@ -86,7 +89,10 @@ public class TerrainController
 		}
 	}
 
-
+	/**
+	 * Zet all terreinen op heraanvulbaar.
+	 * @param activePlayer, de speler wiens terreinen op heraanvulbaar gezet moeten worden.
+	 */
 	public void allRedeployableAreas(Race race)
 	{
 		for(int terrainCounter = 0; terrainCounter<map.getTerrains().size(); terrainCounter++)
@@ -97,87 +103,11 @@ public class TerrainController
 			}
 		}
 	}
-
-
-
 	/**
-	 * Zet all terreinen op aangrenzend.
-	 * @param code, de code van het terrein waarmee vergeleken moet worden.
+	 * Zet alle terreinen op niet aangrenzend
 	 */
-	public void changeAllAdjacentAreas(String code)
-	{
-		for(terrainCounter = 0; terrainCounter<map.getTerrains().size(); terrainCounter++)
-		{
-//			for(elementCounter = 1; elementCounter<map.getTerrain(terrainCounter).getIdArray().length; elementCounter++) //While there's still elements left
-//			{
-//				if(map.getTerrain(terrainCounter).getElement(elementCounter) == code)
-//				{
-//					map.getTerrain(terrainCounter).setIsAdjacent(true);			//If the idCode is found, set isAdjacent to true
-//				}
-//			}
-		}
-	}
-	/**
-	 * Zet all terreinen op aanvalbaar.
-	 * @param activePlayer, de speler waarvan de terreinen aanvalbaar gezet moeten worden.
-	 */
-	public void setAllAttackableAreas(Player activePlayer)
-	{
-		setNotAttackable();
-		System.out.println("A: Setting all attackable terrains for " + "\n");
-		this.activePlayer = activePlayer;
-//		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
-//		{
-//			if(activePlayer.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace()))
-//			{
-//				changeAllAttackableAreas(map.getTerrain(terrainCounter).getElement(0));
-//			}
-//		}
-	}
 
-	/**
-	 * Zet all terreinen op aanvalbaar.
-	 * @param code, de code van het terrein waarmee vergeleken moet worden.
-	 */
-	private void changeAllAttackableAreas(String code)
-	{
-//		for(terrainCounter = 0; terrainCounter<map.getAllTerrains().size(); terrainCounter++)
-//		{
-//			for(elementCounter = 1; elementCounter<map.getTerrain(terrainCounter).getIdArray().length-1; elementCounter++) //While there's still elements left
-//			{
-//				if(map.getTerrain(terrainCounter).getElement(elementCounter) == code
-//						&& !map.getTerrain(terrainCounter).getRace().equals(activePlayer.getActiveSet().getRace()))
-//				{
-//					map.getTerrain(terrainCounter).setIsAttackable(true);			//If the idCode is found, set isAdjacent to true
-//
-//				}
-//			}
-//		}
-	}
-	/**
-	 * Zet all terreinen op heraanvulbaar.
-	 * @param activePlayer, de speler wiens terreinen op heraanvulbaar gezet moeten worden.
-	 */
-	public void setAllRedeployableAreas(Player activePlayer)
-	{
-		setNotRedeployable();
-		System.out.println("A: Setting all reinforcable terrains for " + "\n");
-		this.activePlayer = activePlayer;
-//		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains
-//		{
-//			if (activePlayer.getActiveSet().getRace().equals(map.getTerrain(terrainCounter).getRace()))
-//			{
-//				map.getTerrain(terrainCounter).setIsRedeployable(true);
-//			}
-//		}
-
-	}
-
-
-	/**
-	 * Zet alle terreinen op niet aangrenzend.
-	 */
-	public void setNotAdjacent()					//Set all the "isAttackable" booleans to false again
+	public void setNotAdjacent()
 	{
 		for(terrainCounter=0;terrainCounter<map.getTerrains().size();terrainCounter++)				//As long as there are terrains
 		{
@@ -216,7 +146,7 @@ public class TerrainController
 		{
 			if(map.getTerrains().get(typeTerrainCounter).getTerrainName().equals(terrainString))
 			{
-				changeAllAdjacentAreas(map.getTerrains().get(typeTerrainCounter).getElement(0));
+//				changeAllAdjacentAreas(map.getTerrains().get(typeTerrainCounter).getElement(0));
 
 				System.out.println("A: Beeping area (ArrayListPosition) " + (typeTerrainCounter+1));
 			}
@@ -232,7 +162,7 @@ public class TerrainController
 	{
 		for(typeTerrainCounter = 0; typeTerrainCounter<map.getTerrains().size(); typeTerrainCounter++)	//As long as there's terrains
 		{
-			changeAllAdjacentAreas(terrain.getElement(0));
+//			changeAllAdjacentAreas(terrain.getElement(0));
 		}
 	}
 
@@ -258,28 +188,15 @@ public class TerrainController
 	 * @param terrainString, het type terrein.
 	 * @param activePlayer, de speler.
 	 */
-	public void checkTerrainType(String terrainString, Player activePlayer)
+	public void checkTerrainType(String terrainString, Race race)
 	{
-		terrainCounter = 0;
-		elementCounter = 0;
-		terrain = 0;
-		value = 0;
-		terrainStringCounter = 0;
-		while(terrainCounter<map.getTerrains().size())				//While there's still terrains left
+
+		for(int terrainCounter = 0; terrainCounter<map.getTerrains().size(); terrainCounter++)
 		{
-			while(elementCounter<1)		//While there's still numbers in the terrain's array
+			if(map.getTerrains().get(terrain).getTerrainName().equals(terrainString) && map.getTerrains().get(terrain).getRace().equals(race))
 			{
-				if(map.getTerrains().get(terrain).getTerrainName().equals(terrainString) && map.getTerrains().get(terrain).getRace() == activePlayer.getActiveSet().getRace())
-				{
-					terrainStringCounter++;
-				}
-				value++;											//Look at the next value in the terrain's array, "eye"
-				elementCounter++;									//Keep track of which number in the array we're at
+				terrainStringCounter++;
 			}
-			value = 0;												//"Eye" back at number 0 in the array
-			elementCounter = 0;										//Back at number 0 in a fresh terrain
-			terrainCounter++;										//Keep track of which terrain we're at
-			terrain++;												//Look at the next terrain, "eye"
 		}
 	}
 

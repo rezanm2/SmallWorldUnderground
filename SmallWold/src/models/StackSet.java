@@ -28,6 +28,7 @@ import controllers.StackController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
+import playBoard.Map;
 import player.Player;
 import races.Cultists;
 import races.Drow;
@@ -66,6 +67,7 @@ public class StackSet {
 	private ArrayList<Race> raceListGrave = new ArrayList<Race>();
 	private ArrayList<Ability> abilityListGrave = new ArrayList<Ability>();
 	private StackController stackController;
+	private Map map;
 
 	/**
 	 * Deze Constructor
@@ -226,6 +228,11 @@ public class StackSet {
 
 	public void setRaceListGrave(ArrayList<Race> raceListGrave) {
 		this.raceListGrave = raceListGrave;
+	}
+
+	public void setMap(Map map) {
+		this.map = map;
+
 	}
 
 }

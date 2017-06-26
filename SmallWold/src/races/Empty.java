@@ -1,6 +1,5 @@
 package races;
-
-import main.Ammy;
+import playBoard.Map;
 import player.Player;
 /**
  * Deze klasse bestaat zodat het ras op leeg gezet kan worden.
@@ -18,7 +17,7 @@ public class Empty extends Race
 	}
 
 	@Override
-	public void processAbility(Ammy ammy) {
+	public void processAbility(Player selfPlayer, Map map) {
 		// TODO Auto-generated method stub
 
 	}

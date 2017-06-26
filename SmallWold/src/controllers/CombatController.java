@@ -51,13 +51,13 @@ public class CombatController {
 	 * @param fieldController
 	 * @param serverCombatService
 	 */
-	public CombatController(StackSet stack, Player selfPlayer, int playerAmount, FieldViewController fieldController,
-			CombatServiceSkeleton serverCombatService) {
-		this.map = new Map(selfPlayer, playerAmount, stack);
+	public CombatController(FieldViewController fieldController, CombatServiceSkeleton serverCombatService, Map map) {
 		this.fieldController = fieldController;
 		fieldController.setCombatController(this);
 		this.serverCombatService = serverCombatService;
+		this.map = map;
 		terrainController = new TerrainController(map);
+
 	}
 	/**
 	 * Methode die het terrein type print in de console.

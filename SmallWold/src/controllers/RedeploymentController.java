@@ -1,5 +1,6 @@
 package controllers;
 
+import models.StackSet;
 import playBoard.Map;
 import player.Player;
 import server.CombatServiceSkeleton;
@@ -31,10 +32,10 @@ public class RedeploymentController {
 	 * @param fieldController, de controller van de fieldview.
 	 * @param serverRedeployService, de redeployService van de server.
 	 */
-	public RedeploymentController(Player selfPlayer, int playerAmount,FieldViewController fieldController, RedeployServiceSkeleton serverRedeployService  ){
-//		this.map = new Map(selfPlayer, playerAmount);
-		this.fieldController =fieldController;
-		fieldController.setRedeploymentController(this);
+	public RedeploymentController(FieldViewController fieldViewController, RedeployServiceSkeleton serverRedeployService, Map map) {
+		this.map = map;
+		this.fieldController = fieldViewController;
+		this.fieldController.setRedeploymentController(this);
 		this.serverRedeployService = serverRedeployService;
 	}
 

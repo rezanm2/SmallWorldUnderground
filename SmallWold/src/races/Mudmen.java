@@ -1,6 +1,6 @@
 package races;
 
-import main.Ammy;
+import playBoard.Map;
 import player.Player;
 /**
  * Deze klasse is verantwoordelijk voor het bijhouden van gegevens en de ability van het ras.
@@ -20,12 +20,13 @@ public class Mudmen extends Race
 	 * Geeft de speler een aantal tokens terug gelijk aan het aantal mud-terreinen die de speler controleert.
 	 */
 	@Override
-	public void processAbility(Ammy ammy) {
-		this.activePlayer = ammy.getActivePlayer();
-		this.map = ammy.getMap();
+	public void processAbility(Player selfPlayer, Map map) {
+		this.selfPlayer = selfPlayer;
+		this.map = map;
+
 		for(int x=0;x<map.getTerrains().size();x++)
 		{
-			if(map.getTerrains().get(x).getRace().getName().equals(activePlayer.getActiveSet().getRace().getName()) && map.getTerrains().get(x).getTerrainName().equals("Mud"))
+			if(map.getTerrains().get(x).getRace().getName().equals(selfPlayer.getActiveSet().getRace().getName()) && map.getTerrains().get(x).getTerrainName().equals("Mud"))
 			{
 				this.amountOfTokens++;
 				System.out.println("Naam Race: " + map.getTerrains().get(x).getRace().getName() + " Naam terrein: " + map.getTerrains().get(x).getTerrainName());

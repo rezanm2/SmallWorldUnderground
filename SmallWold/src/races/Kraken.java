@@ -1,7 +1,7 @@
 package races;
 
 import controllers.TerrainController;
-import main.Ammy;
+import playBoard.Map;
 import player.Player;
 /**
  * Deze klasse is verantwoordelijk voor het bijhouden van gegevens en de ability van het ras.
@@ -26,10 +26,10 @@ public class Kraken extends Race
 	 * Checked op hoeveel rivierterreinen het ras staat en berekent de extra inkomsten.
 	 */
 	@Override
-	public void processAbility(Ammy ammy) {
-		this.activePlayer = ammy.getActivePlayer();
-		this.tc = ammy.getTc();
-		tc.checkTerrainType("River", activePlayer);
+	public void processAbility(Player selfPlayer, Map map) {
+		this.selfPlayer = selfPlayer;
+		this.map = map;
+		tc.checkTerrainType("River", activePlayer.getActiveSet().getRace());
 		this.setAbilityIncome(tc.getTerrainStringCounter());
 
 	}

@@ -2,7 +2,7 @@ package abilities;
 
 import java.io.Serializable;
 
-import main.Ammy;
+import playBoard.Map;
 import player.Player;
 
 public abstract class Ability implements Serializable
@@ -19,9 +19,10 @@ public abstract class Ability implements Serializable
 	protected String name;
 	protected String traitText;
 	protected boolean active;
-	protected Player activePlayer;
+	protected Player selfPlayer;
 	protected String image;
 	protected String declineTraitText = "This ability has no trait in decline.";
+	protected Map map;
 
 	/**
 	 * Maakt een ability aan.
@@ -39,7 +40,7 @@ public abstract class Ability implements Serializable
 		this.declineTraitText = declineTraitText;
 	}
 
-	public abstract void processAbility(Ammy ammy);
+	public abstract void processAbility(Player selfPlayer, Map map);
 
 	public void setName(String name)
 	{
@@ -74,7 +75,7 @@ public abstract class Ability implements Serializable
 		return abilityIncome;
 	}
 
-	public void processAbility(Ammy ammy, int replaceAmount) {
+	public void processAbility(int replaceAmount) {
 		// TODO Auto-generated method stub
 
 	}

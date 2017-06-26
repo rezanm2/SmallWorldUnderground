@@ -3,7 +3,6 @@ package relics;
 import java.util.ArrayList;
 import controllers.TerrainController;
 import controllers.TokenController;
-import main.Ammy;
 import playBoard.Map;
 import player.Player;
 import races.Race;
@@ -35,12 +34,10 @@ public class FroggysRing extends Relic implements CalculatableIncome{
 	 * Steelt  1 coin per active adjacent ras.
 	 */
 	@Override
-	public void processRelic(Ammy ammy) {
+	public void processRelic(Player selfPlayer, Map map) {
 		relicIncome = 0;
-		this.terrainController = ammy.getTc();
-		this.map = ammy.getMap();
-		this.activePlayer = ammy.getActivePlayer();
-		this.tokenController = ammy.getToc();
+		this.map = map;
+		this.selfPlayer = selfPlayer;
 		for(int i = 0; i < map.getTerrains().size(); i++) {
 			if(map.getTerrains().get(i).getRelic().getName() == name)
 			{
@@ -50,7 +47,7 @@ public class FroggysRing extends Relic implements CalculatableIncome{
 		System.out.println("Doing other shit");
 		if(active == true && activePlayer.getActiveSet().getRace().getName() == map.getTerrains().get(terrainNumber).getRace().getName())
 		{
-			terrainController.setAllRedeployableAreas(activePlayer);
+			terrainController.allRedeployableAreas(activePlayer.getActiveSet().getRace());
 			changeTerrain(terrainController.getAreaPicked());
 			active = false;
 			System.out.println(terrainController.getAreaPicked());

@@ -2,7 +2,6 @@ package abilities;
 
 
 import controllers.TerrainController;
-import main.Ammy;
 import playBoard.Map;
 import player.Player;
 /**
@@ -27,11 +26,10 @@ public class Fisher extends Ability implements CalculatableIncome
 	 * Checked welke gebieden de speler controleert die aangrezend zijn aan de rivier, en verhoogd de extra inkomsten.
 	 */
 	@Override
-	public void processAbility(Ammy ammy) {
+	public void processAbility(Player selfPlayer, Map map) {
 		abilityIncome = 0;
-		this.tc = ammy.getTc();
-		this.activePlayer = ammy.getActivePlayer();
-		this.map = ammy.getMap();
+		this.selfPlayer = selfPlayer;
+		this.map = map;
 
 		tc.setNotAdjacent();
 		tc.checkAdjacentToTerrainType("River");
@@ -40,7 +38,7 @@ public class Fisher extends Ability implements CalculatableIncome
 		for(terrainCounter = 0; terrainCounter<map.getTerrains().size(); terrainCounter++)
 		{
 			if(map.getTerrains().get(terrainCounter).getIsAdjacent() == true
-					&& map.getTerrains().get(terrainCounter).getRace().equals(activePlayer.getActiveSet().getRace()))
+					&& map.getTerrains().get(terrainCounter).getRace().equals(selfPlayer.getActiveSet().getRace()))
 			{
 				tempAbilityIncome += 0.5;
 			}

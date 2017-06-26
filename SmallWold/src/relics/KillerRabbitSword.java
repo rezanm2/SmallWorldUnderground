@@ -1,7 +1,6 @@
 package relics;
 
 import controllers.TerrainController;
-import main.Ammy;
 import playBoard.Map;
 import player.Player;
 /**
@@ -27,10 +26,9 @@ public class KillerRabbitSword extends Relic
 	 * Zorgt ervoor dat het gekozen terrein aangevallen kan worden met 2 minder tokens.
 	 */
 	@Override
-	public void processRelic(Ammy ammy) {
-		this.map = ammy.getMap();
-		this.activePlayer = ammy.getActivePlayer();
-		this.terrainController = ammy.getTc();
+	public void processRelic(Player selfPlayer, Map map) {
+		this.map = map;
+		this.selfPlayer = selfPlayer;
 		for(int i = 0; i < map.getTerrains().size(); i++) {
 			if(map.getTerrains().get(i).getRelic().getName() == name)
 			{

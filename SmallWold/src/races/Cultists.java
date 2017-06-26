@@ -2,7 +2,7 @@ package races;
 
 import java.util.Scanner;
 import controllers.TerrainController;
-import main.Ammy;
+import playBoard.Map;
 import player.Player;
 import races.Race;
 import specialTokens.Ancient;
@@ -28,14 +28,13 @@ public class Cultists extends Race
 	 * Verzet de Ancient One.
 	 */
 	@Override
-	public void processAbility(Ammy ammy) {
-		this.map = ammy.getMap();
-		this.activePlayer = ammy.getActivePlayer();
-		this.terrainController = ammy.getTc();
+	public void processAbility(Player selfPlayer, Map map) {
+		this.selfPlayer = selfPlayer;
+		this.map = map;
 		String yesOrNo = "";
 		Scanner scanner = new Scanner(System.in);
 		int terrainNumber;
 		int counter = 0;
-		an.processSpecialToken(ammy);
+//		an.processSpecialToken(ammy);
 	}
 }

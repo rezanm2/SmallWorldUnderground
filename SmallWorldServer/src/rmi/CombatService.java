@@ -34,8 +34,6 @@ public class CombatService  extends UnicastRemoteObject implements CombatService
 		updateTerrain(terrain, raceName, declaredTokenAmount);
 		syncTerrainByTerrain(terrain);
 
-
-
 	}
 	private void updateTerrain(ServerTerrain terrain, String raceName, int declaredTokenAmount) {
 		terrain.setRace(raceName);

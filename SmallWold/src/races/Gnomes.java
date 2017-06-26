@@ -1,6 +1,7 @@
 package races;
 
-import main.Ammy;
+
+import playBoard.Map;
 import player.Player;
 
 /**
@@ -19,7 +20,7 @@ public class Gnomes extends Race
 	}
 
 	@Override
-	public void processAbility(Ammy ammy) {
+	public void processAbility(Player selfPlayer, Map map) {
 		// TODO Auto-generated method stub
 
 	}

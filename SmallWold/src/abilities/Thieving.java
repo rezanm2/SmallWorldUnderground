@@ -3,7 +3,6 @@ package abilities;
 import java.util.ArrayList;
 import controllers.TerrainController;
 import controllers.TokenController;
-import main.Ammy;
 import playBoard.Map;
 import player.Player;
 /**
@@ -30,19 +29,17 @@ public class Thieving extends Ability implements CalculatableIncome
 	 */
 
 	@Override
-	public void processAbility(Ammy ammy) {
+	public void processAbility(Player selfPlayer, Map map) {
 
-		this.activePlayer = ammy.getActivePlayer();
-		this.tc = ammy.getTc();
-		this.map = ammy.getMap();
-		this.tokenController = ammy.getToc();
+		this.selfPlayer = selfPlayer;
+		this.map = map;
 
-		tc.setAllAdjacentAreas(activePlayer);
+		tc.allAdjacentAreas(selfPlayer.getActiveSet().getRace());
 
 		for(int terrainCounter=0;terrainCounter<map.getTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
 			if(map.getTerrains().get(terrainCounter).getIsAdjacent() == true &&
-			   map.getTerrains().get(terrainCounter).getRace().equals(activePlayer.getActiveSet().getRace()))
+			   map.getTerrains().get(terrainCounter).getRace().equals(selfPlayer.getActiveSet().getRace()))
 				{
 
 				for(int i = 0; i < stolenRaces.size(); i++)

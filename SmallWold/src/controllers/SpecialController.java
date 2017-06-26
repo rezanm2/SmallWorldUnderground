@@ -1,7 +1,7 @@
 package controllers;
 
-import main.Ammy;
 import playBoard.Map;
+import player.Player;
 /**
  * Deze klasse is verantwoordelijk voor het goed aanroepen van alle relics en specialPlaces.
  * @author Jeroen Zandvliet
@@ -10,9 +10,9 @@ public class SpecialController
 {
 	Map map;
 
-	public SpecialController(Ammy ammy)
+	public SpecialController(Player selfPlayer)
 	{
-		this.map = ammy.getMap();
+//		this.selfPlayer = selfPlayer;
 	}
 
 }

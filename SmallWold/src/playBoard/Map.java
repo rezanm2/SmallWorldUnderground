@@ -47,6 +47,7 @@ public class Map {
 		this.playerAmount = playerAmount;
 		this.terrains = createMap(playerAmount);
 		this.setStack(stack);
+		this.stack.setMap(this);
 	}
 	/**
 	 * Het speelbord wordt gemaakt door het aantal spelers mee te geven.
@@ -162,6 +163,17 @@ public class Map {
 		}
 		return null;
 
+	}
+	
+	public ArrayList<String> getPlayersActiveTerrains() {
+		System.out.println(terrains.get(0).getTerrainId());
+		ArrayList<String> playerActiveTerrainsID = new ArrayList<String>();
+		for(int i = 0; i < terrains.size(); i++){
+			if(terrains.get(i).getRace().equals(selfPlayer.getActiveSet().getRace())) {
+				playerActiveTerrainsID.add(terrains.get(i).getTerrainId());
+			}
+		}
+		return playerActiveTerrainsID;
 	}
 
 	public Player getSelfPlayer() {

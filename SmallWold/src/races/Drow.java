@@ -1,7 +1,6 @@
 package races;
 
 import controllers.TerrainController;
-import main.Ammy;
 import playBoard.Map;
 import player.Player;
 /**
@@ -25,13 +24,12 @@ public class Drow extends Race implements CalculatableIncome
 	 * Checked of het ras aangrenzend aan een ander ras ligt.
 	 */
 	@Override
-	public void processAbility(Ammy	ammy) {
-		this.activePlayer = ammy.getActivePlayer();
-		this.tc = ammy.getTc();
-		this.map = ammy.getMap();
+	public void processAbility(Player selfPlayer, Map map) {
+		this.selfPlayer = selfPlayer;
+		this.map = map;
 		int countTerrains = 0;
 		int countRaces = 0;
-		tc.setAllAdjacentAreas(activePlayer);
+		tc.allAdjacentAreas(activePlayer.getActiveSet().getRace());
 
 
 		for(int x=0;x<map.getTerrains().size();x++)

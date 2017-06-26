@@ -1,8 +1,6 @@
 package abilities;
 
 import java.util.Scanner;
-
-import main.Ammy;
 import playBoard.Map;
 import player.Player;
 /**
@@ -26,18 +24,18 @@ public class Vampire extends Ability
 	 * Herplaatst een vijandelijke token met een eigen token.
 	 */
 	@Override
-	public void processAbility(Ammy ammy) {
+	public void processAbility(Player selfPlayer, Map map) {
 
-		this.map = ammy.getMap();
-		this.activePlayer = ammy.getActivePlayer();
+		this.selfPlayer = selfPlayer;
+		this.map = map;
 
 			System.out.println("Welk terrein wil je replacen met 1 token? ");
 			this.terrainNumber = scanner.nextInt()-1;
 
 			if (map.getTerrains().get(terrainNumber).getAmountOfTokens() == 1){
-				map.getTerrains().get(terrainNumber).setRace(activePlayer.getActiveSet().getRace());
+				map.getTerrains().get(terrainNumber).setRace(selfPlayer.getActiveSet().getRace());
 				System.out.println(map.getTerrains().get(terrainNumber).getRace().getName());
-				activePlayer.getHand().setCurrentTokens(activePlayer.getHand().getCurrentTokens() - 1);
+				selfPlayer.getHand().setCurrentTokens(selfPlayer.getHand().getCurrentTokens() - 1);
 			}
 	}
 }

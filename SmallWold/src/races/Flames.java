@@ -1,9 +1,7 @@
 package races;
 
 import java.util.Scanner;
-
 import controllers.TerrainController;
-import main.Ammy;
 import playBoard.Map;
 import player.Player;
 import races.Race;
@@ -31,10 +29,9 @@ public class Flames extends Race
 	 * Zet de vulkaan op een terrein en zorgt ervoor dat de terreinen eromheen als "leeg" aangevallen kunnen worden.
 	 */
 	@Override
-	public void processAbility(Ammy ammy) {
-		this.activePlayer = ammy.getActivePlayer();
-		this.terrainController = ammy.getTc();
-		this.map = ammy.getMap();
+	public void processAbility(Player selfPlayer, Map map) {
+		this.selfPlayer = selfPlayer;
+		this.map = map;
 
 		for(int x=0;x<map.getTerrains().size();x++)
 		{
