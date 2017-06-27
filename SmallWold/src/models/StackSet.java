@@ -48,6 +48,7 @@ import races.Shrooms;
 import races.Spiderines;
 import races.WillOWisp;
 import server.SetServiceSkeleton;
+import views.settingView.SettingController;
 import views.tabView.TabViewController;
 
 /**
@@ -69,6 +70,12 @@ public class StackSet {
 	private ArrayList<Ability> abilityListGrave = new ArrayList<Ability>();
 	private StackController stackController;
 	private Map map;
+	private SettingController settingController;
+	private Race tempActiveRace2 = null;
+	private Ability tempActiveAbility2 = null;
+	private Race tempActiveRace = null;
+	private Ability tempActiveAbility = null;
+	private ArrayList<String> playerName = new ArrayList<String>();
 
 	/**
 	 * Deze Constructor
@@ -82,7 +89,9 @@ public class StackSet {
 		stackController = new StackController(this, serverSetService);
 		this.selfPlayer = selfPlayer;
 		this.tabController = tabController;
+		settingController = this.tabController.getSettingBarController();
 		setRef();
+		setRefSetting();
 
 		raceList.add(new Cultists());
 		raceList.add(new Drow());
@@ -132,7 +141,9 @@ public class StackSet {
 	public void setSets(ObservableList<Set> sets) {
 		this.sets = sets;
 	}
-
+	public void setRefSetting() {
+		settingController.setStackRef(this);
+	}
 	public TabViewController getTabViewController() {
 		return this.tabController;
 	}
@@ -193,14 +204,81 @@ public class StackSet {
 		sets.get(5).setCost(5);
 
 	}
-
+	public void syncSetPlayer2(String name, String raceServerList, String abilityServerList, int amountPlayer) {
+		
+		System.out.println("Dit is de race van de server: " + name +  " " +raceServerList);
+		System.out.println("Dit is de ability van de server: " + name +  " " +abilityServerList);
+		this.playerName.add(name);						// string list
+		for (Race race : this.raceList) 
+		{
+			if (race.getName().toUpperCase().equals(raceServerList.toUpperCase())) 
+			{ 
+				this.tempActiveRace = race; // if the same remember
+			}
+		}
+		for (Ability ability : this.abilityList) {
+			if (ability.getName().equalsIgnoreCase(abilityServerList)) 
+			{
+				this.tempActiveAbility = ability; // if same remember
+			}
+		}
+			System.out.println("Dit is de race van lokaal: van " + name +  " " +this.tempActiveRace.getName());
+			System.out.println("Dit is de ability van lokaal: " + name +  " " +this.tempActiveAbility.getName());
+		}
+	public void syncSetPlayer1(String name, String raceServerList, String abilityServerList, int amountPlayer) {
+		
+		System.out.println("Dit is de race van de server: " + name +  " " +raceServerList);
+		System.out.println("Dit is de ability van de server: " + name +  " " +abilityServerList);
+		this.playerName.add(name);						// string list
+		for (Race race : this.raceList) 
+		{
+			if (race.getName().toUpperCase().equals(raceServerList.toUpperCase())) 
+			{ 
+				this.tempActiveRace2 = race; // if the same remember
+			}
+		}
+		for (Ability ability : this.abilityList) {
+			if (ability.getName().equalsIgnoreCase(abilityServerList)) 
+			{
+				this.tempActiveAbility2 = ability; // if same remember
+			}
+		}
+			System.out.println("Dit is de race van lokaal: van " + name +  " " +this.tempActiveRace.getName());
+			System.out.println("Dit is de ability van lokaal: " + name +  " " +this.tempActiveAbility.getName());
+		}
+		
+	//}
+	public String getActiveAbility()
+	{
+		return this.tempActiveAbility.getName();
+	}
+	public String getActiveRace()
+	{
+		return this.tempActiveRace.getName();
+	}
+	public ArrayList<String> getPlayerName()
+	{
+		return this.playerName;
+	}
+	public String getActiveAbility2()
+	{
+		return this.tempActiveAbility2.getName();
+	}
+	public String getActiveRace2()
+	{
+		return this.tempActiveRace2.getName();
+	}
+	public ArrayList<String> getPlayerName2()
+	{
+		return this.playerName;
+	}
 	public void linkStack() {
 		tabController.setStack(this.sets);
 	}
 
 	public void test() {
 		for (Set set : sets) {
-			System.out.println("testing sets: " + set.getAbility().getName() + " - " + set.getRace().getName());
+			//System.out.println("testing sets: " + set.getAbility().getName() + " - " + set.getRace().getName());
 		}
 
 	}
@@ -214,7 +292,7 @@ public class StackSet {
 				System.out.println("found race");
 				return race;
 			}
-			System.out.println(" looking for race from server: " + raceName.toString()+ " found: " + race.getName() );
+		//	System.out.println(" looking for race from server: " + raceName.toString()+ " found: " + race.getName() );
 		}
 		System.out.println("CLIENT SOMETHING WENT WRONG COULD NOT FIND RACE FROM SERVER");
 		return null;

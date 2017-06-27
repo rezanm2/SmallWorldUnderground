@@ -1,12 +1,13 @@
 package data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import server.ServerTerrain;
 
 
-public class Map {
+public class Map implements Serializable{
 
 	private List<ServerTerrain> terrains = new ArrayList<ServerTerrain>();
 	private int playerAmount;

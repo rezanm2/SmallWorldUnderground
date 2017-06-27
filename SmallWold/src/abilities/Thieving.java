@@ -53,7 +53,7 @@ public class Thieving extends Ability implements CalculatableIncome
 				if(doThief = true)
 					{
 					stolenRaces.add(map.getTerrains().get(terrainCounter).getRace().getName());
-					System.out.println("Stole 1 coin from " + map.getTerrains().get(terrainCounter).getRace().getName());
+
 					tokenController.linkRaceToPlayer(map.getTerrains().get(terrainCounter).getRace());
 					tokenController.getRacesPlayer().setCoins(tokenController.getRacesPlayer().getCoins() - 1);
 					abilityIncome++;

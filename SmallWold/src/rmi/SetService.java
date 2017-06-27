@@ -45,6 +45,39 @@ public class SetService  extends UnicastRemoteObject implements SetServiceClient
 
 
 	}
+	@Override
+	public synchronized void updateSetsPlayer2(String name, String race, String ability,int amountPlayer) throws RemoteException {
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		new Thread(() -> {
+			stack.syncSetPlayer2(name, race, ability, amountPlayer);
+			stack.linkStack();
+			stack.test();
+		}).start();
+		
+	}
+
+
+	@Override
+	public synchronized void updateSetsPlayer1(String playerNames, String playerRaces, String playerAbilities, int amountPlayer)
+			throws RemoteException {
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		new Thread(() -> {
+			stack.syncSetPlayer1(playerNames, playerRaces, playerAbilities, amountPlayer);
+			stack.linkStack();
+			stack.test();
+		}).start();
+		
+	}
 
 
 	@Override
