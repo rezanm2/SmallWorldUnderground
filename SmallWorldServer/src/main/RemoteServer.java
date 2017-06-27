@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import data.Map;
 import data.Player;
 import rmi.CombatService;
-import rmi.RedeploymentService;
 import rmi.ServerImpl;
 import rmi.SetService;
 import rmi.TurnService;
@@ -32,6 +31,7 @@ public class RemoteServer {
 	private ArrayList<ClientSkeleton> clientList = new ArrayList<ClientSkeleton>();
 	private ArrayList<String> playerNameList = new ArrayList<String>();
 	private ArrayList<Player> playerList = new ArrayList<Player>();
+	private Map map2;
 
 	protected RemoteServer() throws RemoteException {
 		this.port = 1099;
@@ -98,7 +98,14 @@ public class RemoteServer {
 		}
 	}
 
-
+	public ArrayList<Player> getListPlayers()
+	{
+		return this.playerList;
+	}
+	public Map getMap()
+	{
+		return this.map2;
+	}
 	public void sendPlayerList(ClientSkeleton addedClient) throws RemoteException {
 
 		new Thread(() -> {
@@ -135,14 +142,11 @@ public class RemoteServer {
 			System.out.println("Server: SetService registered as \'ServerSetService\' in RMI registry.");
 
 			Map map = new Map(amountPlayers);
+			this.map2 = map;
 
 			CombatService combatService = new CombatService(playerList, map);
 			Naming.rebind("ServerCombatService", combatService);
 			System.out.println("Server: SetService registered as \'ServerCombatService\' in RMI registry.");
-
-			RedeploymentService redeployService = new RedeploymentService(playerList, map);
-			Naming.rebind("ServerRedeploymentService", redeployService);
-			System.out.println("Server: SetService registered as \'ServerRedeploymentService\' in RMI registry.");
 
 			Thread.sleep(20);
 			notifyClientOfStart();

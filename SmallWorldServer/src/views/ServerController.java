@@ -10,12 +10,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import main.RemoteServer;
 import main.ServerApplication;
+import save.Save;
 
 public class ServerController {
 
 	private String hostIP;
 	private boolean isRunning = false;
 	private RemoteServer server;
+	private Save save = new Save();
 
 	@FXML private Label hostIPadres;
 	@FXML private TextArea serverLog;
@@ -31,7 +33,10 @@ public class ServerController {
 	public void setServer(RemoteServer server){
 		this.server = server;
 	}
-
+	public void save()
+	{
+		save.SaveNames(server.getListPlayers(),server.getMap());
+	}
 	public void logging(String logtekst) {
 		serverLog.appendText(" <" + Instant.now() + "> " + logtekst + "\n"); 	//Log the startup and shutdown of the server
 	}
