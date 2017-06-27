@@ -58,6 +58,7 @@
                   <Image url="@../Volcano.png" />
                </image>
             </ImageView>
+            <Button layoutX="533.0" layoutY="346.0" mnemonicParsing="false" onAction="#save" text="Save" />
          </children>
       </Pane>
    </children>

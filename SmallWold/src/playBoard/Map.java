@@ -169,8 +169,10 @@ public class Map {
 		System.out.println(terrains.get(0).getTerrainId());
 		ArrayList<String> playerActiveTerrainsID = new ArrayList<String>();
 		for(int i = 0; i < terrains.size(); i++){
-			if(terrains.get(i).getRace().equals(selfPlayer.getActiveSet().getRace())) {
-				playerActiveTerrainsID.add(terrains.get(i).getTerrainId());
+			if(!(terrains.get(i).getRace() == null)) {
+				if(terrains.get(i).getRace().equals(selfPlayer.getActiveSet().getRace())) {
+					playerActiveTerrainsID.add(terrains.get(i).getTerrainId());
+				}
 			}
 		}
 		return playerActiveTerrainsID;

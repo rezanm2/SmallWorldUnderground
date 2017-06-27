@@ -80,6 +80,13 @@ public class SetService  extends UnicastRemoteObject implements SetServiceClient
 	}
 
 
+	@Override
+	public void costList(ArrayList<Integer> gains) throws RemoteException {
+		System.out.println(gains);
+		stack.updateCost(gains);		
+	}
+
+
 
 
 
