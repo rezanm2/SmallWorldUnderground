@@ -98,7 +98,12 @@ public class TabViewController {
 	 */
 	public void pickSet(MouseEvent ev) throws RemoteException
 	{
-			if(this.selfPlayer.isMyTurn()){
+			if(this.selfPlayer.isMyTurn() && this.selfPlayer.isRedeploy() == false){
+				if(selfPlayer.getActiveSet() == null){
+					sidebarController.showButton();
+					sidebarController.updateButtonText("End Conquer");
+					sidebarController.showDeclineButton();
+					}
 			ImageView test = (ImageView) ev.getTarget();
 			System.out.println(test.getId());
 			char [] iets = test.getId().toCharArray();
@@ -107,9 +112,8 @@ public class TabViewController {
 			System.out.println(choice);
 			stackset.getStackController().chooseSet(choice-1);
 
-			sidebarController.updateVisibleButton();
-			sidebarController.updateButtonText("End Conquer");
-			bottomBarController.updateCurrentTokens();
+
+			//bottomBarController.updateCurrentTokens();
 			}
 	}
 

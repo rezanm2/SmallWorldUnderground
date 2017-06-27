@@ -1,16 +1,22 @@
 package controllers;
 
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+
+import javafx.application.Platform;
 import models.StackSet;
 import playBoard.Map;
+import player.Hand;
 import player.Player;
 import server.CombatServiceSkeleton;
 import server.RedeployServiceSkeleton;
+import server.ServerTerrain;
 import terrain.Terrain;
 import views.fieldView.FieldViewController;
 /**
  * Dit de controller voor het redeployen van fiches op de kaart.
  *
- * @author Bas Dorresteijn
+ * @author Bas Dorresteijn, Wim van der Putten
  *
  */
 public class RedeploymentController {
@@ -55,8 +61,9 @@ public class RedeploymentController {
 	 * Vervolgens worden de visuals geupdate.
 	 *
 	 * @param terrainId, het ID van het terrein, aan de hand hiervan wordt bepaald welk terrein het is.
+	 * @throws RemoteException
 	 */
-	public void doRedeployment(String terrainId) {
+	public void doRedeployment(String terrainId) throws RemoteException {
 		this.terrain = this.map.getTerrainById(terrainId);
 		System.out.println(map.getSelfPlayer().getHand().getCurrentTokens());
 		if (declaredTokenAmount == 0) {
@@ -74,7 +81,41 @@ public class RedeploymentController {
 			// @@@@@@ FIX DIE VISUAL WIM OMG SERVERSHIT MOET HIER GEBEUREN ENZO JAJA
 			// @@@@@@ NEED AMOUNT OF TOKEN &&&&&&&& TERRAIN UPDATE
 		}
+		serverRedeployService.deployTerrain(terrain.getTerrainId(), declaredTokenAmount); // sends information to the server
+
 		System.out.println(map.getSelfPlayer().getHand().getCurrentTokens());
 	}
+
+	public void prepareFields() throws RemoteException {
+		ArrayList<Terrain> terrainList = this.map.getTerrainByActiveRace();
+		ArrayList<String> updateList = new ArrayList<>();
+		for (Terrain terrain : terrainList) {
+			if(terrain.getAmountOfTokens() > 1){
+				Hand playerHand = this.map.getSelfPlayer().getHand();
+				playerHand.setCurrentTokens(playerHand.getCurrentTokens() + (terrain.getAmountOfTokens() - 1));
+				updateList.add(terrain.getTerrainId());
+			}
+		}
+		System.out.println("preparing fields, for redeployment/conquest/decline");
+		this.serverRedeployService.syncTerrains(updateList);
+
+	}
+
+	public void syncTerrain(ServerTerrain serverTerrain) {
+
+		Terrain editTerrain = this.map.getTerrainById(serverTerrain.getId());
+		editTerrain.setAmountOfTokens(serverTerrain.getTokens());
+		if(serverTerrain.getTokens() == 0){
+			serverTerrain.setRace(null);
+		}
+		updateFieldView(serverTerrain.getId(), serverTerrain.getRace(), serverTerrain.getTokens());
+	}
+
+	public void updateFieldView(String id, String raceName, int tokens){
+		Platform.runLater(() -> {
+				fieldController.updateFieldById(id,raceName, tokens);
+		});
+	}
+
 
 }

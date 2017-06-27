@@ -123,13 +123,17 @@ public class FieldViewController {
 	{
 		try
 		{
-			System.out.println("WOOT CLICKS");
 
 			if(this.selfPlayer.isMyTurn())
 			{
 
 				System.out.println("First attack? " + selfPlayer.isFirstAttack());
-				if(selfPlayer.isFirstAttack() == true)
+				if(this.selfPlayer.isRedeploy()){
+
+					combatController.setRedeployment(selfPlayer);
+
+				}
+				else if(selfPlayer.isFirstAttack() == true)
 				{
 					combatController.setBordersToAttackable();
 				}
@@ -218,6 +222,7 @@ public class FieldViewController {
 	public void buttonBevestig(ActionEvent pressButtonBevestig) throws RemoteException {
 		//getDeclaredTokenAmount();
 		combatController.declareTokenAmount(declaredTokenAmount);
+		redploymentController.declareTokenAmount(declaredTokenAmount);
 		//redploymentController.declareTokenAmount(getDeclaredTokenAmount());
 		System.out.println(declaredTokenAmount);
 		this.declarePanePrevious.setVisible(false);
@@ -227,7 +232,12 @@ public class FieldViewController {
 
 		System.out.println(declarePanePrevious.getParent().getId());
 
-		this.combatController.calculateCombat(declarePanePrevious.getParent().getId());
+		if(selfPlayer.isRedeploy()){
+			this.redploymentController.doRedeployment(declarePanePrevious.getParent().getId());
+			System.out.println("redeploying............");
+		} else{
+			this.combatController.calculateCombat(declarePanePrevious.getParent().getId());
+		}
 		this.sideBarControl.hideDeclineButton();
 		selfPlayer.setFirstAttack(false);
 	}

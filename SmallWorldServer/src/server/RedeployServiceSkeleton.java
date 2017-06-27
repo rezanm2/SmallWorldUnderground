@@ -2,6 +2,8 @@ package server;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
+
 
 public interface RedeployServiceSkeleton extends Remote{
 
@@ -11,4 +13,11 @@ public interface RedeployServiceSkeleton extends Remote{
 	void addRedeployClient(RedeployServiceClientSkeleton redeployClient) throws RemoteException;
 
 
+	void syncTerrains(ArrayList<String> updateList) throws RemoteException;
+
+
+	void deployTerrain(String terrainId, int declaredTokenAmount) throws RemoteException;
+
+
 }
+

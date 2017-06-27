@@ -164,7 +164,7 @@ public class Map {
 		return null;
 
 	}
-	
+
 	public ArrayList<String> getPlayersActiveTerrains() {
 		System.out.println(terrains.get(0).getTerrainId());
 		ArrayList<String> playerActiveTerrainsID = new ArrayList<String>();
@@ -174,6 +174,20 @@ public class Map {
 			}
 		}
 		return playerActiveTerrainsID;
+	}
+
+
+	public ArrayList<Terrain> getTerrainByActiveRace(){
+		System.out.println("finding terrain for " + selfPlayer.getActiveSet().getRace().getName());
+		ArrayList<Terrain> raceTerrainList = new ArrayList<Terrain>();
+		for (Terrain terrain : terrains) {
+			if(terrain.getRace() != null){
+			if(terrain.getRace().getName().equals(selfPlayer.getActiveSet().getRace().getName())){
+				raceTerrainList.add(terrain);
+			}
+			}
+		}
+		return raceTerrainList;
 	}
 
 	public Player getSelfPlayer() {

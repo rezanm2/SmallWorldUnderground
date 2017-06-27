@@ -25,6 +25,7 @@ public class Player implements Serializable{
 	private boolean myTurn;
 	private boolean firstAttack;
 	private String name;
+	private boolean isRedeploy;
 
 
 	private Hand hand;
@@ -37,6 +38,7 @@ public class Player implements Serializable{
 		this.hand = new Hand();
 		this.setMyTurn(false);
 		this.setCoins(5);
+		this.isRedeploy = false;
 	};
 
 	/**
@@ -121,6 +123,14 @@ public class Player implements Serializable{
 
 	public void setFirstAttack(boolean hasFirstAttack) {
 		this.firstAttack = hasFirstAttack;
+	}
+
+	public void setRedeploy(boolean b) {
+	this.isRedeploy = b;
+
+	}
+	public boolean isRedeploy(){
+		return this.isRedeploy;
 	}
 
 }

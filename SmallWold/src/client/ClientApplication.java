@@ -152,6 +152,7 @@ public class ClientApplication extends Application{
 
         sidebarController.setControllers(manualController);
         sidebarController.setControllers(settingController);
+        sidebarController.setBottomBarCOntroll(bottomBarControl);
         settingController.setControllers(bottomBarControl);
 
 

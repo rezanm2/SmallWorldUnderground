@@ -250,4 +250,17 @@ public class TerrainController
 	}
 
 
+	public void setRedeployment(String name) {
+		for (Terrain terrain : map.getTerrains()) {
+
+			if(terrain.getRace() != null){
+				if(terrain.getRace().getName().equals(name)){
+					terrain.setIsAttackable(true);
+				}
+			}
+		}
+
+	}
+
+
 }

@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import player.Player;
+import views.bottomBarView.BottomBarController;
 import views.manualView.ManualController;
 import views.settingView.SettingController;
 import views.tabView.TabViewController;
@@ -25,6 +26,7 @@ public class SideBarController {
     private Player selfPlayer;
     private TurnController turnControl;
     private SettingController settingController;
+    private BottomBarController bottomBarController;
 
     @FXML
     private ImageView tabImage;
@@ -38,6 +40,7 @@ public class SideBarController {
 
     @FXML
     private ImageView endTurnButton;
+
 
     @FXML
     private StackPane declinePane;
@@ -85,13 +88,22 @@ public class SideBarController {
     	}
 
     }
+    @FXML
+	public void setDecline() throws RemoteException
+	{
+		selfPlayer.setDeclineSet(selfPlayer.getActiveSet());
+		System.out.println("Set is now declined");
+	//	System.out.println(selfPlayer.getDeclineSet().getRace().getName());
+		bottomBarController.setDeclineSet();
+		bottomBarController.updateDeclineTokens();
+		selfPlayer.setActiveSet(null);
+		bottomBarController.setActiveSet();
+		turnControl.setPhase(2);
+		turnControl.endPhase();
 
-    /**
-     * Verbergt de declineknop.
-     */
-    public void hideDeclineButton(){
-    		this.declinePane.setVisible(false);
-    }
+	}
+
+
 
     /**
      * Laat het manualscherm zien.
@@ -125,6 +137,9 @@ public class SideBarController {
 	public void setTurnController(TurnController turnController){
 		this.turnControl = turnController;
 	}
+	public void setBottomBarCOntroll( BottomBarController bottomBarController){
+		this.bottomBarController = bottomBarController;
+	}
 
 	/**
 	 * Beeindigt de beurt voor de speler.
@@ -149,6 +164,22 @@ public class SideBarController {
 			buttonPane.setVisible(true);
 		}
 	}
+
+	public void showButton(){
+		buttonPane.setVisible(true);
+	}
+	public void hideButton(){
+		buttonPane.setVisible(false);
+	}
+	public void showDeclineButton(){
+		declinePane.setVisible(true);
+	}
+    /**
+     * Verbergt de declineknop.
+     */
+    public void hideDeclineButton(){
+    		this.declinePane.setVisible(false);
+    }
 
 	/**
 	 * Update de text die op de endturn button staat.

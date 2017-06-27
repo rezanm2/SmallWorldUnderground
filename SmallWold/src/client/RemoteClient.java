@@ -198,9 +198,9 @@ public class RemoteClient {
 			System.out.println("Client: looking up turnServiceServer in RMI Registry...");
 			TurnServiceSkeleton serverTurnService = (TurnServiceSkeleton) Naming.lookup("//" + host + "/ServerTurnService");
 
-			TurnController turnController = new TurnController(map, sideBarController, serverTurnService);
+			TurnController turnController = new TurnController(map, sideBarController, serverTurnService, redeployController);
 
-			TurnService turnClient = new TurnService(selfPlayer, sideBarController);
+			TurnService turnClient = new TurnService(selfPlayer, sideBarController, turnController, redeployController);
 			serverTurnService.addTurnClient(turnClient);
 
 

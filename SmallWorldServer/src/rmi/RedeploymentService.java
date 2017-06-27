@@ -41,6 +41,7 @@ public class RedeploymentService  extends UnicastRemoteObject implements Redeplo
 		syncTerrainByTerrain(terrain);
 
 	}
+
 	private void updateTerrain(ServerTerrain terrain, int declaredTokenAmount) {
 		terrain.setTokens(declaredTokenAmount);
 	}
@@ -48,6 +49,7 @@ public class RedeploymentService  extends UnicastRemoteObject implements Redeplo
 	public void syncTerrainByTerrain(ServerTerrain terrain){
 		new Thread(() -> {	try {
 			for (RedeployServiceClientSkeleton redeployCLient : redeployClientList) {
+				System.out.println("preparing" + terrain.getId());
 				redeployCLient.syncTerrain(terrain);
 					}
 			}
@@ -55,6 +57,27 @@ public class RedeploymentService  extends UnicastRemoteObject implements Redeplo
 			e.printStackTrace();
 		}
 		}).start();
+	}
+
+	@Override
+	public void syncTerrains(ArrayList<String> updateList) throws RemoteException {
+		for (String id : updateList) {
+			ServerTerrain terrain = map.getTerrainById(id);
+			updateTerrain(terrain, 1);
+			syncTerrainByTerrain(terrain);
+		}
+
+	}
+
+	@Override
+	public void deployTerrain(String terrainId, int declaredTokenAmount) throws RemoteException {
+		ServerTerrain terrain	 = map.getTerrainById(terrainId);
+		updateTerrain(terrain, declaredTokenAmount);
+		if(declaredTokenAmount == 0){
+			terrain.setRace("");
+		}
+		syncTerrainByTerrain(terrain);
+
 	}
 
 

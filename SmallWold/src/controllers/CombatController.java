@@ -41,8 +41,6 @@ public class CombatController {
 	private boolean isValidChoice;
 
 
-	Drow drow = new Drow();
-
 	/**
 	 * Ophalen van de speler, het totaal aantal spelers, de FieldViewController en de CombatServiceSkeleton.
 	 * Bijzonderheid: de klasse moet kunnen communiceren met de view en de server.
@@ -102,6 +100,13 @@ public class CombatController {
 		terrainController.allAdjacentAreas(selfPlayer.getActiveSet().getRace());
 		terrainController.allAttackableAreas(selfPlayer.getActiveSet().getRace());
 		terrainController.allRedeployableAreas(selfPlayer.getActiveSet().getRace());
+	}
+
+	public void setRedeployment(Player selfPlayer){
+		terrainController.setNotAdjacent();
+		terrainController.setNotAttackable();
+		terrainController.setNotRedeployable();
+		terrainController.setRedeployment(selfPlayer.getActiveSet().getRace().getName());
 	}
 
 	public void isItAValidChoice(StackPane fieldPane)
