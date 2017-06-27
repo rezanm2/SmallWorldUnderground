@@ -12,7 +12,7 @@ public interface SetServiceSkeleton  extends Remote{
 
 	void addSetClient(SetServiceClientSkeleton setClient) throws RemoteException;
 
-	void updateSetList(String race, String ability, String string) throws RemoteException;
+	void updateSetList(String playerName, String race, String ability) throws RemoteException;
 
 	void giveAllInformationPlayer(String name, int currentTokens, int declineTokens, int coins) throws RemoteException;
 

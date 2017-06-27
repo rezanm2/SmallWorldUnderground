@@ -207,7 +207,14 @@ public class TabViewController {
 
     }
     public void ShowName(){
-    	   player_1.setText(String.valueOf(stackset.getPlayerName()));
+    	try{
+    	   player_1.setText(stackset.getPlayerName());
+    	   player_2.setText(stackset.getPlayerName2());
+    	   //player_2.setText(String.valueOf(stackset.getPlayerName2()));
+    	}catch(java.lang.NullPointerException e)
+		{
+			System.out.println(e.getMessage());	
+		}
 
     }
  
@@ -242,7 +249,17 @@ public class TabViewController {
 		pick_ability_5.setImage(new Image("/images/abilitys/active/"+sets.get(4).getAbility().getName()+".png"));
 		pick_ability_6.setImage(new Image("/images/abilitys/active/"+sets.get(5).getAbility().getName()+".png"));
 		
-		setActive();
+		try{
+			setActive();
+			ShowName();
+		}catch(java.lang.NullPointerException e)
+		{
+			System.out.println(e.getMessage());	
+		}
+		catch(java.lang.RuntimeException e)
+		{
+			System.out.println(e.getMessage());	
+		}
 		//ShowName();
 
 

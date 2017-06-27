@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="mainPane" prefHeight="839.0" prefWidth="1557.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.tabView.TabViewController">
+<StackPane fx:id="mainPane" onMouseClicked="#ShowName" prefHeight="839.0" prefWidth="1557.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.tabView.TabViewController">
    <children>
       <ImageView fitHeight="862.0" fitWidth="1557.0" pickOnBounds="true">
          <image>
@@ -153,7 +153,7 @@
                   <Font name="System Bold" size="31.0" />
                </font>
             </Label>
-            <Label id="player_2" text="PLAYER 2" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <Label id="player_2" fx:id="player_2" text="PLAYER 2" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="31.0" />
                </font>

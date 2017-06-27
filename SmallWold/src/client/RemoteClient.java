@@ -185,12 +185,12 @@ public class RemoteClient {
 
 			//start setup for RedeploymentService
 			System.out.println("Client: looking up RedeploymentService in RMI Registry...");
-			RedeployServiceSkeleton serverRedeployService = (RedeployServiceSkeleton) Naming.lookup("//" + host + "/ServerRedeploymentService");
+			//RedeployServiceSkeleton serverRedeployService = (RedeployServiceSkeleton) Naming.lookup("//" + host + "/ServerRedeploymentService");
 
-			RedeploymentController redeployController = new RedeploymentController(fieldViewController, serverRedeployService, map);
+			//RedeploymentController redeployController = new RedeploymentController(fieldViewController, serverRedeployService, map);
 
-			RedeploymentService redeployClient = new RedeploymentService(redeployController);
-			serverRedeployService.addRedeployClient(redeployClient);
+			//RedeploymentService redeployClient = new RedeploymentService(redeployController);
+			//serverRedeployService.addRedeployClient(redeployClient);
 
 
 

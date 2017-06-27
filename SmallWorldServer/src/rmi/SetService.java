@@ -89,7 +89,7 @@ public class SetService extends UnicastRemoteObject implements SetServiceSkeleto
 			}
 			else
 			{
-				System.out.println("Niet gelukt lllllll");
+				System.out.println("Niet gelukt");
 
 			}
 		}
@@ -123,9 +123,6 @@ public class SetService extends UnicastRemoteObject implements SetServiceSkeleto
 				System.out.println("Niet gelukt lllllll");
 
 			}
-			System.out.println("I dont know!!!!!!!!!"+ playerList.get(x).getUserName());
-			System.out.println("I dont know!!!!!!!!!"+ playerName);
-			System.out.println("AAAABBBBIII!!!!!!!!!"+ playerList.get(x).getActiveRace());
 		}
 	}
 
@@ -147,9 +144,6 @@ public class SetService extends UnicastRemoteObject implements SetServiceSkeleto
 				System.out.println("Niet gelukt lllllll");
 
 			}
-			System.out.println("I dont know!!!!!!!!!"+ playerList.get(x).getUserName());
-			System.out.println("I dont know!!!!!!!!!"+ playerName);
-			System.out.println("AAAABBBBIII!!!!!!!!!"+ playerList.get(x).getActiveRace());
 		}
 	}
 
@@ -158,11 +152,7 @@ public class SetService extends UnicastRemoteObject implements SetServiceSkeleto
 		
 	}
 
-	@Override
-	public void updateSetList(String race, String ability) throws RemoteException {
-		// TODO Auto-generated method stub
-		
-	}
+
 	
 
 	public void updateCoinCost(ArrayList<Integer> gains) throws RemoteException {
