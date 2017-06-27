@@ -37,6 +37,7 @@ public class StackController {
 		gains.add(0);
 		gains.add(0);
 		gains.add(0);
+		gains.add(0);
 	}
 
 	/**
@@ -54,12 +55,13 @@ public class StackController {
 		ObservableList<Set> sets = this.stack.getSets();
 		TabViewController controller  = this.stack.getTabViewController();
 
-		if(player.getActiveSet() == null && player.getCoins() + gains.get(nr)>= sets.get(nr).getCost())
+		if(player.getActiveSet() == null && player.getCoins() + gains.get(nr) >= sets.get(nr).getCost())
 		{
 			player.setActiveSet(new models.Set(sets.get(nr).getRace(), sets.get(nr).getAbility()));
 			this.stack.getRaceListGrave().add(sets.get(nr).getRace());
 			this.stack.getAbilityListGrave().add(sets.get(nr).getAbility());
 			player.setCoins(player.getCoins() - sets.get(nr).getCost());
+			player.setCoins(player.getCoins() + gains.get(nr));
 			System.out.println("client: player race: " + player.getActiveSet().getRace().getName());
 			System.out.println("client: player race: " + player.getActiveSet().getAbility().getName());
 
