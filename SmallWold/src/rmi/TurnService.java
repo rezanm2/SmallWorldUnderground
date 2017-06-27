@@ -46,7 +46,7 @@ public class TurnService extends UnicastRemoteObject implements TurnServiceClien
 	}
 
 	@Override
-	public void StartTurn() throws RemoteException {
+	public void StartTurn(int turn) throws RemoteException {
 
 		Platform.runLater(() -> {
 
@@ -55,6 +55,7 @@ public class TurnService extends UnicastRemoteObject implements TurnServiceClien
 			sideBarController.showButton();
 			if(selfPlayer.getActiveSet() != null){
 			sideBarController.showDeclineButton();
+			redeployController.turnthingy(turn);
 			}
 		});
 

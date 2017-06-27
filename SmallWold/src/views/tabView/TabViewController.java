@@ -161,10 +161,6 @@ public class TabViewController {
 			stackset.getStackController().chooseSet(choice-1);
 
 
-			sidebarController.updateVisibleButton();
-			sidebarController.updateButtonText("End Conquer");
-			bottomBarController.updateCurrentTokens();
-
 			}
 	}
 

@@ -48,15 +48,7 @@ public class RemoteClient {
 	private ObservableList<JoinedPlayers> players = FXCollections.observableArrayList();
 	private ClientApplication app;
 
-	/**
-	 * Deze constructor neemt eerst de clientApplication over die hij daarvan heeft meegekregen en maakt vervolgens een clientImplementatie.
-	 * Daarna worden de labels in de clientlobby op "-" gezet.
-	 *
-	 * @param app, de clientApplication die de remoteClient aanmaakt
-	 * @throws RemoteException
-	 */
-
-	protected RemoteClient(ClientApplication app) throws RemoteException {
+public RemoteClient(ClientApplication app) throws RemoteException {
 		this.app = app;
 		this.clientImpl = new ClientImpl(this);
 		players.addAll(new JoinedPlayers("-"), new JoinedPlayers("-"), new JoinedPlayers("-"), new JoinedPlayers("-"),new JoinedPlayers("-")); // make list of joinable places
@@ -185,12 +177,12 @@ public class RemoteClient {
 
 			//start setup for RedeploymentService
 			System.out.println("Client: looking up RedeploymentService in RMI Registry...");
-			//RedeployServiceSkeleton serverRedeployService = (RedeployServiceSkeleton) Naming.lookup("//" + host + "/ServerRedeploymentService");
+			RedeployServiceSkeleton serverRedeployService = (RedeployServiceSkeleton) Naming.lookup("//" + host + "/ServerRedeploymentService");
 
-			//RedeploymentController redeployController = new RedeploymentController(fieldViewController, serverRedeployService, map);
+			RedeploymentController redeployController = new RedeploymentController(fieldViewController, serverRedeployService, map);
 
-			//RedeploymentService redeployClient = new RedeploymentService(redeployController);
-			//serverRedeployService.addRedeployClient(redeployClient);
+			RedeploymentService redeployClient = new RedeploymentService(redeployController);
+			serverRedeployService.addRedeployClient(redeployClient);
 
 
 

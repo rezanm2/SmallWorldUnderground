@@ -208,15 +208,15 @@ public class StackSet {
 	public void syncSetPlayer2(String name, String raceServerList, String abilityServerList, int amountPlayer) {
 		try{
 			this.playerName2 = (name);						// string list
-			for (Race race : this.raceList) 
+			for (Race race : this.raceList)
 			{
-				if (race.getName().toUpperCase().equals(raceServerList.toUpperCase())) 
-				{ 
+				if (race.getName().toUpperCase().equals(raceServerList.toUpperCase()))
+				{
 					this.tempActiveRace = race; // if the same remember
 				}
 			}
 			for (Ability ability : this.abilityList) {
-				if (ability.getName().equalsIgnoreCase(abilityServerList)) 
+				if (ability.getName().equalsIgnoreCase(abilityServerList))
 				{
 					this.tempActiveAbility = ability; // if same remember
 				}
@@ -230,15 +230,15 @@ public class StackSet {
 	public void syncSetPlayer1(String name, String raceServerList, String abilityServerList, int amountPlayer) {
 		try{
 			this.playerName = name;						// string list
-			for (Race race : this.raceList) 
+			for (Race race : this.raceList)
 			{
-				if (race.getName().toUpperCase().equals(raceServerList.toUpperCase())) 
-				{ 
+				if (race.getName().toUpperCase().equals(raceServerList.toUpperCase()))
+				{
 					this.tempActiveRace2 = race; // if the same remember
 				}
 			}
 			for (Ability ability : this.abilityList) {
-				if (ability.getName().equalsIgnoreCase(abilityServerList)) 
+				if (ability.getName().equalsIgnoreCase(abilityServerList))
 				{
 					this.tempActiveAbility2 = ability; // if same remember
 				}
@@ -249,7 +249,7 @@ public class StackSet {
 		}
 
 		}
-		
+
 	//}
 	public String getActiveAbility()
 	{

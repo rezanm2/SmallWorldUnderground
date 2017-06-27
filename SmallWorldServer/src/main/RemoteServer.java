@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import data.Map;
 import data.Player;
 import rmi.CombatService;
+import rmi.RedeploymentService;
 import rmi.ServerImpl;
 import rmi.SetService;
 import rmi.TurnService;
@@ -142,7 +143,11 @@ public class RemoteServer {
 			System.out.println("Server: SetService registered as \'ServerSetService\' in RMI registry.");
 
 			Map map = new Map(amountPlayers);
-			this.map2 = map;
+
+			RedeploymentService redeployService = new RedeploymentService(playerList, map);
+			Naming.rebind("ServerRedeploymentService", redeployService);
+			System.out.println("Server: SetService registered as \'ServerRedeploymentService\' in RMI registry.");
+
 
 			CombatService combatService = new CombatService(playerList, map);
 			Naming.rebind("ServerCombatService", combatService);

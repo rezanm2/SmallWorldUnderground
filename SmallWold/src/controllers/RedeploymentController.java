@@ -117,5 +117,10 @@ public class RedeploymentController {
 		});
 	}
 
+	public void turnthingy(int turn) {
+		fieldController.nextTurn(turn);
+
+	}
+
 
 }

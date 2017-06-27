@@ -71,7 +71,7 @@ public class TurnService extends UnicastRemoteObject implements TurnServiceSkele
 
 			}else{
 
-				TurnClient.StartTurn();								//start player's turn
+				TurnClient.StartTurn(round);								//start player's turn
 
 			}
 
