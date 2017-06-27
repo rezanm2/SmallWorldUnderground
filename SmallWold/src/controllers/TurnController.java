@@ -56,16 +56,11 @@ public class TurnController {
 
 	public void CalculateTerrainIncome(){
 		terrainIncome = 0;
-<<<<<<< HEAD
+
 		if(map.getSelfPlayer().getActiveSet() != null){
 		for(int terrainCounter=0;terrainCounter<map.getTerrains().size();terrainCounter++){
 			if(map.getSelfPlayer().getActiveSet().getRace().equals(map.getTerrains().get(terrainCounter).getRace())){
-=======
-		for(int terrainCounter=0;terrainCounter<map.getTerrains().size();terrainCounter++)
-		{
-			if(map.getSelfPlayer().getActiveSet().getRace().equals(map.getTerrains().get(terrainCounter).getRace()))
-			{
->>>>>>> branch 'master' of https://github.com/smallWorld22/SmallWorldUnderground.git
+
 				terrainIncome++;
 			}
 		}
@@ -89,8 +84,6 @@ public class TurnController {
 		if(map.getSelfPlayer().isMyTurn()){
 			switch (this.phase)
 			{
-
-<<<<<<< HEAD
 		case 0:
 			if(this.map.getSelfPlayer().getActiveSet() != null){
 			System.out.println("client: going to redeployment phase");
@@ -100,34 +93,13 @@ public class TurnController {
 			sideBarController.updateButtonText("End TURN");
 			this.redeployController.prepareFields();
 			this.map.getSelfPlayer().setRedeploy(true);
-=======
-			case 0:
-				if(this.map.getSelfPlayer().getActiveSet() != null){
-				System.out.println("client: going to redeployment phase");
-				this.phase = 1;
-				sideBarController.hideDeclineButton();
-				sideBarController.updateButtonText("End TURN");
->>>>>>> branch 'master' of https://github.com/smallWorld22/SmallWorldUnderground.git
+
 
 				//do things for redeployment
 				} else{
 					System.out.println("CANT END TURN NO SET");
 				}
-				break;
-			case 1:
-				System.out.println("client: ending turn");
-				sideBarController.updateButtonText("");
-				this.phase = 0;
-				this.map.getSelfPlayer().setMyTurn(false);
-				this.calculateNewBalance();
-				this.turnServer.endTurn();
 
-				break;
-
-			default:
-				break;
-			}
-<<<<<<< HEAD
 			break;
 		case 1:
 			System.out.println("client: ending turn");
@@ -156,8 +128,7 @@ public class TurnController {
 		default:
 			break;
 		}
-=======
->>>>>>> branch 'master' of https://github.com/smallWorld22/SmallWorldUnderground.git
+
 		}
 	}
 	public Map getMap(){
