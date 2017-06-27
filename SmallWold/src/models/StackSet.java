@@ -75,8 +75,8 @@ public class StackSet {
 	private Ability tempActiveAbility2 = null;
 	private Race tempActiveRace = null;
 	private Ability tempActiveAbility = null;
-	private String playerName;
-	private String playerName2;
+	private String playerName = "";
+	private String playerName2 = "";
 
 	/**
 	 * Deze Constructor

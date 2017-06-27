@@ -248,9 +248,9 @@ public class TabViewController {
 		pick_ability_4.setImage(new Image("/images/abilitys/active/"+sets.get(3).getAbility().getName()+".png"));
 		pick_ability_5.setImage(new Image("/images/abilitys/active/"+sets.get(4).getAbility().getName()+".png"));
 		pick_ability_6.setImage(new Image("/images/abilitys/active/"+sets.get(5).getAbility().getName()+".png"));
-		
+		setActive();
 		try{
-			setActive();
+			
 			ShowName();
 		}catch(java.lang.NullPointerException e)
 		{
