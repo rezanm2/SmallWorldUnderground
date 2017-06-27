@@ -60,6 +60,7 @@ public class StackController {
 			this.stack.getRaceListGrave().add(sets.get(nr).getRace());
 			this.stack.getAbilityListGrave().add(sets.get(nr).getAbility());
 			player.setCoins(player.getCoins() - sets.get(nr).getCost());
+			player.setCoins(player.getCoins() + gains.get(nr));
 			System.out.println("client: player race: " + player.getActiveSet().getRace().getName());
 			System.out.println("client: player race: " + player.getActiveSet().getAbility().getName());
 
