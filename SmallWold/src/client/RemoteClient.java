@@ -184,7 +184,7 @@ public RemoteClient(ClientApplication app) throws RemoteException {
 			RedeploymentService redeployClient = new RedeploymentService(redeployController);
 			serverRedeployService.addRedeployClient(redeployClient);
 
-
+//commit
 
 			//start setup for Turn service
 			System.out.println("Client: looking up turnServiceServer in RMI Registry...");
