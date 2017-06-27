@@ -45,7 +45,6 @@ public class FieldViewController {
 	private int throughTheList = -1;
 	private int getal;
 	private String tokenAmount;
-
 	private CombatController combatController;
 	private RedeploymentController redploymentController;
 
@@ -57,7 +56,35 @@ public class FieldViewController {
 	private AnchorPane mainPane;
 	private Player selfPlayer;
 
+	@FXML
+	private ImageView firstTurn;
 
+	@FXML
+	private ImageView secondTurn;
+
+	@FXML
+	private ImageView thirdTurn;
+
+	@FXML
+	private ImageView fourthTurn;
+
+	@FXML
+	private ImageView fifthTurn;
+
+	@FXML
+	private ImageView sixthTurn;
+
+	@FXML
+	private ImageView seventhTurn;
+
+	@FXML
+	private ImageView eightTurn;
+
+	@FXML
+	private ImageView ninthTurn;
+
+	@FXML
+	private ImageView tenthTurn;
 
 	public FieldViewController() {
 
@@ -113,13 +140,71 @@ public class FieldViewController {
 
 
 
+
+	/**
+	 * Beweegt het turn-fiche.
+	 * @param turn, de beurt die het is.
+	 */
+
+	public void nextTurn(int turn)
+	{
+
+		firstTurn.setVisible(false);
+		secondTurn.setVisible(false);
+		thirdTurn.setVisible(false);
+		fourthTurn.setVisible(false);
+		fifthTurn.setVisible(false);
+		sixthTurn.setVisible(false);
+		seventhTurn.setVisible(false);
+		eightTurn.setVisible(false);
+		ninthTurn.setVisible(false);
+		tenthTurn.setVisible(false);
+
+		System.out.println("Set everything to false.");
+		switch (turn)
+		{
+			case 1:
+				firstTurn.setVisible(true);
+				break;
+			case 2:
+				secondTurn.setVisible(true);
+				break;
+			case 3:
+				thirdTurn.setVisible(true);
+				break;
+			case 4:
+				fourthTurn.setVisible(true);
+				break;
+			case 5:
+				fifthTurn.setVisible(true);
+				break;
+			case 6:
+				sixthTurn.setVisible(true);
+				break;
+			case 7:
+				seventhTurn.setVisible(true);
+				break;
+			case 8:
+				eightTurn.setVisible(true);
+				break;
+			case 9:
+				ninthTurn.setVisible(true);
+				break;
+			case 10:
+				tenthTurn.setVisible(true);
+				break;
+			default:
+				System.out.println("Wrong number input.");
+				break;
+
+		}
+	}
+
 	/**
 	 * Maakt de declare token popup zichtbaar.
 	 *
 	 * @param event, de muisklik die aangeeft welk terrein de speler heeft gekozen.
 	 */
-
-
 	@FXML
 	public void declareTokenClick(MouseEvent event)
 	{
@@ -127,8 +212,6 @@ public class FieldViewController {
 		{
 			if(this.selfPlayer.isMyTurn())
 			{
-
-
 				if(selfPlayer.isFirstAttack() == true)
 				{
 					combatController.setBordersToAttackable();
@@ -247,6 +330,7 @@ public class FieldViewController {
 	@FXML
 	public void buttonBevestig(ActionEvent pressButtonBevestig) throws RemoteException {
 		//getDeclaredTokenAmount();
+
 		combatController.declareTokenAmount(getal);
 		System.out.println("declaredTokenAmount: " + this.declaredTokenAmount);
 		//redploymentController.declareTokenAmount(getDeclaredTokenAmount());

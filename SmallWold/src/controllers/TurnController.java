@@ -53,8 +53,10 @@ public class TurnController {
 
 	public void CalculateTerrainIncome(){
 		terrainIncome = 0;
-		for(int terrainCounter=0;terrainCounter<map.getTerrains().size();terrainCounter++){
-			if(map.getSelfPlayer().getActiveSet().getRace().equals(map.getTerrains().get(terrainCounter).getRace())){
+		for(int terrainCounter=0;terrainCounter<map.getTerrains().size();terrainCounter++)
+		{
+			if(map.getSelfPlayer().getActiveSet().getRace().equals(map.getTerrains().get(terrainCounter).getRace()))
+			{
 				terrainIncome++;
 			}
 		}
@@ -72,33 +74,34 @@ public class TurnController {
 
 	public void endPhase() throws RemoteException {
 		if(map.getSelfPlayer().isMyTurn()){
-		switch (this.phase) {
+			switch (this.phase)
+			{
 
-		case 0:
-			if(this.map.getSelfPlayer().getActiveSet() != null){
-			System.out.println("client: going to redeployment phase");
-			this.phase = 1;
-			sideBarController.hideDeclineButton();
-			sideBarController.updateButtonText("End TURN");
+			case 0:
+				if(this.map.getSelfPlayer().getActiveSet() != null){
+				System.out.println("client: going to redeployment phase");
+				this.phase = 1;
+				sideBarController.hideDeclineButton();
+				sideBarController.updateButtonText("End TURN");
 
-			//do things for redeployment
-			} else{
-				System.out.println("CANT END TURN NO SET");
+				//do things for redeployment
+				} else{
+					System.out.println("CANT END TURN NO SET");
+				}
+				break;
+			case 1:
+				System.out.println("client: ending turn");
+				sideBarController.updateButtonText("");
+				this.phase = 0;
+				this.map.getSelfPlayer().setMyTurn(false);
+				this.calculateNewBalance();
+				this.turnServer.endTurn();
+
+				break;
+
+			default:
+				break;
 			}
-			break;
-		case 1:
-			System.out.println("client: ending turn");
-			sideBarController.updateButtonText("");
-			this.phase = 0;
-			this.map.getSelfPlayer().setMyTurn(false);
-			this.calculateNewBalance();
-			this.turnServer.endTurn();
-
-			break;
-
-		default:
-			break;
-		}
 		}
 	}
 

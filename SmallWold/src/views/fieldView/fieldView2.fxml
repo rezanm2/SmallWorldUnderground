@@ -20,6 +20,7 @@
                   <Image url="@../../images/maps/field-2.png" />
                </image>
             </ImageView>
+            <StackPane fx:id="EF" prefHeight="128.0" prefWidth="185.0" />
             <AnchorPane fx:id="mainPane" prefHeight="200.0" prefWidth="200.0">
                <children>
                   <StackPane fx:id="AA" layoutX="14.0" layoutY="14.0" prefHeight="204.0" prefWidth="308.0" />
@@ -903,12 +904,91 @@
                            </StackPane.margin>
                         </StackPane>
                      </children></StackPane>
-                  <StackPane fx:id="EF" layoutX="1570.0" layoutY="787.0" prefHeight="128.0" prefWidth="185.0" />
                </children>
                <StackPane.margin>
                   <Insets />
                </StackPane.margin>
             </AnchorPane>
+            <ImageView fx:id="firstTurn" fitHeight="67.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../images/icons/TurnCrown.png" />
+               </image>
+               <StackPane.margin>
+                  <Insets right="1605.0" top="-805.0" />
+               </StackPane.margin>
+            </ImageView>
+            <ImageView fx:id="secondTurn" fitHeight="67.0" fitWidth="115.0" layoutX="29.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../images/icons/TurnCrown.png" />
+               </image>
+               <StackPane.margin>
+                  <Insets right="1605.0" top="-660.0" />
+               </StackPane.margin>
+            </ImageView>
+            <ImageView fx:id="thirdTurn" fitHeight="67.0" fitWidth="115.0" layoutX="34.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../images/icons/TurnCrown.png" />
+               </image>
+               <StackPane.margin>
+                  <Insets right="1605.0" top="-520.0" />
+               </StackPane.margin>
+            </ImageView>
+            <ImageView fx:id="fourthTurn" fitHeight="67.0" fitWidth="115.0" layoutX="34.0" layoutY="174.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../images/icons/TurnCrown.png" />
+               </image>
+               <StackPane.margin>
+                  <Insets right="1605.0" top="-380.0" />
+               </StackPane.margin>
+            </ImageView>
+            <ImageView fx:id="fifthTurn" fitHeight="67.0" fitWidth="115.0" layoutX="34.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../images/icons/TurnCrown.png" />
+               </image>
+               <StackPane.margin>
+                  <Insets right="1605.0" top="380.0" />
+               </StackPane.margin>
+            </ImageView>
+            <ImageView fx:id="sixthTurn" fitHeight="67.0" fitWidth="115.0" layoutX="31.0" layoutY="624.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../images/icons/TurnCrown.png" />
+               </image>
+               <StackPane.margin>
+                  <Insets right="1605.0" top="525.0" />
+               </StackPane.margin>
+            </ImageView>
+            <ImageView fx:id="seventhTurn" fitHeight="67.0" fitWidth="115.0" layoutX="31.0" layoutY="697.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../images/icons/TurnCrown.png" />
+               </image>
+               <StackPane.margin>
+                  <Insets right="1605.0" top="670.0" />
+               </StackPane.margin>
+            </ImageView>
+            <ImageView fx:id="eightTurn" fitHeight="67.0" fitWidth="115.0" layoutX="31.0" layoutY="769.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../images/icons/TurnCrown.png" />
+               </image>
+               <StackPane.margin>
+                  <Insets right="1605.0" top="805.0" />
+               </StackPane.margin>
+            </ImageView>
+            <ImageView fx:id="ninthTurn" fitHeight="67.0" fitWidth="115.0" layoutX="31.0" layoutY="837.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../images/icons/TurnCrown.png" />
+               </image>
+               <StackPane.margin>
+                  <Insets right="1375.0" top="805.0" />
+               </StackPane.margin>
+            </ImageView>
+            <ImageView fx:id="tenthTurn" fitHeight="67.0" fitWidth="115.0" layoutX="146.0" layoutY="837.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../images/icons/TurnCrown.png" />
+               </image>
+               <StackPane.margin>
+                  <Insets right="1150.0" top="805.0" />
+               </StackPane.margin>
+            </ImageView>
          </children>
       </StackPane>
    </center>
