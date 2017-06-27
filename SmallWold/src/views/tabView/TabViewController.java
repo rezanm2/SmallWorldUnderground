@@ -41,7 +41,7 @@ public class TabViewController {
 	private Label gain_5;
 	@FXML
 	private Label gain_6;
-	
+
 	@FXML
 	private Label costs_1;
 	@FXML
@@ -108,25 +108,25 @@ public class TabViewController {
 
 	@FXML
     private ImageView activePlayer1Ability;
-	
+
 	@FXML
     private ImageView activePlayer2Race;
 
 	@FXML
     private ImageView activePlayer2Ability;
-	
+
 	@FXML
     private ImageView activePlayer3Race;
 
 	@FXML
     private ImageView activePlayer3Ability;
-	
+
 	@FXML
     private ImageView activePlayer4Race;
 
 	@FXML
     private ImageView activePlayer4Ability;
-	
+
 	private BottomBarController bottomBarController;
 	private SettingController settingBarController;
 	private SideBarController sidebarController;
@@ -145,7 +145,7 @@ public class TabViewController {
 	public void pickSet(MouseEvent ev) throws RemoteException
 	{
 			if(this.selfPlayer.isMyTurn()){
-			
+
 			ImageView test = (ImageView) ev.getTarget();
 			System.out.println(test.getId());
 			char [] iets = test.getId().toCharArray();
@@ -153,13 +153,13 @@ public class TabViewController {
 			int choice = Character.getNumericValue(iets[iets.length-1]);
 			System.out.println(choice);
 			stackset.getStackController().chooseSet(choice-1);
-			
+
 			sidebarController.updateVisibleButton();
 			sidebarController.updateButtonText("End Conquer");
 			bottomBarController.updateCurrentTokens();
-			
-			
-			
+
+
+
 			}
 	}
 
@@ -180,7 +180,7 @@ public class TabViewController {
     		//System.out.println(stackset.getPlayerName().get(x));
     		//System.out.println(stackset.getPlayerName().size());
     	//}
-    		
+
 	    	System.out.println(stackset.getActiveAbility());
 	    	System.out.println(stackset.getPlayerName());
 	    	System.out.println(stackset.getActiveRace());
@@ -213,11 +213,11 @@ public class TabViewController {
     	   //player_2.setText(String.valueOf(stackset.getPlayerName2()));
     	}catch(java.lang.NullPointerException e)
 		{
-			System.out.println(e.getMessage());	
+			System.out.println(e.getMessage());
 		}
 
     }
- 
+
 	public void setPlayerRef(Player selfPlayer) {
 		this.selfPlayer = selfPlayer;
 	}
@@ -248,17 +248,18 @@ public class TabViewController {
 		pick_ability_4.setImage(new Image("/images/abilitys/active/"+sets.get(3).getAbility().getName()+".png"));
 		pick_ability_5.setImage(new Image("/images/abilitys/active/"+sets.get(4).getAbility().getName()+".png"));
 		pick_ability_6.setImage(new Image("/images/abilitys/active/"+sets.get(5).getAbility().getName()+".png"));
-		
+
 		try{
 			setActive();
 			ShowName();
+
 		}catch(java.lang.NullPointerException e)
 		{
-			System.out.println(e.getMessage());	
+			System.out.println(e.getMessage());
 		}
 		catch(java.lang.RuntimeException e)
 		{
-			System.out.println(e.getMessage());	
+			System.out.println(e.getMessage());
 		}
 		//ShowName();
 
@@ -333,16 +334,16 @@ public class TabViewController {
 //			gain_5.setText(gain_6.getText());
 //			gain_6.setText("0");
 //		}
-		
+
 		gain_1.setText(String.valueOf(gains.get(0)));
 		gain_2.setText(String.valueOf(gains.get(1)));
 		gain_3.setText(String.valueOf(gains.get(2)));
 		gain_4.setText(String.valueOf(gains.get(3)));
 		gain_5.setText(String.valueOf(gains.get(4)));
 		gain_6.setText("0");
-		
+
 		stackset.getStackController().setGains(gains);
-		
+
 	}
 
 

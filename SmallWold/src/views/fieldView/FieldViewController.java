@@ -43,6 +43,7 @@ public class FieldViewController {
 	private StackPane declarePanePrevious = new StackPane();
 	private int declaredTokenAmount;
 	private int throughTheList = -1;
+	private int getal;
 	private String tokenAmount;
 
 	private CombatController combatController;
@@ -175,7 +176,7 @@ public class FieldViewController {
 		HBox theBox = (HBox) buttonTarget.getParent();
 		TextField field = (TextField) theBox.getChildren().get(1);
 
-		int getal = Integer.parseInt(tokenAmount);
+		getal = Integer.parseInt(tokenAmount);
 
 		FlowPane thePane = (FlowPane) theBox.getParent();
 		StackPane stackPane = (StackPane) thePane.getParent();
@@ -189,22 +190,21 @@ public class FieldViewController {
 
 		System.out.println("getal " + getal);
 		System.out.println("terrain " + terrain.getAmountOfTokens());
-
 		System.out.println("To beat: " + (terrain.getAmountOfTokens() + terrain.getDefense() + 2));
 
 		if(getal >= terrain.getAmountOfTokens() + terrain.getDefense() + 2){
-			field.setStyle("-fx-text-inner-color: green");// green
+			field.setStyle("-fx-control-inner-background: green");// green
 			System.out.println("Green.");
 		}
 
-		else if (getal +1 < terrain.getAmountOfTokens() + terrain.getDefense() - 2){
-			field.setStyle("-fx-text-inner-color: red");// red
+		else if (getal -1 < terrain.getAmountOfTokens() + terrain.getDefense() - 2){
+			field.setStyle("-fx-control-inner-background: red");// red
 			System.out.println("Red.");
 		}
 
 		else{
 //		if(getal == terrain.getAmountOfTokens() + terrain.getDefense() - 1){
-			field.setStyle("-fx-text-inner-color: orange");// orange
+			field.setStyle("-fx-control-inner-background: orange");// orange
 		}
 
 		field.setText(tokenAmount);
@@ -247,8 +247,7 @@ public class FieldViewController {
 	@FXML
 	public void buttonBevestig(ActionEvent pressButtonBevestig) throws RemoteException {
 		//getDeclaredTokenAmount();
-		combatController.declareTokenAmount(this.declaredTokenAmount);
-
+		combatController.declareTokenAmount(getal);
 		System.out.println("declaredTokenAmount: " + this.declaredTokenAmount);
 		//redploymentController.declareTokenAmount(getDeclaredTokenAmount());
 		this.declarePanePrevious.setVisible(false);
@@ -261,6 +260,7 @@ public class FieldViewController {
 		this.combatController.calculateCombat(declarePanePrevious.getParent().getId());
 		this.sideBarControl.hideDeclineButton();
 		selfPlayer.setFirstAttack(false);
+		getal = 0;
 	}
 
 	public int getDeclaredTokenAmount() {
