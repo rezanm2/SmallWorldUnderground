@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="mainPane" prefHeight="839.0" prefWidth="1557.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.tabView.TabViewController">
+<StackPane fx:id="mainPane" onMouseClicked="#ShowName" prefHeight="839.0" prefWidth="1557.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.tabView.TabViewController">
    <children>
       <ImageView fitHeight="862.0" fitWidth="1557.0" pickOnBounds="true">
          <image>
@@ -38,12 +38,12 @@
          <children>
             <HBox prefHeight="166.0" prefWidth="472.0" GridPane.rowIndex="1">
                <children>
-                  <ImageView id="ac_ab_2" fitHeight="118.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="ac_ab_2" fx:id="activePlayer1Ability" fitHeight="118.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/abilitys/frightend.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="ac_rc_1" fitHeight="104.0" fitWidth="204.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="ac_rc_1" fx:id="activePlayer1Race" fitHeight="104.0" fitWidth="204.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/races/placeHolder.png" />
                      </image>
@@ -52,12 +52,12 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
                <children>
-                  <ImageView id="ac_ab_4" fitHeight="99.0" fitWidth="117.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="ac_ab_4" fx:id="activePlayer2Ability" fitHeight="99.0" fitWidth="117.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/abilitys/frightend.png" />
                      </image>
                   </ImageView>
-                  <ImageView id="ac_rc_4" fitHeight="161.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="ac_rc_4" fx:id="activePlayer2Race" fitHeight="161.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/races/placeHolder.png" />
                      </image>
@@ -153,7 +153,7 @@
                   <Font name="System Bold" size="31.0" />
                </font>
             </Label>
-            <Label id="player_2" text="PLAYER 2" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <Label id="player_2" fx:id="player_2" text="PLAYER 2" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="31.0" />
                </font>
@@ -189,7 +189,7 @@
                         <Image url="@../../images/icons/coin.png" />
                      </image>
                   </ImageView>
-                  <Label text="5" textFill="WHITE">
+                  <Label fx:id="costs_1" text="0" textFill="WHITE">
                      <font>
                         <Font size="58.0" />
                      </font>
@@ -217,7 +217,7 @@
                         <Image url="@../../images/icons/coin.png" />
                      </image>
                   </ImageView>
-                  <Label prefHeight="66.0" prefWidth="25.0" text="4" textFill="WHITE">
+                  <Label fx:id="costs_2" prefHeight="66.0" prefWidth="25.0" text="1" textFill="WHITE">
                      <font>
                         <Font size="58.0" />
                      </font>
@@ -231,7 +231,7 @@
                         <Image url="@../../images/icons/coin.png" />
                      </image>
                   </ImageView>
-                  <Label id="gain_2" text="0" textFill="WHITE">
+                  <Label id="gain_2" fx:id="gain_2" text="0" textFill="WHITE">
                      <font>
                         <Font size="58.0" />
                      </font>
@@ -245,7 +245,7 @@
                         <Image url="@../../images/icons/coin.png" />
                      </image>
                   </ImageView>
-                  <Label text="3" textFill="WHITE">
+                  <Label fx:id="costs_3" text="2" textFill="WHITE">
                      <font>
                         <Font size="58.0" />
                      </font>
@@ -259,7 +259,7 @@
                         <Image url="@../../images/icons/coin.png" />
                      </image>
                   </ImageView>
-                  <Label id="gain_3" text="0" textFill="WHITE">
+                  <Label id="gain_3" fx:id="gain_3" text="0" textFill="WHITE">
                      <font>
                         <Font size="58.0" />
                      </font>
@@ -273,7 +273,7 @@
                         <Image url="@../../images/icons/coin.png" />
                      </image>
                   </ImageView>
-                  <Label text="2" textFill="WHITE">
+                  <Label fx:id="costs_4" text="3" textFill="WHITE">
                      <font>
                         <Font size="58.0" />
                      </font>
@@ -287,7 +287,7 @@
                         <Image url="@../../images/icons/coin.png" />
                      </image>
                   </ImageView>
-                  <Label id="gain_4" text="1" textFill="WHITE">
+                  <Label id="gain_4" fx:id="gain_4" text="0" textFill="WHITE">
                      <font>
                         <Font size="58.0" />
                      </font>
@@ -301,7 +301,7 @@
                         <Image url="@../../images/icons/coin.png" />
                      </image>
                   </ImageView>
-                  <Label text="1" textFill="WHITE">
+                  <Label fx:id="costs_5" text="4" textFill="WHITE">
                      <font>
                         <Font size="58.0" />
                      </font>
@@ -315,7 +315,7 @@
                         <Image url="@../../images/icons/coin.png" />
                      </image>
                   </ImageView>
-                  <Label text="2" textFill="WHITE">
+                  <Label fx:id="gain_5" text="0" textFill="WHITE">
                      <font>
                         <Font size="58.0" />
                      </font>
@@ -329,7 +329,7 @@
                         <Image url="@../../images/icons/coin.png" />
                      </image>
                   </ImageView>
-                  <Label text="0" textFill="WHITE">
+                  <Label fx:id="costs_6" text="5" textFill="WHITE">
                      <font>
                         <Font size="58.0" />
                      </font>
@@ -343,7 +343,7 @@
                         <Image url="@../../images/icons/coin.png" />
                      </image>
                   </ImageView>
-                  <Label text="3" textFill="WHITE">
+                  <Label fx:id="gain_6" text="0" textFill="WHITE">
                      <font>
                         <Font size="58.0" />
                      </font>
@@ -433,7 +433,7 @@
                         <Image url="@../../images/icons/coin.png" />
                      </image>
                   </ImageView>
-                  <Label id="gain_1" text="0" textFill="WHITE">
+                  <Label id="gain_1" fx:id="gain_1" text="0" textFill="WHITE">
                      <font>
                         <Font size="58.0" />
                      </font>

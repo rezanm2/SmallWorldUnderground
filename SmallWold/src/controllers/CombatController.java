@@ -112,7 +112,7 @@ public class CombatController {
 	public void isItAValidChoice(StackPane fieldPane)
 	{
 		isValidChoice = false;
-		System.out.println("You clicked on: " + fieldPane.getId());
+
 		terrain = map.getTerrainById(fieldPane.getId());
 
 		if(terrain.getIsAttackable() == true)
@@ -122,7 +122,6 @@ public class CombatController {
 	}
 
 	public void declareTokenAmount(int declaredTokenAmount) {
-		System.out.println(declaredTokenAmount);
 		this.declaredTokenAmount = declaredTokenAmount;
 	}
 
@@ -140,21 +139,25 @@ public class CombatController {
 
 	public void calculateCombat(String terrainId) throws RemoteException {
 		this.terrain = this.map.getTerrainById(terrainId);
-		if (terrain.getAmountOfTokens() + terrain.getDefense() + 2 <= declaredTokenAmount + miscModifier) { // If
+
+		if (terrain.getAmountOfTokens() + terrain.getDefense() + 2 <= declaredTokenAmount + miscModifier)
+		{ // If
 																											// the
 																											// player
 																											// wins
 			doAttack(terrain, map.getSelfPlayer());
-		} else if (declaredTokenAmount != 0) {
+		}
+		else if (declaredTokenAmount != 0)
+		{
 			// @@@@@@ OPEN SIMPLE DOBBELSTEENSCHERM HIER OFZO OMG MOCHT JE DAT
 			// WILLEN MAAR HOEFT NIET
 			Die die = map.getDie();
 			die.throwDie();
-			int result = die.getResult();
 			System.out.println("Die: " + die.getResult());
-			if (terrain.getAmountOfTokens() + terrain.getDefense() + 2 <= declaredTokenAmount + result + miscModifier) {
+			if (terrain.getAmountOfTokens() + terrain.getDefense() + 2 <= declaredTokenAmount + die.getResult() + miscModifier)
+			{
 				doAttack(terrain, map.getSelfPlayer());
-
+				System.out.println("Die attack was succesful.");
 			}
 			// @@@@@@@@@@@@@@@@@@@@@@@@@@@@ END PHASE
 		}
@@ -182,10 +185,8 @@ public class CombatController {
 			serverCombatService.updateTerrain(terrain.getTerrainId(), selfPlayer.getActiveSet().getRace().getName(),declaredTokenAmount); // sends information to the server
 		} else {
 			losingTokens = terrain.getAmountOfTokens();
-			System.out.println("here --- :" + losingTokens);
 			losingTokens--;
 			losingRace = terrain.getRace();
-			System.out.println(losingTokens);
 
 			terrain.setRace(selfPlayer.getActiveSet().getRace());
 			terrain.setAmountOfTokens(declaredTokenAmount);
@@ -193,7 +194,6 @@ public class CombatController {
 			serverCombatService.updateTerrain(terrain.getTerrainId(), selfPlayer.getActiveSet().getRace().getName(),declaredTokenAmount); // sends information to the server
 
 			serverCombatService.updateLosePlayer(losingRace.getName(),losingTokens );
-			System.out.println("Attacking " + terrain.getRace().getName());
 		}
 
 		selfPlayer.getHand().setCurrentTokens(selfPlayer.getHand().getCurrentTokens() - declaredTokenAmount);
@@ -220,7 +220,6 @@ public class CombatController {
 
 	public void syncLoses(String name, int losingTokens) {
 		if(this.map.getSelfPlayer().getActiveSet().getRace().getName().equals(name)){
-			System.out.println("losing tokens: " + losingTokens);
 			this.map.getSelfPlayer().getHand().setCurrentTokens(this.map.getSelfPlayer().getHand().getCurrentTokens() + losingTokens);
 
 		}

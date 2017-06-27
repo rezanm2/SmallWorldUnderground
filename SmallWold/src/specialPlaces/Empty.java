@@ -1,6 +1,8 @@
 package specialPlaces;
 
-import main.Ammy;
+import playBoard.Map;
+import player.Player;
+
 /**
  * Deze klasse bestaat zodat de specialplace op "leeg" gezet kan worden.
  * @author Jeroen Zandvliet
@@ -12,8 +14,7 @@ public class Empty extends SpecialPlace{
 		traitText = "Empty";
 	}
 
-	public void processSpecialPlace(Ammy ammy) {
-		this.activePlayer = ammy.getActivePlayer();
+	public void processSpecialPlace(Player selfPlayer, Map map) {
 	}
 
 }

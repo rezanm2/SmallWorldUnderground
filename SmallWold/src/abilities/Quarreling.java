@@ -2,7 +2,6 @@ package abilities;
 
 
 import controllers.TerrainController;
-import main.Ammy;
 import playBoard.Map;
 import player.Player;
 /**
@@ -25,21 +24,18 @@ public class Quarreling extends Ability implements CalculatableIncome
 	 * Checked of de terreinen van de speler niet aangrenzend zijn en verhoogd de extra inkomsten.
 	 */
 	@Override
-	public void processAbility(Ammy ammy)
+	public void processAbility(Player selfPlayer, Map map)
 	{
-		this.activePlayer = ammy.getActivePlayer();
-		this.tc = ammy.getTc();
-		this.map = ammy.getMap();
-
+		this.selfPlayer = selfPlayer;
+		this.map = map;
 		tc.allAdjacentAreas(activePlayer.getActiveSet().getRace());
-
 
 		for(int terrainCounter=0;terrainCounter<map.getTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
 			if(map.getTerrains().get(terrainCounter).getIsAdjacent() == false &&
 					map.getTerrains().get(terrainCounter).getRace().equals(activePlayer.getActiveSet().getRace()))
 			{
-				System.out.println("A: One of your areas is not adjacent.");
+
 				abilityIncome += 1;
 				break;
 			}

@@ -1,6 +1,6 @@
 package relics;
 
-import main.Ammy;
+
 import playBoard.Map;
 import player.Player;
 import terrain.Terrain;
@@ -16,6 +16,7 @@ public abstract class Relic
 	protected String name;
 	protected String traitText;
 	protected boolean active;
+	protected Player selfPlayer;
 	private int terrainNumber;
 	private Map map;
 
@@ -23,7 +24,7 @@ public abstract class Relic
 	{
 	};
 
-	public abstract void processRelic(Ammy ammy);
+	public abstract void processRelic(Player selfPlayer, Map map);
 
 	public abstract void changeTerrain(int terrainNumber);
 

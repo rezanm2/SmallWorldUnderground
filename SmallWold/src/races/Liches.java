@@ -1,6 +1,6 @@
 package races;
 
-import main.Ammy;
+import playBoard.Map;
 import player.Player;
 /**
  * Deze klasse is verantwoordelijk voor het bijhouden van gegevens en de ability van het ras.
@@ -18,7 +18,7 @@ public class Liches extends Race
 	}
 
 	@Override
-	public void processAbility(Ammy ammy) {
+	public void processAbility(Player selfPlayer, Map map) {
 		// TODO Auto-generated method stub
 
 	}

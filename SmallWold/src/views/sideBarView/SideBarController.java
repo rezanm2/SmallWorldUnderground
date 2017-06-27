@@ -148,6 +148,8 @@ public class SideBarController {
 	public void endTurn() throws RemoteException{
 		System.out.println("pressed");
 		turnControl.endPhase();
+		this.tabViewControl.getStackSet().getStackController().getAllInformationPlayer();
+
 		//turnControl.calculateNewBalance();
 	}
 	public void startTurn(){

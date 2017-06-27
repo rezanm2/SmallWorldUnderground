@@ -3,7 +3,6 @@ package abilities;
 import java.util.List;
 
 import controllers.TerrainController;
-import main.Ammy;
 import playBoard.Map;
 import player.Player;
 /**
@@ -27,11 +26,10 @@ public class Adventurous extends Ability implements CalculatableIncome
 	 * Zorgt ervoor dat als de speler special places controleert, de extra inkomsten verhoogd worden.
 	 */
 	@Override
-	public void processAbility(Ammy ammy)
+	public void processAbility(Player selfPlayer, Map map)
 	{
-		this.activePlayer = ammy.getActivePlayer();
-		this.tc = ammy.getTc();
-		this.map = ammy.getMap();
+		this.selfPlayer = selfPlayer;
+		this.map = map;
 		abilityIncome = 0;
 
 //		for(int terrainCounter=0;terrainCounter<map.getAllTerrains().size();terrainCounter++)		//As long as there are terrains

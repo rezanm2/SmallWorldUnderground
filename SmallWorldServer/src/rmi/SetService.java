@@ -23,10 +23,16 @@ public class SetService extends UnicastRemoteObject implements SetServiceSkeleto
 	private Races races;
 	private Abilities abilities;
 	private int amountPlayers;
+	private ArrayList<Player> playerList;
+	private ArrayList<String> playerNames;
+	private ArrayList<String> playerRaces;
+	private ArrayList<String> playerAbilities;
+	private String namePlayer;
 
 
 	public SetService(ArrayList<Player> playerList) throws RemoteException {
 		super();
+		this.playerList = playerList;
 		this.amountPlayers = playerList.size();
 		races = new Races();
 		races.shuffleMain();
@@ -57,12 +63,36 @@ public class SetService extends UnicastRemoteObject implements SetServiceSkeleto
 	public void updateClientRaceList() throws RemoteException{
 		for (SetServiceClientSkeleton setClient : setClientList) {
 			setClient.updateStackList(races.getRaceList(), abilities.getAbilityList());
+			setClient.updateSetsPlayer2(playerList.get(1).getUserName(), playerList.get(1).getActiveRace(), playerList.get(1).getActiveAbility(), playerList.size());
+			setClient.updateSetsPlayer1(playerList.get(0).getUserName(), playerList.get(0).getActiveRace(), playerList.get(0).getActiveAbility(), playerList.size());
+
+//			for(int x=0;x<this.playerList.size();x++)
+//			{
+//				setClient.updateSetsPlayers(playerList.get(x).getUserName(), playerList.get(x).getActiveRace(), playerList.get(x).getActiveAbility(), playerList.size());
+//			}
+			
+
+			
 		}
 	}
 
 	@Override
-	public void updateSetList(String race, String ability) {
+	public void updateSetList(String playerName, String race, String ability) throws RemoteException{
 		System.out.println(race);
+		for(int x=0;x<this.playerList.size();x++)
+		{
+			this.namePlayer = playerName;
+			if(playerList.get(x).getUserName().equals(this.namePlayer))
+			{
+				playerList.get(x).setActiveRace(race);
+				playerList.get(x).setActiveAbility(ability);;
+			}
+			else
+			{
+				System.out.println("Niet gelukt");
+
+			}
+		}
 		this.races.removeRace(race);
 		System.out.println(races.getRaceList());
 		this.abilities.removeAbility(ability);
@@ -77,5 +107,66 @@ public class SetService extends UnicastRemoteObject implements SetServiceSkeleto
 		}).start();
 
 	}
+
+	@Override
+	public void updateDeclineset(String playerName, String race, String ability) throws RemoteException {
+		for(int x=0;x<this.playerList.size();x++)
+		{
+			this.namePlayer = playerName;
+			if(playerList.get(x).getUserName().equals(this.namePlayer))
+			{
+				playerList.get(x).setDeclineRace(race);
+				playerList.get(x).setDeclineAbility(ability);
+			}
+			else
+			{
+				System.out.println("Niet gelukt lllllll");
+
+			}
+		}
+	}
+
+
+	@Override
+	public void giveAllInformationPlayer(String playerName, int handTokens, int declineTokens, int balance) throws RemoteException 
+	{
+		for(int x=0;x<this.playerList.size();x++)
+		{
+			this.namePlayer = playerName;
+			if(playerList.get(x).getUserName().equals(this.namePlayer))
+			{
+				playerList.get(x).setBalance(balance);
+				playerList.get(x).setHandTokens(handTokens);
+				playerList.get(x).setDeclineTokens(declineTokens);
+			}
+			else
+			{
+				System.out.println("Niet gelukt lllllll");
+
+			}
+		}
+	}
+
+	@Override
+	public void updateSetsPlayers(String name, String raceList, String abilityList) throws RemoteException {
+		
+	}
+
+
+	
+
+	public void updateCoinCost(ArrayList<Integer> gains) throws RemoteException {
+		new Thread(() -> {
+			for (SetServiceClientSkeleton setClient : setClientList) {
+				try {
+					setClient.costList(gains);
+				} catch (RemoteException e) {
+					e.printStackTrace();
+				}
+				
+			}
+		}).start();
+	}
+
 
 }

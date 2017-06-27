@@ -2,9 +2,11 @@ package views.tabView;
 
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.chart.StackedAreaChart;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -27,6 +29,31 @@ public class TabViewController {
 	private StackSet stackset;
 	private Player selfPlayer;
 
+	@FXML
+	private Label gain_1;
+	@FXML
+	private Label gain_2;
+	@FXML
+	private Label gain_3;
+	@FXML
+	private Label gain_4;
+	@FXML
+	private Label gain_5;
+	@FXML
+	private Label gain_6;
+
+	@FXML
+	private Label costs_1;
+	@FXML
+	private Label costs_2;
+	@FXML
+	private Label costs_3;
+	@FXML
+	private Label costs_4;
+	@FXML
+	private Label costs_5;
+	@FXML
+	private Label costs_6;
 
 	@FXML
     private StackPane mainPane;
@@ -77,10 +104,29 @@ public class TabViewController {
     private ImageView pick_ability_6;
 
 	@FXML
-    private ImageView ac_ab_1;
+    private ImageView activePlayer1Race;
 
 	@FXML
-    private ImageView ac_rc_1;
+    private ImageView activePlayer1Ability;
+
+	@FXML
+    private ImageView activePlayer2Race;
+
+	@FXML
+    private ImageView activePlayer2Ability;
+
+	@FXML
+    private ImageView activePlayer3Race;
+
+	@FXML
+    private ImageView activePlayer3Ability;
+
+	@FXML
+    private ImageView activePlayer4Race;
+
+	@FXML
+    private ImageView activePlayer4Ability;
+
 	private BottomBarController bottomBarController;
 	private SettingController settingBarController;
 	private SideBarController sidebarController;
@@ -98,12 +144,14 @@ public class TabViewController {
 	 */
 	public void pickSet(MouseEvent ev) throws RemoteException
 	{
+
 			if(this.selfPlayer.isMyTurn() && this.selfPlayer.isRedeploy() == false){
 				if(selfPlayer.getActiveSet() == null){
 					sidebarController.showButton();
 					sidebarController.updateButtonText("End Conquer");
 					sidebarController.showDeclineButton();
 					}
+
 			ImageView test = (ImageView) ev.getTarget();
 			System.out.println(test.getId());
 			char [] iets = test.getId().toCharArray();
@@ -113,7 +161,10 @@ public class TabViewController {
 			stackset.getStackController().chooseSet(choice-1);
 
 
-			//bottomBarController.updateCurrentTokens();
+			sidebarController.updateVisibleButton();
+			sidebarController.updateButtonText("End Conquer");
+			bottomBarController.updateCurrentTokens();
+
 			}
 	}
 
@@ -125,6 +176,33 @@ public class TabViewController {
     public void showView(){
     	mainPane.setVisible(true); //activate on TAB key pressed - called in FieldViewController
     }
+    public void setActive()
+    {
+    	//for(int x=0;x<2;x++)
+    	//{
+    	//for(int x=0;x<stackset.getPlayerName().size();x++)
+    	//{
+    		//System.out.println(stackset.getPlayerName().get(x));
+    		//System.out.println(stackset.getPlayerName().size());
+    	//}
+
+	    	System.out.println(stackset.getActiveAbility());
+	    	System.out.println(stackset.getPlayerName());
+	    	System.out.println(stackset.getActiveRace());
+	    	//System.out.println(selfPlayer.getActiveSet().getRace().getName());
+	    	//if(stackset.getActiveRace2() == null && stackset.getActiveAbility2() ==null)
+			//{
+	    		activePlayer1Race.setImage(new Image("/images/races/server/"+stackset.getActiveRace()+".png"));
+				activePlayer1Ability.setImage(new Image("/images/abilitys/server/"+stackset.getActiveAbility()+".png"));
+			//}
+			//if(stackset.getActiveRace2() != null && stackset.getActiveAbility2() !=null)
+			//{
+				activePlayer2Race.setImage(new Image("/images/races/server/"+stackset.getActiveRace2()+".png"));
+				activePlayer2Ability.setImage(new Image("/images/abilitys/server/"+stackset.getActiveAbility2()+".png"));
+			//}
+			//activePlayer1Ability.setImage(new Image("/images/abilitys/active/"+stackset.getActiveAbility()+".png"));
+    	//}
+    }
     /**
 	 * Maakt de mainPane onzichtbaar.
 	 * Bijzonderheden: Wordt opgeroepen in de fieldviewcontroller.
@@ -133,6 +211,18 @@ public class TabViewController {
     	mainPane.setVisible(false); //activate on TAB key release - called in FieldViewController
 
     }
+    public void ShowName(){
+    	try{
+    	   player_1.setText(stackset.getPlayerName());
+    	   player_2.setText(stackset.getPlayerName2());
+    	   //player_2.setText(String.valueOf(stackset.getPlayerName2()));
+    	}catch(java.lang.NullPointerException e)
+		{
+			System.out.println(e.getMessage());
+		}
+
+    }
+
 	public void setPlayerRef(Player selfPlayer) {
 		this.selfPlayer = selfPlayer;
 	}
@@ -149,7 +239,7 @@ public class TabViewController {
      * @param sets, de totaalcollectie van alle sets bij elkaar.
      */
 	public void setStack(ObservableList<Set> sets) {
-
+		//player_1.setText(String.valueOf(stackset.getPlayerName()));
 		pick_race_1.setImage(new Image("/images/races/active/"+sets.get(0).getRace().getName()+".png"));
 		pick_race_2.setImage(new Image("/images/races/active/"+sets.get(1).getRace().getName()+".png"));
 		pick_race_3.setImage(new Image("/images/races/active/"+sets.get(2).getRace().getName()+".png"));
@@ -164,6 +254,22 @@ public class TabViewController {
 		pick_ability_5.setImage(new Image("/images/abilitys/active/"+sets.get(4).getAbility().getName()+".png"));
 		pick_ability_6.setImage(new Image("/images/abilitys/active/"+sets.get(5).getAbility().getName()+".png"));
 
+		setActive();
+		try{
+
+			ShowName();
+
+		}catch(java.lang.NullPointerException e)
+		{
+			System.out.println(e.getMessage());
+		}
+		catch(java.lang.RuntimeException e)
+		{
+			System.out.println(e.getMessage());
+		}
+		//ShowName();
+
+
 
 
 	}
@@ -175,11 +281,15 @@ public class TabViewController {
 	public void setSettingBarController(SettingController settingController) {
 		this.settingBarController = settingController;
 	}
+	public SettingController getSettingBarController()
+	{
+		return this.settingBarController;
+	}
 	public void updateActiveSet()
 	{
 		bottomBarController.setActiveSet();
 	}
-	public void updateDeclineSet()
+	public void updateDeclineSet() throws RemoteException
 	{
 		settingBarController.setDecline();
 	}
@@ -188,7 +298,59 @@ public class TabViewController {
 		this.sidebarController = sidebarController;
 
 	}
+	public StackSet getStackSet()
+	{
+		return this.stackset;
+	}
 
+	////// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ en dan via deze methode die shit updaten.
+	public void updateCoinCost(ArrayList<Integer> gains) {
+//		if(coinAmount == 0) {
+//			gain_1.setText("0");
+//			gain_1.setText(String.valueOf(stackset.getSets().get(0).getGains()));
+//		}
+//		if(coinAmount == 1) {
+//			gain_1.setText(gain_2.getText());
+//			gain_2.setText("0");
+//			gain_2.setText(String.valueOf(stackset.getSets().get(1).getGains()));
+//		}
+//		if(coinAmount == 2) {
+//			gain_1.setText(gain_2.getText());
+//			gain_2.setText(gain_3.getText());
+//			gain_3.setText("0");
+//		}
+//		if(coinAmount == 3) {
+//			gain_1.setText(gain_2.getText());
+//			gain_2.setText(gain_3.getText());
+//			gain_3.setText(gain_4.getText());
+//			gain_4.setText("0");
+//		}
+//		if(coinAmount == 4) {
+//			gain_1.setText(gain_2.getText());
+//			gain_2.setText(gain_3.getText());
+//			gain_3.setText(gain_4.getText());
+//			gain_4.setText(gain_5.getText());
+//			gain_5.setText("0");
+//		}
+//		if(coinAmount == 5) {
+//			gain_1.setText(gain_2.getText());
+//			gain_2.setText(gain_3.getText());
+//			gain_3.setText(gain_4.getText());
+//			gain_4.setText(gain_5.getText());
+//			gain_5.setText(gain_6.getText());
+//			gain_6.setText("0");
+//		}
+
+		gain_1.setText(String.valueOf(gains.get(0)));
+		gain_2.setText(String.valueOf(gains.get(1)));
+		gain_3.setText(String.valueOf(gains.get(2)));
+		gain_4.setText(String.valueOf(gains.get(3)));
+		gain_5.setText(String.valueOf(gains.get(4)));
+		gain_6.setText("0");
+
+		stackset.getStackController().setGains(gains);
+
+	}
 
 
 

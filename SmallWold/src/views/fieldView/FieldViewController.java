@@ -27,8 +27,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import playBoard.Map;
 import player.Player;
-
+import terrain.Terrain;
 import views.sideBarView.SideBarController;
 import views.tabView.TabViewController;
 /**
@@ -42,8 +43,8 @@ public class FieldViewController {
 	private StackPane declarePanePrevious = new StackPane();
 	private int declaredTokenAmount;
 	private int throughTheList = -1;
+	private int getal;
 	private String tokenAmount;
-
 	private CombatController combatController;
 	private RedeploymentController redploymentController;
 
@@ -55,7 +56,35 @@ public class FieldViewController {
 	private AnchorPane mainPane;
 	private Player selfPlayer;
 
+	@FXML
+	private ImageView firstTurn;
 
+	@FXML
+	private ImageView secondTurn;
+
+	@FXML
+	private ImageView thirdTurn;
+
+	@FXML
+	private ImageView fourthTurn;
+
+	@FXML
+	private ImageView fifthTurn;
+
+	@FXML
+	private ImageView sixthTurn;
+
+	@FXML
+	private ImageView seventhTurn;
+
+	@FXML
+	private ImageView eightTurn;
+
+	@FXML
+	private ImageView ninthTurn;
+
+	@FXML
+	private ImageView tenthTurn;
 
 	public FieldViewController() {
 
@@ -111,13 +140,71 @@ public class FieldViewController {
 
 
 
+
+	/**
+	 * Beweegt het turn-fiche.
+	 * @param turn, de beurt die het is.
+	 */
+
+	public void nextTurn(int turn)
+	{
+
+		firstTurn.setVisible(false);
+		secondTurn.setVisible(false);
+		thirdTurn.setVisible(false);
+		fourthTurn.setVisible(false);
+		fifthTurn.setVisible(false);
+		sixthTurn.setVisible(false);
+		seventhTurn.setVisible(false);
+		eightTurn.setVisible(false);
+		ninthTurn.setVisible(false);
+		tenthTurn.setVisible(false);
+
+		System.out.println("Set everything to false.");
+		switch (turn)
+		{
+			case 1:
+				firstTurn.setVisible(true);
+				break;
+			case 2:
+				secondTurn.setVisible(true);
+				break;
+			case 3:
+				thirdTurn.setVisible(true);
+				break;
+			case 4:
+				fourthTurn.setVisible(true);
+				break;
+			case 5:
+				fifthTurn.setVisible(true);
+				break;
+			case 6:
+				sixthTurn.setVisible(true);
+				break;
+			case 7:
+				seventhTurn.setVisible(true);
+				break;
+			case 8:
+				eightTurn.setVisible(true);
+				break;
+			case 9:
+				ninthTurn.setVisible(true);
+				break;
+			case 10:
+				tenthTurn.setVisible(true);
+				break;
+			default:
+				System.out.println("Wrong number input.");
+				break;
+
+		}
+	}
+
 	/**
 	 * Maakt de declare token popup zichtbaar.
 	 *
 	 * @param event, de muisklik die aangeeft welk terrein de speler heeft gekozen.
 	 */
-
-
 	@FXML
 	public void declareTokenClick(MouseEvent event)
 	{
@@ -126,6 +213,7 @@ public class FieldViewController {
 
 			if(this.selfPlayer.isMyTurn())
 			{
+
 
 				System.out.println("First attack? " + selfPlayer.isFirstAttack());
 				if(this.selfPlayer.isRedeploy()){
@@ -139,7 +227,6 @@ public class FieldViewController {
 				}
 				else
 				{
-					System.out.println(selfPlayer.getName());
 					combatController.setAllAreas(selfPlayer);
 				}
 				declaredTokenAmount = 0;
@@ -157,6 +244,7 @@ public class FieldViewController {
 					HBox hbox = (HBox) flowPane.getChildren().get(1);
 					TextField textField = (TextField) hbox.getChildren().get(1);
 					textField.setText("0");
+
 					declarePane.setVisible(true);
 					this.declarePanePrevious.setVisible(false);
 					this.declarePanePrevious = declarePane;
@@ -180,8 +268,38 @@ public class FieldViewController {
 		HBox theBox = (HBox) buttonTarget.getParent();
 		TextField field = (TextField) theBox.getChildren().get(1);
 
-		field.setText(tokenAmount);
+		getal = Integer.parseInt(tokenAmount);
 
+		FlowPane thePane = (FlowPane) theBox.getParent();
+		StackPane stackPane = (StackPane) thePane.getParent();
+		StackPane theStackPane = (StackPane) stackPane.getParent();
+
+		String terreinID = theStackPane.getId();
+		Terrain terrain = combatController.getMap().getTerrainById(terreinID);
+		terrain.getAmountOfTokens();
+
+
+
+		System.out.println("getal " + getal);
+		System.out.println("terrain " + terrain.getAmountOfTokens());
+		System.out.println("To beat: " + (terrain.getAmountOfTokens() + terrain.getDefense() + 2));
+
+		if(getal >= terrain.getAmountOfTokens() + terrain.getDefense() + 2){
+			field.setStyle("-fx-control-inner-background: green");// green
+			System.out.println("Green.");
+		}
+
+		else if (getal -1 < terrain.getAmountOfTokens() + terrain.getDefense() - 2){
+			field.setStyle("-fx-control-inner-background: red");// red
+			System.out.println("Red.");
+		}
+
+		else{
+//		if(getal == terrain.getAmountOfTokens() + terrain.getDefense() - 1){
+			field.setStyle("-fx-control-inner-background: orange");// orange
+		}
+
+		field.setText(tokenAmount);
 	}
 
 	/**
@@ -192,7 +310,7 @@ public class FieldViewController {
 	public void buttonMin(ActionEvent pressButtonMin) {
 		if (declaredTokenAmount > 0 )
 		{
-			declaredTokenAmount = declaredTokenAmount - 1;
+			this.declaredTokenAmount = declaredTokenAmount - 1;
 			tokenAmount = String.valueOf(declaredTokenAmount);
 
 			updateTokenAmountTextField(pressButtonMin);
@@ -205,7 +323,7 @@ public class FieldViewController {
 	@FXML
 	public void buttonPlus(ActionEvent pressButtonPlus) {
 		if(declaredTokenAmount < selfPlayer.getHand().getCurrentTokens()){
-		declaredTokenAmount = declaredTokenAmount + 1;
+		this.declaredTokenAmount = declaredTokenAmount + 1;
 		tokenAmount = String.valueOf(declaredTokenAmount);
 
 		updateTokenAmountTextField(pressButtonPlus);
@@ -221,10 +339,15 @@ public class FieldViewController {
 	@FXML
 	public void buttonBevestig(ActionEvent pressButtonBevestig) throws RemoteException {
 		//getDeclaredTokenAmount();
-		combatController.declareTokenAmount(declaredTokenAmount);
-		redploymentController.declareTokenAmount(declaredTokenAmount);
+
+
+
+
+		redploymentController.declareTokenAmount(getal);
+		combatController.declareTokenAmount(getal);
+		System.out.println("declaredTokenAmount: " + this.declaredTokenAmount);
+
 		//redploymentController.declareTokenAmount(getDeclaredTokenAmount());
-		System.out.println(declaredTokenAmount);
 		this.declarePanePrevious.setVisible(false);
 
 		throughTheList = -1;
@@ -240,6 +363,7 @@ public class FieldViewController {
 		}
 		this.sideBarControl.hideDeclineButton();
 		selfPlayer.setFirstAttack(false);
+		getal = 0;
 	}
 
 	public int getDeclaredTokenAmount() {
@@ -347,5 +471,10 @@ public class FieldViewController {
 	public void setPlayer(Player selfPlayer) {
 		this.selfPlayer = selfPlayer;
 
+	}
+
+	public Map getMap() {
+		// TODO Auto-generated method stub
+		return combatController.getMap();
 	}
 }

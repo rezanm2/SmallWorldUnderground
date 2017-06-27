@@ -1,7 +1,8 @@
 package races;
 
 import java.util.Scanner;
-import main.Ammy;
+
+import playBoard.Map;
 import player.Player;
 /**
  * Deze klasse is verantwoordelijk voor het bijhouden van gegevens en de ability van het ras.
@@ -28,9 +29,9 @@ public class ShadowMimes extends Race
 	 * Veranderd de ability die aan Shadow Mimes gelinked is met een andere ability.
 	 */
 	@Override
-	public void processAbility(Ammy ammy)
+	public void processAbility(Player selfPlayer, Map map)
 	{
-		this.activePlayer = ammy.getActivePlayer();
-		this.map = ammy.getMap();
+		this.selfPlayer = selfPlayer;
+		this.map = map;
 	}
 }

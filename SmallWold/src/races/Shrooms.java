@@ -1,6 +1,6 @@
 package races;
 
-import main.Ammy;
+import playBoard.Map;
 import player.Player;
 /**
  * Deze klasse is verantwoordelijk voor het bijhouden van gegevens en de ability van het ras.
@@ -20,12 +20,14 @@ public class Shrooms extends Race implements CalculatableIncome
 	 * Checked hoeveel shroomterreinen de speler controleert en berekent de extra inkomsten daarvan.
 	 */
 	@Override
-	public void processAbility(Ammy ammy) {
-		this.activePlayer = ammy.getActivePlayer();
-		this.map = ammy.getMap();
+	public void processAbility(Player selfPlayer, Map map) {
+		this.selfPlayer = selfPlayer;
+		this.map = map;
+
+
 		for(int x=0;x<map.getTerrains().size();x++)
 		{
-			if(map.getTerrains().get(x).getTerrainName().equals(map.getTerrains().get(x).getRace().getName()) && activePlayer.getActiveSet().getRace().getName().equals(this.name))
+			if(map.getTerrains().get(x).getTerrainName().equals(map.getTerrains().get(x).getRace().getName()) && selfPlayer.getActiveSet().getRace().getName().equals(this.name))
 			{
 				raceIncome++;
 				System.out.println("Naam terrein: " + map.getTerrains().get(x).getTerrainName() + " Naam Race: " + map.getTerrains().get(x).getRace().getName());

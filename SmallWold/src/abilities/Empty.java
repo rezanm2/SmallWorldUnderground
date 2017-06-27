@@ -1,6 +1,6 @@
 package abilities;
 
-import main.Ammy;
+import playBoard.Map;
 import player.Player;
 /**
  * Deze klasse bestaat zodat ability op "leeg" gezet kan worden.
@@ -16,8 +16,9 @@ public class Empty extends Ability
 	}
 
 	@Override
-	public void processAbility(Ammy ammy) {
-		this.activePlayer = ammy.getActivePlayer();
+	public void processAbility(Player selfPlayer, Map map) {
+		this.selfPlayer = selfPlayer;
+		this.map = map;
 	}
 
 }

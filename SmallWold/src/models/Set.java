@@ -15,6 +15,7 @@ public class Set
 	protected Race race;
 	protected int initialTokens;
 	protected int cost;
+	protected int gains;
 
 	/**
 	 * Maakt een nieuwe set aan.
@@ -55,6 +56,23 @@ public class Set
 	{
 		return race;
 	}
+	
+	public int getCost() {
+		return cost;
+	}
+
+	public void setCost(int cost) {
+		this.cost = cost;
+	}
+	
+	public int getGains() {
+		return gains;
+	}
+
+	public void setGains(int gains) {
+		this.gains = gains;
+	}
+
 
 
 }

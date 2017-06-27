@@ -1,6 +1,7 @@
 package races;
 
-import main.Ammy;
+
+import playBoard.Map;
 import player.Player;
 /**
  * Deze klasse is verantwoordelijk voor het bijhouden van gegevens en de ability van het ras.
@@ -20,10 +21,10 @@ public class Ogres extends Race
 	 * Zorgt ervoor dat elk terrein 1 minder kost om over te nemen.
 	 */
 	@Override
-	public void processAbility(Ammy ammy) {
+	public void processAbility(Player selfPlayer, Map map) {
 
-		this.map = ammy.getMap();
-		this.activePlayer = ammy.getActivePlayer();
+		this.map = map;
+		this.selfPlayer = selfPlayer;
 	}
 
 }

@@ -1,7 +1,6 @@
 package abilities;
 
 import controllers.TerrainController;
-import main.Ammy;
 import playBoard.Map;
 import player.Player;
 /**
@@ -27,11 +26,9 @@ public class Vanishing extends Ability implements CalculatableIncome
 	 * Verwijdert alle decline tokens van de speler en verhoogd de extra inkomen.
 	 */
 	@Override
-	public void processAbility(Ammy ammy) {
-		this.activePlayer = ammy.getActivePlayer();
-		this.tc = ammy.getTc();
-		this.map = ammy.getMap();
-
+	public void processAbility(Player selfPlayer, Map map) {
+		this.selfPlayer = selfPlayer;
+		this.map = map;
 		for(int terrainCounter=0;terrainCounter<map.getTerrains().size();terrainCounter++)		//As long as there are terrains
 		{
 			abilityIncome += 2;

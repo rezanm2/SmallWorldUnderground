@@ -1,7 +1,6 @@
 package relics;
 
 import controllers.TerrainController;
-import main.Ammy;
 import playBoard.Map;
 import player.Player;
 /**
@@ -28,10 +27,10 @@ public class ScepterOfAvarice extends Relic implements CalculatableIncome{
 	 * Verdubbeld het inkomen van 1 gebied
 	 */
 	@Override
-	public void processRelic(Ammy ammy) {
-		this.terrainController = ammy.getTc();
-		this.map = ammy.getMap();
-		this.activePlayer = ammy.getActivePlayer();
+	public void processRelic(Player selfPlayer, Map map) {
+		this.map = map;
+		this.selfPlayer = selfPlayer;
+
 		for(int i = 0; i < map.getTerrains().size(); i++) {
 			if(map.getTerrains().get(i).getRelic().getName() == name)
 			{

@@ -2,8 +2,6 @@ package controllers;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import main.Ammy;
 import playBoard.Map;
 import player.Player;
 import races.Race;
@@ -50,15 +48,15 @@ public class TerrainController
 				{
 					for(int secondTerrainCounter = 0; secondTerrainCounter<map.getTerrains().size(); secondTerrainCounter++) //Search through all terrains
 					{
-						System.out.println("secondTerrainCounter: "+ secondTerrainCounter);
+
 						for(int elementCounter = 0; elementCounter<map.getTerrains().get(secondTerrainCounter).getIdArray().length; elementCounter++) //For the player's terrain's code
 						{
 
-							System.out.println("elementCounter: "+ elementCounter);
+
 							if(map.getTerrains().get(secondTerrainCounter).getElement(elementCounter).equals(map.getTerrains().get(terrainCounter).getElement(0)))
 							{
 								map.getTerrains().get(secondTerrainCounter).setIsAdjacent(true);	//And if found, set the area to adjacent.
-								System.out.println((secondTerrainCounter+1) + " is adjacent DID DTHIS.");
+
 							}
 						}
 					}
@@ -75,7 +73,7 @@ public class TerrainController
 	public void allAttackableAreas(Race race)
 	{
 
-		System.out.println("Setting attackables");
+
 		for(int terrainCounter = 0; terrainCounter<map.getTerrains().size(); terrainCounter++)
 		{
 			for(int elementCounter = 0; elementCounter<map.getTerrains().get(terrainCounter).getIdArray().length; elementCounter++)
@@ -150,7 +148,7 @@ public class TerrainController
 			{
 //				changeAllAdjacentAreas(map.getTerrains().get(typeTerrainCounter).getElement(0));
 
-				System.out.println("A: Beeping area (ArrayListPosition) " + (typeTerrainCounter+1));
+
 			}
 		}
 		excludeAdjacent(terrainString);
@@ -190,28 +188,15 @@ public class TerrainController
 	 * @param terrainString, het type terrein.
 	 * @param activePlayer, de speler.
 	 */
-	public void checkTerrainType(String terrainString, Player activePlayer)
+	public void checkTerrainType(String terrainString, Race race)
 	{
-		terrainCounter = 0;
-		elementCounter = 0;
-		terrain = 0;
-		value = 0;
-		terrainStringCounter = 0;
-		while(terrainCounter<map.getTerrains().size())				//While there's still terrains left
+
+		for(int terrainCounter = 0; terrainCounter<map.getTerrains().size(); terrainCounter++)
 		{
-			while(elementCounter<1)		//While there's still numbers in the terrain's array
+			if(map.getTerrains().get(terrain).getTerrainName().equals(terrainString) && map.getTerrains().get(terrain).getRace().equals(race))
 			{
-				if(map.getTerrains().get(terrain).getTerrainName().equals(terrainString) && map.getTerrains().get(terrain).getRace() == activePlayer.getActiveSet().getRace())
-				{
-					terrainStringCounter++;
-				}
-				value++;											//Look at the next value in the terrain's array, "eye"
-				elementCounter++;									//Keep track of which number in the array we're at
+				terrainStringCounter++;
 			}
-			value = 0;												//"Eye" back at number 0 in the array
-			elementCounter = 0;										//Back at number 0 in a fresh terrain
-			terrainCounter++;										//Keep track of which terrain we're at
-			terrain++;												//Look at the next terrain, "eye"
 		}
 	}
 

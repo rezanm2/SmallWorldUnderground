@@ -1,7 +1,8 @@
 package specialPlaces;
 
-import main.Ammy;
+
 import playBoard.Map;
+import player.Player;
 /**
  * Deze klasse is verantwoordelijk voor het opslaan van de functionaliteit van de specialPlace
  * @author Bas Dorresteijn
@@ -23,8 +24,9 @@ public class KeepOnTheMotherland extends SpecialPlace implements CalculatableInc
 	 * Verhoogt de extra inkomsten en verdediging van het gebied.
 	 */
 	@Override
-	public void processSpecialPlace(Ammy ammy) {
-		this.map = ammy.getMap();
+	public void processSpecialPlace(Player selfPlayer, Map map) {
+		this.map = map;
+		this.selfPlayer = selfPlayer;
 		setSpecialPlaceIncome(0);
 		for(int i = 0; i < map.getTerrains().size(); i++) {
 			if(map.getTerrains().get(i).getSpecialPlace().getName() == name)
@@ -34,7 +36,7 @@ public class KeepOnTheMotherland extends SpecialPlace implements CalculatableInc
 			}
 		}
 		map.getTerrains().get(terrainNumber).setDefense(1);
-		if(active == true && activePlayer.getActiveSet().getRace().getName() == map.getTerrains().get(terrainNumber).getRace().getName()) {
+		if(active == true && selfPlayer.getActiveSet().getRace().getName() == map.getTerrains().get(terrainNumber).getRace().getName()) {
 			setSpecialPlaceIncome(1);
 		}
 	}

@@ -1,8 +1,8 @@
 package specialPlaces;
 
 import controllers.TerrainController;
-import main.Ammy;
 import playBoard.Map;
+import player.Player;
 /**
  * Deze klasse is verantwoordelijk voor het opslaan van de functionaliteit van de specialPlace
  * @author Bas Dorresteijn
@@ -25,11 +25,10 @@ public class DiamondFields extends SpecialPlace implements CalculatableIncome
 	 * Berekend welke terreinen de speler heeft en verhoogd de extra inkomen.
 	 */
 	@Override
-	public void processSpecialPlace(Ammy ammy) {
+	public void processSpecialPlace(Player selfPlayer, Map map) {
 		specialPlaceIncome = 0;
-		this.map = ammy.getMap();
-		this.activePlayer = ammy.getActivePlayer();
-		this.terrainController = ammy.getTc();
+		this.map = map;
+		this.selfPlayer = selfPlayer;
 		for(int i = 0; i < map.getTerrains().size(); i++) {
 			if(map.getTerrains().get(i).getRelic().getName() == name)
 			{
@@ -37,9 +36,9 @@ public class DiamondFields extends SpecialPlace implements CalculatableIncome
 				break;
 			}
 		}
-		if(active == true && activePlayer.getActiveSet().getRace().getName() == map.getTerrains().get(terrainNumber).getRace().getName()) {
+		if(active == true && selfPlayer.getActiveSet().getRace().getName() == map.getTerrains().get(terrainNumber).getRace().getName()) {
 
-			terrainController.checkTerrainType(map.getTerrains().get(terrainNumber).getTerrainName(), activePlayer);
+			terrainController.checkTerrainType(map.getTerrains().get(terrainNumber).getTerrainName(), selfPlayer.getActiveSet().getRace());
 			setSpecialPlaceIncome(terrainController.getTerrainStringCounter());
 			System.out.println("Income specialPlace " + specialPlaceIncome);
 		}
